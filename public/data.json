@@ -1,0 +1,390 @@
+{
+  "generated_at": "2026-04-24T09:04:54",
+  "summary": {
+    "total_outreached": 399,
+    "activated": 217,
+    "pending": 179,
+    "returned": 3,
+    "activation_rate": 54.4,
+    "followup_sent": 123,
+    "followup_activated": 16,
+    "followup_conversion_rate": 13.0
+  },
+  "timeline": [
+    {
+      "date": "2026-03-17",
+      "label": "Mar 17",
+      "activation": 103,
+      "followup": 0
+    },
+    {
+      "date": "2026-03-24",
+      "label": "Mar 24",
+      "activation": 39,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-07",
+      "label": "Apr 07",
+      "activation": 25,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-08",
+      "label": "Apr 08",
+      "activation": 10,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-10",
+      "label": "Apr 10",
+      "activation": 64,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-13",
+      "label": "Apr 13",
+      "activation": 102,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-14",
+      "label": "Apr 14",
+      "activation": 10,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-15",
+      "label": "Apr 15",
+      "activation": 31,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-16",
+      "label": "Apr 16",
+      "activation": 2,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-17",
+      "label": "Apr 17",
+      "activation": 1,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-20",
+      "label": "Apr 20",
+      "activation": 5,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-22",
+      "label": "Apr 22",
+      "activation": 4,
+      "followup": 0
+    },
+    {
+      "date": "2026-04-23",
+      "label": "Apr 23",
+      "activation": 1,
+      "followup": 75
+    },
+    {
+      "date": "2026-04-24",
+      "label": "Apr 24",
+      "activation": 2,
+      "followup": 48
+    }
+  ],
+  "cohorts": [
+    {
+      "batch_date": "2026-03-17",
+      "label": "Mar 17",
+      "total": 103,
+      "activated": 34,
+      "pending": 69,
+      "returned": 0,
+      "followup_sent": 7,
+      "followup_activated": 0,
+      "activation_rate": 33.0,
+      "followup_conv_rate": 0.0
+    },
+    {
+      "batch_date": "2026-03-24",
+      "label": "Mar 24",
+      "total": 39,
+      "activated": 12,
+      "pending": 27,
+      "returned": 0,
+      "followup_sent": 27,
+      "followup_activated": 1,
+      "activation_rate": 30.8,
+      "followup_conv_rate": 3.7
+    },
+    {
+      "batch_date": "2026-04-07",
+      "label": "Apr 07",
+      "total": 25,
+      "activated": 17,
+      "pending": 8,
+      "returned": 0,
+      "followup_sent": 8,
+      "followup_activated": 0,
+      "activation_rate": 68.0,
+      "followup_conv_rate": 0.0
+    },
+    {
+      "batch_date": "2026-04-08",
+      "label": "Apr 08",
+      "total": 10,
+      "activated": 7,
+      "pending": 3,
+      "returned": 0,
+      "followup_sent": 3,
+      "followup_activated": 0,
+      "activation_rate": 70.0,
+      "followup_conv_rate": 0.0
+    },
+    {
+      "batch_date": "2026-04-10",
+      "label": "Apr 10",
+      "total": 64,
+      "activated": 44,
+      "pending": 19,
+      "returned": 1,
+      "followup_sent": 18,
+      "followup_activated": 0,
+      "activation_rate": 68.8,
+      "followup_conv_rate": 0.0
+    },
+    {
+      "batch_date": "2026-04-13",
+      "label": "Apr 13",
+      "total": 102,
+      "activated": 77,
+      "pending": 23,
+      "returned": 2,
+      "followup_sent": 23,
+      "followup_activated": 0,
+      "activation_rate": 75.5,
+      "followup_conv_rate": 0.0
+    },
+    {
+      "batch_date": "2026-04-14",
+      "label": "Apr 14",
+      "total": 10,
+      "activated": 6,
+      "pending": 4,
+      "returned": 0,
+      "followup_sent": 9,
+      "followup_activated": 5,
+      "activation_rate": 60.0,
+      "followup_conv_rate": 55.6
+    },
+    {
+      "batch_date": "2026-04-15",
+      "label": "Apr 15",
+      "total": 31,
+      "activated": 15,
+      "pending": 16,
+      "returned": 0,
+      "followup_sent": 25,
+      "followup_activated": 9,
+      "activation_rate": 48.4,
+      "followup_conv_rate": 36.0
+    },
+    {
+      "batch_date": "2026-04-16",
+      "label": "Apr 16",
+      "total": 2,
+      "activated": 1,
+      "pending": 1,
+      "returned": 0,
+      "followup_sent": 2,
+      "followup_activated": 1,
+      "activation_rate": 50.0,
+      "followup_conv_rate": 50.0
+    },
+    {
+      "batch_date": "2026-04-17",
+      "label": "Apr 17",
+      "total": 1,
+      "activated": 0,
+      "pending": 1,
+      "returned": 0,
+      "followup_sent": 1,
+      "followup_activated": 0,
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0.0
+    },
+    {
+      "batch_date": "2026-04-20",
+      "label": "Apr 20",
+      "total": 5,
+      "activated": 1,
+      "pending": 4,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 20.0,
+      "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-04-22",
+      "label": "Apr 22",
+      "total": 4,
+      "activated": 2,
+      "pending": 2,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 50.0,
+      "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-04-23",
+      "label": "Apr 23",
+      "total": 1,
+      "activated": 0,
+      "pending": 1,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-04-24",
+      "label": "Apr 24",
+      "total": 2,
+      "activated": 1,
+      "pending": 1,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 50.0,
+      "followup_conv_rate": 0
+    }
+  ],
+  "funnel": [
+    {
+      "stage": "Outreached",
+      "value": 399,
+      "pct": 100
+    },
+    {
+      "stage": "Follow-up Sent",
+      "value": 123,
+      "pct": 30.8
+    },
+    {
+      "stage": "Activated",
+      "value": 217,
+      "pct": 54.4
+    }
+  ],
+  "sendgrid_stats": [
+    {
+      "requests": 1,
+      "delivered": 1,
+      "bounces": 0,
+      "unsubscribes": 0,
+      "unique_opens": 0,
+      "opens": 0,
+      "unique_clicks": 0,
+      "clicks": 0,
+      "activation": 1,
+      "followup": 0,
+      "date": "2026-04-17",
+      "open_rate": 0.0,
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
+    },
+    {
+      "requests": 5,
+      "delivered": 5,
+      "bounces": 0,
+      "unsubscribes": 0,
+      "unique_opens": 2,
+      "opens": 3,
+      "unique_clicks": 0,
+      "clicks": 0,
+      "activation": 5,
+      "followup": 0,
+      "date": "2026-04-20",
+      "open_rate": 40.0,
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
+    },
+    {
+      "requests": 3,
+      "delivered": 2,
+      "bounces": 0,
+      "unsubscribes": 0,
+      "unique_opens": 2,
+      "opens": 5,
+      "unique_clicks": 0,
+      "clicks": 0,
+      "activation": 3,
+      "followup": 0,
+      "date": "2026-04-22",
+      "open_rate": 100.0,
+      "click_rate": 0.0,
+      "delivery_rate": 66.7,
+      "bounce_rate": 0.0
+    },
+    {
+      "requests": 73,
+      "delivered": 70,
+      "bounces": 0,
+      "unsubscribes": 0,
+      "unique_opens": 27,
+      "opens": 43,
+      "unique_clicks": 0,
+      "clicks": 0,
+      "activation": 2,
+      "followup": 71,
+      "date": "2026-04-23",
+      "open_rate": 38.6,
+      "click_rate": 0.0,
+      "delivery_rate": 95.9,
+      "bounce_rate": 0.0
+    },
+    {
+      "requests": 55,
+      "delivered": 54,
+      "bounces": 0,
+      "unsubscribes": 0,
+      "unique_opens": 16,
+      "opens": 17,
+      "unique_clicks": 0,
+      "clicks": 0,
+      "activation": 2,
+      "followup": 53,
+      "date": "2026-04-24",
+      "open_rate": 29.6,
+      "click_rate": 0.0,
+      "delivery_rate": 98.2,
+      "bounce_rate": 0.0
+    }
+  ],
+  "sendgrid_summary": {
+    "has_campaign_data": true,
+    "data_source": "activity_feed",
+    "period_start": "2026-04-17",
+    "period_end": "2026-04-24",
+    "total_delivered": 132,
+    "total_opens": 47,
+    "total_clicks": 0,
+    "total_bounces": 0,
+    "total_requests": 137,
+    "total_unsubscribes": 0,
+    "avg_open_rate": 35.6,
+    "avg_click_rate": 0.0,
+    "avg_delivery_rate": 96.4,
+    "avg_bounce_rate": 0.0,
+    "data_note": "Activation + follow-up emails from Activity Feed (last 30 days)."
+  }
+}

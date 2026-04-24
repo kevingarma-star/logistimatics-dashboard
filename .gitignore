@@ -1,6 +1,5 @@
 node_modules/
 dist/
-public/data.json
 *.csv
 *.log
 .env

@@ -424,7 +424,23 @@ def main():
     with open(OUTPUT_PATH, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2)
     print("  Done.")
-    print("\nRefresh your browser or run `npm run dev` to see updated data.")
+
+    print("\n[6/6] Pushing data.json to GitHub...")
+    import subprocess, os
+    repo_dir = Path(__file__).parent
+    ts = datetime.now().strftime('%Y-%m-%d %H:%M')
+    cmds = [
+        ['git', 'add', 'public/data.json'],
+        ['git', 'commit', '-m', f'data: refresh {ts}'],
+        ['git', 'push'],
+    ]
+    for cmd in cmds:
+        result = subprocess.run(cmd, cwd=repo_dir, capture_output=True, text=True)
+        if result.returncode != 0 and 'nothing to commit' not in result.stdout + result.stderr:
+            print(f"  [warn] {' '.join(cmd)}: {result.stderr.strip()}")
+        else:
+            print(f"  {' '.join(cmd[1:])} -> ok")
+    print("\nDashboard will update on GitHub Pages in ~30 seconds.")
     print("=" * 55)
 
 if __name__ == '__main__':
