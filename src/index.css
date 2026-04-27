@@ -47,16 +47,15 @@ body {
 body::before {
   content: '';
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 520px;
-  height: 520px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('/logistimatics-dashboard/LGMX LOGO.jpg');
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.12;
+  opacity: 0.18;
   pointer-events: none;
   z-index: 0;
 }
