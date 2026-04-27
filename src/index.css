@@ -43,7 +43,27 @@ body {
   min-height: 100vh;
 }
 
+/* Watermark logo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 520px;
+  background-image: url('/logistimatics-dashboard/LGMX LOGO.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
 #root {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
