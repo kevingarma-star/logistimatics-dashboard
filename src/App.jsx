@@ -19,7 +19,7 @@ function App() {
 
   const loadData = (isInitial = false) => {
     if (!isInitial) setRefreshing(true)
-    fetch(`/data.json?t=${Date.now()}`)
+    fetch(`${import.meta.env.BASE_URL}data.json?t=${Date.now()}`)
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
       .then(d => {
         setRawData(prev => {
