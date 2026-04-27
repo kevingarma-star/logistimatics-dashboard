@@ -200,9 +200,8 @@ def read_sheet():
             token_uri=data['token_uri'],
             client_id=data['client_id'],
             client_secret=data['client_secret'],
-            scopes=data['scopes'],
         )
-        if creds.expired and creds.refresh_token:
+        if not creds.valid:
             creds.refresh(Request())
 
         gc = gspread.Client(auth=creds)
@@ -441,6 +440,22 @@ def main():
         else:
             print(f"  {' '.join(cmd[1:])} -> ok")
     print("\nDashboard will update on GitHub Pages in ~30 seconds.")
+
+    # Sync CSV logs to Google Sheets (best-effort)
+    try:
+        sync_script = Path(__file__).parent / 'sync_to_sheets.py'
+        if sync_script.exists():
+            result = subprocess.run(
+                [sys.executable, str(sync_script)],
+                capture_output=True, text=True, timeout=60
+            )
+            if 'synced' in result.stdout:
+                print("\n[sheets] CSV logs synced to Google Sheets.")
+            elif result.returncode != 0:
+                print(f"\n[sheets] Sync skipped: {result.stderr.strip()[:120]}")
+    except Exception as e:
+        print(f"\n[sheets] Sync skipped: {e}")
+
     print("=" * 55)
 
 if __name__ == '__main__':
