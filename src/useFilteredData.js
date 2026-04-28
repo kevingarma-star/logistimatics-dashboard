@@ -25,7 +25,8 @@ export default function useFilteredData(data, start, end) {
     const activated  = cohorts.reduce((s, c) => s + c.activated,          0)
     const pending    = cohorts.reduce((s, c) => s + c.pending,            0)
     const returned   = cohorts.reduce((s, c) => s + c.returned,           0)
-    const fuSent     = cohorts.reduce((s, c) => s + c.followup_sent,      0)
+    // Use timeline for follow-up sent count so it reflects actual send date, not cohort date
+    const fuSent     = timeline.reduce((s, t) => s + (t.followup ?? 0),   0)
     const fuActiv    = cohorts.reduce((s, c) => s + (c.followup_activated ?? 0), 0)
 
     const summary = {
