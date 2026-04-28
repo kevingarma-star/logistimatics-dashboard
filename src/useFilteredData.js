@@ -19,6 +19,7 @@ export default function useFilteredData(data, start, end) {
     const cohorts     = data.cohorts.filter(c => inRange(c.batch_date))
     const timeline    = data.timeline.filter(t => inRange(t.date))
     const sgStats     = (data.sendgrid_stats || []).filter(s => inRange(s.date))
+    const customers   = (data.customers || []).filter(c => inRange(c.sent_date))
 
     // ── Recompute summary from filtered cohorts ────────────────────────
     const total      = cohorts.reduce((s, c) => s + c.total,              0)
@@ -65,6 +66,6 @@ export default function useFilteredData(data, start, end) {
       }
     }
 
-    return { ...data, summary, cohorts, timeline, funnel, sendgrid_stats: sgStats, sendgrid_summary: sgSummary }
+    return { ...data, summary, cohorts, timeline, funnel, customers, sendgrid_stats: sgStats, sendgrid_summary: sgSummary }
   }, [data, start, end])
 }

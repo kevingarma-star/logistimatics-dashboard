@@ -376,6 +376,7 @@ def compute_data(activation_rows, followup_rows, sheet_map):
         'timeline':     timeline,
         'cohorts':      cohorts,
         'funnel':       funnel,
+        'customers':    customers,
     }
 
 # ── Main ──────────────────────────────────────────────────────────────────────

@@ -25,7 +25,7 @@ const CustomTooltip = ({ active, payload }) => {
   )
 }
 
-export default function StatusDonut({ summary }) {
+export default function StatusDonut({ summary, onDrillDown }) {
   const total = summary.total_outreached || 1
 
   const pieData = SEGMENTS.map(s => ({
@@ -63,7 +63,12 @@ export default function StatusDonut({ summary }) {
           const val = summary[s.key] ?? 0
           const pct = ((val / total) * 100).toFixed(1)
           return (
-            <div key={s.key} className="legend-item">
+            <div
+              key={s.key}
+              className="legend-item"
+              onClick={() => onDrillDown?.(s.key)}
+              style={{ cursor: onDrillDown ? 'pointer' : 'default' }}
+            >
               <div className="legend-dot" style={{ background: s.color }} />
               <div className="legend-label">{s.label}</div>
               <div className="legend-val">{val.toLocaleString()}</div>

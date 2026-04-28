@@ -1,4 +1,4 @@
-export default function CohortTable({ cohorts }) {
+export default function CohortTable({ cohorts, onDrillDown }) {
   if (!cohorts?.length) return (
     <div style={{ color: '#4a5568', fontSize: 13, paddingTop: 20, textAlign: 'center' }}>
       No cohort data
@@ -21,7 +21,13 @@ export default function CohortTable({ cohorts }) {
         </thead>
         <tbody>
           {cohorts.map(c => (
-            <tr key={c.batch_date}>
+            <tr
+              key={c.batch_date}
+              onClick={() => onDrillDown?.(c.batch_date)}
+              style={{ cursor: onDrillDown ? 'pointer' : 'default' }}
+              onMouseEnter={e => { if (onDrillDown) e.currentTarget.style.background = 'rgba(0,212,255,0.04)' }}
+              onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+            >
               <td>
                 <span className="mono" style={{ color: '#00d4ff', fontSize: 12 }}>
                   {c.label}

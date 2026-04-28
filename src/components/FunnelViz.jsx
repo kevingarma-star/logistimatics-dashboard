@@ -13,7 +13,7 @@ function useAnimated(ready) {
   return animate
 }
 
-export default function FunnelViz({ funnel }) {
+export default function FunnelViz({ funnel, onDrillDown }) {
   const animate = useAnimated(!!funnel?.length)
 
   if (!funnel?.length) return null
@@ -39,7 +39,11 @@ export default function FunnelViz({ funnel }) {
               </div>
             )}
 
-            <div className="funnel-stage">
+            <div
+              className="funnel-stage"
+              onClick={() => onDrillDown?.(stage.stage)}
+              style={{ cursor: onDrillDown ? 'pointer' : 'default' }}
+            >
               <div className="funnel-stage-label">
                 <span className="funnel-stage-name">{stage.stage}</span>
                 <span

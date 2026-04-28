@@ -6,6 +6,7 @@ import FunnelViz from './components/FunnelViz'
 import CohortTable from './components/CohortTable'
 import SendGridPanel from './components/SendGridPanel'
 import DateRangePicker from './components/DateRangePicker'
+import DrillDownModal from './components/DrillDownModal'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [rangeEnd,   setEnd]      = useState(null)
   const [refreshing, setRefreshing] = useState(false)
   const [lastRefresh, setLastRefresh] = useState(null)
+  const [drill, setDrill] = useState(null) // { title, subtitle, customers }
 
   const fetchData = () =>
     fetch(`${import.meta.env.BASE_URL}data.json?t=${Date.now()}`)
@@ -92,8 +94,42 @@ function App() {
     </div>
   )
 
-  const s  = data.summary
-  const sg = data.sendgrid_summary || {}
+  const s   = data.summary
+  const sg  = data.sendgrid_summary || {}
+  const all = data.customers || []
+
+  // ── Drill-down helpers ────────────────────────────────────────────────────
+  const openDrill = (title, subtitle, customers) => setDrill({ title, subtitle, customers })
+
+  const drillStatus = status => openDrill(
+    status,
+    `Customers with status: ${status}`,
+    all.filter(c => c.status === status)
+  )
+  const drillFollowup = () => openDrill(
+    'Follow-ups Sent',
+    'Customers who received a follow-up email',
+    all.filter(c => c.fu_sent)
+  )
+  const drillAll = () => openDrill(
+    'All Outreached',
+    'Every customer in the current date range',
+    all
+  )
+  const drillCohort = batchDate => openDrill(
+    `Cohort — ${batchDate}`,
+    `Customers whose activation email was sent on ${batchDate}`,
+    all.filter(c => c.sent_date === batchDate)
+  )
+  const drillFunnel = stage => {
+    const map = {
+      'Outreached':     [all, 'All customers outreached'],
+      'Follow-up Sent': [all.filter(c => c.fu_sent), 'Customers who received a follow-up'],
+      'Activated':      [all.filter(c => c.status === 'Activated'), 'Customers who activated'],
+    }
+    const [customers, subtitle] = map[stage] || [all, stage]
+    openDrill(stage, subtitle, customers)
+  }
 
   const generatedAt = rawData?.generated_at
     ? new Date(rawData.generated_at).toLocaleString('en-US', {
@@ -189,11 +225,11 @@ function App() {
         Campaign Performance
       </div>
       <div className="kpi-grid">
-        <KPICard label="Total Outreached" value={s.total_outreached} icon="📡" accent="cyan"   sub="Unique customers contacted" />
-        <KPICard label="Activated"        value={s.activated}        icon="✅" accent="green"  sub={`${s.activation_rate}% conversion rate`} trend={`${s.activation_rate}%`} trendColor="green" />
-        <KPICard label="Follow-ups Sent"  value={s.followup_sent}    icon="📩" accent="purple" sub={`${s.followup_conversion_rate}% of follow-ups converted`} />
-        <KPICard label="Pending"          value={s.pending}          icon="⏳" accent="amber"  sub="Awaiting activation" />
-        <KPICard label="Returned"         value={s.returned}         icon="↩"  accent="red"    sub="Device returned" />
+        <KPICard label="Total Outreached" value={s.total_outreached} icon="📡" accent="cyan"   sub="Unique customers contacted" onClick={drillAll} />
+        <KPICard label="Activated"        value={s.activated}        icon="✅" accent="green"  sub={`${s.activation_rate}% conversion rate`} trend={`${s.activation_rate}%`} trendColor="green" onClick={() => drillStatus('Activated')} />
+        <KPICard label="Follow-ups Sent"  value={s.followup_sent}    icon="📩" accent="purple" sub={`${s.followup_conversion_rate}% of follow-ups converted`} onClick={drillFollowup} />
+        <KPICard label="Pending"          value={s.pending}          icon="⏳" accent="amber"  sub="Awaiting activation" onClick={() => drillStatus('Pending')} />
+        <KPICard label="Returned"         value={s.returned}         icon="↩"  accent="red"    sub="Device returned" onClick={() => drillStatus('Returned')} />
       </div>
 
       {/* ── Email Health KPIs ── */}
@@ -222,7 +258,7 @@ function App() {
         <div className="panel">
           <div className="panel-title">Status Breakdown</div>
           <div className="panel-sub">Selected period</div>
-          <StatusDonut summary={s} />
+          <StatusDonut summary={s} onDrillDown={drillStatus} />
         </div>
       </div>
 
@@ -235,17 +271,27 @@ function App() {
         </div>
       )}
 
+      {/* ── Drill-down modal ── */}
+      {drill && (
+        <DrillDownModal
+          title={drill.title}
+          subtitle={drill.subtitle}
+          customers={drill.customers}
+          onClose={() => setDrill(null)}
+        />
+      )}
+
       {/* ── Funnel + Cohort Table ── */}
       <div className="charts-row charts-row-1-2">
         <div className="panel">
           <div className="panel-title">Activation Funnel</div>
           <div className="panel-sub">Outreach → Follow-up → Conversion</div>
-          <FunnelViz funnel={data.funnel} />
+          <FunnelViz funnel={data.funnel} onDrillDown={drillFunnel} />
         </div>
         <div className="panel">
           <div className="panel-title">Cohort Performance</div>
           <div className="panel-sub">Breakdown by email batch date</div>
-          <CohortTable cohorts={data.cohorts} />
+          <CohortTable cohorts={data.cohorts} onDrillDown={drillCohort} />
         </div>
       </div>
     </>
