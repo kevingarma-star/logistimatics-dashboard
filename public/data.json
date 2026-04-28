@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-04-28T05:47:03",
+  "generated_at": "2026-04-28T06:47:06",
   "summary": {
     "total_outreached": 408,
     "activated": 222,
     "pending": 183,
     "returned": 3,
     "activation_rate": 54.4,
-    "followup_sent": 192,
-    "followup_activated": 19,
-    "followup_conversion_rate": 9.9
+    "followup_sent": 205,
+    "followup_activated": 32,
+    "followup_conversion_rate": 15.6
   },
   "timeline": [
     {
@@ -105,7 +105,7 @@
       "date": "2026-04-28",
       "label": "Apr 28",
       "activation": 4,
-      "followup": 0
+      "followup": 13
     }
   ],
   "cohorts": [
@@ -116,10 +116,10 @@
       "activated": 34,
       "pending": 69,
       "returned": 0,
-      "followup_sent": 70,
-      "followup_activated": 1,
+      "followup_sent": 75,
+      "followup_activated": 6,
       "activation_rate": 33.0,
-      "followup_conv_rate": 1.4
+      "followup_conv_rate": 8.0
     },
     {
       "batch_date": "2026-03-24",
@@ -128,10 +128,10 @@
       "activated": 13,
       "pending": 26,
       "returned": 0,
-      "followup_sent": 28,
-      "followup_activated": 2,
+      "followup_sent": 31,
+      "followup_activated": 5,
       "activation_rate": 33.3,
-      "followup_conv_rate": 7.1
+      "followup_conv_rate": 16.1
     },
     {
       "batch_date": "2026-04-07",
@@ -200,10 +200,10 @@
       "activated": 15,
       "pending": 16,
       "returned": 0,
-      "followup_sent": 25,
-      "followup_activated": 9,
+      "followup_sent": 30,
+      "followup_activated": 14,
       "activation_rate": 48.4,
-      "followup_conv_rate": 36.0
+      "followup_conv_rate": 46.7
     },
     {
       "batch_date": "2026-04-16",
@@ -310,8 +310,8 @@
     },
     {
       "stage": "Follow-up Sent",
-      "value": 192,
-      "pct": 47.1
+      "value": 205,
+      "pct": 50.2
     },
     {
       "stage": "Activated",
@@ -423,8 +423,8 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 7,
-      "delivered": 7,
+      "requests": 22,
+      "delivered": 22,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 3,
@@ -432,9 +432,9 @@
       "unique_clicks": 0,
       "clicks": 0,
       "activation": 5,
-      "followup": 2,
+      "followup": 17,
       "date": "2026-04-28",
-      "open_rate": 42.9,
+      "open_rate": 13.6,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -445,15 +445,15 @@
     "data_source": "activity_feed",
     "period_start": "2026-04-22",
     "period_end": "2026-04-28",
-    "total_delivered": 203,
+    "total_delivered": 218,
     "total_opens": 80,
     "total_clicks": 0,
     "total_bounces": 0,
-    "total_requests": 209,
+    "total_requests": 224,
     "total_unsubscribes": 0,
-    "avg_open_rate": 39.4,
+    "avg_open_rate": 36.7,
     "avg_click_rate": 0.0,
-    "avg_delivery_rate": 97.1,
+    "avg_delivery_rate": 97.3,
     "avg_bounce_rate": 0.0,
     "data_note": "Activation + follow-up emails from Activity Feed (last 30 days)."
   }
