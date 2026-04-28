@@ -61,6 +61,7 @@ body {
   width: 320px;
   max-width: 40vw;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 .watermark span {
   font-size: 2rem;
@@ -102,6 +103,7 @@ body {
   height: 36px;
   width: auto;
   object-fit: contain;
+  mix-blend-mode: multiply;
 }
 .header-title {
   font-size: 18px;
