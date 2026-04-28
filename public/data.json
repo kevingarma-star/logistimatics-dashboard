@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-04-28T04:47:05",
+  "generated_at": "2026-04-28T05:47:03",
   "summary": {
-    "total_outreached": 404,
+    "total_outreached": 408,
     "activated": 222,
-    "pending": 179,
+    "pending": 183,
     "returned": 3,
-    "activation_rate": 55.0,
+    "activation_rate": 54.4,
     "followup_sent": 192,
     "followup_activated": 19,
     "followup_conversion_rate": 9.9
@@ -100,6 +100,12 @@
       "label": "Apr 27",
       "activation": 5,
       "followup": 69
+    },
+    {
+      "date": "2026-04-28",
+      "label": "Apr 28",
+      "activation": 4,
+      "followup": 0
     }
   ],
   "cohorts": [
@@ -282,23 +288,35 @@
       "followup_activated": 0,
       "activation_rate": 60.0,
       "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-04-28",
+      "label": "Apr 28",
+      "total": 4,
+      "activated": 0,
+      "pending": 4,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0
     }
   ],
   "funnel": [
     {
       "stage": "Outreached",
-      "value": 404,
+      "value": 408,
       "pct": 100
     },
     {
       "stage": "Follow-up Sent",
       "value": 192,
-      "pct": 47.5
+      "pct": 47.1
     },
     {
       "stage": "Activated",
       "value": 222,
-      "pct": 55.0
+      "pct": 54.4
     }
   ],
   "sendgrid_stats": [
@@ -405,18 +423,18 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 3,
-      "delivered": 3,
+      "requests": 7,
+      "delivered": 7,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 3,
       "opens": 5,
       "unique_clicks": 0,
       "clicks": 0,
-      "activation": 1,
+      "activation": 5,
       "followup": 2,
       "date": "2026-04-28",
-      "open_rate": 100.0,
+      "open_rate": 42.9,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -427,13 +445,13 @@
     "data_source": "activity_feed",
     "period_start": "2026-04-22",
     "period_end": "2026-04-28",
-    "total_delivered": 199,
+    "total_delivered": 203,
     "total_opens": 80,
     "total_clicks": 0,
     "total_bounces": 0,
-    "total_requests": 205,
+    "total_requests": 209,
     "total_unsubscribes": 0,
-    "avg_open_rate": 40.2,
+    "avg_open_rate": 39.4,
     "avg_click_rate": 0.0,
     "avg_delivery_rate": 97.1,
     "avg_bounce_rate": 0.0,
