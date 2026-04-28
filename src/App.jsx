@@ -84,13 +84,13 @@ function App() {
     <>
       {/* ── Watermark ── */}
       <div className="watermark">
-        <img src={`${import.meta.env.BASE_URL}LGMX LOGO.png`} alt="" />
+        <img src={`${import.meta.env.BASE_URL}lgmx-logo.png`} alt="" />
         <span>Logistimatics</span>
       </div>
       {/* ── Header ── */}
       <header className="header">
         <div className="header-brand">
-          <img className="header-logo" src={`${import.meta.env.BASE_URL}LGMX LOGO.png`} alt="Logistimatics" />
+          <img className="header-logo" src={`${import.meta.env.BASE_URL}lgmx-logo.png`} alt="Logistimatics" />
           <div>
             <div className="header-title">Logistimatics</div>
             <div className="header-sub">Activation Campaign Dashboard</div>
