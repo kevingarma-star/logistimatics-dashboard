@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-04-28T03:47:06",
+  "generated_at": "2026-04-28T04:47:05",
   "summary": {
     "total_outreached": 404,
-    "activated": 221,
-    "pending": 180,
+    "activated": 222,
+    "pending": 179,
     "returned": 3,
-    "activation_rate": 54.7,
+    "activation_rate": 55.0,
     "followup_sent": 192,
-    "followup_activated": 18,
-    "followup_conversion_rate": 9.4
+    "followup_activated": 19,
+    "followup_conversion_rate": 9.9
   },
   "timeline": [
     {
@@ -119,13 +119,13 @@
       "batch_date": "2026-03-24",
       "label": "Mar 24",
       "total": 39,
-      "activated": 12,
-      "pending": 27,
+      "activated": 13,
+      "pending": 26,
       "returned": 0,
       "followup_sent": 28,
-      "followup_activated": 1,
-      "activation_rate": 30.8,
-      "followup_conv_rate": 3.6
+      "followup_activated": 2,
+      "activation_rate": 33.3,
+      "followup_conv_rate": 7.1
     },
     {
       "batch_date": "2026-04-07",
@@ -297,8 +297,8 @@
     },
     {
       "stage": "Activated",
-      "value": 221,
-      "pct": 54.7
+      "value": 222,
+      "pct": 55.0
     }
   ],
   "sendgrid_stats": [
