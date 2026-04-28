@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-28T09:18:11",
+  "generated_at": "2026-04-28T09:29:45",
   "summary": {
     "total_outreached": 408,
     "activated": 222,
@@ -327,7 +327,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "support@webfacility.com",
@@ -336,7 +342,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "goldenempire512@gmail.com",
@@ -345,7 +357,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "salesmansandefer@icloud.com",
@@ -354,7 +372,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kevin.somers1@icloud.com",
@@ -363,7 +387,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ochoafelix32@yahoo.com",
@@ -372,7 +402,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "andrealee0527@gmail.com",
@@ -381,7 +417,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "smithebaker061@gmail.com",
@@ -390,7 +432,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "rockycarter35@gmail.com",
@@ -399,7 +447,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "88koziel07@gmail.com",
@@ -408,7 +462,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "roxyleona2@icloud.com",
@@ -417,7 +477,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "hittmaniii@gmail.com",
@@ -426,7 +492,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "corporatevending@comcast.net",
@@ -435,7 +507,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": false,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mikess2009@live.com",
@@ -444,7 +522,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "amospjohnson@gmail.com",
@@ -453,7 +537,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mauiboss1@gmail.com",
@@ -462,7 +552,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mikehobes9@gmail.com",
@@ -471,7 +567,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jjessed1@gmail.com",
@@ -480,7 +582,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chaficsafouri@outlook.com",
@@ -489,7 +597,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "dominic1905@att.net",
@@ -498,7 +612,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "sgt_5@live.com",
@@ -507,7 +627,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "dargin1978@gmail.com",
@@ -516,7 +642,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "joneslatieka@yahoo.com",
@@ -525,7 +657,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "emilliepolo@aol.com",
@@ -534,7 +672,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "dwightbaldwin505@gmail.com",
@@ -543,7 +687,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "starr.anthony.michael@gmail.com",
@@ -552,7 +702,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "andrewbvr4@icloud.com",
@@ -561,7 +717,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "nickinicola@yahoo.com",
@@ -570,7 +732,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "swhigdon@gmail.com",
@@ -579,7 +747,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "thezoshack@gmail.com",
@@ -588,7 +762,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "bradb@vacarolinabuildings.com",
@@ -597,7 +777,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lphif222@gmail.com",
@@ -606,7 +792,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "torres46699@gmail.com",
@@ -615,7 +807,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "davistf244@gmail.com",
@@ -624,7 +822,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "syntheticgrasssolutions@gmail.com",
@@ -633,7 +837,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "iwaaf@icloud.com",
@@ -642,7 +852,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chrismcarter83@icloud.com",
@@ -651,7 +867,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "muserfarms@gmail.com",
@@ -660,7 +882,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "hans.shellstede@gmail.com",
@@ -669,7 +897,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "franck.c.lopez@gmail.com",
@@ -678,7 +912,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "gabrielr5@yahoo.com",
@@ -687,7 +927,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kylegrubbs4@gmail.com",
@@ -696,7 +942,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 3,
+      "sg_clicks_count": 0
     },
     {
       "email": "iccppp1971@gmail.com",
@@ -705,7 +957,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "bryant3708@gmail.com",
@@ -714,7 +972,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kaneohebay1972@gmail.com",
@@ -723,7 +987,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "wmpm3@msn.com",
@@ -732,7 +1002,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mattoxstoneworks@icloud.com",
@@ -741,7 +1017,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "sarahrenee1287@gmail.com",
@@ -750,7 +1032,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "mike.watson1975@gmail.com",
@@ -759,7 +1047,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "rayados1231@gmail.com",
@@ -768,7 +1062,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "nickdgerian2003@gmail.com",
@@ -777,7 +1077,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 3,
+      "sg_clicks_count": 0
     },
     {
       "email": "craigschnitzler@yahoo.com",
@@ -786,7 +1092,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "andersonr2399@hotmail.com",
@@ -795,7 +1107,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chrisburgess153@gmail.com",
@@ -804,7 +1122,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jennnifernikole@gmail.com",
@@ -813,7 +1137,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "sayeflomo@gmail.com",
@@ -822,7 +1152,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "gsolorio37@gmail.com",
@@ -831,7 +1167,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "hongtz76@yahoo.com",
@@ -840,7 +1182,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "dryan@deloitte.com",
@@ -849,7 +1197,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": true,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 5
     },
     {
       "email": "livertool@aol.com",
@@ -858,7 +1212,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "therhianalise@yahoo.com",
@@ -867,7 +1227,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "flores.controls@gmail.com",
@@ -876,7 +1242,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "arockk09@yahoo.com",
@@ -885,7 +1257,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "fmsm7975@icloud.com",
@@ -894,7 +1272,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "kh6162@yahoo.com",
@@ -903,7 +1287,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "wdestimating@yahoo.com",
@@ -912,7 +1302,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jhall@halltruckinginc.com",
@@ -921,7 +1317,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "charaftake77@gmail.com",
@@ -930,7 +1332,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chrisc96877@gmail.com",
@@ -939,7 +1347,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "juangiron9217@gmail.com",
@@ -948,7 +1362,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "chalak_67@yahoo.com",
@@ -957,7 +1377,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "theblessingcenter@yahoo.com",
@@ -966,7 +1392,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "phoenixhs17@outlook.com",
@@ -975,7 +1407,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "soslickrickeybobby@gmail.com",
@@ -984,7 +1422,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "youngbritney42@yahoo.com",
@@ -993,7 +1437,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "yajnunez@gmail.com",
@@ -1002,7 +1452,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "burtman1157@yahoo.com",
@@ -1011,7 +1467,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tracy02025@gmail.com",
@@ -1020,7 +1482,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "amitaprasad@rocketmail.com",
@@ -1029,7 +1497,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "iwillson032@gmail.com",
@@ -1038,7 +1512,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chloe517@hotmail.com",
@@ -1047,7 +1527,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": false,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "candiedpm2003@yahoo.com",
@@ -1056,7 +1542,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "mr.whiteside6@gmail.com",
@@ -1065,7 +1557,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "atkinssean1372@gmail.com",
@@ -1074,7 +1572,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "sherrymorris745@yahoo.com",
@@ -1083,7 +1587,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ravenelltony@yahoo.com",
@@ -1092,7 +1602,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "nwkpd1515@hotmail.com",
@@ -1101,7 +1617,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ashleymathews893@gmail.com",
@@ -1110,7 +1632,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mike@eliteone.org",
@@ -1119,7 +1647,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "rseitz@calex.net",
@@ -1128,7 +1662,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "blessedfaith1932@gmail.com",
@@ -1137,7 +1677,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "oneemma@gmail.com",
@@ -1146,7 +1692,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "ltjm79@yahoo.com",
@@ -1155,7 +1707,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "alfuqua94@aol.com",
@@ -1164,7 +1722,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "drkunkle1@yahoo.com",
@@ -1173,7 +1737,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "lucasld3@aol.com",
@@ -1182,7 +1752,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tobiaswilliams@outlook.com",
@@ -1191,7 +1767,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lorenzoa35@yahoo.com",
@@ -1200,7 +1782,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "browniepie08@gmail.com",
@@ -1209,7 +1797,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tedalston@gmail.com",
@@ -1218,7 +1812,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "2424aak@gmail.com",
@@ -1227,7 +1827,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": true,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 1
     },
     {
       "email": "aquablue94131@gmail.com",
@@ -1236,7 +1842,13 @@
       "days_since": 42,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "teehry80@gmail.com",
@@ -1245,7 +1857,13 @@
       "days_since": 42,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "loupignataro419@gmail.com",
@@ -1254,7 +1872,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "phillipcrowson@gmail.com",
@@ -1263,7 +1887,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "dmarvin@whitmar.com",
@@ -1272,7 +1902,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "williefarris@yahoo.com",
@@ -1281,7 +1917,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "fryer2126@gmail.com",
@@ -1290,7 +1932,13 @@
       "days_since": 35,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tpstanley@gmail.com",
@@ -1299,7 +1947,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "zew1969@gmail.com",
@@ -1308,7 +1962,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "msmills32@aol.com",
@@ -1317,7 +1977,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lisathomas9995@gmail.com",
@@ -1326,7 +1992,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "javizep321@gmail.com",
@@ -1335,7 +2007,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "emrsnagrre@gmail.com",
@@ -1344,7 +2022,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "quicksix@aol.com",
@@ -1353,7 +2037,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "j@weststeelcorp.com",
@@ -1362,7 +2052,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "ladyparisien1@gmail.com",
@@ -1371,7 +2067,13 @@
       "days_since": 35,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mario@acmod.com",
@@ -1380,7 +2082,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "jasonhoard74@gmail.com",
@@ -1389,7 +2097,13 @@
       "days_since": 35,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "aaron_greenwell@yahoo.com",
@@ -1398,7 +2112,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "cassondranicole26@gmail.com",
@@ -1407,7 +2127,13 @@
       "days_since": 35,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "david@dyersburgtn.com",
@@ -1416,7 +2142,13 @@
       "days_since": 35,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "scottdutton75@icloud.com",
@@ -1425,7 +2157,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "mushtak1985@yahoo.com",
@@ -1434,7 +2172,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "rdjr0722@gmail.com",
@@ -1443,7 +2187,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "gibbinsplantation1@gmail.com",
@@ -1452,7 +2202,13 @@
       "days_since": 35,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "trato07@yahoo.com",
@@ -1461,7 +2217,13 @@
       "days_since": 35,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "rhodesallen69@gmail.com",
@@ -1470,7 +2232,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "warren.brown0369@gmail.com",
@@ -1479,7 +2247,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "doeperro@yahoo.com",
@@ -1488,7 +2262,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tashaaa_xs@yahoo.com",
@@ -1497,7 +2277,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "foosball20252025@gmail.com",
@@ -1506,7 +2292,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "rsb_33@icloud.com",
@@ -1515,7 +2307,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "718bobby@gmail.com",
@@ -1524,7 +2322,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "aiellostoneworks@gmail.com",
@@ -1533,7 +2337,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": false,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "j.donaldson@outlook.com",
@@ -1542,7 +2352,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "roli_carreno@yahoo.com",
@@ -1551,7 +2367,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "wfrichardsoncpa@gmail.com",
@@ -1560,7 +2382,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "ktmart23@gmail.com",
@@ -1569,7 +2397,13 @@
       "days_since": 35,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "dj.james0071980@gmail.com",
@@ -1578,7 +2412,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mikewillfixit101@gmail.com",
@@ -1587,7 +2427,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "dans1nfool@aol.com",
@@ -1596,7 +2442,13 @@
       "days_since": 35,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "paidboss.ntg@gmail.com",
@@ -1605,7 +2457,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chelise2007@icloud.com",
@@ -1614,7 +2472,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "edulgarian@hotmail.com",
@@ -1623,7 +2487,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "asenze75@gmail.com",
@@ -1632,7 +2502,13 @@
       "days_since": 21,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tosubuckeyesnc@gmail.com",
@@ -1641,7 +2517,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jacquelinefuller7@hotmail.com",
@@ -1650,7 +2532,13 @@
       "days_since": 21,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "sicem1216@gmail.com",
@@ -1659,7 +2547,13 @@
       "days_since": 21,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "rwyttenbach858@gmail.com",
@@ -1668,7 +2562,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "bianna4@hotmail.com",
@@ -1677,7 +2577,13 @@
       "days_since": 21,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 5,
+      "sg_clicks_count": 0
     },
     {
       "email": "eldavila05@gmail.com",
@@ -1686,7 +2592,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "remodeling.etc@comcast.net",
@@ -1695,7 +2607,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tgsautotransport@gmail.com",
@@ -1704,7 +2622,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chrumfelt@gmail.com",
@@ -1713,7 +2637,13 @@
       "days_since": 21,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "busgal14603@gmail.com",
@@ -1722,7 +2652,13 @@
       "days_since": 21,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "glowluxeorganic@gmail.com",
@@ -1731,7 +2667,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "phillipssean21@yahoo.com",
@@ -1740,7 +2682,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "whitetailz944@gmail.com",
@@ -1749,7 +2697,13 @@
       "days_since": 21,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "christinaromain77@yahoo.com",
@@ -1758,7 +2712,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "christina.elisio@yahoo.com",
@@ -1767,7 +2727,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "turbot.gilders_3l@icloud.com",
@@ -1776,7 +2742,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "simon.kaym@gmail.com",
@@ -1785,7 +2757,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tresangonzalez9@gmail.com",
@@ -1794,7 +2772,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "murphg40@gmail.com",
@@ -1803,7 +2787,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jarronbelgard799@gmail.com",
@@ -1812,7 +2802,13 @@
       "days_since": 21,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "garyharmon1971@gmail.com",
@@ -1821,7 +2817,13 @@
       "days_since": 21,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "whitedoves9698@yahoo.com",
@@ -1830,7 +2832,13 @@
       "days_since": 20,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "swierk@valdezak.net",
@@ -1839,7 +2847,13 @@
       "days_since": 20,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ryanberttunen@yahoo.com",
@@ -1848,7 +2862,13 @@
       "days_since": 20,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jamesstrong123321@outlook.com",
@@ -1857,7 +2877,13 @@
       "days_since": 20,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tristinl21@yahoo.com",
@@ -1866,7 +2892,13 @@
       "days_since": 20,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "joekonja@gmail.com",
@@ -1875,7 +2907,13 @@
       "days_since": 20,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chriswoodard04@icloud.com",
@@ -1884,7 +2922,13 @@
       "days_since": 20,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "rwarnken12@nycap.rr.com",
@@ -1893,7 +2937,13 @@
       "days_since": 20,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kaanpatrickkp@gmail.com",
@@ -1902,7 +2952,13 @@
       "days_since": 20,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "nassarsaleh@live.com",
@@ -1911,7 +2967,13 @@
       "days_since": 20,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "elanikos84@gmail.com",
@@ -1920,7 +2982,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "sherriewi3113@gmail.com",
@@ -1929,7 +2997,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "finnbogg1@yahoo.com",
@@ -1938,7 +3012,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "brdcrump@gmail.com",
@@ -1947,7 +3027,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "staceyairllc@gmail.com",
@@ -1956,7 +3042,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ruben.espinoza78@gmail.com",
@@ -1965,7 +3057,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 4,
+      "sg_clicks_count": 0
     },
     {
       "email": "karamnoufal30@gmail.com",
@@ -1974,7 +3072,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lathanparkman@gmail.com",
@@ -1983,7 +3087,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mountjoyroofing@aol.com",
@@ -1992,7 +3102,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "miguel.u003@yahoo.com",
@@ -2001,7 +3117,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "angeladianjassy87@gmail.com",
@@ -2010,7 +3132,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "rooster.84bby@mail.com",
@@ -2019,7 +3147,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "marcusogden035@gmail.com",
@@ -2028,7 +3162,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "farrahsmith121@outlook.com",
@@ -2037,7 +3177,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "obiebichi@gmail.com",
@@ -2046,7 +3192,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "cshanks3@myyahoo.com",
@@ -2055,7 +3207,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "elisabeth.zavala@yahoo.com",
@@ -2064,7 +3222,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lefflermarc@yahoo.com",
@@ -2073,7 +3237,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lyricalone617@gmail.com",
@@ -2082,7 +3252,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Returned"
+      "status": "Returned",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jimmy.dodson@hotmail.com",
@@ -2091,7 +3267,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chrisbaca987@gmail.com",
@@ -2100,7 +3282,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "brundagerenee7@gmail.com",
@@ -2109,7 +3297,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "bryheme@ymail.com",
@@ -2118,7 +3312,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jessietourino@yahoo.com",
@@ -2127,7 +3327,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "hatchell69@yahoo.com",
@@ -2136,7 +3342,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "gemmrk@gmail.com",
@@ -2145,7 +3357,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jdhtrucking2021@icloud.com",
@@ -2154,7 +3372,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "anitaocran@gmail.com",
@@ -2163,7 +3387,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 3,
+      "sg_clicks_count": 0
     },
     {
       "email": "tonysiri@outlook.com",
@@ -2172,7 +3402,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tektmts@gmail.com",
@@ -2181,7 +3417,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "amymariswhite2025@gmail.com",
@@ -2190,7 +3432,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "craigcrenshaw19@gmail.com",
@@ -2199,7 +3447,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "trayscoop07@gmail.com",
@@ -2208,7 +3462,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kjefferson0428@gmail.com",
@@ -2217,7 +3477,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "claudiousbell@yahoo.com",
@@ -2226,7 +3492,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "victorypools@gmail.com",
@@ -2235,7 +3507,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "brothergrib@yahoo.com",
@@ -2244,7 +3522,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "successkeyauto@gmail.com",
@@ -2253,7 +3537,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lorawade76@gmail.com",
@@ -2262,7 +3552,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jamescardoza1984@icloud.com",
@@ -2271,7 +3567,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": false,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "spreaves@gmail.com",
@@ -2280,7 +3582,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "jayhendrix711@gmail.com",
@@ -2289,7 +3597,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "zimmalk1@gmail.com",
@@ -2298,7 +3612,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jeromebajo10@yahoo.com",
@@ -2307,7 +3627,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "caulks-63.onward@icloud.com",
@@ -2316,7 +3642,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": false,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mx287308@sbcglobal.net",
@@ -2325,7 +3657,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chrisgm118@gmail.com",
@@ -2334,7 +3672,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "nickkycarrasco@gmail.com",
@@ -2343,7 +3687,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "iditi101@gmail.com",
@@ -2352,7 +3702,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "shanika.williams24@yahoo.com",
@@ -2361,7 +3717,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "fgcordova64@gmail.com",
@@ -2370,7 +3732,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "shannonshipp72@gmail.com",
@@ -2379,7 +3747,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "alexcaffey333@gmail.com",
@@ -2388,7 +3762,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mayosierram15@yahoo.com",
@@ -2397,7 +3777,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mcohen@tailwindcos.com",
@@ -2406,7 +3792,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "raglandbc@gmail.com",
@@ -2415,7 +3807,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "clevejevans@gmail.com",
@@ -2424,7 +3822,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "joktonk@gmail.com",
@@ -2433,7 +3837,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "josephjoaquin83@gmail.com",
@@ -2442,7 +3852,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ngrooms2@gmail.com",
@@ -2451,7 +3867,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "arabain_princess21@yahoo.com",
@@ -2460,7 +3882,13 @@
       "days_since": 18,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "tyharris9078@icloud.com",
@@ -2469,7 +3897,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "topquality0804@gmail.com",
@@ -2478,7 +3912,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "gataniela49@gmail.com",
@@ -2487,7 +3927,13 @@
       "days_since": 18,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jamesfranklin545@gmail.com",
@@ -2496,7 +3942,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ltroglin81@icloud.com",
@@ -2505,7 +3957,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "fernandasoledadherlan@gmail.com",
@@ -2514,7 +3972,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kellilopez06@yahoo.com",
@@ -2523,7 +3987,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "coronadoaomar@gmail.com",
@@ -2532,7 +4002,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "shaunfunderburk1978@gmail.com",
@@ -2541,7 +4017,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "veeam3@gmail.com",
@@ -2550,7 +4032,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "nataliewoodward21@hotmail.com",
@@ -2559,7 +4047,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lisa.scipio@gmail.com",
@@ -2568,7 +4062,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "johnnyemmanus@gmail.com",
@@ -2577,7 +4077,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "bigdoygame@gmail.com",
@@ -2586,7 +4092,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "donmandley1@gmail.com",
@@ -2595,7 +4107,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "allserviceplumbers@gmail.com",
@@ -2604,7 +4122,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "amrn2386@gmail.com",
@@ -2613,7 +4137,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "cryst342@gmail.com",
@@ -2622,7 +4152,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ealemanorozco@gmail.com",
@@ -2631,7 +4167,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lesliedeidre1992@yahoo.com",
@@ -2640,7 +4182,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "sizzling96@yahoo.com",
@@ -2649,7 +4197,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "fisportalesjosem@gmail.com",
@@ -2658,7 +4212,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "contrerasesdras@gmail.com",
@@ -2667,7 +4227,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jrmoore4926@gmail.com",
@@ -2676,7 +4242,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "gersonvasquez86@yahoo.com",
@@ -2685,7 +4257,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kaneeshawilson4@gmail.com",
@@ -2694,7 +4272,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "dnewt00@yahoo.com",
@@ -2703,7 +4287,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "aelbestawy690@gmail.com",
@@ -2712,7 +4302,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "edwardferniza@gmail.com",
@@ -2721,7 +4317,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "alansanders62@gmail.com",
@@ -2730,7 +4332,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "nikafoster@gmail.com",
@@ -2739,7 +4347,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "craigvinson614@yahoo.com",
@@ -2748,7 +4362,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jblomstrand84@yahoo.com",
@@ -2757,7 +4377,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "allen.michael92@gmail.com",
@@ -2766,7 +4392,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "sid.2010.gardner@gmail.com",
@@ -2775,7 +4407,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "joaquintrejo14@gmail.com",
@@ -2784,7 +4422,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "fpe192526@gmail.com",
@@ -2793,7 +4437,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 4,
+      "sg_clicks_count": 0
     },
     {
       "email": "rpeterson0306@gmail.com",
@@ -2802,7 +4452,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "ldearley@gmail.com",
@@ -2811,7 +4467,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "d.heighton.dh@gmail.com",
@@ -2820,7 +4482,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "cliftonk111@yahoo.com",
@@ -2829,7 +4497,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jmtebbefarms@gmail.com",
@@ -2838,7 +4512,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "hennndog1@yahoo.com",
@@ -2847,7 +4527,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "marcelino.jetta@gmail.com",
@@ -2856,7 +4542,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mrs.white109@gmail.com",
@@ -2865,7 +4557,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "eppsincognito@gmail.com",
@@ -2874,7 +4572,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "abejustice26@yahoo.com",
@@ -2883,7 +4587,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jpham1456@yahoo.com",
@@ -2892,7 +4602,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "victorcorrea1122@aol.com",
@@ -2901,7 +4617,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "scottmeye@gmail.com",
@@ -2910,7 +4632,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lilliancortes24@gmail.com",
@@ -2919,7 +4647,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Returned"
+      "status": "Returned",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ttoosaint@gmail.com",
@@ -2928,7 +4662,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 3,
+      "sg_clicks_count": 0
     },
     {
       "email": "safarifrank75@gmail.com",
@@ -2937,7 +4677,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "tanyabrown@ritewayexpressllc.com",
@@ -2946,7 +4692,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "christmat62@gmail.com",
@@ -2955,7 +4707,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "craigcrenshaw19@yahoo.com",
@@ -2964,7 +4722,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jjsmr22@aol.com",
@@ -2973,7 +4737,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "josephlopezr9@gmail.com",
@@ -2982,7 +4752,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lallanathaniel@yahoo.com",
@@ -2991,7 +4767,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mikefttd661@yahoo.com",
@@ -3000,7 +4782,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mnchernandez498@gmail.com",
@@ -3009,7 +4797,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "cblanco10@ymail.com",
@@ -3018,7 +4812,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "beezlane@gmail.com",
@@ -3027,7 +4827,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "piercebail@sbcglobal.net",
@@ -3036,7 +4842,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 3,
+      "sg_clicks_count": 0
     },
     {
       "email": "billyda3rd@aol.com",
@@ -3045,7 +4857,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "birddaryl53@gmail.com",
@@ -3054,7 +4872,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "awills@tpsolution24.com",
@@ -3063,7 +4887,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jaredjett4@gmail.com",
@@ -3072,7 +4902,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "valles.elizabeth@hotmail.com",
@@ -3081,7 +4917,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "perryhart1210@gmail.com",
@@ -3090,7 +4932,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "alex.rameshwar@yahoo.com",
@@ -3099,7 +4947,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "zachariahwullner@gmail.com",
@@ -3108,7 +4962,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "seethatbag@gmail.com",
@@ -3117,7 +4977,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "fubare68@yahoo.com",
@@ -3126,7 +4992,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "livin@inbox.com",
@@ -3135,7 +5007,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "itsasecret1929@gmail.com",
@@ -3144,7 +5022,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "wes54chevy@gmail.com",
@@ -3153,7 +5037,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "natalieb2303@gmail.com",
@@ -3162,7 +5052,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "fineworktattoos@gmail.com",
@@ -3171,7 +5067,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "quyenttdao@gmail.com",
@@ -3180,7 +5082,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Returned"
+      "status": "Returned",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "gabethompson76@gmail.com",
@@ -3189,7 +5097,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "scottwayson@gmail.com",
@@ -3198,7 +5112,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "smauritzson@gmail.com",
@@ -3207,7 +5127,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "vpondexter@gmail.com",
@@ -3216,7 +5142,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mars5864@gmail.com",
@@ -3225,7 +5157,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "alexandermarjr@yahoo.com",
@@ -3234,7 +5172,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "georgearizos@gmail.com",
@@ -3243,7 +5187,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "guitarest01@gmail.com",
@@ -3252,7 +5202,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mevee2450@gmail.com",
@@ -3261,7 +5217,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "pmassaquoi58@gmail.com",
@@ -3270,7 +5232,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "lospinos0726@gmail.com",
@@ -3279,7 +5247,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "davidsmobiledetail@gmail.com",
@@ -3288,7 +5262,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "vellyd84@hotmail.com",
@@ -3297,7 +5277,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kingconcrete79@gmail.com",
@@ -3306,7 +5292,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "jimbrown0876@gmail.com",
@@ -3315,7 +5307,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "fcobau1214@gmail.com",
@@ -3324,7 +5322,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "evansmobileservice@yahoo.com",
@@ -3333,7 +5337,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "atothew12@yahoo.com",
@@ -3342,7 +5352,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mymonarch5150@gmail.com",
@@ -3351,7 +5367,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "osorioerik061@gmail.com",
@@ -3360,7 +5382,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "brianledkins7@gmail.com",
@@ -3369,7 +5397,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "papajeskid1@gmail.com",
@@ -3378,7 +5412,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "psblackman717@gmail.com",
@@ -3387,7 +5427,13 @@
       "days_since": 15,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "afernandes82@aol.com",
@@ -3396,7 +5442,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "bmarder10@gmail.com",
@@ -3405,7 +5457,13 @@
       "days_since": 15,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "info@rigidroofingsolutions.com",
@@ -3414,7 +5472,13 @@
       "days_since": 14,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "tonygiger1@yahoo.com",
@@ -3423,7 +5487,13 @@
       "days_since": 14,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "jltafolla1977@gmail.com",
@@ -3432,7 +5502,13 @@
       "days_since": 14,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "musicgh17@gmail.com",
@@ -3441,7 +5517,13 @@
       "days_since": 14,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "elsebeth.owens@icloud.com",
@@ -3450,7 +5532,13 @@
       "days_since": 14,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "rrogan466@gmail.com",
@@ -3459,7 +5547,13 @@
       "days_since": 14,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "maryeheady@gmail.com",
@@ -3468,7 +5562,13 @@
       "days_since": 14,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "ace61199@gmail.com",
@@ -3477,7 +5577,13 @@
       "days_since": 14,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "mayra.rosa.lugo1@gmail.com",
@@ -3486,7 +5592,13 @@
       "days_since": 14,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 5,
+      "sg_clicks_count": 0
     },
     {
       "email": "scottysold@hotmail.com",
@@ -3495,7 +5607,13 @@
       "days_since": 14,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "carpentry92@gmail.com",
@@ -3504,7 +5622,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "philsalters1984@gmail.com",
@@ -3513,7 +5637,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "carlton.smith44@gmail.com",
@@ -3522,7 +5652,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "samantha.grage@gmail.com",
@@ -3531,7 +5667,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "bodyworkbyjp05@gmail.com",
@@ -3540,7 +5682,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 3,
+      "sg_clicks_count": 0
     },
     {
       "email": "ciera_alexander@yahoo.com",
@@ -3549,7 +5697,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "darkcloud0754@yahoo.com",
@@ -3558,7 +5712,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "bill@swansonselectric.com",
@@ -3567,7 +5727,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kimmykk@msn.com",
@@ -3576,7 +5742,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "hazizaeric80@gmail.com",
@@ -3585,7 +5757,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "alvaradoezbon@gmail.com",
@@ -3594,7 +5772,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "iraq19702008@gmail.com",
@@ -3603,7 +5787,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "diana.vaso@icloud.com",
@@ -3612,7 +5802,13 @@
       "days_since": 13,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "myles.cross@comcast.net",
@@ -3621,7 +5817,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "kimn329@gmail.com",
@@ -3630,7 +5832,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "matt.andrews43@gmail.com",
@@ -3639,7 +5847,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ct.security@hotmail.com",
@@ -3648,7 +5862,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "perryelectric94@gmail.com",
@@ -3657,7 +5877,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "james@jameseqt.com",
@@ -3666,7 +5892,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "johnnywgamble@gmail.com",
@@ -3675,7 +5907,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "lcjenkins27@gmail.com",
@@ -3684,7 +5922,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "patronicsinc@gmail.com",
@@ -3693,7 +5937,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "brittanylombardo@yahoo.com",
@@ -3702,7 +5952,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "josephdsanders1328@gmail.com",
@@ -3711,7 +5967,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "kimberlinagarcia@gmail.com",
@@ -3720,7 +5982,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "ahumadam01@icloud.com",
@@ -3729,7 +5997,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mikebatalha@yahoo.com",
@@ -3738,7 +6012,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mozillac@aol.com",
@@ -3747,7 +6027,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "jasonk@jhrpro.com",
@@ -3756,7 +6042,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "chanieww@gmail.com",
@@ -3765,7 +6057,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "rpritchard2008@gmail.com",
@@ -3774,7 +6072,13 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-04-28",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "sweis2018@gmail.com",
@@ -3783,7 +6087,13 @@
       "days_since": 12,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 4,
+      "sg_clicks_count": 0
     },
     {
       "email": "centraltaxman@yahoo.com",
@@ -3792,7 +6102,13 @@
       "days_since": 12,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "hdhernandez14@outlook.com",
@@ -3801,7 +6117,13 @@
       "days_since": 11,
       "fu_sent": true,
       "fu_date": "2026-04-24",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "glenn@adg-tx.com",
@@ -3810,7 +6132,13 @@
       "days_since": 8,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "areyes93@att.net",
@@ -3819,7 +6147,13 @@
       "days_since": 8,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mchriscad@aol.com",
@@ -3828,7 +6162,13 @@
       "days_since": 8,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "rubbitrite@gmail.com",
@@ -3837,7 +6177,13 @@
       "days_since": 8,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "colt191145@protonmail.com",
@@ -3846,7 +6192,13 @@
       "days_since": 8,
       "fu_sent": true,
       "fu_date": "2026-04-27",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "duda051996@gmail.com",
@@ -3855,7 +6207,13 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "alexkislenko@yahoo.com",
@@ -3864,7 +6222,13 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": false,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "christiancentralcity@gmail.com",
@@ -3873,7 +6237,13 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 3,
+      "sg_clicks_count": 0
     },
     {
       "email": "antfranklin0402@yahoo.com",
@@ -3882,7 +6252,13 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "peterkwbn@me.com",
@@ -3891,7 +6267,13 @@
       "days_since": 5,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "wcjranders@gmail.com",
@@ -3900,7 +6282,13 @@
       "days_since": 4,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "mojowaddy1@gmail.com",
@@ -3909,7 +6297,13 @@
       "days_since": 4,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0
     },
     {
       "email": "wethelargest1200@icloud.com",
@@ -3918,7 +6312,13 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "dr.magdi.amer@gmail.com",
@@ -3927,7 +6327,13 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "bettyb@pfhonline.co",
@@ -3936,7 +6342,13 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "clarissaherrera03@yahoo.com",
@@ -3945,7 +6357,13 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "spalmer820305@gmail.com",
@@ -3954,7 +6372,13 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Activated"
+      "status": "Activated",
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0
     },
     {
       "email": "ninalacie@yahoo.com",
@@ -3963,7 +6387,13 @@
       "days_since": 0,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "ericmckenzie1967@yahoo.com",
@@ -3972,7 +6402,13 @@
       "days_since": 0,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "hunteraalbers22@gmail.com",
@@ -3981,7 +6417,13 @@
       "days_since": 0,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     },
     {
       "email": "hallmc7766@gmail.com",
@@ -3990,7 +6432,13 @@
       "days_since": 0,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Pending",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0
     }
   ],
   "sendgrid_stats": [
