@@ -7,15 +7,26 @@ const STATUS_STYLE = {
 }
 
 const COLS = [
-  { key: 'email',      label: 'Email',       sortable: true  },
-  { key: 'status',     label: 'Status',      sortable: true  },
-  { key: 'sent_date',  label: 'Sent',        sortable: true  },
-  { key: 'days_since', label: 'Days',        sortable: true  },
-  { key: 'serials',    label: 'Serial(s)',   sortable: false },
-  { key: 'fu_sent',    label: 'Follow-up',   sortable: true  },
+  { key: 'email',          label: 'Email',       sortable: true  },
+  { key: 'status',         label: 'Status',      sortable: true  },
+  { key: 'sent_date',      label: 'Sent',        sortable: true  },
+  { key: 'days_since',     label: 'Days',        sortable: true  },
+  { key: 'serials',        label: 'Serial(s)',   sortable: false },
+  { key: 'fu_sent',        label: 'Follow-up',   sortable: true  },
+  { key: 'sg_delivered',   label: 'Delivered',   sortable: true, sgOnly: true },
+  { key: 'sg_opened',      label: 'Opened',      sortable: true, sgOnly: true },
+  { key: 'sg_clicked',     label: 'Clicked',     sortable: true, sgOnly: true },
+  { key: 'sg_bounced',     label: 'Bounced',     sortable: true, sgOnly: true },
 ]
 
-export default function DrillDownModal({ title, subtitle, customers, onClose }) {
+function SgBool({ val }) {
+  if (val === null || val === undefined) return <span style={{ color: '#4a5568' }}>—</span>
+  return val
+    ? <span style={{ color: '#00e5a0', fontWeight: 600 }}>✓</span>
+    : <span style={{ color: '#4a5568' }}>✗</span>
+}
+
+export default function DrillDownModal({ title, subtitle, customers, onClose, showSgCols = false }) {
   const [search, setSearch]     = useState('')
   const [sortKey, setSortKey]   = useState('sent_date')
   const [sortDir, setSortDir]   = useState('desc')
@@ -155,7 +166,7 @@ export default function DrillDownModal({ title, subtitle, customers, onClose }) 
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12, marginTop: 8 }}>
             <thead>
               <tr>
-                {COLS.map(col => (
+                {COLS.filter(col => !col.sgOnly || showSgCols).map(col => (
                   <th
                     key={col.key}
                     onClick={() => col.sortable && toggleSort(col.key)}
@@ -226,6 +237,20 @@ export default function DrillDownModal({ title, subtitle, customers, onClose }) 
                         <span style={{ color: '#4a5568' }}>—</span>
                       )}
                     </td>
+                    {showSgCols && <>
+                      <td style={{ padding: '9px 8px', textAlign: 'center' }}><SgBool val={c.sg_delivered} /></td>
+                      <td style={{ padding: '9px 8px', textAlign: 'center' }}>
+                        {c.sg_opened
+                          ? <span style={{ color: '#00d4ff', fontWeight: 600 }}>✓ {c.sg_opens_count > 1 ? `×${c.sg_opens_count}` : ''}</span>
+                          : <SgBool val={c.sg_opened} />}
+                      </td>
+                      <td style={{ padding: '9px 8px', textAlign: 'center' }}>
+                        {c.sg_clicked
+                          ? <span style={{ color: '#8b5cf6', fontWeight: 600 }}>✓ {c.sg_clicks_count > 1 ? `×${c.sg_clicks_count}` : ''}</span>
+                          : <SgBool val={c.sg_clicked} />}
+                      </td>
+                      <td style={{ padding: '9px 8px', textAlign: 'center' }}><SgBool val={c.sg_bounced} /></td>
+                    </>}
                   </tr>
                 )
               })}

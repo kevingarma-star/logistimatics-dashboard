@@ -99,7 +99,8 @@ function App() {
   const all = data.customers || []
 
   // ── Drill-down helpers ────────────────────────────────────────────────────
-  const openDrill = (title, subtitle, customers) => setDrill({ title, subtitle, customers })
+  const openDrill = (title, subtitle, customers, showSgCols = false) =>
+    setDrill({ title, subtitle, customers, showSgCols })
 
   const drillStatus = status => openDrill(
     status,
@@ -121,6 +122,9 @@ function App() {
     `Customers whose activation email was sent on ${batchDate}`,
     all.filter(c => c.sent_date === batchDate)
   )
+  const drillSg = (label, filterFn, subtitle) =>
+    openDrill(label, subtitle, all.filter(filterFn), true)
+
   const drillFunnel = stage => {
     const map = {
       'Outreached':     [all, 'All customers outreached'],
@@ -239,10 +243,10 @@ function App() {
             Email Health · Campaign Emails
           </div>
           <div className="kpi-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-            <KPICard label="Avg Open Rate"     value={sg.avg_open_rate}     suffix="%" icon="👁"  accent="cyan"   sub="Unique opens / delivered" />
-            <KPICard label="Avg Delivery Rate" value={sg.avg_delivery_rate} suffix="%" icon="📬" accent="green"  sub="Delivered / total requests" />
-            <KPICard label="Avg Click Rate"    value={sg.avg_click_rate}    suffix="%" icon="🖱"  accent="purple" sub="Unique clicks / delivered" />
-            <KPICard label="Avg Bounce Rate"   value={sg.avg_bounce_rate}   suffix="%" icon="⚠"  accent="red"    sub="Bounces / total requests" />
+            <KPICard label="Avg Open Rate"     value={sg.avg_open_rate}     suffix="%" icon="👁"  accent="cyan"   sub="Unique opens / delivered"   onClick={() => drillSg('Opened Emails',    c => c.sg_opened === true,    'Customers who opened at least one campaign email')} />
+            <KPICard label="Avg Delivery Rate" value={sg.avg_delivery_rate} suffix="%" icon="📬" accent="green"  sub="Delivered / total requests" onClick={() => drillSg('Delivered Emails', c => c.sg_delivered === true, 'Customers whose email was successfully delivered')} />
+            <KPICard label="Avg Click Rate"    value={sg.avg_click_rate}    suffix="%" icon="🖱"  accent="purple" sub="Unique clicks / delivered"   onClick={() => drillSg('Clicked Emails',   c => c.sg_clicked === true,   'Customers who clicked a link in a campaign email')} />
+            <KPICard label="Avg Bounce Rate"   value={sg.avg_bounce_rate}   suffix="%" icon="⚠"  accent="red"    sub="Bounces / total requests"   onClick={() => drillSg('Bounced Emails',   c => c.sg_bounced === true,   'Customers whose email bounced or was blocked')} />
           </div>
         </>
       )}
@@ -277,6 +281,7 @@ function App() {
           title={drill.title}
           subtitle={drill.subtitle}
           customers={drill.customers}
+          showSgCols={drill.showSgCols}
           onClose={() => setDrill(null)}
         />
       )}

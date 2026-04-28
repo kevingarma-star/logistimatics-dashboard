@@ -69,13 +69,13 @@ def fetch_activity_feed_stats():
     """
     Query the SendGrid Activity Feed for campaign emails using subject LIKE patterns.
     Aggregates opens, clicks, delivered counts per date from actual sent messages.
-    This works regardless of category tagging — data is available immediately.
-    Returns (stat_list, has_data).
+    Also builds a per-email engagement map for customer-level drill-downs.
+    Returns (stat_list, has_data, sg_email_map).
     """
     key = _sg_key()
     if not key:
         print("  [warn] SENDGRID_API_KEY not found — skipping email stats.")
-        return [], False
+        return [], False, {}
 
     # date -> rolling metrics dict
     results = defaultdict(lambda: {
@@ -83,6 +83,9 @@ def fetch_activity_feed_stats():
         'unique_opens': 0, 'opens': 0, 'unique_clicks': 0, 'clicks': 0,
         'activation': 0, 'followup': 0,
     })
+
+    # email -> best engagement across all campaign messages
+    sg_email_map = {}  # email -> {delivered, opened, clicked, bounced, opens_count, clicks_count}
 
     for email_type, subject_frag in CAMPAIGN_SUBJECTS:
         query = f'subject LIKE "%{subject_frag}%"'
@@ -100,8 +103,7 @@ def fetch_activity_feed_stats():
         print(f"  Activity Feed ({email_type}): {len(messages)} messages found")
 
         for msg in messages:
-            # Use the send timestamp to bucket by date
-            ts  = msg.get('last_event_time') or msg.get('from_email') or ''
+            ts  = msg.get('last_event_time') or ''
             day = _parse_date(ts)
             if not day:
                 continue
@@ -109,6 +111,7 @@ def fetch_activity_feed_stats():
             status       = msg.get('status', '')
             opens_count  = int(msg.get('opens_count',  0) or 0)
             clicks_count = int(msg.get('clicks_count', 0) or 0)
+            to_email     = (msg.get('to_email') or '').strip().lower()
 
             results[day]['requests']    += 1
             results[day][email_type]    += 1
@@ -126,8 +129,20 @@ def fetch_activity_feed_stats():
                 results[day]['unique_clicks'] += 1
                 results[day]['clicks']        += clicks_count
 
+            # Merge into per-email map (keep best engagement across multiple sends)
+            if to_email:
+                prev = sg_email_map.get(to_email, {})
+                sg_email_map[to_email] = {
+                    'sg_delivered':    prev.get('sg_delivered', False)    or (status == 'delivered'),
+                    'sg_opened':       prev.get('sg_opened',    False)    or (opens_count  > 0),
+                    'sg_clicked':      prev.get('sg_clicked',   False)    or (clicks_count > 0),
+                    'sg_bounced':      prev.get('sg_bounced',   False)    or (status in ('bounce', 'blocked', 'deferred')),
+                    'sg_opens_count':  prev.get('sg_opens_count',  0)     + opens_count,
+                    'sg_clicks_count': prev.get('sg_clicks_count', 0)     + clicks_count,
+                }
+
     if not results:
-        return [], False
+        return [], False, {}
 
     stat_list = []
     for d in sorted(results.keys()):
@@ -143,7 +158,7 @@ def fetch_activity_feed_stats():
             'bounce_rate':   round(row['bounces']       / req * 100, 2),
         })
 
-    return stat_list, True
+    return stat_list, True, sg_email_map
 
 
 def compute_sg_summary(sg_stats):
@@ -235,7 +250,7 @@ def read_sheet():
 
 # ── Data computation ──────────────────────────────────────────────────────────
 
-def compute_data(activation_rows, followup_rows, sheet_map):
+def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
     today = date.today()
 
     # Build follow-up map: email → date
@@ -275,14 +290,21 @@ def compute_data(activation_rows, followup_rows, sheet_map):
         else:
             status = 'Pending'
 
+        sg = (sg_email_map or {}).get(email_lc, {})
         customers.append({
-            'email':      email_lc,
-            'sent_date':  sent_date,
-            'serials':    serials,
-            'days_since': days_since,
-            'fu_sent':    fu_sent,
-            'fu_date':    fu_date,
-            'status':     status,
+            'email':           email_lc,
+            'sent_date':       sent_date,
+            'serials':         serials,
+            'days_since':      days_since,
+            'fu_sent':         fu_sent,
+            'fu_date':         fu_date,
+            'status':          status,
+            'sg_delivered':    sg.get('sg_delivered',    None),
+            'sg_opened':       sg.get('sg_opened',       None),
+            'sg_clicked':      sg.get('sg_clicked',      None),
+            'sg_bounced':      sg.get('sg_bounced',      None),
+            'sg_opens_count':  sg.get('sg_opens_count',  0),
+            'sg_clicks_count': sg.get('sg_clicks_count', 0),
         })
 
     # ── Summary ──
@@ -395,8 +417,20 @@ def main():
     print("\n[2/5] Reading Google Sheet for activation status...")
     sheet_map = read_sheet()
 
-    print("\n[3/5] Computing campaign metrics...")
-    data = compute_data(activation_rows, followup_rows, sheet_map)
+    print("\n[3/5] Fetching SendGrid email stats (Activity Feed)...")
+    sg_stats, has_data, sg_email_map = fetch_activity_feed_stats()
+    sg_summary = compute_sg_summary(sg_stats)
+    if has_data:
+        print(f"  Total campaign messages: {sum(d.get('requests',0) for d in sg_stats)}")
+        print(f"  Avg open rate:           {sg_summary.get('avg_open_rate',0)}%")
+        print(f"  Avg click rate:          {sg_summary.get('avg_click_rate',0)}%")
+        print(f"  Avg delivery rate:       {sg_summary.get('avg_delivery_rate',0)}%")
+        print(f"  Per-customer records:    {len(sg_email_map)}")
+    else:
+        print("  No campaign email data found in Activity Feed.")
+
+    print("\n[4/5] Computing campaign metrics...")
+    data = compute_data(activation_rows, followup_rows, sheet_map, sg_email_map)
     s = data['summary']
     print(f"  Total outreached:    {s['total_outreached']}")
     print(f"  Activated:           {s['activated']} ({s['activation_rate']}%)")
@@ -404,17 +438,6 @@ def main():
     print(f"  Returned:            {s['returned']}")
     print(f"  Follow-ups sent:     {s['followup_sent']}")
     print(f"  Follow-up conv rate: {s['followup_conversion_rate']}%")
-
-    print("\n[4/5] Fetching SendGrid email stats (Activity Feed)...")
-    sg_stats, has_data = fetch_activity_feed_stats()
-    sg_summary = compute_sg_summary(sg_stats)
-    if has_data:
-        print(f"  Total campaign messages: {sum(d.get('requests',0) for d in sg_stats)}")
-        print(f"  Avg open rate:           {sg_summary.get('avg_open_rate',0)}%")
-        print(f"  Avg click rate:          {sg_summary.get('avg_click_rate',0)}%")
-        print(f"  Avg delivery rate:       {sg_summary.get('avg_delivery_rate',0)}%")
-    else:
-        print("  No campaign email data found in Activity Feed.")
 
     data['sendgrid_stats']   = sg_stats
     data['sendgrid_summary'] = sg_summary
