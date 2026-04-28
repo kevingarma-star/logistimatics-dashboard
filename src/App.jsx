@@ -17,10 +17,13 @@ function App() {
   const [refreshing, setRefreshing] = useState(false)
   const [lastRefresh, setLastRefresh] = useState(null)
 
-  const loadData = (isInitial = false) => {
-    if (!isInitial) setRefreshing(true)
+  const fetchData = () =>
     fetch(`${import.meta.env.BASE_URL}data.json?t=${Date.now()}`)
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
+
+  const loadData = (isInitial = false) => {
+    if (!isInitial) setRefreshing(true)
+    fetchData()
       .then(d => {
         setRawData(prev => {
           if (isInitial) {
@@ -36,6 +39,24 @@ function App() {
       .catch(e => {
         if (isInitial) { setError(e.message); setLoading(false) }
         else setRefreshing(false)
+      })
+  }
+
+  const hardRefresh = () => {
+    setRefreshing(true)
+    // Ask local server to regenerate data.json, then reload it
+    fetch('http://localhost:8765/refresh', { method: 'POST' })
+      .then(() => {
+        // Wait a moment for GitHub Pages to pick up the push
+        setTimeout(() => fetchData().then(d => {
+          setRawData(d)
+          setLastRefresh(new Date())
+          setRefreshing(false)
+        }).catch(() => setRefreshing(false)), 3000)
+      })
+      .catch(() => {
+        // Local server not running — fall back to just reloading data.json
+        loadData(false)
       })
   }
 
@@ -106,7 +127,7 @@ function App() {
           />
           {/* Manual refresh button */}
           <button
-            onClick={() => loadData(false)}
+            onClick={hardRefresh}
             disabled={refreshing}
             title="Refresh data now"
             style={{
