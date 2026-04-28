@@ -90,7 +90,7 @@ function App() {
       {/* ── Header ── */}
       <header className="header">
         <div className="header-brand">
-          <div className="header-logo">LX</div>
+          <img className="header-logo" src={`${import.meta.env.BASE_URL}LGMX LOGO.jpg`} alt="Logistimatics" />
           <div>
             <div className="header-title">Logistimatics</div>
             <div className="header-sub">Activation Campaign Dashboard</div>
