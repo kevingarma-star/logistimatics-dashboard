@@ -69,7 +69,7 @@ function SgKPI({ label, value, color, suffix = '' }) {
 }
 
 // Empty state shown before first tagged send
-function AwaitingData({ note }) {
+function AwaitingData() {
   return (
     <div>
       <div style={{
@@ -136,7 +136,7 @@ export default function SendGridPanel({ sgStats, sgSummary }) {
   const hasCampaignData = sgSummary?.has_campaign_data
 
   if (!hasCampaignData) {
-    return <AwaitingData note={sgSummary?.data_note} />
+    return <AwaitingData />
   }
 
   const chartData = sgStats.map(d => ({

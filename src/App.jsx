@@ -28,13 +28,11 @@ function App() {
     if (!isInitial) setRefreshing(true)
     fetchData()
       .then(d => {
-        setRawData(prev => {
-          if (isInitial) {
-            const dates = [...d.cohorts.map(c => c.batch_date)].sort()
-            if (dates.length) { setStart(dates[0]); setEnd(dates[dates.length - 1]) }
-          }
-          return d
-        })
+        if (isInitial) {
+          const dates = [...d.cohorts.map(c => c.batch_date)].sort()
+          if (dates.length) { setStart(dates[0]); setEnd(dates[dates.length - 1]) }
+        }
+        setRawData(d)
         setLastRefresh(new Date())
         if (isInitial) setLoading(false)
         else setRefreshing(false)
@@ -64,6 +62,7 @@ function App() {
   }
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadData(true)
     // Poll every 30 minutes — matches watch.py default interval
     const POLL_MS = 30 * 60 * 1000

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const COLORS = ['#00d4ff', '#8b5cf6', '#00e5a0']
 

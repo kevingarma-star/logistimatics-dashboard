@@ -37,7 +37,9 @@ export default function DateRangePicker({ minDate, maxDate, start, end, onChange
   }, [])
 
   // Keep local state in sync when parent resets
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setLocalStart(start || minDate || '') }, [start, minDate])
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setLocalEnd(end     || maxDate || '') }, [end,   maxDate])
 
   function applyPreset(days) {
