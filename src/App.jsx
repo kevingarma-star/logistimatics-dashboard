@@ -7,6 +7,7 @@ import CohortTable from './components/CohortTable'
 import SendGridPanel from './components/SendGridPanel'
 import DateRangePicker from './components/DateRangePicker'
 import DrillDownModal from './components/DrillDownModal'
+import SurveyPanel from './components/SurveyPanel'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -94,9 +95,11 @@ function App() {
     </div>
   )
 
-  const s   = data.summary
-  const sg  = data.sendgrid_summary || {}
-  const all = data.customers || []
+  const s        = data.summary
+  const sg       = data.sendgrid_summary || {}
+  const all      = data.customers || []
+  const surveySummary   = rawData?.survey_summary   ?? {}
+  const surveyResponses = rawData?.survey_responses ?? []
 
   // ── Drill-down helpers ────────────────────────────────────────────────────
   const openDrill = (title, subtitle, customers, showSgCols = false) =>
@@ -298,6 +301,13 @@ function App() {
           <div className="panel-sub">Breakdown by email batch date</div>
           <CohortTable cohorts={data.cohorts} onDrillDown={drillCohort} />
         </div>
+      </div>
+
+      {/* ── Survey Insights ── */}
+      <div className="panel" style={{ marginTop: 20 }}>
+        <div className="panel-title">Survey Insights</div>
+        <div className="panel-sub">Why aren't customers activating? · ≥30 days post-ship, still pending</div>
+        <SurveyPanel surveySummary={surveySummary} surveyResponses={surveyResponses} />
       </div>
     </>
   )

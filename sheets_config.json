@@ -2,5 +2,7 @@
   "spreadsheet_id": "1GCTCOmZCKL1l8NrzPSpddXMplyndaKJaZRI12GrFZ5Q",
   "activation_sheet": "Activation Log",
   "followup_sheet": "Followup Log",
+  "followup2_sheet": "Followup2 Log",
+  "survey_sheet": "Survey Responses",
   "creds_path": "C:\\Users\\Admin\\.google_workspace_mcp\\credentials\\logistimatics_sheets.json"
 }

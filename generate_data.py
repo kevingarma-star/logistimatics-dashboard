@@ -57,6 +57,9 @@ CAMPAIGN_SUBJECTS = [
     ('followup',   'need help activating'),
 ]
 
+# Categories used when sending — used for the reliable Category Stats API
+CAMPAIGN_CATEGORIES = ['activation-email', 'followup-email']
+
 
 def _parse_date(ts):
     """Extract YYYY-MM-DD from an ISO timestamp or date string."""
@@ -65,17 +68,88 @@ def _parse_date(ts):
     return str(ts)[:10]
 
 
+def _load_cached_sg_stats():
+    """Load sendgrid_stats from the previous data.json, keyed by date."""
+    try:
+        with open(OUTPUT_PATH) as f:
+            old = json.load(f)
+        return {row['date']: row for row in old.get('sendgrid_stats', [])}
+    except Exception:
+        return {}
+
+
+def fetch_category_stats(key):
+    """
+    Query /v3/categories/stats for our campaign categories (activation-email,
+    followup-email). This API is pre-aggregated by SendGrid and is far more
+    reliable than the Activity Feed for click/open/delivery KPIs.
+    Returns a dict: {date -> metrics_dict} (only dates with non-zero sends).
+    """
+    start = (date.today() - __import__('datetime').timedelta(days=30)).isoformat()
+    end   = date.today().isoformat()
+
+    params = urllib.parse.urlencode(
+        [('start_date', start), ('end_date', end), ('aggregated_by', 'day')]
+        + [('categories', c) for c in CAMPAIGN_CATEGORIES]
+    )
+    url = f'https://api.sendgrid.com/v3/categories/stats?{params}'
+    req = urllib.request.Request(url, headers={'Authorization': f'Bearer {key}'})
+    try:
+        r    = urllib.request.urlopen(req, timeout=30)
+        rows = json.loads(r.read())
+    except Exception as e:
+        print(f"  [warn] Category Stats API failed: {e}")
+        return {}
+
+    result = {}
+    for row in rows:
+        d = row.get('date', '')
+        combined = {
+            'requests': 0, 'delivered': 0, 'bounces': 0, 'unsubscribes': 0,
+            'unique_opens': 0, 'opens': 0, 'unique_clicks': 0, 'clicks': 0,
+            'activation': 0, 'followup': 0,
+        }
+        for s in row.get('stats', []):
+            m = s.get('metrics', {})
+            combined['requests']      += m.get('requests',      0)
+            combined['delivered']     += m.get('delivered',     0)
+            combined['bounces']       += m.get('bounces',       0)
+            combined['unsubscribes']  += m.get('unsubscribes',  0)
+            combined['unique_opens']  += m.get('unique_opens',  0)
+            combined['opens']         += m.get('opens',         0)
+            combined['unique_clicks'] += m.get('unique_clicks', 0)
+            combined['clicks']        += m.get('clicks',        0)
+            if s.get('name') == 'activation-email':
+                combined['activation'] += m.get('requests', 0)
+            elif s.get('name') == 'followup-email':
+                combined['followup'] += m.get('requests', 0)
+        if combined['requests'] > 0:
+            result[d] = combined
+
+    print(f"  Category Stats: {len(result)} days with sends, "
+          f"{sum(v['delivered'] for v in result.values())} delivered, "
+          f"{sum(v['unique_clicks'] for v in result.values())} clicks")
+    return result
+
+
 def fetch_activity_feed_stats():
     """
     Query the SendGrid Activity Feed for campaign emails using subject LIKE patterns.
-    Aggregates opens, clicks, delivered counts per date from actual sent messages.
-    Also builds a per-email engagement map for customer-level drill-downs.
+    Used for per-customer engagement enrichment (sg_email_map) and as a fallback
+    for dates not covered by Category Stats (emails sent before categories were tagged).
+
+    Includes a regression guard: if the Activity Feed returns suspiciously few
+    results (likely a timeout/partial response), the cached stats from the previous
+    data.json are preserved rather than overwriting good data with bad data.
+
     Returns (stat_list, has_data, sg_email_map).
     """
     key = _sg_key()
     if not key:
         print("  [warn] SENDGRID_API_KEY not found — skipping email stats.")
         return [], False, {}
+
+    cached_by_date = _load_cached_sg_stats()
 
     # date -> rolling metrics dict
     results = defaultdict(lambda: {
@@ -85,21 +159,23 @@ def fetch_activity_feed_stats():
     })
 
     # email -> best engagement across all campaign messages
-    sg_email_map = {}  # email -> {delivered, opened, clicked, bounced, opens_count, clicks_count}
+    sg_email_map = {}
+    total_feed_messages = 0
 
     for email_type, subject_frag in CAMPAIGN_SUBJECTS:
-        query = f'subject LIKE "%{subject_frag}%"'
+        query  = f'subject LIKE "%{subject_frag}%"'
         params = urllib.parse.urlencode({'limit': 1000, 'query': query})
-        url = f'https://api.sendgrid.com/v3/messages?{params}'
-        req = urllib.request.Request(url, headers={'Authorization': f'Bearer {key}'})
+        url    = f'https://api.sendgrid.com/v3/messages?{params}'
+        req    = urllib.request.Request(url, headers={'Authorization': f'Bearer {key}'})
         try:
-            r = urllib.request.urlopen(req, timeout=30)
+            r    = urllib.request.urlopen(req, timeout=60)
             data = json.loads(r.read())
         except Exception as e:
             print(f"  [warn] Activity Feed query failed ({email_type}): {e}")
             continue
 
         messages = data.get('messages', [])
+        total_feed_messages += len(messages)
         print(f"  Activity Feed ({email_type}): {len(messages)} messages found")
 
         for msg in messages:
@@ -141,8 +217,43 @@ def fetch_activity_feed_stats():
                     'sg_clicks_count': prev.get('sg_clicks_count', 0)     + clicks_count,
                 }
 
+    # ── Regression guard ──────────────────────────────────────────────────────
+    # If the Activity Feed returned far fewer delivered messages than we have
+    # cached, the API likely returned a partial/truncated response. In that case,
+    # fall back to the cached stats (keeping the historical sg_email_map from
+    # Category Stats / previous runs) rather than overwriting good data.
+    new_total_del  = sum(v['delivered'] for v in results.values())
+    prev_total_del = sum(v.get('delivered', 0) for v in cached_by_date.values())
+    if prev_total_del > 0 and new_total_del < prev_total_del * 0.6:
+        print(f"  [warn] Activity Feed returned only {new_total_del} delivered "
+              f"(was {prev_total_del}) — keeping cached stats to avoid regression.")
+        # Rebuild results from cache so downstream code stays the same
+        results = {d: dict(row) for d, row in cached_by_date.items()}
+        # Remove computed fields so they get recalculated below
+        for row in results.values():
+            for k in ('open_rate', 'click_rate', 'delivery_rate', 'bounce_rate', 'date'):
+                row.pop(k, None)
+
     if not results:
-        return [], False, {}
+        return [], False, sg_email_map
+
+    # Merge with Category Stats: for dates where Category Stats has data,
+    # override the Activity Feed's open/click/delivery numbers (Category Stats
+    # is more accurate; Activity Feed uses last_event_time which can shift dates).
+    cat_stats = fetch_category_stats(key)
+    for d, cs in cat_stats.items():
+        if d in results:
+            # Override engagement metrics with Category Stats numbers
+            results[d]['unique_opens']  = cs['unique_opens']
+            results[d]['opens']         = cs['opens']
+            results[d]['unique_clicks'] = cs['unique_clicks']
+            results[d]['clicks']        = cs['clicks']
+            results[d]['delivered']     = cs['delivered']
+            results[d]['bounces']       = cs['bounces']
+            results[d]['requests']      = max(results[d]['requests'], cs['requests'])
+        else:
+            # Date only in Category Stats (e.g. today's sends not yet in Activity Feed)
+            results[d] = cs
 
     stat_list = []
     for d in sorted(results.keys()):
@@ -150,19 +261,28 @@ def fetch_activity_feed_stats():
         row['date'] = d
         delivered = row['delivered']
         req       = row['requests'] or 1
+        # Cap rates at 100% — Category Stats can report unique_opens > delivered
+        # for very small batches due to Apple Mail Privacy Protection pre-fetching.
         stat_list.append({
             **row,
-            'open_rate':     round(row['unique_opens']  / delivered * 100, 1) if delivered else 0,
-            'click_rate':    round(row['unique_clicks'] / delivered * 100, 2) if delivered else 0,
+            'from_category_stats': d in cat_stats,
+            'open_rate':     min(round(row['unique_opens']  / delivered * 100, 1), 100.0) if delivered else 0,
+            'click_rate':    min(round(row['unique_clicks'] / delivered * 100, 2), 100.0) if delivered else 0,
             'delivery_rate': round(delivered / req * 100, 1),
             'bounce_rate':   round(row['bounces']       / req * 100, 2),
         })
 
-    return stat_list, True, sg_email_map
+    return stat_list, True, sg_email_map, cat_stats
 
 
-def compute_sg_summary(sg_stats):
-    """Roll up SendGrid stats into summary KPIs."""
+def compute_sg_summary(sg_stats, cat_stats_dates):
+    """
+    Roll up SendGrid stats into summary KPIs.
+    For open/click rates, prefer rows sourced from Category Stats (more reliable
+    than Activity Feed, which is biased by last_event_time sorting and can
+    over-count opens for small batches).  Falls back to all rows if no
+    Category Stats data is available.
+    """
     if not sg_stats:
         return {
             'has_campaign_data': False,
@@ -172,29 +292,46 @@ def compute_sg_summary(sg_stats):
             ),
         }
 
+    # Use Category Stats rows for engagement rates if we have enough data (>=25 delivered)
+    cat_rows = [d for d in sg_stats if d.get('from_category_stats')]
+    cat_del  = sum(d.get('delivered', 0) for d in cat_rows)
+    use_cat  = cat_del >= 25
+
+    rate_rows = cat_rows if use_cat else sg_stats
+    rate_note = ('Category Stats (activation-email + followup-email categories)'
+                 if use_cat else 'Activity Feed (subject match)')
+
     all_del  = sum(d.get('delivered',     0) for d in sg_stats)
-    all_open = sum(d.get('unique_opens',  0) for d in sg_stats)
-    all_clk  = sum(d.get('unique_clicks', 0) for d in sg_stats)
     all_bnc  = sum(d.get('bounces',       0) for d in sg_stats)
     all_req  = sum(d.get('requests',      0) for d in sg_stats) or all_del or 1
     all_uns  = sum(d.get('unsubscribes',  0) for d in sg_stats)
+    all_clk  = sum(d.get('unique_clicks', 0) for d in sg_stats)
+
+    # Open rate: use Category Stats rows only (avoids Activity Feed selection bias).
+    # Click rate: use all delivered — Activity Feed reliably captures click events
+    # (a click always updates last_event_time so it's never lost from the feed).
+    open_del  = sum(d.get('delivered',    0) for d in rate_rows) or 1
+    open_cnt  = sum(d.get('unique_opens', 0) for d in rate_rows)
 
     return {
         'has_campaign_data':  True,
-        'data_source':        'activity_feed',
+        'data_source':        'category_stats' if use_cat else 'activity_feed',
         'period_start':       sg_stats[0]['date'],
         'period_end':         sg_stats[-1]['date'],
         'total_delivered':    all_del,
-        'total_opens':        all_open,
+        'total_opens':        open_cnt,
         'total_clicks':       all_clk,
         'total_bounces':      all_bnc,
         'total_requests':     all_req,
         'total_unsubscribes': all_uns,
-        'avg_open_rate':      round(all_open / all_del * 100, 1) if all_del else 0,
-        'avg_click_rate':     round(all_clk  / all_del * 100, 2) if all_del else 0,
+        'avg_open_rate':      min(round(open_cnt / open_del * 100, 1), 100.0),
+        'avg_click_rate':     min(round(all_clk  / all_del * 100, 2), 100.0) if all_del else 0,
         'avg_delivery_rate':  round(all_del  / all_req * 100, 1) if all_req else 0,
         'avg_bounce_rate':    round(all_bnc  / all_req * 100, 2) if all_req else 0,
-        'data_note':          'Activation + follow-up emails from Activity Feed (last 30 days).',
+        'data_note': (
+            f'Open rate from {rate_note} ({open_del} delivered). '
+            f'Click rate across all {all_del} delivered campaign emails.'
+        ),
     }
 
 
@@ -401,6 +538,111 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
         'customers':    customers,
     }
 
+# ── Survey responses ──────────────────────────────────────────────────────────
+
+SURVEY_LOG      = Path.home() / '.claude/skills/logistimatics-survey/survey-log.csv'
+SHEETS_CONFIG   = Path(__file__).parent / 'sheets_config.json'
+SHEETS_CREDS    = Path.home() / '.google_workspace_mcp/credentials/logistimatics_sheets.json'
+
+REASON_LABELS = {
+    'serial':       "Can't find serial number",
+    'website':      'Activation website trouble',
+    'time':         "Haven't had time yet",
+    'subscription': 'Not ready for subscription',
+}
+
+
+def read_survey_responses():
+    """
+    Read survey responses from the 'Survey Responses' sheet in the outreach
+    spreadsheet.  Falls back to an empty list on any error.
+    Returns (responses_list, surveys_sent_count).
+    """
+    # Count surveys sent from local CSV log
+    surveys_sent = 0
+    try:
+        with open(SURVEY_LOG, newline='', encoding='utf-8') as f:
+            for row in csv.DictReader(f):
+                if row.get('status', '').strip() == 'sent':
+                    surveys_sent += 1
+    except FileNotFoundError:
+        pass
+
+    responses = []
+    try:
+        import gspread
+        from google.oauth2.credentials import Credentials
+        from google.auth.transport.requests import Request as GRequest
+
+        with open(SHEETS_CREDS) as f:
+            cdata = json.load(f)
+        creds = Credentials(
+            token=cdata.get('token'), refresh_token=cdata.get('refresh_token'),
+            token_uri=cdata.get('token_uri'), client_id=cdata.get('client_id'),
+            client_secret=cdata.get('client_secret'),
+        )
+        if not creds.valid and creds.refresh_token:
+            creds.refresh(GRequest())
+
+        with open(SHEETS_CONFIG) as f:
+            cfg = json.load(f)
+
+        gc = gspread.authorize(creds)
+        sh = gc.open_by_key(cfg['spreadsheet_id'])
+        ws = sh.worksheet(cfg.get('survey_sheet', 'Survey Responses'))
+        rows = ws.get_all_values()
+
+        if len(rows) > 1:
+            for row in rows[1:]:  # skip header
+                if len(row) < 4:
+                    continue
+                reason = row[3].strip() if len(row) > 3 else ''
+                responses.append({
+                    'date':         row[0].strip() if row else '',
+                    'email':        row[1].strip().lower() if len(row) > 1 else '',
+                    'name':         row[2].strip() if len(row) > 2 else '',
+                    'reason':       reason,
+                    'reason_label': REASON_LABELS.get(reason, reason),
+                })
+
+        print(f"  Survey responses: {len(responses)} (from {surveys_sent} sent)")
+    except FileNotFoundError:
+        print("  Survey log not found — no surveys sent yet.")
+    except Exception as e:
+        print(f"  [warn] Could not read survey responses: {e}")
+
+    return responses, surveys_sent
+
+
+def compute_survey_summary(responses, surveys_sent):
+    """Aggregate survey responses into counts by reason."""
+    from collections import Counter
+    if not responses and surveys_sent == 0:
+        return {'has_survey_data': False}
+
+    counts = Counter(r['reason'] for r in responses)
+    total  = len(responses)
+
+    breakdown = []
+    for reason in ['serial', 'website', 'time', 'subscription']:
+        n = counts.get(reason, 0)
+        breakdown.append({
+            'reason':      reason,
+            'label':       REASON_LABELS.get(reason, reason),
+            'count':       n,
+            'pct':         round(n / total * 100, 1) if total else 0,
+        })
+
+    return {
+        'has_survey_data':  True,
+        'surveys_sent':     surveys_sent,
+        'total_responses':  total,
+        'response_rate':    round(total / surveys_sent * 100, 1) if surveys_sent else 0,
+        'breakdown':        breakdown,
+        'recent':           sorted(responses, key=lambda r: r['date'], reverse=True)[:20],
+    }
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
@@ -418,8 +660,8 @@ def main():
     sheet_map = read_sheet()
 
     print("\n[3/5] Fetching SendGrid email stats (Activity Feed)...")
-    sg_stats, has_data, sg_email_map = fetch_activity_feed_stats()
-    sg_summary = compute_sg_summary(sg_stats)
+    sg_stats, has_data, sg_email_map, cat_stats_dates = fetch_activity_feed_stats()
+    sg_summary = compute_sg_summary(sg_stats, cat_stats_dates)
     if has_data:
         print(f"  Total campaign messages: {sum(d.get('requests',0) for d in sg_stats)}")
         print(f"  Avg open rate:           {sg_summary.get('avg_open_rate',0)}%")
@@ -441,6 +683,11 @@ def main():
 
     data['sendgrid_stats']   = sg_stats
     data['sendgrid_summary'] = sg_summary
+
+    print("\n[4b/5] Reading survey responses...")
+    survey_responses, surveys_sent = read_survey_responses()
+    data['survey_summary']  = compute_survey_summary(survey_responses, surveys_sent)
+    data['survey_responses'] = survey_responses
 
     print(f"\n[5/5] Writing -> {OUTPUT_PATH}")
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)

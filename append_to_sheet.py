@@ -4,6 +4,8 @@ Appends a single row to the Logistimatics Outreach Logs spreadsheet.
 Usage:
   python append_to_sheet.py activation "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
   python append_to_sheet.py followup   "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
+  python append_to_sheet.py followup2  "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
+  python append_to_sheet.py survey     "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
 """
 
 import json
@@ -46,7 +48,14 @@ if __name__ == '__main__':
         with open(CONFIG_PATH) as f:
             config = json.load(f)
 
-        sheet_name = config['activation_sheet'] if log_type == 'activation' else config['followup_sheet']
+        if log_type == 'activation':
+            sheet_name = config['activation_sheet']
+        elif log_type == 'followup2':
+            sheet_name = config['followup2_sheet']
+        elif log_type == 'survey':
+            sheet_name = config['survey_sheet']
+        else:
+            sheet_name = config['followup_sheet']
 
         creds = get_credentials()
         gc    = gspread.authorize(creds)
