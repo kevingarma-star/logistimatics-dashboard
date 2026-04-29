@@ -146,11 +146,6 @@ function App() {
 
   return (
     <>
-      {/* ── Watermark ── */}
-      <div className="watermark">
-        <img src={`${import.meta.env.BASE_URL}lgmx-bolt.png`} alt="" />
-        <span>Logistimatics</span>
-      </div>
       {/* ── Header ── */}
       <header className="header">
         <div className="header-brand">
