@@ -5,7 +5,7 @@ const AI_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765'
 
 const SUGGESTIONS = [
   'What is the overall activation rate?',
-  'Which cohort performed best?',
+  'Which batch performed best?',
   'How are follow-up emails performing?',
   'What do survey responses tell us?',
   'How many customers are still pending?',
@@ -170,7 +170,7 @@ export default function AskAI({ rawData, sidebar = false }) {
               fontSize: sidebar ? 12 : 13, color: '#8892a4',
               marginBottom: sidebar ? 10 : 14, lineHeight: 1.6,
             }}>
-              Ask anything about your campaign — activation rates, cohort performance,
+              Ask anything about your campaign — activation rates, batch performance,
               email engagement, survey insights, and more.
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
