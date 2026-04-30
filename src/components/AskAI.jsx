@@ -85,7 +85,7 @@ function TypingDots() {
   )
 }
 
-export default function AskAI({ rawData }) {
+export default function AskAI({ rawData, sidebar = false }) {
   const [messages, setMessages]   = useState([])
   const [input, setInput]         = useState('')
   const [loading, setLoading]     = useState(false)
@@ -156,18 +156,21 @@ export default function AskAI({ rawData }) {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        minHeight: isEmpty ? 'auto' : 360,
+        flex: sidebar ? 1 : 'none',
+        minHeight: sidebar ? 0 : (isEmpty ? 'auto' : 360),
+        overflow: sidebar ? 'hidden' : 'visible',
       }}>
         {/* Empty state / suggestions */}
         {isEmpty && (
-          <div style={{ marginBottom: 20 }}>
+          <div style={{ marginBottom: sidebar ? 12 : 20 }}>
             <div style={{
-              fontSize: 13, color: '#8892a4', marginBottom: 14, lineHeight: 1.6,
+              fontSize: sidebar ? 12 : 13, color: '#8892a4',
+              marginBottom: sidebar ? 10 : 14, lineHeight: 1.6,
             }}>
               Ask anything about your campaign — activation rates, cohort performance,
               email engagement, survey insights, and more.
             </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
               {SUGGESTIONS.map(s => (
                 <button
                   key={s}
@@ -205,7 +208,8 @@ export default function AskAI({ rawData }) {
           <div style={{
             flex: 1,
             overflowY: 'auto',
-            maxHeight: 400,
+            maxHeight: sidebar ? 'none' : 400,
+            minHeight: sidebar ? 0 : 'auto',
             padding: '4px 2px 4px 0',
             marginBottom: 14,
             scrollbarWidth: 'thin',

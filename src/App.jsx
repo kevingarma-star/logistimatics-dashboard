@@ -146,7 +146,7 @@ function App() {
 
   return (
     <>
-      {/* ── Header ── */}
+      {/* ── Header — full width ── */}
       <header className="header">
         <div className="header-brand">
           <img className="header-logo" src={`${import.meta.env.BASE_URL}lgmx-bolt.png`} alt="Logistimatics" />
@@ -194,86 +194,143 @@ function App() {
         </div>
       </header>
 
-      {/* ── Filter badge ── */}
-      {isFiltered && (
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', gap: 8,
-          background: 'rgba(0,212,255,0.07)',
-          border: '1px solid rgba(0,212,255,0.2)',
-          borderRadius: 20, padding: '4px 12px', marginBottom: 20,
-          fontSize: 12, color: '#00d4ff',
+      {/* ── Two-column body: main content + sticky AI sidebar ── */}
+      <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+
+        {/* ── Main content column ── */}
+        <div style={{ flex: 1, minWidth: 0 }}>
+
+          {/* Filter badge */}
+          {isFiltered && (
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              background: 'rgba(0,212,255,0.07)',
+              border: '1px solid rgba(0,212,255,0.2)',
+              borderRadius: 20, padding: '4px 12px', marginBottom: 20,
+              fontSize: 12, color: '#00d4ff',
+            }}>
+              <span>Filtered:</span>
+              <strong style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11 }}>
+                {rangeStart} → {rangeEnd}
+              </strong>
+              <span style={{ color: '#4a5568', margin: '0 2px' }}>·</span>
+              <span>{data.cohorts.length} batch{data.cohorts.length !== 1 ? 'es' : ''}</span>
+              <button
+                onClick={() => { setStart(minDate); setEnd(maxDate) }}
+                style={{
+                  background: 'rgba(255,71,87,0.12)', border: '1px solid rgba(255,71,87,0.25)',
+                  borderRadius: 4, padding: '1px 8px', color: '#ff4757',
+                  fontSize: 10, cursor: 'pointer', fontFamily: 'Inter, sans-serif', marginLeft: 4,
+                }}
+              >
+                ✕ clear
+              </button>
+            </div>
+          )}
+
+          {/* Campaign KPIs */}
+          <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10 }}>
+            Campaign Performance
+          </div>
+          <div className="kpi-grid">
+            <KPICard label="Total Outreached" value={s.total_outreached} icon="📡" accent="cyan"   sub="Unique customers contacted" onClick={drillAll} />
+            <KPICard label="Activated"        value={s.activated}        icon="✅" accent="green"  sub={`${s.activation_rate}% conversion rate`} trend={`${s.activation_rate}%`} trendColor="green" onClick={() => drillStatus('Activated')} />
+            <KPICard label="Follow-ups Sent"  value={s.followup_sent}    icon="📩" accent="purple" sub={`${s.followup_conversion_rate}% of follow-ups converted`} onClick={drillFollowup} />
+            <KPICard label="Pending"          value={s.pending}          icon="⏳" accent="amber"  sub="Awaiting activation" onClick={() => drillStatus('Pending')} />
+            <KPICard label="Returned"         value={s.returned}         icon="↩"  accent="red"    sub="Device returned" onClick={() => drillStatus('Returned')} />
+          </div>
+
+          {/* Email Health KPIs */}
+          {sg.avg_open_rate !== undefined && (
+            <>
+              <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10, marginTop: 24 }}>
+                Email Health · Campaign Emails
+              </div>
+              <div className="kpi-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+                <KPICard label="Avg Open Rate"     value={sg.avg_open_rate}     suffix="%" icon="👁"  accent="cyan"   sub="Unique opens / delivered"   onClick={() => drillSg('Opened Emails',    c => c.sg_opened === true,    'Customers who opened at least one campaign email')} />
+                <KPICard label="Avg Delivery Rate" value={sg.avg_delivery_rate} suffix="%" icon="📬" accent="green"  sub="Delivered / total requests" onClick={() => drillSg('Delivered Emails', c => c.sg_delivered === true, 'Customers whose email was successfully delivered')} />
+                <KPICard label="Avg Click Rate"    value={sg.avg_click_rate}    suffix="%" icon="🖱"  accent="purple" sub="Unique clicks / delivered"   onClick={() => drillSg('Clicked Emails',   c => c.sg_clicked === true,   'Customers who clicked a link in a campaign email')} />
+                <KPICard label="Avg Bounce Rate"   value={sg.avg_bounce_rate}   suffix="%" icon="⚠"  accent="red"    sub="Bounces / total requests"   onClick={() => drillSg('Bounced Emails',   c => c.sg_bounced === true,   'Customers whose email bounced or was blocked')} />
+              </div>
+            </>
+          )}
+
+          {/* Timeline + Donut */}
+          <div style={{ marginTop: 24 }} />
+          <div className="charts-row charts-row-2-1">
+            <div className="panel">
+              <div className="panel-title">Campaign Timeline</div>
+              <div className="panel-sub">Emails sent per date</div>
+              <TimelineChart data={data.timeline} />
+            </div>
+            <div className="panel">
+              <div className="panel-title">Status Breakdown</div>
+              <div className="panel-sub">Selected period</div>
+              <StatusDonut summary={s} onDrillDown={drillStatus} />
+            </div>
+          </div>
+
+          {/* SendGrid engagement */}
+          {rawData?.sendgrid_stats?.length > 0 && (
+            <div className="panel" style={{ marginBottom: 20 }}>
+              <div className="panel-title">Email Engagement Trends</div>
+              <div className="panel-sub">Open rate & delivery rate · Activation + follow-up emails · Activity Feed</div>
+              <SendGridPanel sgStats={data.sendgrid_stats} sgSummary={sg} />
+            </div>
+          )}
+
+          {/* Funnel + Cohort Table */}
+          <div className="charts-row charts-row-1-2">
+            <div className="panel">
+              <div className="panel-title">Activation Funnel</div>
+              <div className="panel-sub">Outreach → Follow-up → Conversion</div>
+              <FunnelViz funnel={data.funnel} onDrillDown={drillFunnel} />
+            </div>
+            <div className="panel">
+              <div className="panel-title">Cohort Performance</div>
+              <div className="panel-sub">Breakdown by email batch date</div>
+              <CohortTable cohorts={data.cohorts} onDrillDown={drillCohort} />
+            </div>
+          </div>
+
+          {/* Survey Insights */}
+          <div className="panel" style={{ marginTop: 20, marginBottom: 0 }}>
+            <div className="panel-title">Survey Insights</div>
+            <div className="panel-sub">Why aren't customers activating? · ≥30 days post-ship, still pending</div>
+            <SurveyPanel surveySummary={surveySummary} surveyResponses={surveyResponses} />
+          </div>
+
+        </div>
+        {/* /Main content column */}
+
+        {/* ── AI Sidebar — sticky, fills viewport height ── */}
+        <aside style={{
+          width: 340,
+          flexShrink: 0,
+          position: 'sticky',
+          top: 24,
+          height: 'calc(100vh - 48px)',
+          display: 'flex',
+          flexDirection: 'column',
         }}>
-          <span>Filtered:</span>
-          <strong style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11 }}>
-            {rangeStart} → {rangeEnd}
-          </strong>
-          <span style={{ color: '#4a5568', margin: '0 2px' }}>·</span>
-          <span>{data.cohorts.length} batch{data.cohorts.length !== 1 ? 'es' : ''}</span>
-          <button
-            onClick={() => { setStart(minDate); setEnd(maxDate) }}
-            style={{
-              background: 'rgba(255,71,87,0.12)', border: '1px solid rgba(255,71,87,0.25)',
-              borderRadius: 4, padding: '1px 8px', color: '#ff4757',
-              fontSize: 10, cursor: 'pointer', fontFamily: 'Inter, sans-serif', marginLeft: 4,
-            }}
-          >
-            ✕ clear
-          </button>
-        </div>
-      )}
-
-      {/* ── Campaign KPIs ── */}
-      <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10 }}>
-        Campaign Performance
-      </div>
-      <div className="kpi-grid">
-        <KPICard label="Total Outreached" value={s.total_outreached} icon="📡" accent="cyan"   sub="Unique customers contacted" onClick={drillAll} />
-        <KPICard label="Activated"        value={s.activated}        icon="✅" accent="green"  sub={`${s.activation_rate}% conversion rate`} trend={`${s.activation_rate}%`} trendColor="green" onClick={() => drillStatus('Activated')} />
-        <KPICard label="Follow-ups Sent"  value={s.followup_sent}    icon="📩" accent="purple" sub={`${s.followup_conversion_rate}% of follow-ups converted`} onClick={drillFollowup} />
-        <KPICard label="Pending"          value={s.pending}          icon="⏳" accent="amber"  sub="Awaiting activation" onClick={() => drillStatus('Pending')} />
-        <KPICard label="Returned"         value={s.returned}         icon="↩"  accent="red"    sub="Device returned" onClick={() => drillStatus('Returned')} />
-      </div>
-
-      {/* ── Email Health KPIs ── */}
-      {sg.avg_open_rate !== undefined && (
-        <>
-          <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10, marginTop: 24 }}>
-            Email Health · Campaign Emails
+          <div className="panel" style={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+            borderColor: 'rgba(139,92,246,0.2)',
+          }}>
+            <div className="panel-title" style={{ flexShrink: 0 }}>✦ Ask AI</div>
+            <div className="panel-sub" style={{ flexShrink: 0 }}>Analyze your campaign · powered by Claude</div>
+            <AskAI rawData={rawData} sidebar />
           </div>
-          <div className="kpi-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-            <KPICard label="Avg Open Rate"     value={sg.avg_open_rate}     suffix="%" icon="👁"  accent="cyan"   sub="Unique opens / delivered"   onClick={() => drillSg('Opened Emails',    c => c.sg_opened === true,    'Customers who opened at least one campaign email')} />
-            <KPICard label="Avg Delivery Rate" value={sg.avg_delivery_rate} suffix="%" icon="📬" accent="green"  sub="Delivered / total requests" onClick={() => drillSg('Delivered Emails', c => c.sg_delivered === true, 'Customers whose email was successfully delivered')} />
-            <KPICard label="Avg Click Rate"    value={sg.avg_click_rate}    suffix="%" icon="🖱"  accent="purple" sub="Unique clicks / delivered"   onClick={() => drillSg('Clicked Emails',   c => c.sg_clicked === true,   'Customers who clicked a link in a campaign email')} />
-            <KPICard label="Avg Bounce Rate"   value={sg.avg_bounce_rate}   suffix="%" icon="⚠"  accent="red"    sub="Bounces / total requests"   onClick={() => drillSg('Bounced Emails',   c => c.sg_bounced === true,   'Customers whose email bounced or was blocked')} />
-          </div>
-        </>
-      )}
+        </aside>
+        {/* /AI Sidebar */}
 
-      {/* ── Timeline + Donut ── */}
-      <div style={{ marginTop: 24 }} />
-      <div className="charts-row charts-row-2-1">
-        <div className="panel">
-          <div className="panel-title">Campaign Timeline</div>
-          <div className="panel-sub">Emails sent per date</div>
-          <TimelineChart data={data.timeline} />
-        </div>
-        <div className="panel">
-          <div className="panel-title">Status Breakdown</div>
-          <div className="panel-sub">Selected period</div>
-          <StatusDonut summary={s} onDrillDown={drillStatus} />
-        </div>
       </div>
+      {/* /Two-column body */}
 
-      {/* ── SendGrid engagement ── */}
-      {rawData?.sendgrid_stats?.length > 0 && (
-        <div className="panel" style={{ marginBottom: 20 }}>
-          <div className="panel-title">Email Engagement Trends</div>
-          <div className="panel-sub">Open rate & delivery rate · Activation + follow-up emails · Activity Feed</div>
-          <SendGridPanel sgStats={data.sendgrid_stats} sgSummary={sg} />
-        </div>
-      )}
-
-      {/* ── Drill-down modal ── */}
+      {/* ── Drill-down modal — rendered outside layout so it overlays everything ── */}
       {drill && (
         <DrillDownModal
           title={drill.title}
@@ -283,34 +340,6 @@ function App() {
           onClose={() => setDrill(null)}
         />
       )}
-
-      {/* ── Funnel + Cohort Table ── */}
-      <div className="charts-row charts-row-1-2">
-        <div className="panel">
-          <div className="panel-title">Activation Funnel</div>
-          <div className="panel-sub">Outreach → Follow-up → Conversion</div>
-          <FunnelViz funnel={data.funnel} onDrillDown={drillFunnel} />
-        </div>
-        <div className="panel">
-          <div className="panel-title">Cohort Performance</div>
-          <div className="panel-sub">Breakdown by email batch date</div>
-          <CohortTable cohorts={data.cohorts} onDrillDown={drillCohort} />
-        </div>
-      </div>
-
-      {/* ── Survey Insights ── */}
-      <div className="panel" style={{ marginTop: 20 }}>
-        <div className="panel-title">Survey Insights</div>
-        <div className="panel-sub">Why aren't customers activating? · ≥30 days post-ship, still pending</div>
-        <SurveyPanel surveySummary={surveySummary} surveyResponses={surveyResponses} />
-      </div>
-
-      {/* ── AI Ask Bar ── */}
-      <div className="panel" style={{ marginTop: 20 }}>
-        <div className="panel-title">✦ Ask AI</div>
-        <div className="panel-sub">Analyze your campaign data · powered by Claude</div>
-        <AskAI rawData={rawData} />
-      </div>
     </>
   )
 }
