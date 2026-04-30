@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-04-30T03:47:16",
+  "generated_at": "2026-04-30T04:01:03",
   "summary": {
     "total_outreached": 409,
-    "activated": 224,
-    "pending": 182,
+    "activated": 226,
+    "pending": 180,
     "returned": 3,
-    "activation_rate": 54.8,
+    "activation_rate": 55.3,
     "followup_sent": 216,
-    "followup_activated": 41,
-    "followup_conversion_rate": 19.0
+    "followup_activated": 42,
+    "followup_conversion_rate": 19.4
   },
   "timeline": [
     {
@@ -179,13 +179,13 @@
       "batch_date": "2026-04-13",
       "label": "Apr 13",
       "total": 102,
-      "activated": 77,
-      "pending": 23,
+      "activated": 78,
+      "pending": 22,
       "returned": 2,
       "followup_sent": 23,
-      "followup_activated": 0,
-      "activation_rate": 75.5,
-      "followup_conv_rate": 0.0
+      "followup_activated": 1,
+      "activation_rate": 76.5,
+      "followup_conv_rate": 4.3
     },
     {
       "batch_date": "2026-04-14",
@@ -299,12 +299,12 @@
       "batch_date": "2026-04-28",
       "label": "Apr 28",
       "total": 4,
-      "activated": 1,
-      "pending": 3,
+      "activated": 2,
+      "pending": 2,
       "returned": 0,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 25.0,
+      "activation_rate": 50.0,
       "followup_conv_rate": 0
     },
     {
@@ -333,8 +333,8 @@
     },
     {
       "stage": "Activated",
-      "value": 224,
-      "pct": 54.8
+      "value": 226,
+      "pct": 55.3
     }
   ],
   "customers": [
@@ -4290,7 +4290,7 @@
       "days_since": 17,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "status": "Pending",
+      "status": "Activated",
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -6435,7 +6435,7 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
+      "status": "Activated",
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
