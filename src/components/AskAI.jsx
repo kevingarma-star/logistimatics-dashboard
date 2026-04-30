@@ -1,5 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 
+// Cloudflare Worker URL in production; localhost proxy for local dev
+const AI_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/ask'
+
 const SUGGESTIONS = [
   'What is the overall activation rate?',
   'Which cohort performed best?',
@@ -110,7 +113,7 @@ export default function AskAI({ rawData, sidebar = false }) {
     setLoading(true)
 
     try {
-      const res = await fetch('http://localhost:8765/ask', {
+      const res = await fetch(AI_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: nextMessages, data: rawData ?? {} }),
