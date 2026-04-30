@@ -121,7 +121,7 @@ function App() {
     all
   )
   const drillCohort = batchDate => openDrill(
-    `Cohort — ${batchDate}`,
+    `Batch — ${batchDate}`,
     `Customers whose activation email was sent on ${batchDate}`,
     all.filter(c => c.sent_date === batchDate)
   )
@@ -287,7 +287,7 @@ function App() {
               <FunnelViz funnel={data.funnel} onDrillDown={drillFunnel} />
             </div>
             <div className="panel">
-              <div className="panel-title">Cohort Performance</div>
+              <div className="panel-title">Batch Performance</div>
               <div className="panel-sub">Breakdown by email batch date</div>
               <CohortTable cohorts={data.cohorts} onDrillDown={drillCohort} />
             </div>

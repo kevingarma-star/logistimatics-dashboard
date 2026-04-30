@@ -1,7 +1,7 @@
 export default function CohortTable({ cohorts, onDrillDown }) {
   if (!cohorts?.length) return (
     <div style={{ color: '#4a5568', fontSize: 13, paddingTop: 20, textAlign: 'center' }}>
-      No cohort data
+      No batch data
     </div>
   )
 
