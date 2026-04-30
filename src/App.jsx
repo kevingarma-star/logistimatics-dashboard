@@ -8,6 +8,7 @@ import SendGridPanel from './components/SendGridPanel'
 import DateRangePicker from './components/DateRangePicker'
 import DrillDownModal from './components/DrillDownModal'
 import SurveyPanel from './components/SurveyPanel'
+import AskAI from './components/AskAI'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -302,6 +303,13 @@ function App() {
         <div className="panel-title">Survey Insights</div>
         <div className="panel-sub">Why aren't customers activating? · ≥30 days post-ship, still pending</div>
         <SurveyPanel surveySummary={surveySummary} surveyResponses={surveyResponses} />
+      </div>
+
+      {/* ── AI Ask Bar ── */}
+      <div className="panel" style={{ marginTop: 20 }}>
+        <div className="panel-title">✦ Ask AI</div>
+        <div className="panel-sub">Analyze your campaign data · powered by Claude</div>
+        <AskAI rawData={rawData} />
       </div>
     </>
   )
