@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T07:00:22",
+  "generated_at": "2026-05-01T07:47:12",
   "summary": {
     "total_outreached": 423,
     "activated": 229,
@@ -443,10 +443,10 @@
       "fu_date": "2026-04-28",
       "status": "Activated",
       "sg_delivered": true,
-      "sg_opened": false,
+      "sg_opened": true,
       "sg_clicked": false,
       "sg_bounced": false,
-      "sg_opens_count": 0,
+      "sg_opens_count": 1,
       "sg_clicks_count": 0
     },
     {
@@ -1927,11 +1927,11 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": true,
-      "sg_clicked": false,
-      "sg_bounced": false,
-      "sg_opens_count": 1,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
     {
@@ -1942,10 +1942,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -2242,11 +2242,11 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": true,
-      "sg_clicked": false,
-      "sg_bounced": false,
-      "sg_opens_count": 1,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
     {
@@ -2302,11 +2302,11 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": true,
-      "sg_clicked": false,
-      "sg_bounced": false,
-      "sg_opens_count": 1,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
     {
@@ -2317,10 +2317,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -2332,10 +2332,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -2347,10 +2347,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -2362,11 +2362,11 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": true,
-      "sg_clicked": false,
-      "sg_bounced": false,
-      "sg_opens_count": 3,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
     {
@@ -2377,10 +2377,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -2392,10 +2392,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": false,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -2407,10 +2407,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -2422,10 +2422,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -2437,11 +2437,11 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": true,
-      "sg_clicked": false,
-      "sg_bounced": false,
-      "sg_opens_count": 1,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
     {
@@ -2467,10 +2467,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -2482,10 +2482,10 @@
       "fu_sent": true,
       "fu_date": "2026-04-24",
       "status": "Pending",
-      "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
-      "sg_bounced": false,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
       "sg_opens_count": 0,
       "sg_clicks_count": 0
     },
@@ -6722,60 +6722,6 @@
   ],
   "sendgrid_stats": [
     {
-      "requests": 11,
-      "delivered": 10,
-      "bounces": 0,
-      "unsubscribes": 0,
-      "unique_opens": 1,
-      "opens": 1,
-      "unique_clicks": 0,
-      "clicks": 0,
-      "activation": 0,
-      "followup": 11,
-      "date": "2026-04-24",
-      "from_category_stats": false,
-      "open_rate": 10.0,
-      "click_rate": 0.0,
-      "delivery_rate": 90.9,
-      "bounce_rate": 0.0
-    },
-    {
-      "requests": 1,
-      "delivered": 1,
-      "bounces": 0,
-      "unsubscribes": 0,
-      "unique_opens": 1,
-      "opens": 1,
-      "unique_clicks": 0,
-      "clicks": 0,
-      "activation": 0,
-      "followup": 1,
-      "date": "2026-04-25",
-      "from_category_stats": false,
-      "open_rate": 100.0,
-      "click_rate": 0.0,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
-    },
-    {
-      "requests": 1,
-      "delivered": 1,
-      "bounces": 0,
-      "unsubscribes": 0,
-      "unique_opens": 1,
-      "opens": 1,
-      "unique_clicks": 0,
-      "clicks": 0,
-      "activation": 0,
-      "followup": 1,
-      "date": "2026-04-26",
-      "from_category_stats": false,
-      "open_rate": 100.0,
-      "click_rate": 0.0,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
-    },
-    {
       "requests": 74,
       "delivered": 73,
       "bounces": 0,
@@ -6794,7 +6740,7 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 31,
+      "requests": 30,
       "delivered": 27,
       "bounces": 0,
       "unsubscribes": 0,
@@ -6803,16 +6749,16 @@
       "unique_clicks": 2,
       "clicks": 6,
       "activation": 6,
-      "followup": 25,
+      "followup": 24,
       "date": "2026-04-28",
       "from_category_stats": true,
       "open_rate": 40.7,
       "click_rate": 7.41,
-      "delivery_rate": 87.1,
+      "delivery_rate": 90.0,
       "bounce_rate": 0.0
     },
     {
-      "requests": 8,
+      "requests": 7,
       "delivered": 1,
       "bounces": 0,
       "unsubscribes": 0,
@@ -6821,16 +6767,16 @@
       "unique_clicks": 0,
       "clicks": 0,
       "activation": 1,
-      "followup": 7,
+      "followup": 6,
       "date": "2026-04-29",
       "from_category_stats": true,
       "open_rate": 100.0,
       "click_rate": 0.0,
-      "delivery_rate": 12.5,
+      "delivery_rate": 14.3,
       "bounce_rate": 0.0
     },
     {
-      "requests": 12,
+      "requests": 11,
       "delivered": 10,
       "bounces": 0,
       "unsubscribes": 0,
@@ -6839,54 +6785,54 @@
       "unique_clicks": 0,
       "clicks": 0,
       "activation": 9,
-      "followup": 3,
+      "followup": 2,
       "date": "2026-04-30",
       "from_category_stats": true,
       "open_rate": 70.0,
       "click_rate": 0.0,
-      "delivery_rate": 83.3,
+      "delivery_rate": 90.9,
       "bounce_rate": 0.0
     },
     {
-      "requests": 6,
+      "requests": 7,
       "delivered": 6,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 1,
-      "opens": 1,
+      "unique_opens": 2,
+      "opens": 2,
       "unique_clicks": 0,
       "clicks": 0,
       "activation": 5,
-      "followup": 1,
+      "followup": 2,
       "date": "2026-05-01",
       "from_category_stats": true,
-      "open_rate": 16.7,
+      "open_rate": 33.3,
       "click_rate": 0.0,
-      "delivery_rate": 100.0,
+      "delivery_rate": 85.7,
       "bounce_rate": 0.0
     }
   ],
   "sendgrid_summary": {
     "has_campaign_data": true,
     "data_source": "category_stats",
-    "period_start": "2026-04-24",
+    "period_start": "2026-04-27",
     "period_end": "2026-05-01",
-    "total_delivered": 129,
-    "total_opens": 43,
+    "total_delivered": 117,
+    "total_opens": 44,
     "total_clicks": 2,
     "total_bounces": 0,
-    "total_requests": 144,
+    "total_requests": 129,
     "total_unsubscribes": 0,
-    "avg_open_rate": 36.8,
-    "avg_click_rate": 1.55,
-    "avg_delivery_rate": 89.6,
+    "avg_open_rate": 37.6,
+    "avg_click_rate": 1.71,
+    "avg_delivery_rate": 90.7,
     "avg_bounce_rate": 0.0,
-    "data_note": "Open rate from Category Stats (activation-email + followup-email categories) (117 delivered). Click rate across all 129 delivered campaign emails."
+    "data_note": "Open rate from Category Stats (activation-email + followup-email categories) (117 delivered). Click rate across all 117 delivered campaign emails."
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 40,
-    "total_responses": 40,
+    "surveys_sent": 97,
+    "total_responses": 97,
     "response_rate": 100.0,
     "breakdown": [
       {
@@ -7337,6 +7283,405 @@
       "name": "William",
       "reason": "265285",
       "reason_label": "265285"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "therhianalise@yahoo.com",
+      "name": "ELSIE",
+      "reason": "264887",
+      "reason_label": "264887"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "flores.controls@gmail.com",
+      "name": "Jorge",
+      "reason": "264868",
+      "reason_label": "264868"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "fmsm7975@icloud.com",
+      "name": "Faith",
+      "reason": "264877",
+      "reason_label": "264877"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "kh6162@yahoo.com",
+      "name": "Khaled",
+      "reason": "264872",
+      "reason_label": "264872"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "wdestimating@yahoo.com",
+      "name": "NELSON",
+      "reason": "263242, 264955",
+      "reason_label": "263242, 264955"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "jhall@halltruckinginc.com",
+      "name": "Jeff",
+      "reason": "264742, 264734",
+      "reason_label": "264742, 264734"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "charaftake77@gmail.com",
+      "name": "Charaf",
+      "reason": "264879",
+      "reason_label": "264879"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "juangiron9217@gmail.com",
+      "name": "Juan",
+      "reason": "264580",
+      "reason_label": "264580"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "theblessingcenter@yahoo.com",
+      "name": "Joshua",
+      "reason": "264433, 264434, 264448",
+      "reason_label": "264433, 264434, 264448"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "soslickrickeybobby@gmail.com",
+      "name": "rickey",
+      "reason": "264578",
+      "reason_label": "264578"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "youngbritney42@yahoo.com",
+      "name": "Britney",
+      "reason": "264706",
+      "reason_label": "264706"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "yajnunez@gmail.com",
+      "name": "Jonathan",
+      "reason": "265549",
+      "reason_label": "265549"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "burtman1157@yahoo.com",
+      "name": "Burton",
+      "reason": "265945",
+      "reason_label": "265945"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "tracy02025@gmail.com",
+      "name": "Tracy",
+      "reason": "273943, 273942",
+      "reason_label": "273943, 273942"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "amitaprasad@rocketmail.com",
+      "name": "Amit",
+      "reason": "265554",
+      "reason_label": "265554"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "iwillson032@gmail.com",
+      "name": "Albert",
+      "reason": "265952",
+      "reason_label": "265952"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "chloe517@hotmail.com",
+      "name": "MICHAEL",
+      "reason": "273931",
+      "reason_label": "273931"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "candiedpm2003@yahoo.com",
+      "name": "candace",
+      "reason": "265292",
+      "reason_label": "265292"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "atkinssean1372@gmail.com",
+      "name": "Sean",
+      "reason": "265363",
+      "reason_label": "265363"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "sherrymorris745@yahoo.com",
+      "name": "Sherry",
+      "reason": "265376",
+      "reason_label": "265376"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "ravenelltony@yahoo.com",
+      "name": "Alton",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "mike@eliteone.org",
+      "name": "Mihail",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "rseitz@calex.net",
+      "name": "Ryan",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "oneemma@gmail.com",
+      "name": "Emma",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "alfuqua94@aol.com",
+      "name": "Alex",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "rdavis8101@gmail.com",
+      "name": "Robert",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "lucaslindell@gmail.com",
+      "name": "Lucas",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "tobiasrosenqvist81@gmail.com",
+      "name": "Tobias",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "lorenzobonnici93@gmail.com",
+      "name": "Lorenzo",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "ted@pricetransportinc.com",
+      "name": "ted",
+      "reason": "",
+      "reason_label": ""
+    },
+    {
+      "date": "2026-05-01",
+      "email": "teehry80@gmail.com",
+      "name": "THERESA",
+      "reason": "265583",
+      "reason_label": "265583"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "loupignataro419@gmail.com",
+      "name": "Louis",
+      "reason": "265792",
+      "reason_label": "265792"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "phillipcrowson@gmail.com",
+      "name": "Phillip",
+      "reason": "265812",
+      "reason_label": "265812"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "dmarvin@whitmar.com",
+      "name": "Destiny",
+      "reason": "265344",
+      "reason_label": "265344"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "williefarris@yahoo.com",
+      "name": "Willie",
+      "reason": "265387",
+      "reason_label": "265387"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "tpstanley@gmail.com",
+      "name": "Tali",
+      "reason": "265799",
+      "reason_label": "265799"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "msmills32@aol.com",
+      "name": "Michael",
+      "reason": "265322",
+      "reason_label": "265322"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "javizep321@gmail.com",
+      "name": "Javier",
+      "reason": "274336",
+      "reason_label": "274336"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "emrsnagrre@gmail.com",
+      "name": "Emerson",
+      "reason": "265420",
+      "reason_label": "265420"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "quicksix@aol.com",
+      "name": "Reginald",
+      "reason": "265389",
+      "reason_label": "265389"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "j@weststeelcorp.com",
+      "name": "West",
+      "reason": "265418, 265319",
+      "reason_label": "265418, 265319"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "mario@acmod.com",
+      "name": "Mario",
+      "reason": "265310, 265788",
+      "reason_label": "265310, 265788"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "scottdutton75@icloud.com",
+      "name": "Scott",
+      "reason": "265399",
+      "reason_label": "265399"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "rdjr0722@gmail.com",
+      "name": "Robert",
+      "reason": "265397",
+      "reason_label": "265397"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "warren.brown0369@gmail.com",
+      "name": "Warren",
+      "reason": "265398",
+      "reason_label": "265398"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "doeperro@yahoo.com",
+      "name": "Doretta",
+      "reason": "265415",
+      "reason_label": "265415"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "tashaaa_xs@yahoo.com",
+      "name": "Erik",
+      "reason": "265158",
+      "reason_label": "265158"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "foosball20252025@gmail.com",
+      "name": "Becky",
+      "reason": "265393",
+      "reason_label": "265393"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "rsb_33@icloud.com",
+      "name": "Rose",
+      "reason": "265388",
+      "reason_label": "265388"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "718bobby@gmail.com",
+      "name": "Robert",
+      "reason": "265395",
+      "reason_label": "265395"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "aiellostoneworks@gmail.com",
+      "name": "Stephen",
+      "reason": "265403",
+      "reason_label": "265403"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "j.donaldson@outlook.com",
+      "name": "Jeffrey",
+      "reason": "265318",
+      "reason_label": "265318"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "roli_carreno@yahoo.com",
+      "name": "Roli",
+      "reason": "265797",
+      "reason_label": "265797"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "wfrichardsoncpa@gmail.com",
+      "name": "Wayne",
+      "reason": "265176",
+      "reason_label": "265176"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "dj.james0071980@gmail.com",
+      "name": "rico",
+      "reason": "265183",
+      "reason_label": "265183"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "mikewillfixit101@gmail.com",
+      "name": "Michael",
+      "reason": "265167",
+      "reason_label": "265167"
+    },
+    {
+      "date": "2026-05-01",
+      "email": "dans1nfool@aol.com",
+      "name": "Xavier",
+      "reason": "265871",
+      "reason_label": "265871"
     }
   ]
 }
