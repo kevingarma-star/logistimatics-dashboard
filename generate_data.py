@@ -592,14 +592,20 @@ def read_survey_responses():
         ws = sh.worksheet(cfg.get('survey_sheet', 'Survey Responses'))
         rows = ws.get_all_values()
 
+        seen_emails = set()
         if len(rows) > 1:
             for row in rows[1:]:  # skip header
                 if len(row) < 4:
                     continue
+                email = row[1].strip().lower() if len(row) > 1 else ''
+                # One response per customer — keep the first (earliest) row.
+                if email in seen_emails:
+                    continue
+                seen_emails.add(email)
                 reason = row[3].strip() if len(row) > 3 else ''
                 responses.append({
                     'date':         row[0].strip() if row else '',
-                    'email':        row[1].strip().lower() if len(row) > 1 else '',
+                    'email':        email,
                     'name':         row[2].strip() if len(row) > 2 else '',
                     'reason':       reason,
                     'reason_label': REASON_LABELS.get(reason, reason),
