@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Logistimatics Activation Dashboard — Data Generator
-Reads local CSV logs + Google Sheet → outputs public/data.json
+Reads Supabase logs + Google Sheet → outputs public/data.json
 Run this script to refresh the dashboard data.
 """
 
@@ -16,25 +16,21 @@ from collections import defaultdict
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-ACTIVATION_LOG  = Path.home() / '.claude/skills/logistimatics-activation/sent-log.csv'
-FOLLOWUP_LOG    = Path.home() / '.claude/skills/logistimatics-followup/followup-log.csv'
 SOURCE_SHEET_ID = '1Y-L2MPIBEsCbHFDMOBGtWeTq29YrUwe-j3Bf6cc7Vf8'
 CACHED_CREDS    = Path.home() / '.google_workspace_mcp/credentials/kevin.garma@go2impact.com.json'
 MCP_CONFIG      = Path.home() / '.mcp.json'
 OUTPUT_PATH     = Path(__file__).parent / 'public' / 'data.json'
 
-# ── CSV helpers ───────────────────────────────────────────────────────────────
+# ── Supabase log helpers ──────────────────────────────────────────────────────
 
-def load_csv(path):
-    rows = []
+def load_log(table):
+    """Fetch all sent rows from a Supabase log table."""
     try:
-        with open(path, newline='', encoding='utf-8') as f:
-            for row in csv.DictReader(f):
-                if row.get('status', '').strip() == 'sent':
-                    rows.append(row)
-    except FileNotFoundError:
-        print(f"  [warn] File not found: {path}")
-    return rows
+        from supabase_client import fetch_log
+        return fetch_log(table)
+    except Exception as e:
+        print(f"  [warn] Could not read {table} from Supabase: {e}")
+        return []
 
 # ── SendGrid stats ────────────────────────────────────────────────────────────
 
@@ -554,70 +550,29 @@ REASON_LABELS = {
 
 def read_survey_responses():
     """
-    Read survey responses from the 'Survey Responses' sheet in the outreach
-    spreadsheet.  Falls back to an empty list on any error.
+    Read survey responses and sent count from Supabase.
     Returns (responses_list, surveys_sent_count).
     """
-    # Count surveys sent from local CSV log
-    surveys_sent = 0
     try:
-        with open(SURVEY_LOG, newline='', encoding='utf-8') as f:
-            for row in csv.DictReader(f):
-                if row.get('status', '').strip() == 'sent':
-                    surveys_sent += 1
-    except FileNotFoundError:
-        pass
-
-    responses = []
-    try:
-        import gspread
-        from google.oauth2.credentials import Credentials
-        from google.auth.transport.requests import Request as GRequest
-
-        with open(SHEETS_CREDS) as f:
-            cdata = json.load(f)
-        creds = Credentials(
-            token=cdata.get('token'), refresh_token=cdata.get('refresh_token'),
-            token_uri=cdata.get('token_uri'), client_id=cdata.get('client_id'),
-            client_secret=cdata.get('client_secret'),
-        )
-        if not creds.valid and creds.refresh_token:
-            creds.refresh(GRequest())
-
-        with open(SHEETS_CONFIG) as f:
-            cfg = json.load(f)
-
-        gc = gspread.authorize(creds)
-        sh = gc.open_by_key(cfg['spreadsheet_id'])
-        ws = sh.worksheet(cfg.get('survey_sheet', 'Survey Responses'))
-        rows = ws.get_all_values()
-
-        seen_emails = set()
-        if len(rows) > 1:
-            for row in rows[1:]:  # skip header
-                if len(row) < 4:
-                    continue
-                email = row[1].strip().lower() if len(row) > 1 else ''
-                # One response per customer — keep the first (earliest) row.
-                if email in seen_emails:
-                    continue
-                seen_emails.add(email)
-                reason = row[3].strip() if len(row) > 3 else ''
-                responses.append({
-                    'date':         row[0].strip() if row else '',
-                    'email':        email,
-                    'name':         row[2].strip() if len(row) > 2 else '',
-                    'reason':       reason,
-                    'reason_label': REASON_LABELS.get(reason, reason),
-                })
-
-        print(f"  Survey responses: {len(responses)} (from {surveys_sent} sent)")
-    except FileNotFoundError:
-        print("  Survey log not found — no surveys sent yet.")
+        from supabase_client import fetch_log, fetch_survey_responses
+        surveys_sent = len(fetch_log('survey_log'))
+        responses    = fetch_survey_responses()
+        # Normalise field names to match downstream expectations
+        normalised = []
+        for r in responses:
+            reason = r.get('reason', '')
+            normalised.append({
+                'date':         r.get('date', ''),
+                'email':        r.get('email', ''),
+                'name':         r.get('name', ''),
+                'reason':       reason,
+                'reason_label': r.get('reason_label') or REASON_LABELS.get(reason, reason),
+            })
+        print(f"  Survey responses: {len(normalised)} (from {surveys_sent} sent)")
+        return normalised, surveys_sent
     except Exception as e:
-        print(f"  [warn] Could not read survey responses: {e}")
-
-    return responses, surveys_sent
+        print(f"  [warn] Could not read survey data from Supabase: {e}")
+        return [], 0
 
 
 def compute_survey_summary(responses, surveys_sent):
@@ -656,9 +611,9 @@ def main():
     print("  Logistimatics Dashboard -- Data Generator")
     print("=" * 55)
 
-    print("\n[1/5] Reading local CSV logs...")
-    activation_rows = load_csv(ACTIVATION_LOG)
-    followup_rows   = load_csv(FOLLOWUP_LOG)
+    print("\n[1/5] Reading Supabase logs...")
+    activation_rows = load_log('activation_log')
+    followup_rows   = load_log('followup_log')
     print(f"  Activation emails: {len(activation_rows)}")
     print(f"  Follow-up emails:  {len(followup_rows)}")
 
