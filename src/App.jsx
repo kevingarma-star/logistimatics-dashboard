@@ -65,8 +65,8 @@ function App() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     loadData(true)
-    // Poll every 30 minutes — matches watch.py default interval
-    const POLL_MS = 30 * 60 * 1000
+    // Poll every 5 minutes
+    const POLL_MS = 5 * 60 * 1000
     const timer = setInterval(() => loadData(false), POLL_MS)
     return () => clearInterval(timer)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -184,7 +184,7 @@ function App() {
             ↻
           </button>
           <div className="header-meta" style={{ textAlign: 'right' }}>
-            <div className="header-badge">Auto-refresh 30m</div>
+            <div className="header-badge">Auto-refresh 5m</div>
             <div style={{ fontSize: 11, color: '#4a5568' }}>
               {lastRefresh
                 ? `Fetched ${lastRefresh.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`
