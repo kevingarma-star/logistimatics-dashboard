@@ -74,6 +74,33 @@ def _load_cached_sg_stats():
         return {}
 
 
+def _load_cached_sg_engagement():
+    """
+    Load per-customer SendGrid engagement flags from the previous data.json,
+    keyed by lowercase email. Used to preserve sg_clicked/sg_opened/etc. for
+    customers who have fallen outside the Activity Feed's 7-day window.
+    """
+    try:
+        with open(OUTPUT_PATH) as f:
+            old = json.load(f)
+        result = {}
+        for c in old.get('customers', []):
+            email = (c.get('email') or '').strip().lower()
+            if not email:
+                continue
+            result[email] = {
+                'sg_delivered':    c.get('sg_delivered'),
+                'sg_opened':       c.get('sg_opened'),
+                'sg_clicked':      c.get('sg_clicked'),
+                'sg_bounced':      c.get('sg_bounced'),
+                'sg_opens_count':  c.get('sg_opens_count',  0),
+                'sg_clicks_count': c.get('sg_clicks_count', 0),
+            }
+        return result
+    except Exception:
+        return {}
+
+
 def fetch_category_stats(key):
     """
     Query /v3/categories/stats for our campaign categories (activation-email,
@@ -201,6 +228,17 @@ def fetch_activity_feed_stats():
                 results[day]['unique_clicks'] += 1
                 results[day]['clicks']        += clicks_count
 
+            # Persist click events to Supabase so they survive beyond the 7-day
+            # Activity Feed window. Upsert is idempotent on sg_message_id.
+            if clicks_count > 0 and to_email:
+                msg_id = msg.get('msg_id') or msg.get('message_id') or ''
+                if msg_id:
+                    try:
+                        from supabase_client import upsert_click_log
+                        upsert_click_log(to_email, email_type, msg_id, ts, clicks_count)
+                    except Exception as e:
+                        print(f"  [warn] Could not upsert click log: {e}")
+
             # Merge into per-email map (keep best engagement across multiple sends)
             if to_email:
                 prev = sg_email_map.get(to_email, {})
@@ -301,13 +339,14 @@ def compute_sg_summary(sg_stats, cat_stats_dates):
     all_bnc  = sum(d.get('bounces',       0) for d in sg_stats)
     all_req  = sum(d.get('requests',      0) for d in sg_stats) or all_del or 1
     all_uns  = sum(d.get('unsubscribes',  0) for d in sg_stats)
-    all_clk  = sum(d.get('unique_clicks', 0) for d in sg_stats)
 
-    # Open rate: use Category Stats rows only (avoids Activity Feed selection bias).
-    # Click rate: use all delivered — Activity Feed reliably captures click events
-    # (a click always updates last_event_time so it's never lost from the feed).
-    open_del  = sum(d.get('delivered',    0) for d in rate_rows) or 1
-    open_cnt  = sum(d.get('unique_opens', 0) for d in rate_rows)
+    # Open rate and click rate: use Category Stats rows only.
+    # Activity Feed is unreliable for historical data — it only returns messages
+    # with recent last_event_time, so pre-category sends appear to have zero clicks,
+    # diluting the rate against the full delivery count.
+    rate_del = sum(d.get('delivered',     0) for d in rate_rows) or 1
+    open_cnt = sum(d.get('unique_opens',  0) for d in rate_rows)
+    clk_cnt  = sum(d.get('unique_clicks', 0) for d in rate_rows)
 
     return {
         'has_campaign_data':  True,
@@ -316,17 +355,17 @@ def compute_sg_summary(sg_stats, cat_stats_dates):
         'period_end':         sg_stats[-1]['date'],
         'total_delivered':    all_del,
         'total_opens':        open_cnt,
-        'total_clicks':       all_clk,
+        'total_clicks':       clk_cnt,
         'total_bounces':      all_bnc,
         'total_requests':     all_req,
         'total_unsubscribes': all_uns,
-        'avg_open_rate':      min(round(open_cnt / open_del * 100, 1), 100.0),
-        'avg_click_rate':     min(round(all_clk  / all_del * 100, 2), 100.0) if all_del else 0,
+        'avg_open_rate':      min(round(open_cnt / rate_del * 100, 1), 100.0),
+        'avg_click_rate':     min(round(clk_cnt  / rate_del * 100, 2), 100.0) if rate_del else 0,
         'avg_delivery_rate':  round(all_del  / all_req * 100, 1) if all_req else 0,
         'avg_bounce_rate':    round(all_bnc  / all_req * 100, 2) if all_req else 0,
         'data_note': (
-            f'Open rate from {rate_note} ({open_del} delivered). '
-            f'Click rate across all {all_del} delivered campaign emails.'
+            f'Open & click rates from {rate_note} ({rate_del} delivered). '
+            f'Delivery rate across all {all_del} campaign emails.'
         ),
     }
 
@@ -385,6 +424,7 @@ def read_sheet():
 
 def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
     today = date.today()
+    cached_sg = _load_cached_sg_engagement()
 
     # Build follow-up map: email → date
     fu_map = {}
@@ -423,7 +463,16 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
         else:
             status = 'Pending'
 
-        sg = (sg_email_map or {}).get(email_lc, {})
+        sg_fresh  = (sg_email_map or {}).get(email_lc, {})
+        sg_cached = cached_sg.get(email_lc, {})
+        # Merge: once True, always True — Activity Feed only covers 7 days so
+        # we preserve any engagement flags known from previous runs.
+        def _best_bool(fresh, cached):
+            if fresh is True or cached is True:
+                return True
+            if fresh is False or cached is False:
+                return False
+            return None
         customers.append({
             'email':           email_lc,
             'sent_date':       sent_date,
@@ -432,12 +481,12 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
             'fu_sent':         fu_sent,
             'fu_date':         fu_date,
             'status':          status,
-            'sg_delivered':    sg.get('sg_delivered',    None),
-            'sg_opened':       sg.get('sg_opened',       None),
-            'sg_clicked':      sg.get('sg_clicked',      None),
-            'sg_bounced':      sg.get('sg_bounced',      None),
-            'sg_opens_count':  sg.get('sg_opens_count',  0),
-            'sg_clicks_count': sg.get('sg_clicks_count', 0),
+            'sg_delivered':    _best_bool(sg_fresh.get('sg_delivered'), sg_cached.get('sg_delivered')),
+            'sg_opened':       _best_bool(sg_fresh.get('sg_opened'),    sg_cached.get('sg_opened')),
+            'sg_clicked':      _best_bool(sg_fresh.get('sg_clicked'),   sg_cached.get('sg_clicked')),
+            'sg_bounced':      _best_bool(sg_fresh.get('sg_bounced'),   sg_cached.get('sg_bounced')),
+            'sg_opens_count':  max(sg_fresh.get('sg_opens_count',  0), sg_cached.get('sg_opens_count',  0)),
+            'sg_clicks_count': max(sg_fresh.get('sg_clicks_count', 0), sg_cached.get('sg_clicks_count', 0)),
         })
 
     # ── Summary ──
@@ -554,8 +603,13 @@ def read_survey_responses():
     Returns (responses_list, surveys_sent_count).
     """
     try:
-        from supabase_client import fetch_log, fetch_survey_responses
-        surveys_sent = len(fetch_log('survey_log'))
+        from supabase_client import fetch_survey_responses
+        # Count surveys sent from local CSV (survey_log table was removed)
+        import csv as _csv
+        surveys_sent = 0
+        if SURVEY_LOG.exists():
+            with open(SURVEY_LOG) as _f:
+                surveys_sent = sum(1 for r in _csv.DictReader(_f) if r.get('status','').strip() == 'sent')
         responses    = fetch_survey_responses()
         # Normalise field names to match downstream expectations
         normalised = []
@@ -631,6 +685,27 @@ def main():
         print(f"  Per-customer records:    {len(sg_email_map)}")
     else:
         print("  No campaign email data found in Activity Feed.")
+
+    # Merge Supabase click log into sg_email_map so customers who clicked
+    # outside the 7-day Activity Feed window are still attributed correctly.
+    try:
+        from supabase_client import fetch_click_log
+        sb_clicks = fetch_click_log()
+        merged = 0
+        for email, clk in sb_clicks.items():
+            if sg_email_map.get(email, {}).get('sg_clicked'):
+                continue  # already known from Activity Feed
+            prev = sg_email_map.get(email, {})
+            sg_email_map[email] = {
+                **prev,
+                'sg_clicked':      True,
+                'sg_clicks_count': max(prev.get('sg_clicks_count', 0), clk['sg_clicks_count']),
+            }
+            merged += 1
+        if merged:
+            print(f"  Merged {merged} historic clicker(s) from Supabase click log.")
+    except Exception as e:
+        print(f"  [warn] Could not read Supabase click log: {e}")
 
     print("\n[4/5] Computing campaign metrics...")
     data = compute_data(activation_rows, followup_rows, sheet_map, sg_email_map)

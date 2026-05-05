@@ -67,3 +67,39 @@ def insert_survey_response(date, email, name, reason, reason_label):
         'reason':       reason,
         'reason_label': reason_label,
     }).execute()
+
+
+def upsert_click_log(email, email_type, sg_message_id, clicked_at, clicks_count):
+    """
+    Upsert a click event into sg_click_log.
+    sg_message_id is unique so re-runs are safe — no duplicates created.
+    """
+    get_client().table('sg_click_log').upsert({
+        'email':         email.strip().lower(),
+        'email_type':    email_type,
+        'sg_message_id': sg_message_id,
+        'clicked_at':    clicked_at,
+        'clicks_count':  clicks_count,
+    }, on_conflict='sg_message_id').execute()
+
+
+def fetch_click_log():
+    """
+    Return all rows from sg_click_log as a dict keyed by lowercase email.
+    Merges multiple clicks per email (summing clicks_count, keeping True flags).
+    """
+    result = get_client().table('sg_click_log').select(
+        'email,email_type,clicked_at,clicks_count'
+    ).execute()
+    rows = result.data or []
+    merged = {}
+    for row in rows:
+        email = (row.get('email') or '').strip().lower()
+        if not email:
+            continue
+        prev = merged.get(email, {'sg_clicked': False, 'sg_clicks_count': 0})
+        merged[email] = {
+            'sg_clicked':      True,
+            'sg_clicks_count': prev['sg_clicks_count'] + int(row.get('clicks_count') or 1),
+        }
+    return merged
