@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T07:24:25",
+  "generated_at": "2026-05-05T07:27:52",
   "summary": {
     "total_outreached": 430,
     "activated": 233,
@@ -7019,10 +7019,10 @@
     "total_requests": 143,
     "total_unsubscribes": 0,
     "avg_open_rate": 39.2,
-    "avg_click_rate": 2.24,
+    "avg_click_rate": 2.31,
     "avg_delivery_rate": 93.7,
     "avg_bounce_rate": 0.0,
-    "data_note": "Open rate from Category Stats (activation-email + followup-email categories) (130 delivered). Click rate across all 134 delivered campaign emails."
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (130 delivered). Delivery rate across all 134 campaign emails."
   },
   "survey_summary": {
     "has_survey_data": true,
