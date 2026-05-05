@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T09:28:24",
+  "generated_at": "2026-05-05T09:31:24",
   "summary": {
     "total_outreached": 430,
     "activated": 233,
@@ -1272,10 +1272,10 @@
       "status": "Activated",
       "sg_delivered": null,
       "sg_opened": null,
-      "sg_clicked": null,
+      "sg_clicked": true,
       "sg_bounced": null,
       "sg_opens_count": 0,
-      "sg_clicks_count": 0
+      "sg_clicks_count": 5
     },
     {
       "email": "livertool@aol.com",
@@ -1902,10 +1902,10 @@
       "status": "Activated",
       "sg_delivered": null,
       "sg_opened": null,
-      "sg_clicked": null,
+      "sg_clicked": true,
       "sg_bounced": null,
       "sg_opens_count": 0,
-      "sg_clicks_count": 0
+      "sg_clicks_count": 1
     },
     {
       "email": "aquablue94131@gmail.com",
