@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T10:51:03",
+  "generated_at": "2026-05-05T10:51:58",
   "summary": {
     "total_outreached": 0,
     "activated": 0,
@@ -10,7 +10,50 @@
     "followup_activated": 0,
     "followup_conversion_rate": 0
   },
-  "timeline": [],
+  "timeline": [
+    {
+      "date": "2026-04-23",
+      "label": "Apr 23",
+      "activation": 0,
+      "followup": 75
+    },
+    {
+      "date": "2026-04-24",
+      "label": "Apr 24",
+      "activation": 0,
+      "followup": 48
+    },
+    {
+      "date": "2026-04-27",
+      "label": "Apr 27",
+      "activation": 0,
+      "followup": 69
+    },
+    {
+      "date": "2026-04-28",
+      "label": "Apr 28",
+      "activation": 0,
+      "followup": 22
+    },
+    {
+      "date": "2026-04-29",
+      "label": "Apr 29",
+      "activation": 0,
+      "followup": 2
+    },
+    {
+      "date": "2026-04-30",
+      "label": "Apr 30",
+      "activation": 0,
+      "followup": 1
+    },
+    {
+      "date": "2026-05-01",
+      "label": "May 01",
+      "activation": 0,
+      "followup": 1
+    }
+  ],
   "cohorts": [],
   "funnel": [
     {
@@ -212,7 +255,67 @@
     "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (130 delivered). Delivery rate across all 134 campaign emails."
   },
   "survey_summary": {
-    "has_survey_data": false
+    "has_survey_data": true,
+    "surveys_sent": 103,
+    "total_responses": 2,
+    "response_rate": 1.9,
+    "breakdown": [
+      {
+        "reason": "serial",
+        "label": "Can't find serial number",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "reason": "website",
+        "label": "Activation website trouble",
+        "count": 0,
+        "pct": 0.0
+      },
+      {
+        "reason": "time",
+        "label": "Haven't had time yet",
+        "count": 1,
+        "pct": 50.0
+      },
+      {
+        "reason": "subscription",
+        "label": "Not ready for subscription",
+        "count": 1,
+        "pct": 50.0
+      }
+    ],
+    "recent": [
+      {
+        "date": "2026-05-04",
+        "email": "wmpm3@msn.com",
+        "name": "William",
+        "reason": "subscription",
+        "reason_label": "Not ready for subscription"
+      },
+      {
+        "date": "2026-05-04",
+        "email": "livertool@aol.com",
+        "name": "William",
+        "reason": "time",
+        "reason_label": "Haven't had time yet"
+      }
+    ]
   },
-  "survey_responses": []
+  "survey_responses": [
+    {
+      "date": "2026-05-04",
+      "email": "wmpm3@msn.com",
+      "name": "William",
+      "reason": "subscription",
+      "reason_label": "Not ready for subscription"
+    },
+    {
+      "date": "2026-05-04",
+      "email": "livertool@aol.com",
+      "name": "William",
+      "reason": "time",
+      "reason_label": "Haven't had time yet"
+    }
+  ]
 }
