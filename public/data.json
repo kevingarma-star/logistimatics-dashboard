@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-05T09:40:04",
+  "generated_at": "2026-05-05T10:11:08",
   "summary": {
     "total_outreached": 430,
     "activated": 233,
@@ -6674,7 +6674,7 @@
       "sg_opened": true,
       "sg_clicked": false,
       "sg_bounced": false,
-      "sg_opens_count": 8,
+      "sg_opens_count": 10,
       "sg_clicks_count": 0
     },
     {
@@ -6994,7 +6994,7 @@
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 0,
-      "opens": 1,
+      "opens": 3,
       "unique_clicks": 0,
       "clicks": 0,
       "activation": 2,
