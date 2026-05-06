@@ -13,6 +13,16 @@ import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
+# Load API key from server_config.json if env var not set
+_cfg_path = Path(__file__).parent / 'server_config.json'
+if not os.environ.get('ANTHROPIC_API_KEY') and _cfg_path.exists():
+    try:
+        _cfg = json.loads(_cfg_path.read_text())
+        if _cfg.get('ANTHROPIC_API_KEY'):
+            os.environ['ANTHROPIC_API_KEY'] = _cfg['ANTHROPIC_API_KEY']
+    except Exception:
+        pass
+
 PORT      = 8765
 REPO_DIR  = Path(__file__).parent
 SCRIPT    = REPO_DIR / 'generate_data.py'
@@ -27,6 +37,118 @@ You have access to live dashboard data from the customer activation campaign.
 Answer questions concisely and insightfully. When referencing numbers, be precise.
 Focus on actionable insights. If asked about things not in the data, say so briefly.
 Use plain text — no markdown headers or bullet characters, just clean sentences and newlines."""
+
+INSIGHTS_SYSTEM_PROMPT = """You are a senior growth and retention analyst for Logistimatics, a GPS tracker company.
+You will receive live campaign data and must return a single JSON object — nothing else, no markdown fences, no explanation.
+
+The JSON must match this exact schema:
+{
+  "health_score": <integer 0-100>,
+  "health_label": <"Strong" | "Needs Attention" | "At Risk">,
+  "summary": <2-3 sentence plain-text executive summary of overall campaign health>,
+  "sections": [
+    {
+      "id": <unique snake_case string>,
+      "title": <section title>,
+      "content": <2-4 sentences of specific analysis referencing real numbers>,
+      "metric": <key number as string, e.g. "12.4%" or "433">,
+      "metric_label": <short label for the metric>,
+      "sentiment": <"positive" | "neutral" | "negative">
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": <"high" | "medium" | "low">,
+      "title": <short imperative action title, max 8 words>,
+      "detail": <1-2 sentences explaining exactly what to do and why>
+    }
+  ]
+}
+
+Rules:
+- sections must include: activation_funnel, email_engagement, cohort_performance, follow_up_effectiveness, and survey_signals (if survey data exists)
+- recommendations must have 3-5 items ordered high to low priority
+- Every metric and claim must come from the provided data — no fabrication
+- Be specific and actionable — generic advice is not useful
+- Return ONLY the JSON object"""
+
+
+def _build_insights_context(data):
+    s       = data.get('summary', {})
+    sg      = data.get('sendgrid_summary', {})
+    cohorts = data.get('cohorts', [])
+    funnel  = data.get('funnel', [])
+    survey  = data.get('survey_summary', {})
+
+    ctx = '=== CAMPAIGN DATA ===\n'
+
+    ctx += '\n--- Activation Funnel ---\n'
+    ctx += f"Total customers outreached: {s.get('total_outreached', 0)}\n"
+    ctx += f"Activated: {s.get('activated', 0)} ({s.get('activation_rate', 0)}% conversion rate)\n"
+    ctx += f"Pending activation: {s.get('pending', 0)}\n"
+    ctx += f"Returned device: {s.get('returned', 0)}\n"
+    for f in funnel:
+        ctx += f"Funnel stage \"{f.get('stage')}\": {f.get('value')} ({f.get('pct')}%)\n"
+
+    ctx += '\n--- Follow-up Performance ---\n'
+    ctx += f"Follow-ups sent: {s.get('followup_sent', 0)}\n"
+    ctx += f"Follow-up activated: {s.get('followup_activated', 0)}\n"
+    ctx += f"Follow-up conversion rate: {s.get('followup_conversion_rate', 0)}%\n"
+
+    ctx += f"\n--- Email Engagement (SendGrid Category Stats: {sg.get('total_requests', 0)} emails, {sg.get('period_start', '?')} to {sg.get('period_end', '?')}) ---\n"
+    ctx += f"Delivery rate: {sg.get('avg_delivery_rate', 'N/A')}% ({sg.get('total_delivered', 0)}/{sg.get('total_requests', 0)} delivered)\n"
+    ctx += f"Open rate: {sg.get('avg_open_rate', 'N/A')}% ({sg.get('total_opens', 0)} unique opens)\n"
+    ctx += f"Click rate: {sg.get('avg_click_rate', 'N/A')}% ({sg.get('total_clicks', 0)} unique clicks)\n"
+    ctx += f"Bounce rate: {sg.get('avg_bounce_rate', 'N/A')}%\n"
+    ctx += f"Note: {sg.get('total_requests', 0)} of {s.get('total_outreached', 0)} customers have email tracking (category tags added {sg.get('period_start', '?')})\n"
+
+    ctx += f"\n--- Batch Performance ({len(cohorts)} batches) ---\n"
+    for c in cohorts:
+        ctx += (
+            f"{c.get('batch_date')}: {c.get('total')} sent, {c.get('activated')} activated "
+            f"({c.get('activation_rate')}%), {c.get('pending')} pending, {c.get('returned')} returned, "
+            f"{c.get('followup_sent')} follow-ups ({c.get('followup_conv_rate')}% conv)\n"
+        )
+
+    if survey.get('has_survey_data'):
+        ctx += '\n--- Activation Barrier Survey ---\n'
+        ctx += f"Surveys sent: {survey.get('surveys_sent', 0)}, responses: {survey.get('total_responses', 0)} ({survey.get('response_rate', 0)}% rate)\n"
+        for b in survey.get('breakdown', []):
+            ctx += f"  \"{b.get('label')}\": {b.get('count')} responses ({b.get('pct')}%)\n"
+
+    ctx += '\n=== END DATA ==='
+    return ctx
+
+
+def _call_claude_insights(data):
+    """Call Claude Sonnet with structured insights prompt. Returns (insights_dict, error_str)."""
+    try:
+        import anthropic
+    except ImportError:
+        return None, "anthropic package not installed. Run: pip install anthropic"
+
+    api_key = os.environ.get('ANTHROPIC_API_KEY', '').strip()
+    if not api_key:
+        return None, "ANTHROPIC_API_KEY environment variable is not set."
+
+    ctx = _build_insights_context(data)
+    client = anthropic.Anthropic(api_key=api_key)
+    try:
+        response = client.messages.create(
+            model='claude-sonnet-4-6',
+            max_tokens=2048,
+            system=INSIGHTS_SYSTEM_PROMPT,
+            messages=[{'role': 'user', 'content': ctx}],
+        )
+        raw = response.content[0].text
+        import datetime
+        result = json.loads(raw)
+        result['generated_at'] = datetime.datetime.utcnow().isoformat() + 'Z'
+        return result, None
+    except json.JSONDecodeError as exc:
+        return None, f"Model returned invalid JSON: {exc}"
+    except Exception as exc:
+        return None, str(exc)
 
 
 def _call_claude(messages, data):
@@ -132,6 +254,8 @@ class RefreshHandler(BaseHTTPRequestHandler):
             self._handle_refresh()
         elif self.path == '/ask':
             self._handle_ask()
+        elif self.path == '/insights':
+            self._handle_insights()
         else:
             self.send_response(404)
             self.end_headers()
@@ -182,6 +306,23 @@ class RefreshHandler(BaseHTTPRequestHandler):
             self._send_json(500, {'error': error})
         else:
             self._send_json(200, {'reply': reply})
+
+    def _handle_insights(self):
+        try:
+            body = json.loads(self._read_body())
+            data = body.get('data', {})
+        except Exception:
+            self._send_json(400, {'error': 'Invalid JSON body'})
+            return
+
+        print('\n[insights] Generating AI insights with Claude Sonnet...')
+        result, error = _call_claude_insights(data)
+        if error:
+            print(f'[insights] Error: {error}')
+            self._send_json(500, {'error': error})
+        else:
+            print('[insights] Done.')
+            self._send_json(200, result)
 
     def log_message(self, fmt, *args):
         pass  # suppress default access log noise

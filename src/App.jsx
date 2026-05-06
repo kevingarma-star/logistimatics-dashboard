@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import KPICard from './components/KPICard'
 import StatusDonut from './components/StatusDonut'
 import TimelineChart from './components/TimelineChart'
@@ -9,6 +9,7 @@ import DateRangePicker from './components/DateRangePicker'
 import DrillDownModal from './components/DrillDownModal'
 import SurveyPanel from './components/SurveyPanel'
 import AskAI from './components/AskAI'
+import InsightsPage from './components/InsightsPage'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -20,6 +21,13 @@ function App() {
   const [refreshing, setRefreshing] = useState(false)
   const [lastRefresh, setLastRefresh] = useState(null)
   const [drill, setDrill] = useState(null) // { title, subtitle, customers }
+  const [tab, setTab]     = useState('dashboard')
+
+  // Insights state (lifted so it survives tab switches)
+  const [insights, setInsights]             = useState(null)
+  const [insightsLoading, setInsightsLoading] = useState(false)
+  const [insightsError, setInsightsError]   = useState(null)
+  const [insightsAt, setInsightsAt]         = useState(null)
 
   const fetchData = () =>
     fetch(`${import.meta.env.BASE_URL}data.json?t=${Date.now()}`)
@@ -61,6 +69,35 @@ function App() {
         loadData(false)
       })
   }
+
+  const INSIGHTS_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/insights'
+
+  const generateInsights = useCallback(() => {
+    if (!rawData) return
+    setInsightsLoading(true)
+    setInsightsError(null)
+    fetch(INSIGHTS_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data: rawData }),
+    })
+      .then(res => res.json().then(json => ({ ok: res.ok, json })))
+      .then(({ ok, json }) => {
+        if (!ok) throw new Error(json.error || `Server error`)
+        setInsights(json)
+        setInsightsAt(new Date())
+      })
+      .catch(err => setInsightsError(err.message))
+      .finally(() => setInsightsLoading(false))
+  }, [rawData]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Auto-generate insights the first time the user opens that tab
+  useEffect(() => {
+    if (tab === 'insights' && !insights && !insightsLoading) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      generateInsights()
+    }
+  }, [tab]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -194,8 +231,50 @@ function App() {
         </div>
       </header>
 
+      {/* ── Tab toggle ── */}
+      <div style={{ display: 'flex', gap: 4, marginBottom: 28 }}>
+        {[
+          { key: 'dashboard', label: '◧ Dashboard' },
+          { key: 'insights',  label: '✦ AI Insights' },
+        ].map(t => (
+          <button
+            key={t.key}
+            onClick={() => setTab(t.key)}
+            style={{
+              padding: '8px 20px',
+              fontSize: 13,
+              fontWeight: tab === t.key ? 600 : 400,
+              background: tab === t.key ? 'rgba(0,212,255,0.1)' : 'transparent',
+              border: tab === t.key
+                ? '1px solid rgba(0,212,255,0.35)'
+                : '1px solid rgba(255,255,255,0.07)',
+              borderRadius: 8,
+              color: tab === t.key ? '#00d4ff' : '#8892a4',
+              cursor: 'pointer',
+              fontFamily: 'Inter, sans-serif',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { if (tab !== t.key) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)' }}
+            onMouseLeave={e => { if (tab !== t.key) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)' }}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Insights tab ── */}
+      {tab === 'insights' && (
+        <InsightsPage
+          insights={insights}
+          loading={insightsLoading}
+          error={insightsError}
+          generatedAt={insightsAt}
+          onGenerate={generateInsights}
+        />
+      )}
+
       {/* ── Two-column body: main content + sticky AI sidebar ── */}
-      <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
+      {tab === 'dashboard' && <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
 
         {/* ── Main content column ── */}
         <div style={{ flex: 1, minWidth: 0 }}>
@@ -353,8 +432,8 @@ function App() {
         </aside>
         {/* /AI Sidebar */}
 
-      </div>
-      {/* /Two-column body */}
+      </div>}
+      {/* /Two-column body (dashboard tab only) */}
 
       {/* ── Drill-down modal — rendered outside layout so it overlays everything ── */}
       {drill && (
