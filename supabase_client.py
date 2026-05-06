@@ -132,11 +132,11 @@ def fetch_email_events():
     """
     Return all rows from sg_email_events as a dict keyed by lowercase email.
     Merges across multiple messages per customer: once True always True,
-    counts are summed. This is the permanent historical record that survives
-    past the Activity Feed window.
+    counts are summed, most recent last_event_time is kept as sg_last_event.
+    This is the permanent historical record that survives past the Activity Feed window.
     """
     result = get_client().table('sg_email_events').select(
-        'email,email_type,status,delivered,bounced,opens_count,clicks_count'
+        'email,email_type,status,delivered,bounced,opens_count,clicks_count,last_event_time'
     ).execute()
     rows = result.data or []
     merged = {}
@@ -144,12 +144,14 @@ def fetch_email_events():
         email = (row.get('email') or '').strip().lower()
         if not email:
             continue
-        opens  = int(row.get('opens_count',  0) or 0)
-        clicks = int(row.get('clicks_count', 0) or 0)
-        prev   = merged.get(email, {
+        opens    = int(row.get('opens_count',  0) or 0)
+        clicks   = int(row.get('clicks_count', 0) or 0)
+        evt_time = row.get('last_event_time') or ''
+        prev     = merged.get(email, {
             'sg_delivered': False, 'sg_opened': False,
             'sg_clicked':   False, 'sg_bounced': False,
             'sg_opens_count': 0,   'sg_clicks_count': 0,
+            'sg_last_event': '',
         })
         merged[email] = {
             'sg_delivered':    prev['sg_delivered']    or bool(row.get('delivered')),
@@ -158,5 +160,6 @@ def fetch_email_events():
             'sg_bounced':      prev['sg_bounced']      or bool(row.get('bounced')),
             'sg_opens_count':  prev['sg_opens_count']  + opens,
             'sg_clicks_count': prev['sg_clicks_count'] + clicks,
+            'sg_last_event':   evt_time if evt_time > (prev.get('sg_last_event') or '') else (prev.get('sg_last_event') or ''),
         }
     return merged

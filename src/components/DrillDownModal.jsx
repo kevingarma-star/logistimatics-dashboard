@@ -17,6 +17,7 @@ const COLS = [
   { key: 'sg_opened',      label: 'Opened',      sortable: true, sgOnly: true },
   { key: 'sg_clicked',     label: 'Clicked',     sortable: true, sgOnly: true },
   { key: 'sg_bounced',     label: 'Bounced',     sortable: true, sgOnly: true },
+  { key: 'sg_last_event',  label: 'Tracked',     sortable: true, sgOnly: true },
 ]
 
 function SgBool({ val }) {
@@ -250,6 +251,9 @@ export default function DrillDownModal({ title, subtitle, customers, onClose, sh
                           : <SgBool val={c.sg_clicked} />}
                       </td>
                       <td style={{ padding: '9px 8px', textAlign: 'center' }}><SgBool val={c.sg_bounced} /></td>
+                      <td style={{ padding: '9px 8px', textAlign: 'center', fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: '#8892a4', whiteSpace: 'nowrap' }}>
+                        {c.sg_last_event || <span style={{ color: '#4a5568' }}>—</span>}
+                      </td>
                     </>}
                   </tr>
                 )

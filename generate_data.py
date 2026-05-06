@@ -95,6 +95,7 @@ def _load_cached_sg_engagement():
                 'sg_bounced':      c.get('sg_bounced'),
                 'sg_opens_count':  c.get('sg_opens_count',  0),
                 'sg_clicks_count': c.get('sg_clicks_count', 0),
+                'sg_last_event':   c.get('sg_last_event',   ''),
             }
         return result
     except Exception:
@@ -253,6 +254,7 @@ def fetch_activity_feed_stats():
             # Merge into per-email map (keep best engagement across multiple sends)
             if to_email:
                 prev = sg_email_map.get(to_email, {})
+                prev_evt = prev.get('sg_last_event') or ''
                 sg_email_map[to_email] = {
                     'sg_delivered':    prev.get('sg_delivered', False)    or (status == 'delivered'),
                     'sg_opened':       prev.get('sg_opened',    False)    or (opens_count  > 0),
@@ -260,6 +262,7 @@ def fetch_activity_feed_stats():
                     'sg_bounced':      prev.get('sg_bounced',   False)    or (status in ('bounce', 'blocked', 'deferred')),
                     'sg_opens_count':  prev.get('sg_opens_count',  0)     + opens_count,
                     'sg_clicks_count': prev.get('sg_clicks_count', 0)     + clicks_count,
+                    'sg_last_event':   ts if ts > prev_evt else prev_evt,
                 }
 
     # ── Regression guard ──────────────────────────────────────────────────────
@@ -534,6 +537,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
             'sg_bounced':      _best_bool(sg_fresh.get('sg_bounced'),   sg_cached.get('sg_bounced')),
             'sg_opens_count':  max(sg_fresh.get('sg_opens_count',  0), sg_cached.get('sg_opens_count',  0)),
             'sg_clicks_count': max(sg_fresh.get('sg_clicks_count', 0), sg_cached.get('sg_clicks_count', 0)),
+            'sg_last_event':   sg_fresh.get('sg_last_event') or sg_cached.get('sg_last_event', ''),
         })
 
     # ── Summary ──
