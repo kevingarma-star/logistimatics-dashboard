@@ -340,14 +340,26 @@ body {
 /* ── Cohort Table ── */
 .cohort-table-wrap {
   overflow-x: auto;
+  overflow-y: auto;
+  max-height: 300px;
   margin-top: 4px;
+  /* subtle scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,212,255,0.2) transparent;
 }
+.cohort-table-wrap::-webkit-scrollbar { width: 4px; height: 4px; }
+.cohort-table-wrap::-webkit-scrollbar-track { background: transparent; }
+.cohort-table-wrap::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.2); border-radius: 2px; }
 .cohort-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 12px;
 }
 .cohort-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #0d0d1f;
   text-align: left;
   padding: 8px 12px;
   color: var(--text-2);
