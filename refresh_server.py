@@ -13,6 +13,16 @@ import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from pathlib import Path
 
+# Load API key from server_config.json if env var not set
+_cfg_path = Path(__file__).parent / 'server_config.json'
+if not os.environ.get('ANTHROPIC_API_KEY') and _cfg_path.exists():
+    try:
+        _cfg = json.loads(_cfg_path.read_text())
+        if _cfg.get('ANTHROPIC_API_KEY'):
+            os.environ['ANTHROPIC_API_KEY'] = _cfg['ANTHROPIC_API_KEY']
+    except Exception:
+        pass
+
 PORT      = 8765
 REPO_DIR  = Path(__file__).parent
 SCRIPT    = REPO_DIR / 'generate_data.py'
