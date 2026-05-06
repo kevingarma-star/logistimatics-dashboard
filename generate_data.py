@@ -95,6 +95,7 @@ def _load_cached_sg_engagement():
                 'sg_bounced':      c.get('sg_bounced'),
                 'sg_opens_count':  c.get('sg_opens_count',  0),
                 'sg_clicks_count': c.get('sg_clicks_count', 0),
+                'sg_last_event':   c.get('sg_last_event',   ''),
             }
         return result
     except Exception:
@@ -108,7 +109,7 @@ def fetch_category_stats(key):
     reliable than the Activity Feed for click/open/delivery KPIs.
     Returns a dict: {date -> metrics_dict} (only dates with non-zero sends).
     """
-    start = (date.today() - __import__('datetime').timedelta(days=30)).isoformat()
+    start = (date.today() - __import__('datetime').timedelta(days=90)).isoformat()
     end   = date.today().isoformat()
 
     params = urllib.parse.urlencode(
@@ -228,20 +229,32 @@ def fetch_activity_feed_stats():
                 results[day]['unique_clicks'] += 1
                 results[day]['clicks']        += clicks_count
 
-            # Persist click events to Supabase so they survive beyond the 7-day
-            # Activity Feed window. Upsert is idempotent on sg_message_id.
-            if clicks_count > 0 and to_email:
+            # Persist every message event to Supabase so delivery, open, click,
+            # and bounce data survives beyond the 7-day Activity Feed window.
+            # Upsert is idempotent on sg_message_id — safe to re-run anytime.
+            if to_email:
                 msg_id = msg.get('msg_id') or msg.get('message_id') or ''
                 if msg_id:
                     try:
-                        from supabase_client import upsert_click_log
-                        upsert_click_log(to_email, email_type, msg_id, ts, clicks_count)
+                        from supabase_client import upsert_email_event
+                        upsert_email_event(
+                            email=to_email,
+                            email_type=email_type,
+                            sg_message_id=msg_id,
+                            status=status,
+                            delivered=(status == 'delivered'),
+                            bounced=(status in ('bounce', 'blocked', 'deferred')),
+                            opens_count=opens_count,
+                            clicks_count=clicks_count,
+                            last_event_time=ts,
+                        )
                     except Exception as e:
-                        print(f"  [warn] Could not upsert click log: {e}")
+                        print(f"  [warn] Could not upsert email event: {e}")
 
             # Merge into per-email map (keep best engagement across multiple sends)
             if to_email:
                 prev = sg_email_map.get(to_email, {})
+                prev_evt = prev.get('sg_last_event') or ''
                 sg_email_map[to_email] = {
                     'sg_delivered':    prev.get('sg_delivered', False)    or (status == 'delivered'),
                     'sg_opened':       prev.get('sg_opened',    False)    or (opens_count  > 0),
@@ -249,6 +262,7 @@ def fetch_activity_feed_stats():
                     'sg_bounced':      prev.get('sg_bounced',   False)    or (status in ('bounce', 'blocked', 'deferred')),
                     'sg_opens_count':  prev.get('sg_opens_count',  0)     + opens_count,
                     'sg_clicks_count': prev.get('sg_clicks_count', 0)     + clicks_count,
+                    'sg_last_event':   ts if ts > prev_evt else prev_evt,
                 }
 
     # ── Regression guard ──────────────────────────────────────────────────────
@@ -295,18 +309,54 @@ def fetch_activity_feed_stats():
         row['date'] = d
         delivered = row['delivered']
         req       = row['requests'] or 1
-        # Cap rates at 100% — Category Stats can report unique_opens > delivered
-        # for very small batches due to Apple Mail Privacy Protection pre-fetching.
+        # Cap unique_opens at delivered — Category Stats can report more opens than
+        # deliveries for small batches due to Apple Mail Privacy Protection
+        # pre-fetching, or when SendGrid processes delivery events with a delay.
+        capped_opens = min(row['unique_opens'], delivered) if delivered else 0
+        if capped_opens != row['unique_opens']:
+            print(f"  [cap] {d}: unique_opens {row['unique_opens']} -> {capped_opens} (delivered={delivered})")
+        row['unique_opens'] = capped_opens
         stat_list.append({
             **row,
             'from_category_stats': d in cat_stats,
-            'open_rate':     min(round(row['unique_opens']  / delivered * 100, 1), 100.0) if delivered else 0,
+            'open_rate':     round(capped_opens            / delivered * 100, 1) if delivered else 0,
             'click_rate':    min(round(row['unique_clicks'] / delivered * 100, 2), 100.0) if delivered else 0,
             'delivery_rate': round(delivered / req * 100, 1),
-            'bounce_rate':   round(row['bounces']       / req * 100, 2),
+            'bounce_rate':   round(row['bounces']           / req * 100, 2),
         })
 
     return stat_list, True, sg_email_map, cat_stats
+
+
+def compute_sg_customer_summary(customers):
+    """
+    Compute email health KPIs directly from per-customer SG flags.
+    These numbers align exactly with the drill-down counts shown in the UI —
+    when a user clicks an Email Health KPI card they see this exact population.
+    """
+    tracked   = [c for c in customers if any(c.get(k) is not None for k in ('sg_delivered', 'sg_opened', 'sg_bounced'))]
+    delivered = [c for c in tracked   if c.get('sg_delivered') is True]
+    opened    = [c for c in delivered if c.get('sg_opened')    is True]
+    clicked   = [c for c in delivered if c.get('sg_clicked')   is True]
+    bounced   = [c for c in tracked   if c.get('sg_bounced')   is True]
+
+    n_tracked   = len(tracked)
+    n_delivered = len(delivered)
+    n_opened    = len(opened)
+    n_clicked   = len(clicked)
+    n_bounced   = len(bounced)
+
+    return {
+        'customer_tracked':       n_tracked,
+        'customer_delivered':     n_delivered,
+        'customer_opened':        n_opened,
+        'customer_clicked':       n_clicked,
+        'customer_bounced':       n_bounced,
+        'customer_open_rate':     round(n_opened    / n_delivered * 100, 1) if n_delivered else 0,
+        'customer_click_rate':    round(n_clicked   / n_delivered * 100, 2) if n_delivered else 0,
+        'customer_delivery_rate': round(n_delivered / n_tracked   * 100, 1) if n_tracked  else 0,
+        'customer_bounce_rate':   round(n_bounced   / n_tracked   * 100, 2) if n_tracked  else 0,
+    }
 
 
 def compute_sg_summary(sg_stats, cat_stats_dates):
@@ -487,6 +537,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
             'sg_bounced':      _best_bool(sg_fresh.get('sg_bounced'),   sg_cached.get('sg_bounced')),
             'sg_opens_count':  max(sg_fresh.get('sg_opens_count',  0), sg_cached.get('sg_opens_count',  0)),
             'sg_clicks_count': max(sg_fresh.get('sg_clicks_count', 0), sg_cached.get('sg_clicks_count', 0)),
+            'sg_last_event':   sg_fresh.get('sg_last_event') or sg_cached.get('sg_last_event', ''),
         })
 
     # ── Summary ──
@@ -686,26 +737,30 @@ def main():
     else:
         print("  No campaign email data found in Activity Feed.")
 
-    # Merge Supabase click log into sg_email_map so customers who clicked
-    # outside the 7-day Activity Feed window are still attributed correctly.
+    # Merge full Supabase event history into sg_email_map.
+    # sg_email_events persists delivery, open, click, and bounce data across runs,
+    # so customers outside the current 7-day Activity Feed window are still
+    # correctly attributed from previous runs.
     try:
-        from supabase_client import fetch_click_log
-        sb_clicks = fetch_click_log()
+        from supabase_client import fetch_email_events
+        sb_events = fetch_email_events()
         merged = 0
-        for email, clk in sb_clicks.items():
-            if sg_email_map.get(email, {}).get('sg_clicked'):
-                continue  # already known from Activity Feed
+        for email, evt in sb_events.items():
             prev = sg_email_map.get(email, {})
-            sg_email_map[email] = {
-                **prev,
-                'sg_clicked':      True,
-                'sg_clicks_count': max(prev.get('sg_clicks_count', 0), clk['sg_clicks_count']),
+            updated = {
+                'sg_delivered':    prev.get('sg_delivered')    or evt.get('sg_delivered',    False),
+                'sg_opened':       prev.get('sg_opened')       or evt.get('sg_opened',       False),
+                'sg_clicked':      prev.get('sg_clicked')      or evt.get('sg_clicked',      False),
+                'sg_bounced':      prev.get('sg_bounced')      or evt.get('sg_bounced',      False),
+                'sg_opens_count':  max(prev.get('sg_opens_count',  0), evt.get('sg_opens_count',  0)),
+                'sg_clicks_count': max(prev.get('sg_clicks_count', 0), evt.get('sg_clicks_count', 0)),
             }
-            merged += 1
-        if merged:
-            print(f"  Merged {merged} historic clicker(s) from Supabase click log.")
+            if updated != prev:
+                merged += 1
+            sg_email_map[email] = updated
+        print(f"  Merged {len(sb_events)} customer(s) from Supabase sg_email_events ({merged} updated).")
     except Exception as e:
-        print(f"  [warn] Could not read Supabase click log: {e}")
+        print(f"  [warn] Could not read Supabase email events: {e}")
 
     print("\n[4/5] Computing campaign metrics...")
     data = compute_data(activation_rows, followup_rows, sheet_map, sg_email_map)
@@ -719,6 +774,9 @@ def main():
 
     data['sendgrid_stats']   = sg_stats
     data['sendgrid_summary'] = sg_summary
+    # Merge per-customer email health stats so KPI cards and drill-downs use
+    # the same population (customer_open_rate, customer_delivery_rate, etc.)
+    data['sendgrid_summary'].update(compute_sg_customer_summary(data['customers']))
 
     print("\n[4b/5] Reading survey responses...")
     survey_responses, surveys_sent = read_survey_responses()

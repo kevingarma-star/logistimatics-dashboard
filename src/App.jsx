@@ -241,16 +241,42 @@ function App() {
           </div>
 
           {/* Email Health KPIs */}
-          {sg.avg_open_rate !== undefined && (
+          {sg.has_campaign_data && (
             <>
               <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10, marginTop: 24 }}>
                 Email Health · Campaign Emails
               </div>
               <div className="kpi-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-                <KPICard label="Avg Open Rate"     value={sg.avg_open_rate}     suffix="%" icon="👁"  accent="cyan"   sub="Unique opens / delivered"   onClick={() => drillSg('Opened Emails',    c => c.sg_opened === true,    'Customers who opened at least one campaign email')} />
-                <KPICard label="Avg Delivery Rate" value={sg.avg_delivery_rate} suffix="%" icon="📬" accent="green"  sub="Delivered / total requests" onClick={() => drillSg('Delivered Emails', c => c.sg_delivered === true, 'Customers whose email was successfully delivered')} />
-                <KPICard label="Avg Click Rate"    value={sg.avg_click_rate}    suffix="%" icon="🖱"  accent="purple" sub="Unique clicks / delivered"   onClick={() => drillSg('Clicked Emails',   c => c.sg_clicked === true,   'Customers who clicked a link in a campaign email')} />
-                <KPICard label="Avg Bounce Rate"   value={sg.avg_bounce_rate}   suffix="%" icon="⚠"  accent="red"    sub="Bounces / total requests"   onClick={() => drillSg('Bounced Emails',   c => c.sg_bounced === true,   'Customers whose email bounced or was blocked')} />
+                <KPICard label="Open Rate"     value={sg.avg_open_rate}     suffix="%" icon="👁"  accent="cyan"   sub={`${sg.total_opens} unique opens · ${sg.total_delivered} delivered`}   onClick={() => drillSg('Opened Emails',    c => c.sg_opened === true,    'Customers who opened at least one campaign email')} />
+                <KPICard label="Delivery Rate" value={sg.avg_delivery_rate} suffix="%" icon="📬" accent="green"  sub={`${sg.total_delivered} / ${sg.total_requests} sent`}                   onClick={() => drillSg('Delivered Emails', c => c.sg_delivered === true, 'Customers whose email was successfully delivered')} />
+                <KPICard label="Click Rate"    value={sg.avg_click_rate}    suffix="%" icon="🖱"  accent="purple" sub={`${sg.total_clicks} unique clicks · ${sg.total_delivered} delivered`}  onClick={() => drillSg('Clicked Emails',   c => c.sg_clicked === true,   'Customers who clicked a link in a campaign email')} />
+                <KPICard label="Bounce Rate"   value={sg.avg_bounce_rate}   suffix="%" icon="⚠"  accent="red"    sub={`${sg.total_bounces} bounces · ${sg.total_requests} sent`}             onClick={() => drillSg('Bounced Emails',   c => c.sg_bounced === true,   'Customers whose email bounced or was blocked')} />
+              </div>
+              {/* Tracking coverage notice */}
+              <div style={{
+                marginTop: 10,
+                padding: '8px 14px',
+                background: 'rgba(255,183,0,0.05)',
+                border: '1px solid rgba(255,183,0,0.18)',
+                borderRadius: 6,
+                fontSize: 11,
+                color: '#8892a4',
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                flexWrap: 'wrap',
+              }}>
+                <span style={{ color: '#ffb700', fontWeight: 600 }}>Coverage — </span>
+                Rates from SendGrid Category Stats ·{' '}
+                <span style={{ color: '#f0f4ff', fontFamily: 'JetBrains Mono, monospace', fontWeight: 600 }}>
+                  {sg.total_requests} emails
+                </span>{' '}
+                ({sg.period_start} → {sg.period_end}).
+                {s.total_outreached > sg.total_requests && (
+                  <span>
+                    {' '}{s.total_outreached - sg.total_requests} earlier customers predate category tracking — no event data available.
+                  </span>
+                )}
               </div>
             </>
           )}
