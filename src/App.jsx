@@ -8,7 +8,6 @@ import SendGridPanel from './components/SendGridPanel'
 import DateRangePicker from './components/DateRangePicker'
 import DrillDownModal from './components/DrillDownModal'
 import SurveyPanel from './components/SurveyPanel'
-import AskAI from './components/AskAI'
 import InsightsPage from './components/InsightsPage'
 import useFilteredData from './useFilteredData'
 
@@ -273,11 +272,8 @@ function App() {
         />
       )}
 
-      {/* ── Two-column body: main content + sticky AI sidebar ── */}
-      {tab === 'dashboard' && <div style={{ display: 'flex', gap: 20, alignItems: 'flex-start' }}>
-
-        {/* ── Main content column ── */}
-        <div style={{ flex: 1, minWidth: 0 }}>
+      {/* ── Dashboard body ── */}
+      {tab === 'dashboard' && <div>
 
           {/* Filter badge */}
           {isFiltered && (
@@ -404,33 +400,6 @@ function App() {
             <div className="panel-sub">Why aren't customers activating? · ≥30 days post-ship, still pending</div>
             <SurveyPanel surveySummary={surveySummary} surveyResponses={surveyResponses} />
           </div>
-
-        </div>
-        {/* /Main content column */}
-
-        {/* ── AI Sidebar — sticky, fills viewport height ── */}
-        <aside style={{
-          width: 340,
-          flexShrink: 0,
-          position: 'sticky',
-          top: 24,
-          height: 'calc(100vh - 48px)',
-          display: 'flex',
-          flexDirection: 'column',
-        }}>
-          <div className="panel" style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden',
-            borderColor: 'rgba(139,92,246,0.2)',
-          }}>
-            <div className="panel-title" style={{ flexShrink: 0 }}>✦ Ask AI</div>
-            <div className="panel-sub" style={{ flexShrink: 0 }}>Analyze your campaign · powered by Claude</div>
-            <AskAI rawData={rawData} sidebar />
-          </div>
-        </aside>
-        {/* /AI Sidebar */}
 
       </div>}
       {/* /Two-column body (dashboard tab only) */}
