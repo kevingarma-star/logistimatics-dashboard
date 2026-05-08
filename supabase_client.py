@@ -5,6 +5,7 @@ Reads credentials from supabase_config.json (gitignored, lives next to this file
 """
 
 import json
+from datetime import datetime
 from pathlib import Path
 
 _client = None
@@ -37,7 +38,7 @@ def fetch_log(table):
     """Return all 'sent' rows from a log table as a list of dicts."""
     result = get_client().table(table).select(
         'date,email,customer_name,serials,message_id,status'
-    ).eq('status', 'sent').execute()
+    ).eq('status', 'sent').limit(10000).execute()
     return result.data or []
 
 
@@ -45,7 +46,7 @@ def fetch_survey_responses():
     """Return all survey responses, deduplicated by email (first response wins)."""
     result = get_client().table('survey_responses').select(
         'date,email,name,reason,reason_label'
-    ).order('created_at', desc=False).execute()
+    ).order('created_at', desc=False).limit(10000).execute()
     rows = result.data or []
     seen = set()
     deduped = []
@@ -90,7 +91,7 @@ def fetch_click_log():
     """
     result = get_client().table('sg_click_log').select(
         'email,email_type,clicked_at,clicks_count'
-    ).execute()
+    ).limit(10000).execute()
     rows = result.data or []
     merged = {}
     for row in rows:
@@ -124,7 +125,7 @@ def upsert_email_event(email, email_type, sg_message_id, status,
         'opens_count':     opens_count,
         'clicks_count':    clicks_count,
         'last_event_time': last_event_time,
-        'updated_at':      'now()',
+        'updated_at':      datetime.utcnow().isoformat() + 'Z',
     }, on_conflict='sg_message_id').execute()
 
 
@@ -137,7 +138,7 @@ def fetch_email_events():
     """
     result = get_client().table('sg_email_events').select(
         'email,email_type,status,delivered,bounced,opens_count,clicks_count,last_event_time'
-    ).execute()
+    ).limit(10000).execute()
     rows = result.data or []
     merged = {}
     for row in rows:

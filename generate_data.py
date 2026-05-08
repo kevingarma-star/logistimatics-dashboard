@@ -51,6 +51,7 @@ def _sg_key():
 CAMPAIGN_SUBJECTS = [
     ('activation', 'activate in under 2 minutes'),
     ('followup',   'need help activating'),
+    ('followup2',  "your tracker still isn't protecting anything"),
 ]
 
 # Categories used when sending — used for the reliable Category Stats API
@@ -272,7 +273,7 @@ def fetch_activity_feed_stats():
     # Category Stats / previous runs) rather than overwriting good data.
     new_total_del  = sum(v['delivered'] for v in results.values())
     prev_total_del = sum(v.get('delivered', 0) for v in cached_by_date.values())
-    if prev_total_del > 0 and new_total_del < prev_total_del * 0.6:
+    if prev_total_del > 0 and new_total_del < prev_total_del * 0.2:
         print(f"  [warn] Activity Feed returned only {new_total_del} delivered "
               f"(was {prev_total_del}) — keeping cached stats to avoid regression.")
         # Rebuild results from cache so downstream code stays the same
