@@ -52,21 +52,10 @@ function App() {
   }
 
   const hardRefresh = () => {
-    setRefreshing(true)
-    // Ask local server to regenerate data.json, then reload it
-    fetch('http://localhost:8765/refresh', { method: 'POST' })
-      .then(() => {
-        // Wait a moment for GitHub Pages to pick up the push
-        setTimeout(() => fetchData().then(d => {
-          setRawData(d)
-          setLastRefresh(new Date())
-          setRefreshing(false)
-        }).catch(() => setRefreshing(false)), 3000)
-      })
-      .catch(() => {
-        // Local server not running — fall back to just reloading data.json
-        loadData(false)
-      })
+    // Always re-fetch data.json directly with a cache-busting timestamp.
+    // Optionally also poke the local server if it's running (best-effort).
+    loadData(false)
+    fetch('http://localhost:8765/refresh', { method: 'POST' }).catch(() => {})
   }
 
   const INSIGHTS_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/insights'
@@ -101,8 +90,8 @@ function App() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     loadData(true)
-    // Poll every 5 minutes
-    const POLL_MS = 5 * 60 * 1000
+    // Poll every 30 seconds
+    const POLL_MS = 30 * 1000
     const timer = setInterval(() => loadData(false), POLL_MS)
     return () => clearInterval(timer)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -220,7 +209,7 @@ function App() {
             ↻
           </button>
           <div className="header-meta" style={{ textAlign: 'right' }}>
-            <div className="header-badge">Auto-refresh 5m</div>
+            <div className="header-badge">Auto-refresh 30s</div>
             <div style={{ fontSize: 11, color: '#4a5568' }}>
               {lastRefresh
                 ? `Fetched ${lastRefresh.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`
