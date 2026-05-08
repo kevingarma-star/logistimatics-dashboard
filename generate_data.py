@@ -54,7 +54,7 @@ CAMPAIGN_SUBJECTS = [
 ]
 
 # Categories used when sending — used for the reliable Category Stats API
-CAMPAIGN_CATEGORIES = ['activation-email', 'followup-email']
+CAMPAIGN_CATEGORIES = ['activation-email', 'followup-email', 'followup2-email']
 
 
 def _parse_date(ts):
@@ -545,20 +545,22 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
     activated = sum(1 for c in customers if c['status'] == 'Activated')
     pending   = sum(1 for c in customers if c['status'] == 'Pending')
     returned  = sum(1 for c in customers if c['status'] == 'Returned')
-    fu_sent   = sum(1 for c in customers if c['fu_sent'])
-    fu_activ  = sum(1 for c in customers if c['fu_sent'] and c['status'] == 'Activated')
+    fu_sent        = sum(1 for c in customers if c['fu_sent'])
+    fu_activ       = sum(1 for c in customers if c['fu_sent'] and c['status'] == 'Activated')
+    fu_total_emails = len(followup_rows)   # total emails sent across all touches (not deduped)
 
     act_rate  = round(activated / total * 100, 1) if total else 0
     fu_rate   = round(fu_activ / fu_sent * 100, 1) if fu_sent else 0
 
     summary = {
-        'total_outreached':       total,
-        'activated':              activated,
-        'pending':                pending,
-        'returned':               returned,
-        'activation_rate':        act_rate,
-        'followup_sent':          fu_sent,
-        'followup_activated':     fu_activ,
+        'total_outreached':         total,
+        'activated':                activated,
+        'pending':                  pending,
+        'returned':                 returned,
+        'activation_rate':          act_rate,
+        'followup_sent':            fu_total_emails,   # total emails sent (all touches)
+        'followup_customers_reached': fu_sent,         # unique customers reached
+        'followup_activated':       fu_activ,
         'followup_conversion_rate': fu_rate,
     }
 
@@ -714,10 +716,13 @@ def main():
     print("=" * 55)
 
     print("\n[1/5] Reading Supabase logs...")
-    activation_rows = load_log('activation_log')
-    followup_rows   = load_log('followup_log')
+    activation_rows  = load_log('activation_log')
+    followup_rows    = load_log('followup_log')
+    followup2_rows   = load_log('followup2_log')
+    # Merge touch-2 and touch-3 into a single list for fu_sent tracking
+    all_followup_rows = followup_rows + followup2_rows
     print(f"  Activation emails: {len(activation_rows)}")
-    print(f"  Follow-up emails:  {len(followup_rows)}")
+    print(f"  Follow-up emails:  {len(followup_rows)} touch-2 + {len(followup2_rows)} touch-3 = {len(all_followup_rows)} total")
 
     print("\n[2/5] Reading Google Sheet for activation status...")
     sheet_map = read_sheet()
@@ -760,7 +765,7 @@ def main():
         print(f"  [warn] Could not read Supabase email events: {e}")
 
     print("\n[4/5] Computing campaign metrics...")
-    data = compute_data(activation_rows, followup_rows, sheet_map, sg_email_map)
+    data = compute_data(activation_rows, all_followup_rows, sheet_map, sg_email_map)
     s = data['summary']
     print(f"  Total outreached:    {s['total_outreached']}")
     print(f"  Activated:           {s['activated']} ({s['activation_rate']}%)")
