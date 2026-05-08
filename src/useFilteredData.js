@@ -49,22 +49,11 @@ export default function useFilteredData(data, start, end) {
       { stage: 'Activated',      value: activated, pct: total ? +(activated / total * 100).toFixed(1) : 0 },
     ]
 
-    // ── Recompute SendGrid summary from filtered stats ─────────────────
-    let sgSummary = data.sendgrid_summary || {}
-    if (sgStats.length && sgSummary.has_campaign_data !== false) {
-      const del  = sgStats.reduce((s, d) => s + (d.delivered ?? 0),      0)
-      const open = sgStats.reduce((s, d) => s + (d.unique_opens ?? 0),   0)
-      const clk  = sgStats.reduce((s, d) => s + (d.unique_clicks ?? 0),  0)
-      const bnc  = sgStats.reduce((s, d) => s + (d.bounces ?? 0),        0)
-      const req  = sgStats.reduce((s, d) => s + (d.requests ?? (del || 1)),0)
-      sgSummary = {
-        ...sgSummary,
-        avg_open_rate:      del ? +(open / del * 100).toFixed(1) : 0,
-        avg_click_rate:     del ? +(clk  / del * 100).toFixed(2) : 0,
-        avg_delivery_rate:  req ? +(del  / req * 100).toFixed(1) : 0,
-        avg_bounce_rate:    req ? +(bnc  / req * 100).toFixed(2) : 0,
-      }
-    }
+    // ── SendGrid summary rates are campaign-wide — use full unfiltered stats ──
+    // Rates (open/click/delivery/bounce) represent overall campaign health and
+    // should not shift when the cohort date filter changes. Only the timeline
+    // chart uses the date-filtered sgStats slice.
+    const sgSummary = data.sendgrid_summary || {}
 
     return { ...data, summary, cohorts, timeline, funnel, customers, sendgrid_stats: sgStats, sendgrid_summary: sgSummary }
   }, [data, start, end])
