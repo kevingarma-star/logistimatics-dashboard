@@ -1,12 +1,13 @@
 {
-  "generated_at": "2026-05-08T08:57:34",
+  "generated_at": "2026-05-08T08:58:47",
   "summary": {
     "total_outreached": 436,
     "activated": 239,
     "pending": 194,
     "returned": 3,
     "activation_rate": 54.8,
-    "followup_sent": 243,
+    "followup_sent": 348,
+    "followup_customers_reached": 243,
     "followup_activated": 61,
     "followup_conversion_rate": 25.1
   },
