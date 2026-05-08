@@ -787,69 +787,54 @@ def main():
     print("  Done.")
 
     print("\n[6/6] Pushing data.json to GitHub...")
-    import subprocess, os, tempfile, shutil
+    import subprocess, shutil
     repo_dir = Path(__file__).parent
     ts = datetime.now().strftime('%Y-%m-%d %H:%M')
 
-    # Push data.json directly to gh-pages branch via a git worktree.
-    # This skips the full Vite CI build, so GitHub Pages updates in ~5 seconds
-    # instead of ~1-2 minutes.
+    # Step A: commit public/data.json to master so CI rebuilds always use fresh data.
+    master_cmds = [
+        ['git', 'add', 'public/data.json'],
+        ['git', 'commit', '-m', f'data: refresh {ts}'],
+        ['git', 'push'],
+    ]
+    for cmd in master_cmds:
+        result = subprocess.run(cmd, cwd=repo_dir, capture_output=True, text=True)
+        if result.returncode != 0 and 'nothing to commit' not in result.stdout + result.stderr:
+            print(f"  [warn] master push: {' '.join(cmd[1:])}: {result.stderr.strip()[:120]}")
+        else:
+            print(f"  {' '.join(cmd[1:])} -> ok")
+
+    # Step B: also push data.json directly to gh-pages so GitHub API serves
+    # fresh content within ~60 seconds (vs waiting for the full CI rebuild).
     worktree_dir = repo_dir / '.gh-pages-worktree'
-    push_ok = False
     try:
-        # Remove stale worktree if it exists
         subprocess.run(['git', 'worktree', 'remove', '--force', str(worktree_dir)],
                        cwd=repo_dir, capture_output=True)
-
-        # Fetch latest gh-pages so we don't push on a stale base
         subprocess.run(['git', 'fetch', 'origin', 'gh-pages'],
                        cwd=repo_dir, capture_output=True)
-
-        # Add a worktree pointing at the gh-pages branch
         r = subprocess.run(
             ['git', 'worktree', 'add', str(worktree_dir), 'origin/gh-pages'],
             cwd=repo_dir, capture_output=True, text=True
         )
         if r.returncode != 0:
             raise RuntimeError(r.stderr.strip())
-
-        # Copy the freshly-written data.json into the worktree root
         shutil.copy(OUTPUT_PATH, worktree_dir / 'data.json')
-
-        # Commit and push from the worktree
-        cmds = [
+        for cmd in [
             ['git', 'add', 'data.json'],
             ['git', 'commit', '-m', f'data: refresh {ts}'],
             ['git', 'push', 'origin', 'HEAD:gh-pages'],
-        ]
-        for cmd in cmds:
+        ]:
             result = subprocess.run(cmd, cwd=worktree_dir, capture_output=True, text=True)
             if result.returncode != 0 and 'nothing to commit' not in result.stdout + result.stderr:
-                raise RuntimeError(f"{' '.join(cmd)}: {result.stderr.strip()}")
-            print(f"  {' '.join(cmd[1:])} -> ok")
-        push_ok = True
+                raise RuntimeError(f"{result.stderr.strip()[:120]}")
+        print("  gh-pages direct push -> ok")
     except Exception as e:
-        print(f"  [warn] gh-pages direct push failed: {e}")
-        print("  Falling back to master push (slower CI rebuild)...")
-        fallback_cmds = [
-            ['git', 'add', 'public/data.json'],
-            ['git', 'commit', '-m', f'data: refresh {ts}'],
-            ['git', 'push'],
-        ]
-        for cmd in fallback_cmds:
-            result = subprocess.run(cmd, cwd=repo_dir, capture_output=True, text=True)
-            if result.returncode != 0 and 'nothing to commit' not in result.stdout + result.stderr:
-                print(f"  [warn] {' '.join(cmd)}: {result.stderr.strip()}")
-            else:
-                print(f"  {' '.join(cmd[1:])} -> ok")
+        print(f"  [warn] gh-pages direct push skipped: {e}")
     finally:
         subprocess.run(['git', 'worktree', 'remove', '--force', str(worktree_dir)],
                        cwd=repo_dir, capture_output=True)
 
-    if push_ok:
-        print("\nDashboard will update on GitHub Pages in ~5 seconds.")
-    else:
-        print("\nDashboard will update on GitHub Pages in ~1-2 minutes (CI rebuild).")
+    print("\nDashboard will update within ~60 seconds (GitHub API cache).")
 
     # Sync CSV logs to Google Sheets (best-effort)
     try:

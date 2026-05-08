@@ -28,8 +28,12 @@ function App() {
   const [insightsError, setInsightsError]   = useState(null)
   const [insightsAt, setInsightsAt]         = useState(null)
 
+  // Fetch data.json via GitHub API (max-age=60s) instead of GitHub Pages
+  // (max-age=600s, query strings stripped — cache busting doesn't work there).
+  const GH_API_URL =
+    'https://api.github.com/repos/kevingarma-star/logistimatics-dashboard/contents/data.json?ref=gh-pages'
   const fetchData = () =>
-    fetch(`${import.meta.env.BASE_URL}data.json?t=${Date.now()}`)
+    fetch(GH_API_URL, { headers: { Accept: 'application/vnd.github.v3.raw' } })
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
 
   const loadData = (isInitial = false) => {
@@ -90,8 +94,9 @@ function App() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     loadData(true)
-    // Poll every 30 seconds
-    const POLL_MS = 30 * 1000
+    // Poll every 70 seconds — stays within GitHub API unauthenticated rate limit
+    // (60 req/hour). Combined with the 60s CDN cache, max delay after a push is ~70s.
+    const POLL_MS = 70 * 1000
     const timer = setInterval(() => loadData(false), POLL_MS)
     return () => clearInterval(timer)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -209,7 +214,7 @@ function App() {
             ↻
           </button>
           <div className="header-meta" style={{ textAlign: 'right' }}>
-            <div className="header-badge">Auto-refresh 30s</div>
+            <div className="header-badge">Auto-refresh 70s</div>
             <div style={{ fontSize: 11, color: '#4a5568' }}>
               {lastRefresh
                 ? `Fetched ${lastRefresh.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`
