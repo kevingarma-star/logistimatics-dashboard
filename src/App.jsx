@@ -30,15 +30,18 @@ function App() {
 
   // Fetch data.json via GitHub API (max-age=60s) instead of GitHub Pages
   // (max-age=600s, query strings stripped — cache busting doesn't work there).
-  const GH_API_URL =
+  // Pass a timestamp on manual refreshes so the browser never serves a cached response.
+  const GH_API_BASE =
     'https://api.github.com/repos/kevingarma-star/logistimatics-dashboard/contents/data.json?ref=gh-pages'
-  const fetchData = () =>
-    fetch(GH_API_URL, { headers: { Accept: 'application/vnd.github.v3.raw' } })
+  const fetchData = (bust = false) => {
+    const url = bust ? `${GH_API_BASE}&_=${Date.now()}` : GH_API_BASE
+    return fetch(url, { headers: { Accept: 'application/vnd.github.v3.raw' } })
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
+  }
 
-  const loadData = (isInitial = false) => {
+  const loadData = (isInitial = false, bust = false) => {
     if (!isInitial) setRefreshing(true)
-    fetchData()
+    fetchData(bust)
       .then(d => {
         if (isInitial) {
           const dates = [...d.cohorts.map(c => c.batch_date)].sort()
@@ -56,9 +59,9 @@ function App() {
   }
 
   const hardRefresh = () => {
-    // Always re-fetch data.json directly with a cache-busting timestamp.
-    // Optionally also poke the local server if it's running (best-effort).
-    loadData(false)
+    // Always re-fetch data.json with a cache-busting timestamp so the browser
+    // never returns a stale cached response. Also poke the local server (best-effort).
+    loadData(false, true)
     fetch('http://localhost:8765/refresh', { method: 'POST' }).catch(() => {})
   }
 
