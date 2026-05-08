@@ -68,7 +68,7 @@ if __name__ == '__main__':
     import gspread
 
     print("=" * 55)
-    print("  Logistimatics CSV → Sheets Sync")
+    print("  Logistimatics CSV -> Sheets Sync")
     print("=" * 55)
 
     with open(CONFIG_PATH) as f:

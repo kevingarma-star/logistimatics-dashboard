@@ -75,32 +75,6 @@ def _load_cached_sg_stats():
         return {}
 
 
-def _load_cached_sg_engagement():
-    """
-    Load per-customer SendGrid engagement flags from the previous data.json,
-    keyed by lowercase email. Used to preserve sg_clicked/sg_opened/etc. for
-    customers who have fallen outside the Activity Feed's 7-day window.
-    """
-    try:
-        with open(OUTPUT_PATH) as f:
-            old = json.load(f)
-        result = {}
-        for c in old.get('customers', []):
-            email = (c.get('email') or '').strip().lower()
-            if not email:
-                continue
-            result[email] = {
-                'sg_delivered':    c.get('sg_delivered'),
-                'sg_opened':       c.get('sg_opened'),
-                'sg_clicked':      c.get('sg_clicked'),
-                'sg_bounced':      c.get('sg_bounced'),
-                'sg_opens_count':  c.get('sg_opens_count',  0),
-                'sg_clicks_count': c.get('sg_clicks_count', 0),
-                'sg_last_event':   c.get('sg_last_event',   ''),
-            }
-        return result
-    except Exception:
-        return {}
 
 
 def fetch_category_stats(key):
@@ -180,12 +154,32 @@ def fetch_activity_feed_stats():
     results = defaultdict(lambda: {
         'requests': 0, 'delivered': 0, 'bounces': 0, 'unsubscribes': 0,
         'unique_opens': 0, 'opens': 0, 'unique_clicks': 0, 'clicks': 0,
-        'activation': 0, 'followup': 0,
+        'activation': 0, 'followup': 0, 'followup2': 0,
     })
 
     # email -> best engagement across all campaign messages
     sg_email_map = {}
     total_feed_messages = 0
+
+    # Pre-load existing sg_email_events from Supabase keyed by sg_message_id so
+    # that upserts never overwrite a higher click/open count with a lower one.
+    # (Activity Feed may show clicks_count=0 for a message if it appears due to
+    # a later delivery/open event after the click already aged out of the feed.)
+    existing_events_by_msg_id = {}
+    try:
+        from supabase_client import get_client as _get_sb_client
+        _rows = _get_sb_client().table('sg_email_events').select(
+            'sg_message_id,clicks_count,opens_count'
+        ).limit(10000).execute()
+        for _r in (_rows.data or []):
+            _mid = _r.get('sg_message_id') or ''
+            if _mid:
+                existing_events_by_msg_id[_mid] = {
+                    'clicks_count': int(_r.get('clicks_count', 0) or 0),
+                    'opens_count':  int(_r.get('opens_count',  0) or 0),
+                }
+    except Exception as _e:
+        pass  # Non-fatal — upserts will still write whatever the Activity Feed has
 
     for email_type, subject_frag in CAMPAIGN_SUBJECTS:
         query  = f'subject LIKE "%{subject_frag}%"'
@@ -201,7 +195,8 @@ def fetch_activity_feed_stats():
 
         messages = data.get('messages', [])
         total_feed_messages += len(messages)
-        print(f"  Activity Feed ({email_type}): {len(messages)} messages found")
+        feed_clicks = sum(1 for m in messages if int(m.get('clicks_count', 0) or 0) > 0)
+        print(f"  Activity Feed ({email_type}): {len(messages)} messages found, {feed_clicks} with clicks")
 
         for msg in messages:
             ts  = msg.get('last_event_time') or ''
@@ -232,12 +227,15 @@ def fetch_activity_feed_stats():
 
             # Persist every message event to Supabase so delivery, open, click,
             # and bounce data survives beyond the 7-day Activity Feed window.
-            # Upsert is idempotent on sg_message_id — safe to re-run anytime.
+            # Use max(feed, existing) for counts so a later delivery/open event
+            # that brings a message back into the feed never overwrites a
+            # previously-stored higher click or open count.
             if to_email:
                 msg_id = msg.get('msg_id') or msg.get('message_id') or ''
                 if msg_id:
                     try:
                         from supabase_client import upsert_email_event
+                        existing = existing_events_by_msg_id.get(msg_id, {})
                         upsert_email_event(
                             email=to_email,
                             email_type=email_type,
@@ -245,12 +243,26 @@ def fetch_activity_feed_stats():
                             status=status,
                             delivered=(status == 'delivered'),
                             bounced=(status in ('bounce', 'blocked', 'deferred')),
-                            opens_count=opens_count,
-                            clicks_count=clicks_count,
+                            opens_count=max(opens_count, existing.get('opens_count', 0)),
+                            clicks_count=max(clicks_count, existing.get('clicks_count', 0)),
                             last_event_time=ts,
                         )
                     except Exception as e:
                         print(f"  [warn] Could not upsert email event: {e}")
+
+                    # Also log to sg_click_log whenever there are clicks
+                    if clicks_count > 0:
+                        try:
+                            from supabase_client import upsert_click_log
+                            upsert_click_log(
+                                email=to_email,
+                                email_type=email_type,
+                                sg_message_id=msg_id,
+                                clicked_at=ts,
+                                clicks_count=clicks_count,
+                            )
+                        except Exception as e:
+                            print(f"  [warn] Could not upsert click log: {e}")
 
             # Merge into per-email map (keep best engagement across multiple sends)
             if to_email:
@@ -475,7 +487,6 @@ def read_sheet():
 
 def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
     today = date.today()
-    cached_sg = _load_cached_sg_engagement()
 
     # Build follow-up map: email → date
     fu_map = {}
@@ -514,16 +525,10 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
         else:
             status = 'Pending'
 
-        sg_fresh  = (sg_email_map or {}).get(email_lc, {})
-        sg_cached = cached_sg.get(email_lc, {})
-        # Merge: once True, always True — Activity Feed only covers 7 days so
-        # we preserve any engagement flags known from previous runs.
-        def _best_bool(fresh, cached):
-            if fresh is True or cached is True:
-                return True
-            if fresh is False or cached is False:
-                return False
-            return None
+        # sg_email_map is already the merged result of Activity Feed + Supabase
+        # (the merge happens in main() before compute_data is called).
+        # Supabase is the authoritative permanent store — no data.json fallback needed.
+        sg = (sg_email_map or {}).get(email_lc, {})
         customers.append({
             'email':           email_lc,
             'sent_date':       sent_date,
@@ -532,13 +537,13 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
             'fu_sent':         fu_sent,
             'fu_date':         fu_date,
             'status':          status,
-            'sg_delivered':    _best_bool(sg_fresh.get('sg_delivered'), sg_cached.get('sg_delivered')),
-            'sg_opened':       _best_bool(sg_fresh.get('sg_opened'),    sg_cached.get('sg_opened')),
-            'sg_clicked':      _best_bool(sg_fresh.get('sg_clicked'),   sg_cached.get('sg_clicked')),
-            'sg_bounced':      _best_bool(sg_fresh.get('sg_bounced'),   sg_cached.get('sg_bounced')),
-            'sg_opens_count':  max(sg_fresh.get('sg_opens_count',  0), sg_cached.get('sg_opens_count',  0)),
-            'sg_clicks_count': max(sg_fresh.get('sg_clicks_count', 0), sg_cached.get('sg_clicks_count', 0)),
-            'sg_last_event':   sg_fresh.get('sg_last_event') or sg_cached.get('sg_last_event', ''),
+            'sg_delivered':    sg.get('sg_delivered'),
+            'sg_opened':       sg.get('sg_opened'),
+            'sg_clicked':      sg.get('sg_clicked'),
+            'sg_bounced':      sg.get('sg_bounced'),
+            'sg_opens_count':  sg.get('sg_opens_count',  0),
+            'sg_clicks_count': sg.get('sg_clicks_count', 0),
+            'sg_last_event':   sg.get('sg_last_event', ''),
         })
 
     # ── Summary ──
