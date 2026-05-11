@@ -9,6 +9,7 @@ import DateRangePicker from './components/DateRangePicker'
 import DrillDownModal from './components/DrillDownModal'
 import SurveyPanel from './components/SurveyPanel'
 import InsightsPage from './components/InsightsPage'
+import FollowupsPage from './components/FollowupsPage'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -230,8 +231,9 @@ function App() {
       {/* ── Tab toggle ── */}
       <div style={{ display: 'flex', gap: 4, marginBottom: 28 }}>
         {[
-          { key: 'dashboard', label: '◧ Dashboard' },
-          { key: 'insights',  label: '✦ AI Insights' },
+          { key: 'dashboard',  label: '◧ Dashboard'   },
+          { key: 'followups',  label: '📩 Follow-ups'  },
+          { key: 'insights',   label: '✦ AI Insights'  },
         ].map(t => (
           <button
             key={t.key}
@@ -257,6 +259,17 @@ function App() {
           </button>
         ))}
       </div>
+
+      {/* ── Follow-ups tab ── */}
+      {tab === 'followups' && (
+        <div className="panel">
+          <div className="panel-title">Follow-up Touches</div>
+          <div className="panel-sub">Which customers received T2 and/or T3 follow-up emails</div>
+          <div style={{ marginTop: 20 }}>
+            <FollowupsPage customers={all} />
+          </div>
+        </div>
+      )}
 
       {/* ── Insights tab ── */}
       {tab === 'insights' && (
