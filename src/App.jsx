@@ -9,7 +9,6 @@ import DateRangePicker from './components/DateRangePicker'
 import DrillDownModal from './components/DrillDownModal'
 import SurveyPanel from './components/SurveyPanel'
 import InsightsPage from './components/InsightsPage'
-import FollowupsPage from './components/FollowupsPage'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -148,6 +147,16 @@ function App() {
     'Follow-ups Sent',
     'Customers who received a follow-up email',
     all.filter(c => c.fu_sent)
+  )
+  const drillT2 = () => openDrill(
+    'Touch 2 — Follow-up',
+    'Customers who received the T2 follow-up email',
+    all.filter(c => c.fu2_sent)
+  )
+  const drillT3 = () => openDrill(
+    'Touch 3 — Follow-up',
+    'Customers who received the T3 follow-up email',
+    all.filter(c => c.fu3_sent)
   )
   const drillAll = () => openDrill(
     'All Outreached',
@@ -309,17 +318,10 @@ function App() {
             <KPICard label="Total Outreached" value={s.total_outreached} icon="📡" accent="cyan"   sub="Unique customers contacted" onClick={drillAll} />
             <KPICard label="Activated"        value={s.activated}        icon="✅" accent="green"  sub={`${s.activation_rate}% conversion rate`} trend={`${s.activation_rate}%`} trendColor="green" onClick={() => drillStatus('Activated')} />
             <KPICard label="Follow-ups Sent"  value={s.followup_sent}    icon="📩" accent="purple" sub={`${s.followup_conversion_rate}% of follow-ups converted`} onClick={drillFollowup} />
+            <KPICard label="Touch 2 Sent"     value={all.filter(c => c.fu2_sent).length} icon="✉" accent="purple" sub="Customers reached by T2" onClick={drillT2} />
+            <KPICard label="Touch 3 Sent"     value={all.filter(c => c.fu3_sent).length} icon="✉" accent="cyan"   sub="Customers reached by T3" onClick={drillT3} />
             <KPICard label="Pending"          value={s.pending}          icon="⏳" accent="amber"  sub="Awaiting activation" onClick={() => drillStatus('Pending')} />
             <KPICard label="Returned"         value={s.returned}         icon="↩"  accent="red"    sub="Device returned" onClick={() => drillStatus('Returned')} />
-          </div>
-
-          {/* Follow-up Touches breakdown */}
-          <div className="panel" style={{ marginTop: 20 }}>
-            <div className="panel-title">Follow-up Touches</div>
-            <div className="panel-sub">T2 and T3 email classification per customer</div>
-            <div style={{ marginTop: 16 }}>
-              <FollowupsPage customers={all} />
-            </div>
           </div>
 
           {/* Email Health KPIs */}
