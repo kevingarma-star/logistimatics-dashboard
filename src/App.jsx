@@ -146,11 +146,6 @@ function App() {
     `Customers with status: ${status}`,
     all.filter(c => c.status === status)
   )
-  const drillFollowup = () => openDrill(
-    'Follow-ups Sent',
-    'Customers who received a follow-up email',
-    all.filter(c => c.fu_sent)
-  )
   const drillT2 = () => openDrill(
     'Touch 2 — Follow-up',
     'Customers who received the T2 follow-up email',
@@ -177,7 +172,7 @@ function App() {
   const drillFunnel = stage => {
     const map = {
       'Outreached':     [all, 'All customers outreached'],
-      'Follow-up Sent': [all.filter(c => c.fu_sent), 'Customers who received a follow-up'],
+      'Follow-up Sent': [all.filter(c => c.fu2_sent), 'Customers who received a T2 follow-up'],
       'Activated':      [all.filter(c => c.status === 'Activated'), 'Customers who activated'],
     }
     const [customers, subtitle] = map[stage] || [all, stage]
@@ -320,9 +315,8 @@ function App() {
           <div className="kpi-grid">
             <KPICard label="Total Outreached" value={s.total_outreached} icon="📡" accent="cyan"   sub="Unique customers contacted" onClick={drillAll} />
             <KPICard label="Activated"        value={s.activated}        icon="✅" accent="green"  sub={`${s.activation_rate}% conversion rate`} trend={`${s.activation_rate}%`} trendColor="green" onClick={() => drillStatus('Activated')} />
-            <KPICard label="Follow-ups Sent"  value={s.followup_sent}    icon="📩" accent="purple" sub={`${s.followup_conversion_rate}% of follow-ups converted`} onClick={drillFollowup} />
-            <KPICard label="Touch 2 Sent"     value={all.filter(c => c.fu2_sent).length} icon="✉" accent="purple" sub="Customers reached by T2" onClick={drillT2} />
-            <KPICard label="Touch 3 Sent"     value={all.filter(c => c.fu3_sent).length} icon="✉" accent="cyan"   sub="Customers reached by T3" onClick={drillT3} />
+            <KPICard label="Touch 2 Sent"     value={all.filter(c => c.fu2_sent).length} icon="📩" accent="purple" sub="Customers reached by T2" onClick={drillT2} />
+            <KPICard label="Touch 3 Sent"     value={all.filter(c => c.fu3_sent).length} icon="📩" accent="cyan"   sub="Customers reached by T3" onClick={drillT3} />
             <KPICard label="Pending"          value={s.pending}          icon="⏳" accent="amber"  sub="Awaiting activation" onClick={() => drillStatus('Pending')} />
             <KPICard label="Returned"         value={s.returned}         icon="↩"  accent="red"    sub="Device returned" onClick={() => drillStatus('Returned')} />
           </div>
