@@ -485,13 +485,22 @@ def read_sheet():
 
 # ── Data computation ──────────────────────────────────────────────────────────
 
-def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
+def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None):
     today = date.today()
+    if followup2_rows is None:
+        followup2_rows = []
 
-    # Build follow-up map: email → date
-    fu_map = {}
+    # Build per-touch maps: email → date (last sent wins within each touch)
+    fu2_map = {}
     for row in followup_rows:
-        fu_map[row['email'].strip().lower()] = row['date']
+        fu2_map[row['email'].strip().lower()] = row['date']
+
+    fu3_map = {}
+    for row in followup2_rows:
+        fu3_map[row['email'].strip().lower()] = row['date']
+
+    # Combined map for the legacy fu_sent boolean (any touch)
+    fu_map = {**fu2_map, **fu3_map}
 
     # Dedup activation rows by email (keep first sent)
     seen = {}
@@ -511,8 +520,12 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
         except Exception:
             days_since = 0
 
-        fu_sent = email_lc in fu_map
-        fu_date = fu_map.get(email_lc, '')
+        fu2_sent = email_lc in fu2_map
+        fu2_date = fu2_map.get(email_lc, '')
+        fu3_sent = email_lc in fu3_map
+        fu3_date = fu3_map.get(email_lc, '')
+        fu_sent  = fu2_sent or fu3_sent
+        fu_date  = fu2_date or fu3_date
 
         info     = sheet_map.get(email_lc, {})
         sub_id   = info.get('sub_id', '')
@@ -536,6 +549,10 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
             'days_since':      days_since,
             'fu_sent':         fu_sent,
             'fu_date':         fu_date,
+            'fu2_sent':        fu2_sent,
+            'fu2_date':        fu2_date,
+            'fu3_sent':        fu3_sent,
+            'fu3_date':        fu3_date,
             'status':          status,
             'sg_delivered':    sg.get('sg_delivered'),
             'sg_opened':       sg.get('sg_opened'),
@@ -725,8 +742,7 @@ def main():
     activation_rows  = load_log('activation_log')
     followup_rows    = load_log('followup_log')
     followup2_rows   = load_log('followup2_log')
-    # Merge touch-2 and touch-3 into a single list for fu_sent tracking
-    all_followup_rows = followup_rows + followup2_rows
+    all_followup_rows = followup_rows + followup2_rows  # combined for summary counts
     print(f"  Activation emails: {len(activation_rows)}")
     print(f"  Follow-up emails:  {len(followup_rows)} touch-2 + {len(followup2_rows)} touch-3 = {len(all_followup_rows)} total")
 
@@ -771,7 +787,7 @@ def main():
         print(f"  [warn] Could not read Supabase email events: {e}")
 
     print("\n[4/5] Computing campaign metrics...")
-    data = compute_data(activation_rows, all_followup_rows, sheet_map, sg_email_map)
+    data = compute_data(activation_rows, followup_rows, sheet_map, sg_email_map, followup2_rows=followup2_rows)
     s = data['summary']
     print(f"  Total outreached:    {s['total_outreached']}")
     print(f"  Activated:           {s['activated']} ({s['activation_rate']}%)")

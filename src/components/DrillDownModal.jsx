@@ -12,7 +12,7 @@ const COLS = [
   { key: 'sent_date',      label: 'Sent',        sortable: true  },
   { key: 'days_since',     label: 'Days',        sortable: true  },
   { key: 'serials',        label: 'Serial(s)',   sortable: false },
-  { key: 'fu_sent',        label: 'Follow-up',   sortable: true  },
+  { key: 'fu_sent',        label: 'Touches',     sortable: true  },
   { key: 'sg_delivered',   label: 'Delivered',   sortable: true, sgOnly: true },
   { key: 'sg_opened',      label: 'Opened',      sortable: true, sgOnly: true },
   { key: 'sg_clicked',     label: 'Clicked',     sortable: true, sgOnly: true },
@@ -72,9 +72,11 @@ export default function DrillDownModal({ title, subtitle, customers, onClose, sh
   }
 
   const exportCSV = () => {
-    const header = 'Email,Status,Sent Date,Days Since,Serials,Follow-up Sent,Follow-up Date'
+    const header = 'Email,Status,Sent Date,Days Since,Serials,T2 Sent,T2 Date,T3 Sent,T3 Date'
     const rows = sorted.map(c =>
-      [c.email, c.status, c.sent_date, c.days_since, c.serials, c.fu_sent ? 'Yes' : 'No', c.fu_date || ''].join(',')
+      [c.email, c.status, c.sent_date, c.days_since, c.serials,
+       c.fu2_sent ? 'Yes' : 'No', c.fu2_date || '',
+       c.fu3_sent ? 'Yes' : 'No', c.fu3_date || ''].join(',')
     )
     const blob = new Blob([[header, ...rows].join('\n')], { type: 'text/csv' })
     const a = document.createElement('a')
@@ -230,12 +232,31 @@ export default function DrillDownModal({ title, subtitle, customers, onClose, sh
                       {c.serials || '—'}
                     </td>
                     <td style={{ padding: '9px 8px' }}>
-                      {c.fu_sent ? (
-                        <span style={{ color: '#8b5cf6', fontFamily: 'JetBrains Mono, monospace', fontSize: 11 }}>
-                          ✓ {c.fu_date || ''}
-                        </span>
-                      ) : (
+                      {!c.fu_sent ? (
                         <span style={{ color: '#4a5568' }}>—</span>
+                      ) : (
+                        <span style={{ display: 'flex', gap: 4, flexWrap: 'wrap', alignItems: 'center' }}>
+                          {c.fu2_sent && (
+                            <span style={{
+                              background: 'rgba(139,92,246,0.15)', color: '#c4b5fd',
+                              border: '1px solid rgba(139,92,246,0.3)',
+                              borderRadius: 4, padding: '1px 6px',
+                              fontFamily: 'JetBrains Mono, monospace', fontSize: 10, whiteSpace: 'nowrap',
+                            }}>
+                              T2 {c.fu2_date ? c.fu2_date.slice(5) : ''}
+                            </span>
+                          )}
+                          {c.fu3_sent && (
+                            <span style={{
+                              background: 'rgba(0,212,255,0.1)', color: '#7dd3fc',
+                              border: '1px solid rgba(0,212,255,0.25)',
+                              borderRadius: 4, padding: '1px 6px',
+                              fontFamily: 'JetBrains Mono, monospace', fontSize: 10, whiteSpace: 'nowrap',
+                            }}>
+                              T3 {c.fu3_date ? c.fu3_date.slice(5) : ''}
+                            </span>
+                          )}
+                        </span>
                       )}
                     </td>
                     {showSgCols && <>
