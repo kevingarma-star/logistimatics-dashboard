@@ -28,12 +28,15 @@ function App() {
   const [insightsError, setInsightsError]   = useState(null)
   const [insightsAt, setInsightsAt]         = useState(null)
 
-  // Fetch data.json via GitHub API (max-age=60s) instead of GitHub Pages
-  // (max-age=600s, query strings stripped — cache busting doesn't work there).
-  // Pass a timestamp on manual refreshes so the browser never serves a cached response.
+  // In dev mode use the local public/data.json served by Vite — no GitHub API rate limits.
+  // In production, fetch via GitHub API (max-age=60s) with cache-busting on manual refresh.
   const GH_API_BASE =
     'https://api.github.com/repos/kevingarma-star/logistimatics-dashboard/contents/data.json?ref=gh-pages'
   const fetchData = (bust = false) => {
+    if (import.meta.env.DEV) {
+      const url = `${import.meta.env.BASE_URL}data.json${bust ? `?_=${Date.now()}` : ''}`
+      return fetch(url).then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
+    }
     const url = bust ? `${GH_API_BASE}&_=${Date.now()}` : GH_API_BASE
     return fetch(url, { headers: { Accept: 'application/vnd.github.v3.raw' } })
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
