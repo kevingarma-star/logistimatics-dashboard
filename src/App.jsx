@@ -231,9 +231,8 @@ function App() {
       {/* ── Tab toggle ── */}
       <div style={{ display: 'flex', gap: 4, marginBottom: 28 }}>
         {[
-          { key: 'dashboard',  label: '◧ Dashboard'   },
-          { key: 'followups',  label: '📩 Follow-ups'  },
-          { key: 'insights',   label: '✦ AI Insights'  },
+          { key: 'dashboard', label: '◧ Dashboard' },
+          { key: 'insights',  label: '✦ AI Insights' },
         ].map(t => (
           <button
             key={t.key}
@@ -259,17 +258,6 @@ function App() {
           </button>
         ))}
       </div>
-
-      {/* ── Follow-ups tab ── */}
-      {tab === 'followups' && (
-        <div className="panel">
-          <div className="panel-title">Follow-up Touches</div>
-          <div className="panel-sub">Which customers received T2 and/or T3 follow-up emails</div>
-          <div style={{ marginTop: 20 }}>
-            <FollowupsPage customers={all} />
-          </div>
-        </div>
-      )}
 
       {/* ── Insights tab ── */}
       {tab === 'insights' && (
@@ -323,6 +311,15 @@ function App() {
             <KPICard label="Follow-ups Sent"  value={s.followup_sent}    icon="📩" accent="purple" sub={`${s.followup_conversion_rate}% of follow-ups converted`} onClick={drillFollowup} />
             <KPICard label="Pending"          value={s.pending}          icon="⏳" accent="amber"  sub="Awaiting activation" onClick={() => drillStatus('Pending')} />
             <KPICard label="Returned"         value={s.returned}         icon="↩"  accent="red"    sub="Device returned" onClick={() => drillStatus('Returned')} />
+          </div>
+
+          {/* Follow-up Touches breakdown */}
+          <div className="panel" style={{ marginTop: 20 }}>
+            <div className="panel-title">Follow-up Touches</div>
+            <div className="panel-sub">T2 and T3 email classification per customer</div>
+            <div style={{ marginTop: 16 }}>
+              <FollowupsPage customers={all} />
+            </div>
           </div>
 
           {/* Email Health KPIs */}
