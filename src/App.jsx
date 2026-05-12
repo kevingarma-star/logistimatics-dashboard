@@ -269,7 +269,7 @@ function App() {
 
       {/* ── Activation Timing tab ── */}
       {tab === 'timing' && (
-        <ActivationTimingPage rawData={rawData} />
+        <ActivationTimingPage rawData={rawData} onDrill={openDrill} />
       )}
 
       {/* ── Insights tab ── */}

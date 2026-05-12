@@ -19,33 +19,47 @@ const TOUCH_LABELS = {
 
 // ── Stat pill ─────────────────────────────────────────────────────────────────
 
-function StatPill({ label, value, color, sub }) {
+function StatPill({ label, value, color, sub, onClick }) {
+  const clickable = !!onClick
   return (
-    <div style={{
-      flex: 1,
-      background: 'rgba(255,255,255,0.03)',
-      border: `1px solid ${color}22`,
-      borderRadius: 8,
-      padding: '14px 18px',
-      minWidth: 0,
-    }}>
+    <div
+      onClick={onClick}
+      style={{
+        flex: 1,
+        background: 'rgba(255,255,255,0.03)',
+        border: `1px solid ${color}22`,
+        borderRadius: 8,
+        padding: '14px 18px',
+        minWidth: 0,
+        cursor: clickable ? 'pointer' : 'default',
+        transition: clickable ? 'border-color 0.15s, background 0.15s' : undefined,
+      }}
+      onMouseEnter={e => { if (clickable) { e.currentTarget.style.borderColor = `${color}55`; e.currentTarget.style.background = `${color}08` } }}
+      onMouseLeave={e => { if (clickable) { e.currentTarget.style.borderColor = `${color}22`; e.currentTarget.style.background = 'rgba(255,255,255,0.03)' } }}
+    >
       <div style={{ fontSize: 10, color: '#8892a4', textTransform: 'uppercase', letterSpacing: '0.7px', marginBottom: 4 }}>
         {label}
       </div>
       <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 26, fontWeight: 700, color, textShadow: `0 0 14px ${color}55` }}>
         {value ?? '—'}
       </div>
-      {sub && <div style={{ fontSize: 11, color: '#4a5568', marginTop: 4 }}>{sub}</div>}
+      {sub && <div style={{ fontSize: 11, color: '#4a5568', marginTop: 4 }}>{sub}{clickable && <span style={{ color, marginLeft: 6, fontSize: 10 }}>↗</span>}</div>}
     </div>
   )
 }
 
 // ── Touch attribution bars ────────────────────────────────────────────────────
 
-function TouchBar({ item }) {
+function TouchBar({ item, onClick }) {
   const color = TOUCH_COLORS[item.touch] || '#8892a4'
+  const clickable = !!onClick && item.count > 0
   return (
-    <div style={{ marginBottom: 18 }}>
+    <div
+      onClick={clickable ? onClick : undefined}
+      style={{ marginBottom: 18, cursor: clickable ? 'pointer' : 'default', borderRadius: 6, padding: '4px 6px', margin: '0 -6px 12px', transition: 'background 0.15s' }}
+      onMouseEnter={e => { if (clickable) e.currentTarget.style.background = `${color}0d` }}
+      onMouseLeave={e => { if (clickable) e.currentTarget.style.background = 'transparent' }}
+    >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
         <div>
           <span style={{ fontSize: 13, color: '#c4cad4', fontWeight: 600 }}>{item.label}</span>
@@ -53,6 +67,7 @@ function TouchBar({ item }) {
         </div>
         <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 13, color, fontWeight: 700 }}>
           {item.count}&nbsp;<span style={{ color: '#4a5568', fontWeight: 400, fontSize: 11 }}>({item.pct}%)</span>
+          {clickable && <span style={{ color, fontSize: 10, marginLeft: 6 }}>↗</span>}
         </span>
       </div>
       <div style={{ height: 10, background: 'rgba(255,255,255,0.05)', borderRadius: 5, overflow: 'hidden' }}>
@@ -219,11 +234,12 @@ function CustomerTable({ customers }) {
 
 // ── Main page ─────────────────────────────────────────────────────────────────
 
-export default function ActivationTimingPage({ rawData }) {
+export default function ActivationTimingPage({ rawData, onDrill }) {
   const timing    = rawData?.activation_timing
-  const customers = (rawData?.customers ?? []).filter(
-    c => c.status === 'Activated' && c.activation_date
-  )
+  const allCustomers = rawData?.customers ?? []
+  const customers = allCustomers.filter(c => c.status === 'Activated' && c.activation_date)
+
+  const drill = (title, subtitle, list) => onDrill?.(title, subtitle, list)
 
   if (!timing || timing.with_activation_date === 0) {
     return (
@@ -250,6 +266,17 @@ export default function ActivationTimingPage({ rawData }) {
   const histoMax = Math.max(...(timing.days_distribution ?? []).map(d => d.count), 1)
   const histoData = timing.days_distribution ?? []
 
+  const BUCKET_FILTERS = {
+    '≤ 3d':   c => c.days_to_activate <= 3,
+    '4–7d':   c => c.days_to_activate >= 4  && c.days_to_activate <= 7,
+    '8–14d':  c => c.days_to_activate >= 8  && c.days_to_activate <= 14,
+    '15–21d': c => c.days_to_activate >= 15 && c.days_to_activate <= 21,
+    '22–30d': c => c.days_to_activate >= 22 && c.days_to_activate <= 30,
+    '31–45d': c => c.days_to_activate >= 31 && c.days_to_activate <= 45,
+    '46+d':   c => c.days_to_activate >= 46,
+  }
+  const campaignDriven = customers.filter(c => c.activated_after_touch !== 'pre')
+
   return (
     <div>
       {/* KPI strip */}
@@ -259,24 +286,44 @@ export default function ActivationTimingPage({ rawData }) {
           value={timing.campaign_driven_count}
           color="#00d4ff"
           sub={`of ${timing.with_activation_date} with date · ${timing.total_activated} total activated`}
+          onClick={() => drill(
+            'Campaign-Driven Activations',
+            'Activated on or after Touch 1 was sent',
+            customers.filter(c => c.activated_after_touch !== 'pre')
+          )}
         />
         <StatPill
           label="Pre-outreach"
           value={timing.pre_outreach_count ?? 0}
           color="#4a5568"
           sub="activated before Touch 1 landed"
+          onClick={() => drill(
+            'Pre-outreach Activations',
+            'Already activated before we sent Touch 1',
+            customers.filter(c => c.activated_after_touch === 'pre')
+          )}
         />
         <StatPill
           label="Avg Days to Activate"
           value={timing.avg_days_to_activate != null ? `${timing.avg_days_to_activate}d` : null}
           color="#00e5a0"
           sub="campaign-driven only"
+          onClick={() => drill(
+            'Campaign-Driven — by Days to Activate',
+            `Avg ${timing.avg_days_to_activate}d · Median ${timing.median_days_to_activate}d`,
+            [...customers.filter(c => c.activated_after_touch !== 'pre')].sort((a, b) => a.days_to_activate - b.days_to_activate)
+          )}
         />
         <StatPill
           label="Median Days"
           value={timing.median_days_to_activate != null ? `${timing.median_days_to_activate}d` : null}
           color="#8b5cf6"
           sub="campaign-driven only"
+          onClick={() => drill(
+            'Campaign-Driven — by Days to Activate',
+            `Avg ${timing.avg_days_to_activate}d · Median ${timing.median_days_to_activate}d`,
+            [...customers.filter(c => c.activated_after_touch !== 'pre')].sort((a, b) => a.days_to_activate - b.days_to_activate)
+          )}
         />
       </div>
 
@@ -289,7 +336,15 @@ export default function ActivationTimingPage({ rawData }) {
           <div className="panel-sub">Which email preceded activation?</div>
           <div style={{ marginTop: 20 }}>
             {(timing.by_touch ?? []).map(item => (
-              <TouchBar key={item.touch} item={item} />
+              <TouchBar
+                key={item.touch}
+                item={item}
+                onClick={() => drill(
+                  item.label,
+                  item.desc,
+                  customers.filter(c => c.activated_after_touch === item.touch)
+                )}
+              />
             ))}
           </div>
           <div style={{
@@ -324,7 +379,20 @@ export default function ActivationTimingPage({ rawData }) {
                   allowDecimals={false}
                 />
                 <Tooltip content={<HistoTooltip />} cursor={{ fill: 'rgba(255,255,255,0.04)' }} />
-                <Bar dataKey="count" radius={[4, 4, 0, 0]}>
+                <Bar
+                  dataKey="count"
+                  radius={[4, 4, 0, 0]}
+                  style={{ cursor: 'pointer' }}
+                  onClick={entry => {
+                    const fn = BUCKET_FILTERS[entry.bucket]
+                    if (!fn) return
+                    drill(
+                      `Activated in ${entry.bucket}`,
+                      `Campaign-driven customers who activated within this window`,
+                      campaignDriven.filter(fn)
+                    )
+                  }}
+                >
                   {histoData.map((entry, i) => {
                     const pct = entry.count / histoMax
                     const color = pct > 0.6 ? '#00d4ff' : pct > 0.3 ? '#8b5cf6' : '#4a5568'
