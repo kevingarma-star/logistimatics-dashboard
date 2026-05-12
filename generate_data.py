@@ -463,17 +463,20 @@ def read_sheet():
         for row in all_rows[1:]:
             if len(row) < 2:
                 continue
-            email    = row[1].strip().lower()
-            sub_id   = row[9].strip() if len(row) > 9 else ''
-            returned = row[8].strip() if len(row) > 8 else ''
+            email           = row[1].strip().lower()
+            sub_id          = row[9].strip()  if len(row) > 9  else ''
+            returned        = row[8].strip()  if len(row) > 8  else ''
+            activation_date = row[10].strip() if len(row) > 10 else ''
             if not email:
                 continue
             if email not in email_map:
-                email_map[email] = {'sub_id': '', 'returned': ''}
+                email_map[email] = {'sub_id': '', 'returned': '', 'activation_date': ''}
             if sub_id:
                 email_map[email]['sub_id'] = sub_id
             if returned:
                 email_map[email]['returned'] = returned
+            if activation_date:
+                email_map[email]['activation_date'] = activation_date[:10]  # keep YYYY-MM-DD
 
         print(f"  Sheet: {len(email_map)} unique emails loaded")
         return email_map
@@ -485,13 +488,22 @@ def read_sheet():
 
 # ── Data computation ──────────────────────────────────────────────────────────
 
-def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
+def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None):
     today = date.today()
 
-    # Build follow-up map: email → date
+    # Build touch-2 map: email → earliest T2 date
     fu_map = {}
     for row in followup_rows:
-        fu_map[row['email'].strip().lower()] = row['date']
+        key = row['email'].strip().lower()
+        if key not in fu_map:
+            fu_map[key] = row['date']
+
+    # Build touch-3 map: email → earliest T3 date
+    fu2_map = {}
+    for row in (followup2_rows or []):
+        key = row['email'].strip().lower()
+        if key not in fu2_map:
+            fu2_map[key] = row['date']
 
     # Dedup activation rows by email (keep first sent)
     seen = {}
@@ -511,12 +523,15 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
         except Exception:
             days_since = 0
 
-        fu_sent = email_lc in fu_map
-        fu_date = fu_map.get(email_lc, '')
+        fu_sent  = email_lc in fu_map
+        fu_date  = fu_map.get(email_lc, '')
+        fu2_sent = email_lc in fu2_map
+        fu2_date = fu2_map.get(email_lc, '')
 
-        info     = sheet_map.get(email_lc, {})
-        sub_id   = info.get('sub_id', '')
-        returned = info.get('returned', '')
+        info            = sheet_map.get(email_lc, {})
+        sub_id          = info.get('sub_id', '')
+        returned        = info.get('returned', '')
+        activation_date = info.get('activation_date', '')
 
         if returned:
             status = 'Returned'
@@ -525,25 +540,50 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
         else:
             status = 'Pending'
 
+        # Compute days-to-activate and which touch preceded activation
+        days_to_activate    = None
+        activated_after_touch = None
+        if status == 'Activated' and activation_date:
+            try:
+                act_dt  = date.fromisoformat(activation_date[:10])
+                sent_dt = datetime.strptime(sent_date, '%Y-%m-%d').date()
+                days_to_activate = (act_dt - sent_dt).days
+                # Classify which was the last touch received before activation
+                fu2_dt = date.fromisoformat(fu2_date) if fu2_sent and fu2_date else None
+                fu_dt  = date.fromisoformat(fu_date)  if fu_sent  and fu_date  else None
+                if fu2_dt and act_dt >= fu2_dt:
+                    activated_after_touch = 'T3'
+                elif fu_dt and act_dt >= fu_dt:
+                    activated_after_touch = 'T2'
+                else:
+                    activated_after_touch = 'T1'
+            except (ValueError, TypeError):
+                pass
+
         # sg_email_map is already the merged result of Activity Feed + Supabase
         # (the merge happens in main() before compute_data is called).
         # Supabase is the authoritative permanent store — no data.json fallback needed.
         sg = (sg_email_map or {}).get(email_lc, {})
         customers.append({
-            'email':           email_lc,
-            'sent_date':       sent_date,
-            'serials':         serials,
-            'days_since':      days_since,
-            'fu_sent':         fu_sent,
-            'fu_date':         fu_date,
-            'status':          status,
-            'sg_delivered':    sg.get('sg_delivered'),
-            'sg_opened':       sg.get('sg_opened'),
-            'sg_clicked':      sg.get('sg_clicked'),
-            'sg_bounced':      sg.get('sg_bounced'),
-            'sg_opens_count':  sg.get('sg_opens_count',  0),
-            'sg_clicks_count': sg.get('sg_clicks_count', 0),
-            'sg_last_event':   sg.get('sg_last_event', ''),
+            'email':                  email_lc,
+            'sent_date':              sent_date,
+            'serials':                serials,
+            'days_since':             days_since,
+            'fu_sent':                fu_sent,
+            'fu_date':                fu_date,
+            'fu2_sent':               fu2_sent,
+            'fu2_date':               fu2_date,
+            'status':                 status,
+            'activation_date':        activation_date,
+            'days_to_activate':       days_to_activate,
+            'activated_after_touch':  activated_after_touch,
+            'sg_delivered':           sg.get('sg_delivered'),
+            'sg_opened':              sg.get('sg_opened'),
+            'sg_clicked':             sg.get('sg_clicked'),
+            'sg_bounced':             sg.get('sg_bounced'),
+            'sg_opens_count':         sg.get('sg_opens_count',  0),
+            'sg_clicks_count':        sg.get('sg_clicks_count', 0),
+            'sg_last_event':          sg.get('sg_last_event', ''),
         })
 
     # ── Summary ──
@@ -633,13 +673,73 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None):
         {'stage': 'Activated',      'value': activated,  'pct': act_rate},
     ]
 
+    # ── Activation Timing ──
+    timed = [c for c in customers if c['status'] == 'Activated' and c['days_to_activate'] is not None]
+    touch_counts = {'T1': 0, 'T2': 0, 'T3': 0}
+    for c in timed:
+        t = c['activated_after_touch'] or 'T1'
+        touch_counts[t] = touch_counts.get(t, 0) + 1
+    n_timed = len(timed)
+
+    by_touch = [
+        {
+            'touch': 'T1',
+            'label': 'After Touch 1',
+            'desc':  'Activated without needing a follow-up',
+            'count': touch_counts['T1'],
+            'pct':   round(touch_counts['T1'] / n_timed * 100, 1) if n_timed else 0,
+        },
+        {
+            'touch': 'T2',
+            'label': 'After Touch 2',
+            'desc':  'Activated after the second email',
+            'count': touch_counts['T2'],
+            'pct':   round(touch_counts['T2'] / n_timed * 100, 1) if n_timed else 0,
+        },
+        {
+            'touch': 'T3',
+            'label': 'After Touch 3',
+            'desc':  'Activated after the third email',
+            'count': touch_counts['T3'],
+            'pct':   round(touch_counts['T3'] / n_timed * 100, 1) if n_timed else 0,
+        },
+    ]
+
+    all_days = sorted(c['days_to_activate'] for c in timed)
+    avg_days    = round(sum(all_days) / len(all_days), 1) if all_days else None
+    median_days = all_days[len(all_days) // 2] if all_days else None
+
+    BUCKETS = [
+        ('≤ 3d',   lambda d: d <= 3),
+        ('4–7d',   lambda d: 4  <= d <= 7),
+        ('8–14d',  lambda d: 8  <= d <= 14),
+        ('15–21d', lambda d: 15 <= d <= 21),
+        ('22–30d', lambda d: 22 <= d <= 30),
+        ('31–45d', lambda d: 31 <= d <= 45),
+        ('46+d',   lambda d: d >= 46),
+    ]
+    days_distribution = [
+        {'bucket': label, 'count': sum(1 for d in all_days if fn(d))}
+        for label, fn in BUCKETS
+    ]
+
+    activation_timing = {
+        'total_activated':        activated,
+        'with_activation_date':   n_timed,
+        'avg_days_to_activate':   avg_days,
+        'median_days_to_activate': median_days,
+        'by_touch':               by_touch,
+        'days_distribution':      days_distribution,
+    }
+
     return {
-        'generated_at': datetime.now().isoformat(timespec='seconds'),
-        'summary':      summary,
-        'timeline':     timeline,
-        'cohorts':      cohorts,
-        'funnel':       funnel,
-        'customers':    customers,
+        'generated_at':      datetime.now().isoformat(timespec='seconds'),
+        'summary':           summary,
+        'timeline':          timeline,
+        'cohorts':           cohorts,
+        'funnel':            funnel,
+        'customers':         customers,
+        'activation_timing': activation_timing,
     }
 
 # ── Survey responses ──────────────────────────────────────────────────────────
@@ -771,7 +871,8 @@ def main():
         print(f"  [warn] Could not read Supabase email events: {e}")
 
     print("\n[4/5] Computing campaign metrics...")
-    data = compute_data(activation_rows, all_followup_rows, sheet_map, sg_email_map)
+    data = compute_data(activation_rows, all_followup_rows, sheet_map, sg_email_map,
+                        followup2_rows=followup2_rows)
     s = data['summary']
     print(f"  Total outreached:    {s['total_outreached']}")
     print(f"  Activated:           {s['activated']} ({s['activation_rate']}%)")
