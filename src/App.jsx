@@ -31,12 +31,19 @@ function App() {
 
   // Fetch data.json via GitHub API (max-age=60s) instead of GitHub Pages
   // (max-age=600s, query strings stripped — cache busting doesn't work there).
-  // Pass a timestamp on manual refreshes so the browser never serves a cached response.
-  const GH_API_BASE =
+  // In dev mode, read from local public/data.json so local changes are visible immediately.
+  const GH_API_URL =
     'https://api.github.com/repos/kevingarma-star/logistimatics-dashboard/contents/data.json?ref=gh-pages'
   const fetchData = (bust = false) => {
-    const url = bust ? `${GH_API_BASE}&_=${Date.now()}` : GH_API_BASE
-    return fetch(url, { headers: { Accept: 'application/vnd.github.v3.raw' } })
+    let url, headers
+    if (import.meta.env.DEV) {
+      url = `${import.meta.env.BASE_URL}data.json${bust ? `?_=${Date.now()}` : ''}`
+      headers = {}
+    } else {
+      url = bust ? `${GH_API_URL}&_=${Date.now()}` : GH_API_URL
+      headers = { Accept: 'application/vnd.github.v3.raw' }
+    }
+    return fetch(url, { headers })
       .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
   }
 

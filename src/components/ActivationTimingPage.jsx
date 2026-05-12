@@ -4,15 +4,17 @@ import {
 } from 'recharts'
 
 const TOUCH_COLORS = {
-  T1: '#00d4ff',
-  T2: '#8b5cf6',
-  T3: '#00e5a0',
+  T1:  '#00d4ff',
+  T2:  '#8b5cf6',
+  T3:  '#00e5a0',
+  pre: '#4a5568',
 }
 
 const TOUCH_LABELS = {
-  T1: 'Touch 1',
-  T2: 'Touch 2',
-  T3: 'Touch 3',
+  T1:  'Touch 1',
+  T2:  'Touch 2',
+  T3:  'Touch 3',
+  pre: 'Pre-outreach',
 }
 
 // ── Stat pill ─────────────────────────────────────────────────────────────────
@@ -107,7 +109,7 @@ function CustomerTable({ customers }) {
   const [touchFilter, setTouchFilter] = useState('all')
 
   const filtered = customers
-    .filter(c => touchFilter === 'all' || c.activated_after_touch === touchFilter)
+    .filter(c => touchFilter === 'all' || c.activated_after_touch === touchFilter || (touchFilter === 'pre' && c.activated_after_touch === 'pre'))
     .sort((a, b) => {
       const va = a[sortKey] ?? (sortKey === 'days_to_activate' ? Infinity : '')
       const vb = b[sortKey] ?? (sortKey === 'days_to_activate' ? Infinity : '')
@@ -125,15 +127,15 @@ function CustomerTable({ customers }) {
     <div>
       {/* Touch filter */}
       <div style={{ display: 'flex', gap: 6, marginBottom: 14, flexWrap: 'wrap' }}>
-        {['all', 'T1', 'T2', 'T3'].map(t => (
+        {['all', 'T1', 'T2', 'T3', 'pre'].map(t => (
           <button
             key={t}
             onClick={() => setTouchFilter(t)}
             style={{
               padding: '4px 12px', fontSize: 11, borderRadius: 6,
-              background: touchFilter === t ? `${TOUCH_COLORS[t] || 'rgba(0,212,255,0.15)'}22` : 'transparent',
+              background: touchFilter === t ? `${TOUCH_COLORS[t] || '#00d4ff'}22` : 'transparent',
               border: touchFilter === t
-                ? `1px solid ${TOUCH_COLORS[t] || 'rgba(0,212,255,0.5)'}`
+                ? `1px solid ${TOUCH_COLORS[t] || '#00d4ff'}`
                 : '1px solid rgba(255,255,255,0.08)',
               color: touchFilter === t ? (TOUCH_COLORS[t] || '#00d4ff') : '#8892a4',
               cursor: 'pointer', fontFamily: 'Inter, sans-serif',
@@ -147,9 +149,9 @@ function CustomerTable({ customers }) {
         </span>
       </div>
 
-      <div style={{ overflowX: 'auto' }}>
+      <div style={{ overflowX: 'auto', overflowY: 'auto', maxHeight: 420 }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
-          <thead>
+          <thead style={{ position: 'sticky', top: 0, background: '#0d1117', zIndex: 1 }}>
             <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
               <th style={{ textAlign: 'left', padding: '6px 10px 10px', color: '#4a5568', fontWeight: 600, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Email</th>
               <SortTh col="sent_date"        label="Touch 1"  sortKey={sortKey} asc={asc} onToggle={toggleSort} />
@@ -180,7 +182,12 @@ function CustomerTable({ customers }) {
                   <td style={{ padding: '7px 10px', color: '#c4cad4', fontFamily: 'JetBrains Mono, monospace', fontSize: 11 }}>
                     {c.activation_date?.slice(5) ?? '—'}
                   </td>
-                  <td style={{ padding: '7px 10px', fontFamily: 'JetBrains Mono, monospace', fontSize: 12, fontWeight: 700, color: c.days_to_activate <= 7 ? '#00e5a0' : c.days_to_activate <= 21 ? '#00d4ff' : '#f97316' }}>
+                  <td style={{ padding: '7px 10px', fontFamily: 'JetBrains Mono, monospace', fontSize: 12, fontWeight: 700,
+                    color: c.activated_after_touch === 'pre' ? '#4a5568'
+                      : c.days_to_activate <= 7 ? '#00e5a0'
+                      : c.days_to_activate <= 21 ? '#00d4ff'
+                      : '#f97316'
+                  }}>
                     {c.days_to_activate != null ? `${c.days_to_activate}d` : '—'}
                   </td>
                   <td style={{ padding: '7px 10px' }}>
@@ -248,22 +255,28 @@ export default function ActivationTimingPage({ rawData }) {
       {/* KPI strip */}
       <div style={{ display: 'flex', gap: 10, marginBottom: 28, flexWrap: 'wrap' }}>
         <StatPill
-          label="Activated w/ Date"
-          value={timing.with_activation_date}
+          label="Campaign-Driven"
+          value={timing.campaign_driven_count}
           color="#00d4ff"
-          sub={`of ${timing.total_activated} total activated`}
+          sub={`of ${timing.with_activation_date} with date · ${timing.total_activated} total activated`}
+        />
+        <StatPill
+          label="Pre-outreach"
+          value={timing.pre_outreach_count ?? 0}
+          color="#4a5568"
+          sub="activated before Touch 1 landed"
         />
         <StatPill
           label="Avg Days to Activate"
           value={timing.avg_days_to_activate != null ? `${timing.avg_days_to_activate}d` : null}
           color="#00e5a0"
-          sub="from Touch 1 to activation"
+          sub="campaign-driven only"
         />
         <StatPill
           label="Median Days"
           value={timing.median_days_to_activate != null ? `${timing.median_days_to_activate}d` : null}
           color="#8b5cf6"
-          sub="50th percentile"
+          sub="campaign-driven only"
         />
       </div>
 
