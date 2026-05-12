@@ -4,17 +4,15 @@ import {
 } from 'recharts'
 
 const TOUCH_COLORS = {
-  T1:  '#00d4ff',
-  T2:  '#8b5cf6',
-  T3:  '#00e5a0',
-  pre: '#4a5568',
+  T1: '#00d4ff',
+  T2: '#8b5cf6',
+  T3: '#00e5a0',
 }
 
 const TOUCH_LABELS = {
-  T1:  'Touch 1',
-  T2:  'Touch 2',
-  T3:  'Touch 3',
-  pre: 'Pre-outreach',
+  T1: 'Touch 1',
+  T2: 'Touch 2',
+  T3: 'Touch 3',
 }
 
 // ── Stat pill ─────────────────────────────────────────────────────────────────
@@ -124,7 +122,7 @@ function CustomerTable({ customers }) {
   const [touchFilter, setTouchFilter] = useState('all')
 
   const filtered = customers
-    .filter(c => touchFilter === 'all' || c.activated_after_touch === touchFilter || (touchFilter === 'pre' && c.activated_after_touch === 'pre'))
+    .filter(c => touchFilter === 'all' || c.activated_after_touch === touchFilter)
     .sort((a, b) => {
       const va = a[sortKey] ?? (sortKey === 'days_to_activate' ? Infinity : '')
       const vb = b[sortKey] ?? (sortKey === 'days_to_activate' ? Infinity : '')
@@ -142,7 +140,7 @@ function CustomerTable({ customers }) {
     <div>
       {/* Touch filter */}
       <div style={{ display: 'flex', gap: 6, marginBottom: 14, flexWrap: 'wrap' }}>
-        {['all', 'T1', 'T2', 'T3', 'pre'].map(t => (
+        {['all', 'T1', 'T2', 'T3'].map(t => (
           <button
             key={t}
             onClick={() => setTouchFilter(t)}
@@ -198,8 +196,7 @@ function CustomerTable({ customers }) {
                     {c.activation_date?.slice(5) ?? '—'}
                   </td>
                   <td style={{ padding: '7px 10px', fontFamily: 'JetBrains Mono, monospace', fontSize: 12, fontWeight: 700,
-                    color: c.activated_after_touch === 'pre' ? '#4a5568'
-                      : c.days_to_activate <= 7 ? '#00e5a0'
+                    color: c.days_to_activate <= 7 ? '#00e5a0'
                       : c.days_to_activate <= 21 ? '#00d4ff'
                       : '#f97316'
                   }}>
@@ -275,54 +272,42 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
     '31–45d': c => c.days_to_activate >= 31 && c.days_to_activate <= 45,
     '46+d':   c => c.days_to_activate >= 46,
   }
-  const campaignDriven = customers.filter(c => c.activated_after_touch !== 'pre')
 
   return (
     <div>
       {/* KPI strip */}
       <div style={{ display: 'flex', gap: 10, marginBottom: 28, flexWrap: 'wrap' }}>
         <StatPill
-          label="Campaign-Driven"
-          value={timing.campaign_driven_count}
+          label="Activated w/ Date"
+          value={timing.with_activation_date}
           color="#00d4ff"
-          sub={`of ${timing.with_activation_date} with date · ${timing.total_activated} total activated`}
+          sub={`of ${timing.total_activated} total activated`}
           onClick={() => drill(
-            'Campaign-Driven Activations',
-            'Activated on or after Touch 1 was sent',
-            customers.filter(c => c.activated_after_touch !== 'pre')
-          )}
-        />
-        <StatPill
-          label="Pre-outreach"
-          value={timing.pre_outreach_count ?? 0}
-          color="#4a5568"
-          sub="activated before Touch 1 landed"
-          onClick={() => drill(
-            'Pre-outreach Activations',
-            'Already activated before we sent Touch 1',
-            customers.filter(c => c.activated_after_touch === 'pre')
+            'Activated Customers',
+            'All activated customers with a known activation date',
+            customers
           )}
         />
         <StatPill
           label="Avg Days to Activate"
           value={timing.avg_days_to_activate != null ? `${timing.avg_days_to_activate}d` : null}
           color="#00e5a0"
-          sub="campaign-driven only"
+          sub="from Touch 1 send date"
           onClick={() => drill(
-            'Campaign-Driven — by Days to Activate',
+            'Activated — by Days to Activate',
             `Avg ${timing.avg_days_to_activate}d · Median ${timing.median_days_to_activate}d`,
-            [...customers.filter(c => c.activated_after_touch !== 'pre')].sort((a, b) => a.days_to_activate - b.days_to_activate)
+            [...customers].sort((a, b) => a.days_to_activate - b.days_to_activate)
           )}
         />
         <StatPill
           label="Median Days"
           value={timing.median_days_to_activate != null ? `${timing.median_days_to_activate}d` : null}
           color="#8b5cf6"
-          sub="campaign-driven only"
+          sub="50th percentile"
           onClick={() => drill(
-            'Campaign-Driven — by Days to Activate',
+            'Activated — by Days to Activate',
             `Avg ${timing.avg_days_to_activate}d · Median ${timing.median_days_to_activate}d`,
-            [...customers.filter(c => c.activated_after_touch !== 'pre')].sort((a, b) => a.days_to_activate - b.days_to_activate)
+            [...customers].sort((a, b) => a.days_to_activate - b.days_to_activate)
           )}
         />
       </div>
@@ -388,8 +373,8 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
                     if (!fn) return
                     drill(
                       `Activated in ${entry.bucket}`,
-                      `Campaign-driven customers who activated within this window`,
-                      campaignDriven.filter(fn)
+                      `Customers who activated within this window`,
+                      customers.filter(fn)
                     )
                   }}
                 >
