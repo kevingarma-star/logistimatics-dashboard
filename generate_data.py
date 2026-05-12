@@ -568,18 +568,16 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
                 act_dt  = date.fromisoformat(activation_date[:10])
                 sent_dt = datetime.strptime(sent_date, '%Y-%m-%d').date()
                 days_to_activate = (act_dt - sent_dt).days
-                if days_to_activate < 0:
-                    # Activated before Touch 1 landed — exclude from campaign stats
-                    activated_after_touch = 'pre'
+                # All outreached customers were unactivated at send time by definition,
+                # so negative days_to_activate is a sheet sync artifact — treat as T1.
+                fu2_dt = date.fromisoformat(fu2_date) if fu2_sent and fu2_date else None
+                fu_dt  = date.fromisoformat(fu_date)  if fu_sent  and fu_date  else None
+                if fu2_dt and act_dt >= fu2_dt:
+                    activated_after_touch = 'T3'
+                elif fu_dt and act_dt >= fu_dt:
+                    activated_after_touch = 'T2'
                 else:
-                    fu2_dt = date.fromisoformat(fu2_date) if fu2_sent and fu2_date else None
-                    fu_dt  = date.fromisoformat(fu_date)  if fu_sent  and fu_date  else None
-                    if fu2_dt and act_dt >= fu2_dt:
-                        activated_after_touch = 'T3'
-                    elif fu_dt and act_dt >= fu_dt:
-                        activated_after_touch = 'T2'
-                    else:
-                        activated_after_touch = 'T1'
+                    activated_after_touch = 'T1'
             except (ValueError, TypeError):
                 pass
 
@@ -697,9 +695,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     ]
 
     # ── Activation Timing ──
-    timed_all    = [c for c in customers if c['status'] == 'Activated' and c['days_to_activate'] is not None]
-    pre_outreach = [c for c in timed_all if c['activated_after_touch'] == 'pre']
-    timed        = [c for c in timed_all if c['activated_after_touch'] != 'pre']
+    timed = [c for c in customers if c['status'] == 'Activated' and c['days_to_activate'] is not None]
     touch_counts = {'T1': 0, 'T2': 0, 'T3': 0}
     for c in timed:
         t = c['activated_after_touch'] or 'T1'
@@ -730,7 +726,9 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         },
     ]
 
-    all_days = sorted(c['days_to_activate'] for c in timed)  # campaign-driven only
+    # Use days >= 0 for avg/median/distribution — negative values are sheet sync
+    # lag artifacts and would skew stats. Touch attribution above already counts them as T1.
+    all_days = sorted(c['days_to_activate'] for c in timed if c['days_to_activate'] >= 0)
     avg_days    = round(sum(all_days) / len(all_days), 1) if all_days else None
     median_days = all_days[len(all_days) // 2] if all_days else None
 
@@ -750,9 +748,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
 
     activation_timing = {
         'total_activated':         activated,
-        'with_activation_date':    len(timed_all),
-        'pre_outreach_count':      len(pre_outreach),
-        'campaign_driven_count':   n_timed,
+        'with_activation_date':    n_timed,
         'avg_days_to_activate':    avg_days,
         'median_days_to_activate': median_days,
         'by_touch':                by_touch,
