@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-12T07:48:25",
+  "generated_at": "2026-05-12T08:03:28",
   "summary": {
     "total_outreached": 441,
     "activated": 241,
@@ -9916,7 +9916,7 @@
       "opens": 11,
       "unique_clicks": 0,
       "clicks": 0,
-      "activation": 3,
+      "activation": 0,
       "followup": 8,
       "followup2": 0,
       "date": "2026-05-06",
@@ -9935,7 +9935,7 @@
       "opens": 44,
       "unique_clicks": 1,
       "clicks": 5,
-      "activation": 3,
+      "activation": 0,
       "followup": 7,
       "followup2": 37,
       "date": "2026-05-07",
@@ -10011,7 +10011,7 @@
       "opens": 49,
       "unique_clicks": 2,
       "clicks": 2,
-      "activation": 5,
+      "activation": 0,
       "followup": 6,
       "followup2": 76,
       "date": "2026-05-11",
