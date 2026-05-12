@@ -459,36 +459,41 @@ def read_sheet():
         ws = sh.sheet1
         all_rows = ws.get_all_values()
 
-        email_map = {}
+        email_map      = {}  # email → {sub_id, returned}
+        serial_act_map = {}  # serial → earliest YYYY-MM-DD activation date
         for row in all_rows[1:]:
             if len(row) < 2:
                 continue
             email           = row[1].strip().lower()
+            serial          = row[4].strip()  if len(row) > 4  else ''
             sub_id          = row[9].strip()  if len(row) > 9  else ''
             returned        = row[8].strip()  if len(row) > 8  else ''
             activation_date = row[10].strip() if len(row) > 10 else ''
             if not email:
                 continue
             if email not in email_map:
-                email_map[email] = {'sub_id': '', 'returned': '', 'activation_date': ''}
+                email_map[email] = {'sub_id': '', 'returned': ''}
             if sub_id:
                 email_map[email]['sub_id'] = sub_id
             if returned:
                 email_map[email]['returned'] = returned
-            if activation_date:
-                email_map[email]['activation_date'] = activation_date[:10]  # keep YYYY-MM-DD
+            # Build serial → activation date map (keep earliest per serial)
+            if serial and activation_date:
+                date_only = activation_date[:10]
+                if serial not in serial_act_map or date_only < serial_act_map[serial]:
+                    serial_act_map[serial] = date_only
 
-        print(f"  Sheet: {len(email_map)} unique emails loaded")
-        return email_map
+        print(f"  Sheet: {len(email_map)} unique emails, {len(serial_act_map)} serials with activation date")
+        return email_map, serial_act_map
 
     except Exception as e:
         print(f"  [warn] Could not read Google Sheet: {e}")
         print("  Dashboard will show CSV-only data (no activation status).")
-        return {}
+        return {}, {}
 
 # ── Data computation ──────────────────────────────────────────────────────────
 
-def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None):
+def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None, serial_act_map=None):
     today = date.today()
 
     # Build touch-2 map: email → earliest T2 date
@@ -528,10 +533,9 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         fu2_sent = email_lc in fu2_map
         fu2_date = fu2_map.get(email_lc, '')
 
-        info            = sheet_map.get(email_lc, {})
-        sub_id          = info.get('sub_id', '')
-        returned        = info.get('returned', '')
-        activation_date = info.get('activation_date', '')
+        info     = sheet_map.get(email_lc, {})
+        sub_id   = info.get('sub_id', '')
+        returned = info.get('returned', '')
 
         if returned:
             status = 'Returned'
@@ -540,23 +544,42 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         else:
             status = 'Pending'
 
+        # Look up activation date by serial number (not email) to avoid
+        # matching old subscriptions from prior orders.
+        activation_date = ''
+        if serial_act_map and serials:
+            try:
+                sent_dt   = datetime.strptime(sent_date, '%Y-%m-%d').date()
+                ser_list  = [s.strip() for s in serials.split(',') if s.strip()]
+                candidates = [serial_act_map[s] for s in ser_list if s in serial_act_map]
+                after  = [d for d in candidates if date.fromisoformat(d) >= sent_dt]
+                if after:
+                    activation_date = sorted(after)[0]   # earliest post-outreach
+                elif candidates:
+                    activation_date = sorted(candidates)[-1]  # latest pre-outreach (fallback)
+            except Exception:
+                pass
+
         # Compute days-to-activate and which touch preceded activation
-        days_to_activate    = None
+        days_to_activate      = None
         activated_after_touch = None
         if status == 'Activated' and activation_date:
             try:
                 act_dt  = date.fromisoformat(activation_date[:10])
                 sent_dt = datetime.strptime(sent_date, '%Y-%m-%d').date()
                 days_to_activate = (act_dt - sent_dt).days
-                # Classify which was the last touch received before activation
-                fu2_dt = date.fromisoformat(fu2_date) if fu2_sent and fu2_date else None
-                fu_dt  = date.fromisoformat(fu_date)  if fu_sent  and fu_date  else None
-                if fu2_dt and act_dt >= fu2_dt:
-                    activated_after_touch = 'T3'
-                elif fu_dt and act_dt >= fu_dt:
-                    activated_after_touch = 'T2'
+                if days_to_activate < 0:
+                    # Activated before Touch 1 landed — pre-outreach, not campaign-driven
+                    activated_after_touch = 'pre'
                 else:
-                    activated_after_touch = 'T1'
+                    fu2_dt = date.fromisoformat(fu2_date) if fu2_sent and fu2_date else None
+                    fu_dt  = date.fromisoformat(fu_date)  if fu_sent  and fu_date  else None
+                    if fu2_dt and act_dt >= fu2_dt:
+                        activated_after_touch = 'T3'
+                    elif fu_dt and act_dt >= fu_dt:
+                        activated_after_touch = 'T2'
+                    else:
+                        activated_after_touch = 'T1'
             except (ValueError, TypeError):
                 pass
 
@@ -674,7 +697,10 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     ]
 
     # ── Activation Timing ──
-    timed = [c for c in customers if c['status'] == 'Activated' and c['days_to_activate'] is not None]
+    timed_all     = [c for c in customers if c['status'] == 'Activated' and c['days_to_activate'] is not None]
+    pre_outreach  = [c for c in timed_all if c['activated_after_touch'] == 'pre']
+    timed         = [c for c in timed_all if c['activated_after_touch'] != 'pre']
+
     touch_counts = {'T1': 0, 'T2': 0, 'T3': 0}
     for c in timed:
         t = c['activated_after_touch'] or 'T1'
@@ -724,12 +750,14 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     ]
 
     activation_timing = {
-        'total_activated':        activated,
-        'with_activation_date':   n_timed,
-        'avg_days_to_activate':   avg_days,
+        'total_activated':         activated,
+        'with_activation_date':    len(timed_all),
+        'pre_outreach_count':      len(pre_outreach),
+        'campaign_driven_count':   n_timed,
+        'avg_days_to_activate':    avg_days,
         'median_days_to_activate': median_days,
-        'by_touch':               by_touch,
-        'days_distribution':      days_distribution,
+        'by_touch':                by_touch,
+        'days_distribution':       days_distribution,
     }
 
     return {
@@ -831,7 +859,7 @@ def main():
     print(f"  Follow-up emails:  {len(followup_rows)} touch-2 + {len(followup2_rows)} touch-3 = {len(all_followup_rows)} total")
 
     print("\n[2/5] Reading Google Sheet for activation status...")
-    sheet_map = read_sheet()
+    sheet_map, serial_act_map = read_sheet()
 
     print("\n[3/5] Fetching SendGrid email stats (Activity Feed)...")
     sg_stats, has_data, sg_email_map, cat_stats_dates = fetch_activity_feed_stats()
@@ -872,7 +900,7 @@ def main():
 
     print("\n[4/5] Computing campaign metrics...")
     data = compute_data(activation_rows, all_followup_rows, sheet_map, sg_email_map,
-                        followup2_rows=followup2_rows)
+                        followup2_rows=followup2_rows, serial_act_map=serial_act_map)
     s = data['summary']
     print(f"  Total outreached:    {s['total_outreached']}")
     print(f"  Activated:           {s['activated']} ({s['activation_rate']}%)")
