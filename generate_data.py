@@ -749,8 +749,6 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     activation_timing = {
         'total_activated':         activated,
         'with_activation_date':    n_timed,
-        'campaign_driven_count':   n_timed,   # all outreached customers are campaign-driven
-        'pre_outreach_count':      0,          # concept removed — kept for deployed JS compat
         'avg_days_to_activate':    avg_days,
         'median_days_to_activate': median_days,
         'by_touch':                by_touch,
