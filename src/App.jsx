@@ -9,6 +9,7 @@ import DateRangePicker from './components/DateRangePicker'
 import DrillDownModal from './components/DrillDownModal'
 import SurveyPanel from './components/SurveyPanel'
 import InsightsPage from './components/InsightsPage'
+import ActivationTimingPage from './components/ActivationTimingPage'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -231,6 +232,7 @@ function App() {
       <div style={{ display: 'flex', gap: 4, marginBottom: 28 }}>
         {[
           { key: 'dashboard', label: '◧ Dashboard' },
+          { key: 'timing',    label: '⏱ Activation Timing' },
           { key: 'insights',  label: '✦ AI Insights' },
         ].map(t => (
           <button
@@ -257,6 +259,11 @@ function App() {
           </button>
         ))}
       </div>
+
+      {/* ── Activation Timing tab ── */}
+      {tab === 'timing' && (
+        <ActivationTimingPage rawData={rawData} />
+      )}
 
       {/* ── Insights tab ── */}
       {tab === 'insights' && (
