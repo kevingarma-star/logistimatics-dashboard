@@ -173,8 +173,8 @@
       "returned": 0,
       "followup_sent": 85,
       "followup_activated": 17,
-      "activation_rate": 34.0,
-      "followup_conv_rate": 20.0
+      "activation_rate": 34,
+      "followup_conv_rate": 20
     },
     {
       "batch_date": "2026-03-24",
@@ -197,8 +197,8 @@
       "returned": 0,
       "followup_sent": 8,
       "followup_activated": 2,
-      "activation_rate": 76.0,
-      "followup_conv_rate": 25.0
+      "activation_rate": 76,
+      "followup_conv_rate": 25
     },
     {
       "batch_date": "2026-04-08",
@@ -209,8 +209,8 @@
       "returned": 0,
       "followup_sent": 3,
       "followup_activated": 0,
-      "activation_rate": 70.0,
-      "followup_conv_rate": 0.0
+      "activation_rate": 70,
+      "followup_conv_rate": 0
     },
     {
       "batch_date": "2026-04-10",
@@ -234,7 +234,7 @@
       "followup_sent": 25,
       "followup_activated": 3,
       "activation_rate": 76.5,
-      "followup_conv_rate": 12.0
+      "followup_conv_rate": 12
     },
     {
       "batch_date": "2026-04-14",
@@ -245,7 +245,7 @@
       "returned": 0,
       "followup_sent": 9,
       "followup_activated": 5,
-      "activation_rate": 60.0,
+      "activation_rate": 60,
       "followup_conv_rate": 55.6
     },
     {
@@ -269,8 +269,8 @@
       "returned": 0,
       "followup_sent": 2,
       "followup_activated": 1,
-      "activation_rate": 50.0,
-      "followup_conv_rate": 50.0
+      "activation_rate": 50,
+      "followup_conv_rate": 50
     },
     {
       "batch_date": "2026-04-17",
@@ -281,8 +281,8 @@
       "returned": 0,
       "followup_sent": 1,
       "followup_activated": 0,
-      "activation_rate": 0.0,
-      "followup_conv_rate": 0.0
+      "activation_rate": 0,
+      "followup_conv_rate": 0
     },
     {
       "batch_date": "2026-04-20",
@@ -293,8 +293,8 @@
       "returned": 0,
       "followup_sent": 5,
       "followup_activated": 2,
-      "activation_rate": 40.0,
-      "followup_conv_rate": 40.0
+      "activation_rate": 40,
+      "followup_conv_rate": 40
     },
     {
       "batch_date": "2026-04-22",
@@ -305,8 +305,8 @@
       "returned": 0,
       "followup_sent": 4,
       "followup_activated": 3,
-      "activation_rate": 75.0,
-      "followup_conv_rate": 75.0
+      "activation_rate": 75,
+      "followup_conv_rate": 75
     },
     {
       "batch_date": "2026-04-23",
@@ -317,8 +317,8 @@
       "returned": 0,
       "followup_sent": 1,
       "followup_activated": 0,
-      "activation_rate": 0.0,
-      "followup_conv_rate": 0.0
+      "activation_rate": 0,
+      "followup_conv_rate": 0
     },
     {
       "batch_date": "2026-04-24",
@@ -329,8 +329,8 @@
       "returned": 0,
       "followup_sent": 2,
       "followup_activated": 1,
-      "activation_rate": 50.0,
-      "followup_conv_rate": 50.0
+      "activation_rate": 50,
+      "followup_conv_rate": 50
     },
     {
       "batch_date": "2026-04-27",
@@ -341,8 +341,8 @@
       "returned": 0,
       "followup_sent": 3,
       "followup_activated": 3,
-      "activation_rate": 60.0,
-      "followup_conv_rate": 100.0
+      "activation_rate": 60,
+      "followup_conv_rate": 100
     },
     {
       "batch_date": "2026-04-28",
@@ -353,7 +353,7 @@
       "returned": 0,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 75.0,
+      "activation_rate": 75,
       "followup_conv_rate": 0
     },
     {
@@ -365,8 +365,8 @@
       "returned": 0,
       "followup_sent": 1,
       "followup_activated": 1,
-      "activation_rate": 100.0,
-      "followup_conv_rate": 100.0
+      "activation_rate": 100,
+      "followup_conv_rate": 100
     },
     {
       "batch_date": "2026-04-30",
@@ -389,8 +389,8 @@
       "returned": 0,
       "followup_sent": 5,
       "followup_activated": 0,
-      "activation_rate": 0.0,
-      "followup_conv_rate": 0.0
+      "activation_rate": 0,
+      "followup_conv_rate": 0
     },
     {
       "batch_date": "2026-05-04",
@@ -402,7 +402,7 @@
       "followup_sent": 6,
       "followup_activated": 0,
       "activation_rate": 14.3,
-      "followup_conv_rate": 0.0
+      "followup_conv_rate": 0
     },
     {
       "batch_date": "2026-05-06",
@@ -413,7 +413,7 @@
       "returned": 0,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 100.0,
+      "activation_rate": 100,
       "followup_conv_rate": 0
     },
     {
@@ -425,7 +425,7 @@
       "returned": 0,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 0.0,
+      "activation_rate": 0,
       "followup_conv_rate": 0
     },
     {
@@ -437,7 +437,7 @@
       "returned": 0,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 40.0,
+      "activation_rate": 40,
       "followup_conv_rate": 0
     }
   ],
@@ -9732,53 +9732,55 @@
         "label": "After Touch 1",
         "desc": "Activated without needing a follow-up",
         "count": 185,
-        "pct": 93.0
+        "pct": 93
       },
       {
         "touch": "T2",
         "label": "After Touch 2",
         "desc": "Activated after the second email",
         "count": 14,
-        "pct": 7.0
+        "pct": 7
       },
       {
         "touch": "T3",
         "label": "After Touch 3",
         "desc": "Activated after the third email",
         "count": 0,
-        "pct": 0.0
+        "pct": 0
       }
     ],
     "days_distribution": [
       {
-        "bucket": "\u2264 3d",
+        "bucket": "≤ 3d",
         "count": 22
       },
       {
-        "bucket": "4\u20137d",
+        "bucket": "4–7d",
         "count": 10
       },
       {
-        "bucket": "8\u201314d",
+        "bucket": "8–14d",
         "count": 18
       },
       {
-        "bucket": "15\u201321d",
+        "bucket": "15–21d",
         "count": 6
       },
       {
-        "bucket": "22\u201330d",
+        "bucket": "22–30d",
         "count": 7
       },
       {
-        "bucket": "31\u201345d",
+        "bucket": "31–45d",
         "count": 2
       },
       {
         "bucket": "46+d",
         "count": 2
       }
-    ]
+    ],
+    "campaign_driven_count": 199,
+    "pre_outreach_count": 0
   },
   "sendgrid_stats": [
     {
@@ -9795,9 +9797,9 @@
       "from_category_stats": true,
       "date": "2026-04-27",
       "open_rate": 30.1,
-      "click_rate": 0.0,
+      "click_rate": 0,
       "delivery_rate": 98.6,
-      "bounce_rate": 0.0
+      "bounce_rate": 0
     },
     {
       "requests": 27,
@@ -9814,8 +9816,8 @@
       "date": "2026-04-28",
       "open_rate": 40.7,
       "click_rate": 7.41,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
+      "delivery_rate": 100,
+      "bounce_rate": 0
     },
     {
       "requests": 3,
@@ -9830,10 +9832,10 @@
       "followup": 2,
       "from_category_stats": true,
       "date": "2026-04-29",
-      "open_rate": 100.0,
-      "click_rate": 0.0,
+      "open_rate": 100,
+      "click_rate": 0,
       "delivery_rate": 33.3,
-      "bounce_rate": 0.0
+      "bounce_rate": 0
     },
     {
       "requests": 10,
@@ -9848,10 +9850,10 @@
       "followup": 1,
       "from_category_stats": true,
       "date": "2026-04-30",
-      "open_rate": 70.0,
-      "click_rate": 0.0,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
+      "open_rate": 70,
+      "click_rate": 0,
+      "delivery_rate": 100,
+      "bounce_rate": 0
     },
     {
       "requests": 6,
@@ -9867,9 +9869,9 @@
       "from_category_stats": true,
       "date": "2026-05-01",
       "open_rate": 66.7,
-      "click_rate": 0.0,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
+      "click_rate": 0,
+      "delivery_rate": 100,
+      "bounce_rate": 0
     },
     {
       "requests": 7,
@@ -9886,8 +9888,8 @@
       "date": "2026-05-04",
       "open_rate": 71.4,
       "click_rate": 14.29,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
+      "delivery_rate": 100,
+      "bounce_rate": 0
     },
     {
       "requests": 6,
@@ -9903,9 +9905,9 @@
       "from_category_stats": true,
       "date": "2026-05-05",
       "open_rate": 33.3,
-      "click_rate": 0.0,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
+      "click_rate": 0,
+      "delivery_rate": 100,
+      "bounce_rate": 0
     },
     {
       "requests": 14,
@@ -9922,9 +9924,9 @@
       "from_category_stats": true,
       "date": "2026-05-06",
       "open_rate": 58.3,
-      "click_rate": 0.0,
+      "click_rate": 0,
       "delivery_rate": 85.7,
-      "bounce_rate": 0.0
+      "bounce_rate": 0
     },
     {
       "requests": 76,
@@ -9943,7 +9945,7 @@
       "open_rate": 41.1,
       "click_rate": 1.37,
       "delivery_rate": 96.1,
-      "bounce_rate": 0.0
+      "bounce_rate": 0
     },
     {
       "requests": 47,
@@ -9962,7 +9964,7 @@
       "open_rate": 45.7,
       "click_rate": 4.35,
       "delivery_rate": 97.9,
-      "bounce_rate": 0.0
+      "bounce_rate": 0
     },
     {
       "requests": 11,
@@ -9978,10 +9980,10 @@
       "followup2": 9,
       "from_category_stats": false,
       "date": "2026-05-09",
-      "open_rate": 100.0,
+      "open_rate": 100,
       "click_rate": 9.09,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
+      "delivery_rate": 100,
+      "bounce_rate": 0
     },
     {
       "requests": 4,
@@ -9997,10 +9999,10 @@
       "followup2": 3,
       "from_category_stats": false,
       "date": "2026-05-10",
-      "open_rate": 100.0,
-      "click_rate": 25.0,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
+      "open_rate": 100,
+      "click_rate": 25,
+      "delivery_rate": 100,
+      "bounce_rate": 0
     },
     {
       "requests": 87,
@@ -10019,7 +10021,7 @@
       "open_rate": 37.2,
       "click_rate": 2.33,
       "delivery_rate": 98.9,
-      "bounce_rate": 0.0
+      "bounce_rate": 0
     },
     {
       "requests": 10,
@@ -10035,10 +10037,10 @@
       "followup2": 5,
       "from_category_stats": true,
       "date": "2026-05-12",
-      "open_rate": 75.0,
-      "click_rate": 0.0,
-      "delivery_rate": 40.0,
-      "bounce_rate": 0.0
+      "open_rate": 75,
+      "click_rate": 0,
+      "delivery_rate": 40,
+      "bounce_rate": 0
     }
   ],
   "sendgrid_summary": {
@@ -10055,7 +10057,7 @@
     "avg_open_rate": 41.3,
     "avg_click_rate": 2.28,
     "avg_delivery_rate": 95.8,
-    "avg_bounce_rate": 0.0,
+    "avg_bounce_rate": 0,
     "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (351 delivered). Delivery rate across all 366 campaign emails.",
     "customer_tracked": 216,
     "customer_delivered": 209,
@@ -10065,7 +10067,7 @@
     "customer_open_rate": 45.5,
     "customer_click_rate": 4.31,
     "customer_delivery_rate": 96.8,
-    "customer_bounce_rate": 0.0
+    "customer_bounce_rate": 0
   },
   "survey_summary": {
     "has_survey_data": true,
@@ -10077,25 +10079,25 @@
         "reason": "serial",
         "label": "Can't find serial number",
         "count": 0,
-        "pct": 0.0
+        "pct": 0
       },
       {
         "reason": "website",
         "label": "Activation website trouble",
         "count": 0,
-        "pct": 0.0
+        "pct": 0
       },
       {
         "reason": "time",
         "label": "Haven't had time yet",
         "count": 1,
-        "pct": 50.0
+        "pct": 50
       },
       {
         "reason": "subscription",
         "label": "Not ready for subscription",
         "count": 1,
-        "pct": 50.0
+        "pct": 50
       }
     ],
     "recent": [
