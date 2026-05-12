@@ -726,8 +726,8 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         },
     ]
 
-    # Exclude negative days (sheet sync lag) from avg/median/distribution only —
-    # touch attribution already counts them as T1 above.
+    # Use days >= 0 for avg/median/distribution — negative values are sheet sync
+    # lag artifacts and would skew stats. Touch attribution above already counts them as T1.
     all_days = sorted(c['days_to_activate'] for c in timed if c['days_to_activate'] >= 0)
     avg_days    = round(sum(all_days) / len(all_days), 1) if all_days else None
     median_days = all_days[len(all_days) // 2] if all_days else None
