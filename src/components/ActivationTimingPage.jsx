@@ -338,8 +338,8 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
             border: '1px solid rgba(255,255,255,0.06)',
             borderRadius: 6, fontSize: 11, color: '#4a5568', lineHeight: 1.7,
           }}>
-            "After Touch N" means the customer had received that email before they activated —
-            not necessarily that the email caused it. Touch 1 covers customers who needed no follow-up.
+            "After Touch N" means the customer received that email as part of the outreach sequence —
+            not necessarily that it caused activation. Touch 1 = no follow-up was ever sent.
           </div>
         </div>
 
