@@ -269,7 +269,7 @@ function App() {
 
       {/* ── Activation Timing tab ── */}
       {tab === 'timing' && (
-        <ActivationTimingPage rawData={rawData} onDrill={openDrill} />
+        <ActivationTimingPage rawData={data} onDrill={openDrill} />
       )}
 
       {/* ── Insights tab ── */}
@@ -353,14 +353,14 @@ function App() {
                 flexWrap: 'wrap',
               }}>
                 <span style={{ color: '#ffb700', fontWeight: 600 }}>Coverage — </span>
-                Rates from SendGrid Category Stats ·{' '}
+                Rates based on per-customer email events ·{' '}
                 <span style={{ color: '#f0f4ff', fontFamily: 'JetBrains Mono, monospace', fontWeight: 600 }}>
-                  {sg.total_requests} emails
+                  {sg.total_requests} of {s.total_outreached} customers tracked
                 </span>{' '}
                 ({sg.period_start} → {sg.period_end}).
                 {s.total_outreached > sg.total_requests && (
                   <span>
-                    {' '}{s.total_outreached - sg.total_requests} earlier customers predate category tracking — no event data available.
+                    {' '}{s.total_outreached - sg.total_requests} customers have no email event data yet.
                   </span>
                 )}
               </div>
