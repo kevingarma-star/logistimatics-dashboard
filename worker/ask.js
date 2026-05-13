@@ -272,6 +272,61 @@ async function handleInsights(request, env) {
   return new Response(JSON.stringify(insights), { status: 200, headers })
 }
 
+const REASON_LABELS = {
+  time:       "Haven't had time yet",
+  need:       "Don't need it yet",
+  activation: 'Issue with the activation page',
+  ready:      'Not ready for a paying subscription',
+}
+
+async function handleSurvey(request, env) {
+  const url    = new URL(request.url)
+  const reason = url.searchParams.get('r') || ''
+  const email  = url.searchParams.get('e') || ''
+  const name   = url.searchParams.get('n') || ''
+  const serial = url.searchParams.get('s') || ''
+
+  const reasonLabel = REASON_LABELS[reason] || reason
+
+  if (email && reason) {
+    const today       = new Date().toISOString().slice(0, 10)
+    const supabaseUrl = env.SUPABASE_URL
+    const supabaseKey = env.SUPABASE_KEY
+
+    try {
+      await fetch(`${supabaseUrl}/rest/v1/survey_responses`, {
+        method: 'POST',
+        headers: {
+          'apikey':        supabaseKey,
+          'Authorization': `Bearer ${supabaseKey}`,
+          'Content-Type':  'application/json',
+          'Prefer':        'return=minimal',
+        },
+        body: JSON.stringify({
+          date:         today,
+          email:        email.trim().toLowerCase(),
+          name:         name,
+          reason:       reason,
+          reason_label: reasonLabel,
+        }),
+      })
+    } catch {
+      // Don't block the redirect on DB errors
+    }
+  }
+
+  let redirectUrl
+  if (reason === 'activation') {
+    redirectUrl = 'https://logistimatics.com/pages/contact'
+  } else {
+    redirectUrl = serial
+      ? `https://my.logistimatics.com/activate/#${serial}`
+      : 'https://my.logistimatics.com/activate'
+  }
+
+  return Response.redirect(redirectUrl, 302)
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || ''
@@ -287,6 +342,10 @@ export default {
 
     if (request.method === 'POST' && url.pathname === '/insights') {
       return handleInsights(request, env)
+    }
+
+    if (request.method === 'GET' && url.pathname === '/survey') {
+      return handleSurvey(request, env)
     }
 
     return new Response('Not found', { status: 404 })

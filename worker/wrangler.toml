@@ -2,3 +2,7 @@ name = "lgmx-ask"
 main = "ask.js"
 compatibility_date = "2024-01-01"
 account_id = "edfec13d6dc857649796e658b3162dbd"
+
+[vars]
+SUPABASE_URL = "https://ttuwdvwanxixzqrscmbz.supabase.co"
+SUPABASE_KEY = "sb_publishable_QrVHOfQxMVQvVCHyMAsNFA_V5b4_9qd"
