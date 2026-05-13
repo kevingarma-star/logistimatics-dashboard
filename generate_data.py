@@ -568,13 +568,13 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
                 act_dt  = date.fromisoformat(activation_date[:10])
                 sent_dt = datetime.strptime(sent_date, '%Y-%m-%d').date()
                 days_to_activate = (act_dt - sent_dt).days
-                # All outreached customers were unactivated at send time by definition,
-                # so negative days_to_activate is a sheet sync artifact — treat as T1.
-                fu2_dt = date.fromisoformat(fu2_date) if fu2_sent and fu2_date else None
-                fu_dt  = date.fromisoformat(fu_date)  if fu_sent  and fu_date  else None
-                if fu2_dt and act_dt >= fu2_dt:
+                # Attribution is based on which touches were sent, not activation timing.
+                # If T2 was sent (even after activation due to sheet sync lag), the
+                # customer is counted as T2 — they were still in the unactivated pool
+                # when the follow-up ran.
+                if fu2_sent:
                     activated_after_touch = 'T3'
-                elif fu_dt and act_dt >= fu_dt:
+                elif fu_sent:
                     activated_after_touch = 'T2'
                 else:
                     activated_after_touch = 'T1'
