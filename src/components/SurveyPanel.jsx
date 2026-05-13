@@ -1,15 +1,15 @@
 const REASON_COLORS = {
-  serial:       '#f25a54',
-  website:      '#f97316',
-  time:         '#8b5cf6',
-  subscription: '#3b82f6',
+  time:       '#8b5cf6',
+  need:       '#3b82f6',
+  activation: '#f97316',
+  ready:      '#10b981',
 }
 
 const REASON_ICONS = {
-  serial:       '🔍',
-  website:      '💻',
-  time:         '⏰',
-  subscription: '💳',
+  time:       '⏰',
+  need:       '🤷',
+  activation: '🖥️',
+  ready:      '🚫',
 }
 
 function StatPill({ label, value, color }) {
