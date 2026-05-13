@@ -5,6 +5,7 @@ import TimelineChart from './components/TimelineChart'
 import FunnelViz from './components/FunnelViz'
 import CohortTable from './components/CohortTable'
 import SendGridPanel from './components/SendGridPanel'
+import EmailCampaignBreakdown from './components/EmailCampaignBreakdown'
 import DateRangePicker from './components/DateRangePicker'
 import DrillDownModal from './components/DrillDownModal'
 import SurveyPanel from './components/SurveyPanel'
@@ -150,11 +151,6 @@ function App() {
     status,
     `Customers with status: ${status}`,
     all.filter(c => c.status === status)
-  )
-  const drillFollowup = () => openDrill(
-    'Follow-ups Sent',
-    'Customers who received a follow-up email',
-    all.filter(c => c.fu_sent)
   )
   const drillAll = () => openDrill(
     'All Outreached',
@@ -316,15 +312,20 @@ function App() {
 
           {/* Campaign KPIs */}
           <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10 }}>
-            Campaign Performance
+            Campaign Overview
           </div>
-          <div className="kpi-grid">
+          <div className="kpi-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
             <KPICard label="Total Outreached" value={s.total_outreached} icon="📡" accent="cyan"   sub="Unique customers contacted" onClick={drillAll} />
             <KPICard label="Activated"        value={s.activated}        icon="✅" accent="green"  sub={`${s.activation_rate}% conversion rate`} trend={`${s.activation_rate}%`} trendColor="green" onClick={() => drillStatus('Activated')} />
-            <KPICard label="Follow-ups Sent"  value={s.followup_sent}    icon="📩" accent="purple" sub={`${s.followup_conversion_rate}% of follow-ups converted`} onClick={drillFollowup} />
             <KPICard label="Pending"          value={s.pending}          icon="⏳" accent="amber"  sub="Awaiting activation" onClick={() => drillStatus('Pending')} />
             <KPICard label="Returned"         value={s.returned}         icon="↩"  accent="red"    sub="Device returned" onClick={() => drillStatus('Returned')} />
           </div>
+
+          {/* Per-email breakdown */}
+          <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10, marginTop: 24 }}>
+            Email Campaigns
+          </div>
+          <EmailCampaignBreakdown customers={all} onDrill={openDrill} />
 
           {/* Email Health KPIs */}
           {sg.has_campaign_data && (
