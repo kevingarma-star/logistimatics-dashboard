@@ -772,10 +772,10 @@ SHEETS_CONFIG   = Path(__file__).parent / 'sheets_config.json'
 SHEETS_CREDS    = Path.home() / '.google_workspace_mcp/credentials/logistimatics_sheets.json'
 
 REASON_LABELS = {
-    'serial':       "Can't find serial number",
-    'website':      'Activation website trouble',
-    'time':         "Haven't had time yet",
-    'subscription': 'Not ready for subscription',
+    'time':       "Haven't had time yet",
+    'need':       "Don't need it yet",
+    'activation': 'Issue with the activation page',
+    'ready':      'Not ready for a paying subscription',
 }
 
 
@@ -818,7 +818,7 @@ def compute_survey_summary(responses, surveys_sent):
     total  = len(responses)
 
     breakdown = []
-    for reason in ['serial', 'website', 'time', 'subscription']:
+    for reason in ['time', 'need', 'activation', 'ready']:
         n = counts.get(reason, 0)
         breakdown.append({
             'reason':      reason,
