@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-05-14T04:44:59",
+  "generated_at": "2026-05-14T04:48:19",
   "summary": {
     "total_outreached": 441,
     "activated": 241,
     "pending": 196,
     "returned": 4,
     "activation_rate": 54.6,
-    "followup_sent": 434,
-    "followup_customers_reached": 255,
+    "followup_sent": 435,
+    "followup_customers_reached": 256,
     "followup_activated": 65,
-    "followup_conversion_rate": 25.5
+    "followup_conversion_rate": 25.4
   },
   "timeline": [
     {
@@ -172,7 +172,7 @@
       "date": "2026-05-14",
       "label": "May 14",
       "activation": 0,
-      "followup": 2
+      "followup": 3
     }
   ],
   "cohorts": [
@@ -435,7 +435,7 @@
       "activated": 0,
       "pending": 2,
       "returned": 1,
-      "followup_sent": 2,
+      "followup_sent": 3,
       "followup_activated": 0,
       "activation_rate": 0.0,
       "followup_conv_rate": 0.0
@@ -461,8 +461,8 @@
     },
     {
       "stage": "Follow-up Sent",
-      "value": 255,
-      "pct": 57.8
+      "value": 256,
+      "pct": 58.0
     },
     {
       "stage": "Activated",
@@ -9611,8 +9611,8 @@
       "sent_date": "2026-05-07",
       "serials": "SL0056306",
       "days_since": 7,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-05-14",
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Pending",
