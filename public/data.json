@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-14T08:45:11",
+  "generated_at": "2026-05-14T08:48:11",
   "summary": {
     "total_outreached": 441,
     "activated": 241,
@@ -9948,7 +9948,7 @@
       "clicks": 5,
       "activation": 0,
       "followup": 0,
-      "followup2": 24,
+      "followup2": 21,
       "date": "2026-05-07",
       "from_category_stats": true,
       "open_rate": 41.1,
@@ -9967,7 +9967,7 @@
       "clicks": 6,
       "activation": 0,
       "followup": 4,
-      "followup2": 37,
+      "followup2": 36,
       "date": "2026-05-08",
       "from_category_stats": true,
       "open_rate": 45.7,
