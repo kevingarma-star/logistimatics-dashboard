@@ -104,9 +104,11 @@ function buildDataContext(data) {
 function buildInsightsContext(data) {
   const s  = data.summary          || {}
   const sg = data.sendgrid_summary || {}
-  const cohorts  = data.cohorts    || []
-  const funnel   = data.funnel     || []
-  const survey   = data.survey_summary || {}
+  const cohorts   = data.cohorts           || []
+  const funnel    = data.funnel            || []
+  const survey    = data.survey_summary    || {}
+  const customers = data.customers         || []
+  const timing    = data.activation_timing || {}
 
   let ctx = '=== CAMPAIGN DATA ===\n'
 
@@ -126,6 +128,28 @@ function buildInsightsContext(data) {
   ctx += `Follow-up activated: ${s.followup_activated ?? 0}\n`
   ctx += `Follow-up conversion rate: ${s.followup_conversion_rate ?? 0}%\n`
 
+  // Per-touch email campaign breakdown
+  if (customers.length) {
+    ctx += `\n--- Per-Touch Email Campaign Breakdown ---\n`
+    const t1sent = customers.length
+    const t2sent = customers.filter(c => c.fu_sent).length
+    const t3sent = customers.filter(c => c.fu2_sent).length
+    const t1act  = customers.filter(c => c.activated_after_touch === 'T1').length
+    const t2act  = customers.filter(c => c.activated_after_touch === 'T2').length
+    const t3act  = customers.filter(c => c.fu2_sent && c.status === 'Activated').length
+    const pct = (n, d) => d ? (n / d * 100).toFixed(1) : '0.0'
+    ctx += `T1 Initial Outreach: ${t1sent} sent → ${t1act} activated (${pct(t1act, t1sent)}% conv)\n`
+    ctx += `T2 1st Follow-up: ${t2sent} sent → ${t2act} activated (${pct(t2act, t2sent)}% conv)\n`
+    ctx += `T3 2nd Follow-up: ${t3sent} sent → ${t3act} activated (${pct(t3act, t3sent)}% conv)\n`
+    ctx += `Pending after all 3 touches: ${customers.filter(c => c.fu2_sent && c.status === 'Pending').length}\n`
+
+    // Warm leads: opened but haven't activated
+    const warmLeads = customers.filter(c => c.sg_opens_count > 0 && c.status !== 'Activated').length
+    const clickers  = customers.filter(c => c.sg_clicks_count > 0).length
+    ctx += `Warm leads (opened but not yet activated): ${warmLeads}\n`
+    ctx += `Clicked a link (high intent): ${clickers}\n`
+  }
+
   // Email health
   ctx += `\n--- Email Engagement (SendGrid Category Stats: ${sg.total_requests ?? 0} emails, ${sg.period_start ?? '?'} to ${sg.period_end ?? '?'}) ---\n`
   ctx += `Delivery rate: ${sg.avg_delivery_rate ?? 'N/A'}% (${sg.total_delivered ?? 0}/${sg.total_requests ?? 0} delivered)\n`
@@ -140,6 +164,23 @@ function buildInsightsContext(data) {
     ctx += `${c.batch_date}: ${c.total} sent, ${c.activated} activated (${c.activation_rate}%), `
     ctx += `${c.pending} pending, ${c.returned} returned, `
     ctx += `${c.followup_sent} follow-ups (${c.followup_conv_rate}% conv)\n`
+  }
+
+  // Activation timing
+  if (timing.total_activated) {
+    ctx += `\n--- Activation Timing ---\n`
+    ctx += `Total activated: ${timing.total_activated} (${timing.with_activation_date} with date on record)\n`
+    ctx += `Avg days to activate: ${timing.avg_days_to_activate}, Median: ${timing.median_days_to_activate} days\n`
+    if (timing.by_touch?.length) {
+      for (const t of timing.by_touch) {
+        ctx += `  ${t.label} (${t.desc}): ${t.count} customers (${t.pct}% of activated)\n`
+      }
+    }
+    if (timing.days_distribution?.length) {
+      ctx += `Time-to-activate buckets: `
+      ctx += timing.days_distribution.map(b => `${b.bucket} → ${b.count}`).join(', ')
+      ctx += '\n'
+    }
   }
 
   // Survey
@@ -230,7 +271,19 @@ async function handleInsights(request, env) {
     return new Response(JSON.stringify({ error: 'Invalid JSON body' }), { status: 400, headers })
   }
 
-  const ctx = buildInsightsContext(body.data || {})
+  const ctx   = buildInsightsContext(body.data || {})
+  const focus = body.focus || null
+
+  const FOCUS_DIRECTIVES = {
+    email:    'FOCUS DIRECTIVE: Go significantly deeper on email engagement. Break down open rates, click rates, and delivery across each touch (T1/T2/T3). Identify which touch has the highest drop-off and what the warm leads (opened but not activated) signal. Surface non-obvious patterns in the per-touch data.',
+    funnel:   'FOCUS DIRECTIVE: Go significantly deeper on funnel drop-off. Identify exactly where customers are falling out — after T1, T2, or T3 — and compare conversion rates across touches. Use the timing data to flag whether slower activators eventually convert or churn.',
+    cohorts:  'FOCUS DIRECTIVE: Go significantly deeper on cohort performance. Identify the highest and lowest performing batches, flag statistical outliers, and look for trends over time. If a recent batch is underperforming, say why based on the data.',
+    survey:   'FOCUS DIRECTIVE: Go significantly deeper on survey signals. Analyze each activation barrier reason in detail. Cross-reference response rate against total pending customers to gauge confidence. Surface which barrier should be prioritized for product or messaging changes.',
+  }
+
+  const systemPrompt = focus && FOCUS_DIRECTIVES[focus]
+    ? INSIGHTS_SYSTEM_PROMPT + '\n\n' + FOCUS_DIRECTIVES[focus]
+    : INSIGHTS_SYSTEM_PROMPT
 
   const anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -242,7 +295,7 @@ async function handleInsights(request, env) {
     body: JSON.stringify({
       model:      'claude-sonnet-4-6',
       max_tokens: 2048,
-      system:     INSIGHTS_SYSTEM_PROMPT,
+      system:     systemPrompt,
       messages:   [{ role: 'user', content: ctx }],
     }),
   })

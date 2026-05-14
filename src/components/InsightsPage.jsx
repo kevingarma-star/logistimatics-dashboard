@@ -1,3 +1,13 @@
+import { useState } from 'react'
+
+const FOCUS_OPTIONS = [
+  { key: null,      label: 'All Insights',       icon: '✦' },
+  { key: 'funnel',  label: 'Funnel Drop-off',    icon: '📉' },
+  { key: 'email',   label: 'Email Health',        icon: '📬' },
+  { key: 'cohorts', label: 'Cohort Performance',  icon: '📅' },
+  { key: 'survey',  label: 'Survey Signals',      icon: '🗳' },
+]
+
 const SENTIMENT_STYLE = {
   positive: { color: '#00e5a0', border: 'rgba(0,229,160,0.22)' },
   neutral:  { color: '#00d4ff', border: 'rgba(0,212,255,0.22)' },
@@ -11,6 +21,13 @@ const PRIORITY_STYLE = {
 }
 
 export default function InsightsPage({ insights, loading, error, generatedAt, onGenerate }) {
+  const [selectedFocus, setSelectedFocus] = useState(null)
+
+  const handleFocusClick = (key) => {
+    setSelectedFocus(key)
+    onGenerate(key)
+  }
+
   const healthColor = insights
     ? insights.health_score >= 70 ? '#00e5a0'
       : insights.health_score >= 40 ? '#ffb700'
@@ -27,7 +44,7 @@ export default function InsightsPage({ insights, loading, error, generatedAt, on
       {/* Page header */}
       <div style={{
         display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between',
-        marginBottom: 28, gap: 16,
+        marginBottom: 20, gap: 16,
       }}>
         <div>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#f0f4ff', marginBottom: 4 }}>
@@ -44,7 +61,7 @@ export default function InsightsPage({ insights, loading, error, generatedAt, on
             </span>
           )}
           <button
-            onClick={onGenerate}
+            onClick={() => onGenerate(selectedFocus)}
             disabled={loading}
             style={{
               padding: '8px 18px', fontSize: 12, fontWeight: 600,
@@ -59,9 +76,52 @@ export default function InsightsPage({ insights, loading, error, generatedAt, on
             <span style={{ display: 'inline-block', animation: loading ? 'spin 0.8s linear infinite' : 'none' }}>
               ↻
             </span>
-            {loading ? 'Generating…' : 'Regenerate'}
+            {loading ? 'Generating…' : 'Refresh Insights'}
           </button>
         </div>
+      </div>
+
+      {/* Focus pills */}
+      <div style={{
+        display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 28,
+        paddingBottom: 20,
+        borderBottom: '1px solid rgba(255,255,255,0.05)',
+      }}>
+        <span style={{ fontSize: 11, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.6px', alignSelf: 'center', marginRight: 4 }}>
+          Focus
+        </span>
+        {FOCUS_OPTIONS.map(opt => {
+          const isActive = selectedFocus === opt.key
+          return (
+            <button
+              key={String(opt.key)}
+              onClick={() => handleFocusClick(opt.key)}
+              disabled={loading}
+              style={{
+                padding: '6px 14px', fontSize: 12, fontWeight: isActive ? 600 : 400,
+                background: isActive ? 'rgba(0,212,255,0.12)' : 'rgba(255,255,255,0.03)',
+                border: isActive ? '1px solid rgba(0,212,255,0.4)' : '1px solid rgba(255,255,255,0.08)',
+                borderRadius: 20,
+                color: isActive ? '#00d4ff' : '#8892a4',
+                cursor: loading ? 'default' : 'pointer',
+                fontFamily: 'Inter, sans-serif',
+                transition: 'all 0.15s',
+                display: 'flex', alignItems: 'center', gap: 5,
+                opacity: loading ? 0.5 : 1,
+              }}
+              onMouseEnter={e => { if (!loading && !isActive) { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.16)'; e.currentTarget.style.color = '#c4cee0' } }}
+              onMouseLeave={e => { if (!isActive) { e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = '#8892a4' } }}
+            >
+              <span>{opt.icon}</span>
+              {opt.label}
+            </button>
+          )
+        })}
+        {selectedFocus && (
+          <span style={{ fontSize: 11, color: '#4a5568', alignSelf: 'center', marginLeft: 4 }}>
+            · Claude will go deeper on <span style={{ color: '#00d4ff' }}>{FOCUS_OPTIONS.find(o => o.key === selectedFocus)?.label}</span>
+          </span>
+        )}
       </div>
 
       {/* Loading state (first load only) */}
