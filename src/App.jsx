@@ -76,14 +76,14 @@ function App() {
 
   const INSIGHTS_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/insights'
 
-  const generateInsights = useCallback(() => {
+  const generateInsights = useCallback((focus) => {
     if (!rawData) return
     setInsightsLoading(true)
     setInsightsError(null)
     fetch(INSIGHTS_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ data: rawData }),
+      body: JSON.stringify({ data: rawData, focus: focus || null }),
     })
       .then(res => res.json().then(json => ({ ok: res.ok, json })))
       .then(({ ok, json }) => {
