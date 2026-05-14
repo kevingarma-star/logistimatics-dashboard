@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-14T05:01:42",
+  "generated_at": "2026-05-14T06:02:34",
   "summary": {
     "total_outreached": 441,
     "activated": 241,
     "pending": 196,
     "returned": 4,
     "activation_rate": 54.6,
-    "followup_sent": 435,
+    "followup_sent": 436,
     "followup_customers_reached": 256,
     "followup_activated": 65,
     "followup_conversion_rate": 25.4
@@ -172,7 +172,7 @@
       "date": "2026-05-14",
       "label": "May 14",
       "activation": 0,
-      "followup": 3
+      "followup": 4
     }
   ],
   "cohorts": [
@@ -7981,10 +7981,10 @@
       "activation_date": "2026-05-01",
       "days_to_activate": 16,
       "activated_after_touch": "T2",
-      "sg_delivered": null,
-      "sg_opened": null,
-      "sg_clicked": null,
-      "sg_bounced": null,
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
       "sg_opens_count": 0,
       "sg_clicks_count": 0,
       "sg_last_event": ""
@@ -8542,16 +8542,16 @@
       "days_since": 28,
       "fu_sent": true,
       "fu_date": "2026-04-23",
-      "fu2_sent": false,
-      "fu2_date": "",
+      "fu2_sent": true,
+      "fu2_date": "2026-05-14",
       "status": "Activated",
       "activation_date": "2026-04-23",
       "days_to_activate": 7,
-      "activated_after_touch": "T2",
-      "sg_delivered": null,
-      "sg_opened": null,
-      "sg_clicked": null,
-      "sg_bounced": null,
+      "activated_after_touch": "T3",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
       "sg_opens_count": 0,
       "sg_clicks_count": 0,
       "sg_last_event": ""
@@ -9750,15 +9750,15 @@
         "touch": "T2",
         "label": "After Touch 2",
         "desc": "Activated after the second email",
-        "count": 25,
-        "pct": 12.6
+        "count": 24,
+        "pct": 12.1
       },
       {
         "touch": "T3",
         "label": "After Touch 3",
         "desc": "Activated after the third email",
-        "count": 0,
-        "pct": 0.0
+        "count": 1,
+        "pct": 0.5
       }
     ],
     "days_distribution": [
@@ -9947,7 +9947,7 @@
       "unique_clicks": 1,
       "clicks": 5,
       "activation": 0,
-      "followup": 7,
+      "followup": 4,
       "followup2": 36,
       "date": "2026-05-07",
       "from_category_stats": true,
@@ -10071,8 +10071,8 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 5,
-      "delivered": 3,
+      "requests": 7,
+      "delivered": 5,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 2,
@@ -10081,12 +10081,12 @@
       "clicks": 0,
       "activation": 0,
       "followup": 3,
-      "followup2": 2,
+      "followup2": 4,
       "date": "2026-05-14",
       "from_category_stats": true,
-      "open_rate": 66.7,
+      "open_rate": 40.0,
       "click_rate": 0.0,
-      "delivery_rate": 60.0,
+      "delivery_rate": 71.4,
       "bounce_rate": 0.0
     }
   ],
@@ -10095,24 +10095,24 @@
     "data_source": "category_stats",
     "period_start": "2026-04-27",
     "period_end": "2026-05-14",
-    "total_delivered": 372,
+    "total_delivered": 374,
     "total_opens": 153,
     "total_clicks": 9,
     "total_bounces": 0,
-    "total_requests": 394,
+    "total_requests": 396,
     "total_unsubscribes": 0,
-    "avg_open_rate": 42.6,
-    "avg_click_rate": 2.51,
+    "avg_open_rate": 42.4,
+    "avg_click_rate": 2.49,
     "avg_delivery_rate": 94.4,
     "avg_bounce_rate": 0.0,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (359 delivered). Delivery rate across all 372 campaign emails.",
-    "customer_tracked": 216,
-    "customer_delivered": 209,
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (361 delivered). Delivery rate across all 374 campaign emails.",
+    "customer_tracked": 218,
+    "customer_delivered": 211,
     "customer_opened": 99,
     "customer_clicked": 10,
     "customer_bounced": 0,
-    "customer_open_rate": 47.4,
-    "customer_click_rate": 4.78,
+    "customer_open_rate": 46.9,
+    "customer_click_rate": 4.74,
     "customer_delivery_rate": 96.8,
     "customer_bounce_rate": 0.0
   },
