@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import SurveyDrillModal from './SurveyDrillModal'
+
 const REASON_COLORS = {
   time:       '#8b5cf6',
   need:       '#3b82f6',
@@ -12,16 +15,30 @@ const REASON_ICONS = {
   ready:      '🚫',
 }
 
-function StatPill({ label, value, color }) {
+function StatPill({ label, value, color, onClick }) {
   return (
-    <div style={{
-      flex: 1,
-      background: 'rgba(255,255,255,0.03)',
-      border: `1px solid ${color}22`,
-      borderRadius: 8,
-      padding: '12px 16px',
-      minWidth: 0,
-    }}>
+    <div
+      onClick={onClick}
+      title={onClick ? `Click to view all responses` : undefined}
+      style={{
+        flex: 1,
+        background: 'rgba(255,255,255,0.03)',
+        border: `1px solid ${color}22`,
+        borderRadius: 8,
+        padding: '12px 16px',
+        minWidth: 0,
+        cursor: onClick ? 'pointer' : 'default',
+        transition: onClick ? 'border-color 0.15s, background 0.15s' : undefined,
+      }}
+      onMouseEnter={onClick ? e => {
+        e.currentTarget.style.borderColor = `${color}55`
+        e.currentTarget.style.background = `${color}08`
+      } : undefined}
+      onMouseLeave={onClick ? e => {
+        e.currentTarget.style.borderColor = `${color}22`
+        e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
+      } : undefined}
+    >
       <div style={{ fontSize: 10, color: '#8892a4', textTransform: 'uppercase', letterSpacing: '0.7px', marginBottom: 4 }}>
         {label}
       </div>
@@ -81,79 +98,41 @@ function AwaitingData() {
 }
 
 export default function SurveyPanel({ surveySummary, surveyResponses }) {
+  const [showDrill, setShowDrill] = useState(false)
+
   if (!surveySummary?.has_survey_data) return <AwaitingData />
 
-  const s       = surveySummary
-  const recent  = surveyResponses?.slice(0, 10) ?? []
+  const s = surveySummary
 
   return (
     <div>
       {/* KPI strip */}
       <div style={{ display: 'flex', gap: 10, marginBottom: 24, flexWrap: 'wrap' }}>
-        <StatPill label="Surveys Sent"     value={s.surveys_sent}    color="#00d4ff" />
-        <StatPill label="Responses"        value={s.total_responses} color="#00e5a0" />
-        <StatPill label="Response Rate"    value={`${s.response_rate}%`} color="#8b5cf6" />
+        <StatPill label="Surveys Sent"  value={s.surveys_sent}        color="#00d4ff"
+          onClick={surveyResponses?.length > 0 ? () => setShowDrill(true) : undefined}
+        />
+        <StatPill label="Responses"     value={s.total_responses}     color="#00e5a0"
+          onClick={surveyResponses?.length > 0 ? () => setShowDrill(true) : undefined}
+        />
+        <StatPill label="Response Rate" value={`${s.response_rate}%`} color="#8b5cf6"
+          onClick={surveyResponses?.length > 0 ? () => setShowDrill(true) : undefined}
+        />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-
-        {/* Reason breakdown */}
-        <div>
-          <div style={{ fontSize: 11, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.7px', marginBottom: 14 }}>
-            Responses by Reason
-          </div>
-          {s.breakdown.map(item => (
-            <BarRow key={item.reason} item={item} />
-          ))}
-        </div>
-
-        {/* Recent responses table */}
-        <div>
-          <div style={{ fontSize: 11, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.7px', marginBottom: 14 }}>
-            Recent Responses
-          </div>
-          {recent.length === 0 ? (
-            <div style={{ color: '#4a5568', fontSize: 13 }}>No responses yet.</div>
-          ) : (
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
-              <thead>
-                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                  {['Date', 'Customer', 'Reason'].map(h => (
-                    <th key={h} style={{ textAlign: 'left', padding: '4px 8px 8px', color: '#4a5568', fontWeight: 600, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.5px' }}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {recent.map((r, i) => {
-                  const color = REASON_COLORS[r.reason] || '#8892a4'
-                  const icon  = REASON_ICONS[r.reason]  || '❓'
-                  return (
-                    <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                      <td style={{ padding: '7px 8px', color: '#4a5568', fontFamily: 'JetBrains Mono, monospace', fontSize: 11 }}>
-                        {r.date.slice(5)}
-                      </td>
-                      <td style={{ padding: '7px 8px', color: '#c4cad4', maxWidth: 130, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                        {r.name || r.email.split('@')[0]}
-                      </td>
-                      <td style={{ padding: '7px 8px' }}>
-                        <span style={{
-                          display: 'inline-flex', alignItems: 'center', gap: 4,
-                          background: `${color}18`, border: `1px solid ${color}44`,
-                          borderRadius: 4, padding: '2px 7px',
-                          fontSize: 11, color,
-                        }}>
-                          {icon} {r.reason_label}
-                        </span>
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          )}
-        </div>
-
+      {/* Reason breakdown */}
+      <div style={{ fontSize: 11, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.7px', marginBottom: 14 }}>
+        Responses by Reason
       </div>
+      {s.breakdown.map(item => (
+        <BarRow key={item.reason} item={item} />
+      ))}
+
+      {showDrill && (
+        <SurveyDrillModal
+          responses={surveyResponses}
+          onClose={() => setShowDrill(false)}
+        />
+      )}
     </div>
   )
 }
