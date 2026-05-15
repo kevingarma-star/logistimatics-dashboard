@@ -30,22 +30,27 @@ function App() {
   const [insightsError, setInsightsError]   = useState(null)
   const [insightsAt, setInsightsAt]         = useState(null)
 
-  // Fetch data.json via GitHub API (max-age=60s) instead of GitHub Pages
-  // (max-age=600s, query strings stripped — cache busting doesn't work there).
-  // In dev mode, read from local public/data.json so local changes are visible immediately.
-  const GH_API_URL =
-    'https://api.github.com/repos/kevingarma-star/logistimatics-dashboard/contents/data.json?ref=gh-pages'
+  // Fetch data.json. In dev mode read from local public/. In production, try the
+  // GitHub API first (60s CDN cache, fresh data). If rate-limited (403) fall back
+  // to the GitHub Pages URL (up to 10-min cache but always works).
+  const GH_API_URL  = 'https://api.github.com/repos/kevingarma-star/logistimatics-dashboard/contents/data.json?ref=gh-pages'
+  const GH_PAGES_URL = 'https://kevingarma-star.github.io/logistimatics-dashboard/data.json'
   const fetchData = (bust = false) => {
-    let url, headers
     if (import.meta.env.DEV) {
-      url = `${import.meta.env.BASE_URL}data.json${bust ? `?_=${Date.now()}` : ''}`
-      headers = {}
-    } else {
-      url = bust ? `${GH_API_URL}&_=${Date.now()}` : GH_API_URL
-      headers = { Accept: 'application/vnd.github.v3.raw' }
+      const url = `${import.meta.env.BASE_URL}data.json${bust ? `?_=${Date.now()}` : ''}`
+      return fetch(url).then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
     }
-    return fetch(url, { headers })
-      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json() })
+    const apiUrl = bust ? `${GH_API_URL}&_=${Date.now()}` : GH_API_URL
+    return fetch(apiUrl, { headers: { Accept: 'application/vnd.github.v3.raw' } })
+      .then(r => {
+        if (r.status === 403 || r.status === 429) {
+          // Rate-limited — fall back to GitHub Pages CDN (may be up to 10 min stale)
+          return fetch(`${GH_PAGES_URL}${bust ? `?_=${Date.now()}` : ''}`)
+            .then(r2 => { if (!r2.ok) throw new Error(`HTTP ${r2.status}`); return r2.json() })
+        }
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        return r.json()
+      })
   }
 
   const loadData = (isInitial = false, bust = false) => {
@@ -106,9 +111,9 @@ function App() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     loadData(true)
-    // Poll every 70 seconds — stays within GitHub API unauthenticated rate limit
-    // (60 req/hour). Combined with the 60s CDN cache, max delay after a push is ~70s.
-    const POLL_MS = 70 * 1000
+    // Poll every 5 minutes — well within GitHub API rate limit (60 req/hr unauthenticated).
+    // Manual refresh button (↻) triggers an immediate bust fetch for real-time updates.
+    const POLL_MS = 5 * 60 * 1000
     const timer = setInterval(() => loadData(false), POLL_MS)
     return () => clearInterval(timer)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
