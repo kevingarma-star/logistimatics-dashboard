@@ -581,26 +581,27 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
             except Exception:
                 pass
 
-        # Compute days-to-activate and which touch preceded activation
+        # Compute days-to-activate and which touch preceded activation.
+        # Touch attribution is assigned for ALL activated customers so that
+        # EmailCampaignBreakdown and activation_timing always sum to the same total.
         days_to_activate      = None
         activated_after_touch = None
-        if status == 'Activated' and activation_date:
-            try:
-                act_dt  = date.fromisoformat(activation_date[:10])
-                sent_dt = datetime.strptime(sent_date, '%Y-%m-%d').date()
-                days_to_activate = (act_dt - sent_dt).days
-                # Attribution is based on which touches were sent, not activation timing.
-                # If T2 was sent (even after activation due to sheet sync lag), the
-                # customer is counted as T2 — they were still in the unactivated pool
-                # when the follow-up ran.
-                if fu2_sent:
-                    activated_after_touch = 'T3'
-                elif fu_sent:
-                    activated_after_touch = 'T2'
-                else:
-                    activated_after_touch = 'T1'
-            except (ValueError, TypeError):
-                pass
+        if status == 'Activated':
+            if activation_date:
+                try:
+                    act_dt  = date.fromisoformat(activation_date[:10])
+                    sent_dt = datetime.strptime(sent_date, '%Y-%m-%d').date()
+                    days_to_activate = (act_dt - sent_dt).days
+                except (ValueError, TypeError):
+                    pass
+            # Attribution based on which touches were sent (regardless of timing).
+            # A customer who received fu2 is always counted as T3, fu1-only as T2, else T1.
+            if fu2_sent:
+                activated_after_touch = 'T3'
+            elif fu_sent:
+                activated_after_touch = 'T2'
+            else:
+                activated_after_touch = 'T1'
 
         # sg_email_map is already the merged result of Activity Feed + Supabase
         # (the merge happens in main() before compute_data is called).
@@ -716,12 +717,15 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     ]
 
     # ── Activation Timing ──
-    timed = [c for c in customers if c['status'] == 'Activated' and c['days_to_activate'] is not None]
+    # by_touch uses ALL activated customers (touch attribution is always set now).
+    # timed is the subset that also have an activation date (for days/avg/distribution).
+    all_activated = [c for c in customers if c['status'] == 'Activated']
+    timed = [c for c in all_activated if c['days_to_activate'] is not None]
     touch_counts = {'T1': 0, 'T2': 0, 'T3': 0}
-    for c in timed:
+    for c in all_activated:
         t = c['activated_after_touch'] or 'T1'
         touch_counts[t] = touch_counts.get(t, 0) + 1
-    n_timed = len(timed)
+    n_all = len(all_activated)
 
     by_touch = [
         {
@@ -729,21 +733,21 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
             'label': 'After Touch 1',
             'desc':  'Activated without needing a follow-up',
             'count': touch_counts['T1'],
-            'pct':   round(touch_counts['T1'] / n_timed * 100, 1) if n_timed else 0,
+            'pct':   round(touch_counts['T1'] / n_all * 100, 1) if n_all else 0,
         },
         {
             'touch': 'T2',
             'label': 'After Touch 2',
             'desc':  'Activated after the second email',
             'count': touch_counts['T2'],
-            'pct':   round(touch_counts['T2'] / n_timed * 100, 1) if n_timed else 0,
+            'pct':   round(touch_counts['T2'] / n_all * 100, 1) if n_all else 0,
         },
         {
             'touch': 'T3',
             'label': 'After Touch 3',
             'desc':  'Activated after the third email',
             'count': touch_counts['T3'],
-            'pct':   round(touch_counts['T3'] / n_timed * 100, 1) if n_timed else 0,
+            'pct':   round(touch_counts['T3'] / n_all * 100, 1) if n_all else 0,
         },
     ]
 
@@ -769,7 +773,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
 
     activation_timing = {
         'total_activated':         activated,
-        'with_activation_date':    n_timed,
+        'with_activation_date':    len(timed),
         'avg_days_to_activate':    avg_days,
         'median_days_to_activate': median_days,
         'by_touch':                by_touch,
