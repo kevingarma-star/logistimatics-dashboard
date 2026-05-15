@@ -141,7 +141,7 @@ function App() {
   const sg       = data.sendgrid_summary || {}
   const all      = data.customers || []
   const surveySummary   = rawData?.survey_summary   ?? {}
-  const surveyResponses = rawData?.survey_responses ?? []
+  const surveyResponses = rawData?.survey_responses ?? rawData?.survey_summary?.recent ?? []
 
   // ── Drill-down helpers ────────────────────────────────────────────────────
   const openDrill = (title, subtitle, customers, showSgCols = false) =>
