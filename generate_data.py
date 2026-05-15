@@ -436,6 +436,16 @@ def compute_sg_summary(sg_stats, cat_stats_dates):
 # ── Google Sheet ──────────────────────────────────────────────────────────────
 
 def read_sheet():
+    # ── Step 0: Sync Google Sheet → Supabase ─────────────────────────────────
+    try:
+        import sync_shopify_orders
+        all_rows = sync_shopify_orders.read_google_sheet()
+        records  = sync_shopify_orders.rows_to_records(all_rows)
+        sync_shopify_orders.upsert_batches(records)
+        print(f"  Synced {len(records)} rows from Google Sheet to Supabase shopify_orders")
+    except Exception as e:
+        print(f"  [warn] Sheet-to-Supabase sync skipped ({e})")
+
     # ── Primary: Supabase ────────────────────────────────────────────────────
     try:
         from supabase_client import fetch_shopify_orders
