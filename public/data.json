@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T07:47:51",
+  "generated_at": "2026-05-15T08:02:26",
   "summary": {
     "total_outreached": 441,
     "activated": 242,
@@ -191,8 +191,8 @@
       "returned": 0,
       "followup_sent": 85,
       "followup_activated": 17,
-      "activation_rate": 34,
-      "followup_conv_rate": 20
+      "activation_rate": 34.0,
+      "followup_conv_rate": 20.0
     },
     {
       "batch_date": "2026-03-24",
@@ -215,8 +215,8 @@
       "returned": 0,
       "followup_sent": 8,
       "followup_activated": 2,
-      "activation_rate": 76,
-      "followup_conv_rate": 25
+      "activation_rate": 76.0,
+      "followup_conv_rate": 25.0
     },
     {
       "batch_date": "2026-04-08",
@@ -227,8 +227,8 @@
       "returned": 0,
       "followup_sent": 3,
       "followup_activated": 0,
-      "activation_rate": 70,
-      "followup_conv_rate": 0
+      "activation_rate": 70.0,
+      "followup_conv_rate": 0.0
     },
     {
       "batch_date": "2026-04-10",
@@ -252,7 +252,7 @@
       "followup_sent": 25,
       "followup_activated": 3,
       "activation_rate": 76.5,
-      "followup_conv_rate": 12
+      "followup_conv_rate": 12.0
     },
     {
       "batch_date": "2026-04-14",
@@ -263,7 +263,7 @@
       "returned": 0,
       "followup_sent": 9,
       "followup_activated": 5,
-      "activation_rate": 60,
+      "activation_rate": 60.0,
       "followup_conv_rate": 55.6
     },
     {
@@ -287,8 +287,8 @@
       "returned": 0,
       "followup_sent": 2,
       "followup_activated": 1,
-      "activation_rate": 50,
-      "followup_conv_rate": 50
+      "activation_rate": 50.0,
+      "followup_conv_rate": 50.0
     },
     {
       "batch_date": "2026-04-17",
@@ -299,8 +299,8 @@
       "returned": 0,
       "followup_sent": 1,
       "followup_activated": 0,
-      "activation_rate": 0,
-      "followup_conv_rate": 0
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0.0
     },
     {
       "batch_date": "2026-04-20",
@@ -311,8 +311,8 @@
       "returned": 0,
       "followup_sent": 5,
       "followup_activated": 2,
-      "activation_rate": 40,
-      "followup_conv_rate": 40
+      "activation_rate": 40.0,
+      "followup_conv_rate": 40.0
     },
     {
       "batch_date": "2026-04-22",
@@ -323,8 +323,8 @@
       "returned": 0,
       "followup_sent": 4,
       "followup_activated": 3,
-      "activation_rate": 75,
-      "followup_conv_rate": 75
+      "activation_rate": 75.0,
+      "followup_conv_rate": 75.0
     },
     {
       "batch_date": "2026-04-23",
@@ -335,8 +335,8 @@
       "returned": 0,
       "followup_sent": 1,
       "followup_activated": 0,
-      "activation_rate": 0,
-      "followup_conv_rate": 0
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0.0
     },
     {
       "batch_date": "2026-04-24",
@@ -347,8 +347,8 @@
       "returned": 0,
       "followup_sent": 2,
       "followup_activated": 1,
-      "activation_rate": 50,
-      "followup_conv_rate": 50
+      "activation_rate": 50.0,
+      "followup_conv_rate": 50.0
     },
     {
       "batch_date": "2026-04-27",
@@ -359,8 +359,8 @@
       "returned": 0,
       "followup_sent": 3,
       "followup_activated": 3,
-      "activation_rate": 60,
-      "followup_conv_rate": 100
+      "activation_rate": 60.0,
+      "followup_conv_rate": 100.0
     },
     {
       "batch_date": "2026-04-28",
@@ -371,7 +371,7 @@
       "returned": 0,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 75,
+      "activation_rate": 75.0,
       "followup_conv_rate": 0
     },
     {
@@ -383,8 +383,8 @@
       "returned": 0,
       "followup_sent": 1,
       "followup_activated": 1,
-      "activation_rate": 100,
-      "followup_conv_rate": 100
+      "activation_rate": 100.0,
+      "followup_conv_rate": 100.0
     },
     {
       "batch_date": "2026-04-30",
@@ -407,8 +407,8 @@
       "returned": 0,
       "followup_sent": 5,
       "followup_activated": 0,
-      "activation_rate": 0,
-      "followup_conv_rate": 0
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0.0
     },
     {
       "batch_date": "2026-05-04",
@@ -431,8 +431,8 @@
       "returned": 0,
       "followup_sent": 3,
       "followup_activated": 3,
-      "activation_rate": 100,
-      "followup_conv_rate": 100
+      "activation_rate": 100.0,
+      "followup_conv_rate": 100.0
     },
     {
       "batch_date": "2026-05-07",
@@ -443,8 +443,8 @@
       "returned": 1,
       "followup_sent": 3,
       "followup_activated": 0,
-      "activation_rate": 0,
-      "followup_conv_rate": 0
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0.0
     },
     {
       "batch_date": "2026-05-11",
@@ -455,7 +455,7 @@
       "returned": 0,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 40,
+      "activation_rate": 40.0,
       "followup_conv_rate": 0
     }
   ],
@@ -468,7 +468,7 @@
     {
       "stage": "Follow-up Sent",
       "value": 256,
-      "pct": 58
+      "pct": 58.0
     },
     {
       "stage": "Activated",
@@ -571,9 +571,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-09",
-      "days_to_activate": -8,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -655,9 +655,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-06",
-      "days_to_activate": -11,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -991,9 +991,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-06",
-      "days_to_activate": -11,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -1159,9 +1159,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-12",
-      "days_to_activate": -5,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -1600,9 +1600,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-11",
       "status": "Activated",
-      "activation_date": "2025-10-21",
-      "days_to_activate": -147,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -1705,9 +1705,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-07",
-      "days_to_activate": -10,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": true,
@@ -1789,9 +1789,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-02-25",
-      "days_to_activate": -20,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -1915,9 +1915,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-02-26",
-      "days_to_activate": -19,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -2104,9 +2104,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-12",
       "status": "Activated",
-      "activation_date": "2026-01-21",
-      "days_to_activate": -55,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -2209,9 +2209,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-14",
       "status": "Activated",
-      "activation_date": "2026-03-06",
-      "days_to_activate": -11,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -2293,9 +2293,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-02-28",
-      "days_to_activate": -17,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -2377,9 +2377,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-03",
-      "days_to_activate": -14,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -2776,9 +2776,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-10",
-      "days_to_activate": -14,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -2818,9 +2818,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-08",
       "status": "Activated",
-      "activation_date": "2026-02-18",
-      "days_to_activate": -34,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -3007,9 +3007,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-11",
-      "days_to_activate": -13,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -3070,9 +3070,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-16",
-      "days_to_activate": -8,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -3154,9 +3154,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-08",
-      "days_to_activate": -16,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -3385,9 +3385,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-10",
-      "days_to_activate": -14,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -7732,9 +7732,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-07",
       "status": "Activated",
-      "activation_date": "2026-04-01",
-      "days_to_activate": -13,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -7753,9 +7753,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-07",
       "status": "Activated",
-      "activation_date": "2024-09-16",
-      "days_to_activate": -575,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -7837,9 +7837,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-07",
       "status": "Activated",
-      "activation_date": "2025-08-23",
-      "days_to_activate": -234,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -7942,9 +7942,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-07",
       "status": "Activated",
-      "activation_date": "2026-01-21",
-      "days_to_activate": -84,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -8005,9 +8005,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-07",
       "status": "Activated",
-      "activation_date": "2026-03-09",
-      "days_to_activate": -37,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -8047,9 +8047,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2025-05-12",
-      "days_to_activate": -338,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -8110,9 +8110,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-07",
       "status": "Activated",
-      "activation_date": "2025-02-02",
-      "days_to_activate": -437,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -8278,9 +8278,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2025-05-21",
-      "days_to_activate": -329,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -8383,9 +8383,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-14",
       "status": "Activated",
-      "activation_date": "2026-03-21",
-      "days_to_activate": -25,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -8425,9 +8425,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-26",
-      "days_to_activate": -20,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -8509,9 +8509,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-07",
       "status": "Activated",
-      "activation_date": "2026-03-17",
-      "days_to_activate": -29,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -8530,9 +8530,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-14",
       "status": "Activated",
-      "activation_date": "2026-03-18",
-      "days_to_activate": -28,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -8635,9 +8635,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-15",
       "status": "Activated",
-      "activation_date": "2026-04-07",
-      "days_to_activate": -13,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -8761,9 +8761,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-15",
       "status": "Activated",
-      "activation_date": "2026-04-13",
-      "days_to_activate": -9,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -8824,9 +8824,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-04-19",
-      "days_to_activate": -5,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -8866,9 +8866,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-04-15",
-      "days_to_activate": -12,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -8908,9 +8908,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2025-12-11",
-      "days_to_activate": -137,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -8950,9 +8950,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-04-24",
-      "days_to_activate": -3,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": true,
@@ -9055,9 +9055,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-03-10",
-      "days_to_activate": -50,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": false,
       "sg_opened": false,
       "sg_clicked": false,
@@ -9223,9 +9223,9 @@
       "fu2_sent": true,
       "fu2_date": "2026-05-14",
       "status": "Activated",
-      "activation_date": "2026-03-23",
-      "days_to_activate": -38,
-      "activated_after_touch": "T3",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -9517,9 +9517,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2026-04-18",
-      "days_to_activate": -18,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -9538,9 +9538,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2025-03-24",
-      "days_to_activate": -408,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": false,
       "sg_opened": false,
       "sg_clicked": false,
@@ -9559,9 +9559,9 @@
       "fu2_sent": false,
       "fu2_date": "",
       "status": "Activated",
-      "activation_date": "2025-10-15",
-      "days_to_activate": -203,
-      "activated_after_touch": "T1",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -9741,55 +9741,55 @@
   ],
   "activation_timing": {
     "total_activated": 242,
-    "with_activation_date": 242,
-    "avg_days_to_activate": 11,
+    "with_activation_date": 201,
+    "avg_days_to_activate": 11.0,
     "median_days_to_activate": 9,
     "by_touch": [
       {
         "touch": "T1",
         "label": "After Touch 1",
         "desc": "Activated without needing a follow-up",
-        "count": 200,
-        "pct": 82.6
+        "count": 175,
+        "pct": 87.1
       },
       {
         "touch": "T2",
         "label": "After Touch 2",
         "desc": "Activated after the second email",
         "count": 20,
-        "pct": 8.3
+        "pct": 10.0
       },
       {
         "touch": "T3",
         "label": "After Touch 3",
         "desc": "Activated after the third email",
-        "count": 22,
-        "pct": 9.1
+        "count": 6,
+        "pct": 3.0
       }
     ],
     "days_distribution": [
       {
-        "bucket": "<= 3d",
+        "bucket": "\u2264 3d",
         "count": 23
       },
       {
-        "bucket": "4-7d",
+        "bucket": "4\u20137d",
         "count": 10
       },
       {
-        "bucket": "8-14d",
+        "bucket": "8\u201314d",
         "count": 19
       },
       {
-        "bucket": "15-21d",
+        "bucket": "15\u201321d",
         "count": 6
       },
       {
-        "bucket": "22-30d",
+        "bucket": "22\u201330d",
         "count": 7
       },
       {
-        "bucket": "31-45d",
+        "bucket": "31\u201345d",
         "count": 2
       },
       {
@@ -9813,9 +9813,9 @@
       "date": "2026-04-27",
       "from_category_stats": true,
       "open_rate": 30.1,
-      "click_rate": 0,
+      "click_rate": 0.0,
       "delivery_rate": 98.6,
-      "bounce_rate": 0
+      "bounce_rate": 0.0
     },
     {
       "requests": 27,
@@ -9832,8 +9832,8 @@
       "from_category_stats": true,
       "open_rate": 40.7,
       "click_rate": 7.41,
-      "delivery_rate": 100,
-      "bounce_rate": 0
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     },
     {
       "requests": 3,
@@ -9848,10 +9848,10 @@
       "followup": 2,
       "date": "2026-04-29",
       "from_category_stats": true,
-      "open_rate": 100,
-      "click_rate": 0,
+      "open_rate": 100.0,
+      "click_rate": 0.0,
       "delivery_rate": 33.3,
-      "bounce_rate": 0
+      "bounce_rate": 0.0
     },
     {
       "requests": 10,
@@ -9866,10 +9866,10 @@
       "followup": 1,
       "date": "2026-04-30",
       "from_category_stats": true,
-      "open_rate": 70,
-      "click_rate": 0,
-      "delivery_rate": 100,
-      "bounce_rate": 0
+      "open_rate": 70.0,
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     },
     {
       "requests": 6,
@@ -9885,9 +9885,9 @@
       "date": "2026-05-01",
       "from_category_stats": true,
       "open_rate": 66.7,
-      "click_rate": 0,
-      "delivery_rate": 100,
-      "bounce_rate": 0
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     },
     {
       "requests": 7,
@@ -9904,8 +9904,8 @@
       "from_category_stats": true,
       "open_rate": 71.4,
       "click_rate": 14.29,
-      "delivery_rate": 100,
-      "bounce_rate": 0
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     },
     {
       "requests": 6,
@@ -9921,9 +9921,9 @@
       "date": "2026-05-05",
       "from_category_stats": true,
       "open_rate": 33.3,
-      "click_rate": 0,
-      "delivery_rate": 100,
-      "bounce_rate": 0
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     },
     {
       "requests": 14,
@@ -9939,9 +9939,9 @@
       "date": "2026-05-06",
       "from_category_stats": true,
       "open_rate": 58.3,
-      "click_rate": 0,
+      "click_rate": 0.0,
       "delivery_rate": 85.7,
-      "bounce_rate": 0
+      "bounce_rate": 0.0
     },
     {
       "requests": 76,
@@ -9959,7 +9959,7 @@
       "open_rate": 41.1,
       "click_rate": 1.37,
       "delivery_rate": 96.1,
-      "bounce_rate": 0
+      "bounce_rate": 0.0
     },
     {
       "requests": 47,
@@ -9977,7 +9977,7 @@
       "open_rate": 45.7,
       "click_rate": 4.35,
       "delivery_rate": 97.9,
-      "bounce_rate": 0
+      "bounce_rate": 0.0
     },
     {
       "requests": 87,
@@ -9996,7 +9996,7 @@
       "open_rate": 37.2,
       "click_rate": 2.33,
       "delivery_rate": 98.9,
-      "bounce_rate": 0
+      "bounce_rate": 0.0
     },
     {
       "requests": 6,
@@ -10012,10 +10012,10 @@
       "followup2": 4,
       "date": "2026-05-12",
       "from_category_stats": true,
-      "open_rate": 100,
-      "click_rate": 0,
+      "open_rate": 100.0,
+      "click_rate": 0.0,
       "delivery_rate": 66.7,
-      "bounce_rate": 0
+      "bounce_rate": 0.0
     },
     {
       "requests": 12,
@@ -10031,10 +10031,10 @@
       "followup2": 3,
       "date": "2026-05-13",
       "from_category_stats": true,
-      "open_rate": 100,
-      "click_rate": 20,
+      "open_rate": 100.0,
+      "click_rate": 20.0,
       "delivery_rate": 41.7,
-      "bounce_rate": 0
+      "bounce_rate": 0.0
     },
     {
       "requests": 17,
@@ -10051,9 +10051,9 @@
       "date": "2026-05-14",
       "from_category_stats": true,
       "open_rate": 70.6,
-      "click_rate": 0,
-      "delivery_rate": 100,
-      "bounce_rate": 0
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     },
     {
       "requests": 9,
@@ -10070,9 +10070,9 @@
       "date": "2026-05-15",
       "from_category_stats": true,
       "open_rate": 14.3,
-      "click_rate": 0,
+      "click_rate": 0.0,
       "delivery_rate": 77.8,
-      "bounce_rate": 0
+      "bounce_rate": 0.0
     }
   ],
   "sendgrid_summary": {
@@ -10089,7 +10089,7 @@
     "avg_open_rate": 43.2,
     "avg_click_rate": 2.37,
     "avg_delivery_rate": 94.8,
-    "avg_bounce_rate": 0,
+    "avg_bounce_rate": 0.0,
     "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (380 delivered). Delivery rate across all 380 campaign emails.",
     "customer_tracked": 222,
     "customer_delivered": 215,
@@ -10099,7 +10099,7 @@
     "customer_open_rate": 47.9,
     "customer_click_rate": 4.65,
     "customer_delivery_rate": 96.8,
-    "customer_bounce_rate": 0
+    "customer_bounce_rate": 0.0
   },
   "survey_summary": {
     "has_survey_data": true,
@@ -10117,19 +10117,19 @@
         "reason": "need",
         "label": "Don't need it yet",
         "count": 0,
-        "pct": 0
+        "pct": 0.0
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
         "count": 0,
-        "pct": 0
+        "pct": 0.0
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 0,
-        "pct": 0
+        "pct": 0.0
       }
     ],
     "recent": [
