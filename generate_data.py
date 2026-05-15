@@ -436,6 +436,18 @@ def compute_sg_summary(sg_stats, cat_stats_dates):
 # ── Google Sheet ──────────────────────────────────────────────────────────────
 
 def read_sheet():
+    # ── Primary: Supabase ────────────────────────────────────────────────────
+    try:
+        from supabase_client import fetch_shopify_orders
+        email_map, serial_act_map = fetch_shopify_orders()
+        if email_map:
+            print(f"  Supabase: {len(email_map)} unique emails, {len(serial_act_map)} serials with activation date")
+            return email_map, serial_act_map
+        print("  [warn] Supabase shopify_orders returned no rows — falling back to Google Sheet")
+    except Exception as e:
+        print(f"  [warn] Supabase shopify_orders unavailable ({e}) — falling back to Google Sheet")
+
+    # ── Fallback: Google Sheet ───────────────────────────────────────────────
     try:
         import gspread
         from google.oauth2.credentials import Credentials
@@ -477,13 +489,12 @@ def read_sheet():
                 email_map[email]['sub_id'] = sub_id
             if returned:
                 email_map[email]['returned'] = returned
-            # Build serial → activation date map (keep earliest per serial)
             if serial and activation_date:
                 date_only = activation_date[:10]
                 if serial not in serial_act_map or date_only < serial_act_map[serial]:
                     serial_act_map[serial] = date_only
 
-        print(f"  Sheet: {len(email_map)} unique emails, {len(serial_act_map)} serials with activation date")
+        print(f"  Sheet (fallback): {len(email_map)} unique emails, {len(serial_act_map)} serials with activation date")
         return email_map, serial_act_map
 
     except Exception as e:
