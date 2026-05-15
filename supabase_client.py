@@ -129,6 +129,49 @@ def upsert_email_event(email, email_type, sg_message_id, status,
     }, on_conflict='sg_message_id').execute()
 
 
+def fetch_shopify_orders():
+    """
+    Return (email_map, serial_act_map) built from the shopify_orders table.
+
+    email_map      : email (lowercase) → {'sub_id': str, 'returned': str}
+    serial_act_map : serial → earliest activation date as 'YYYY-MM-DD'
+
+    These are the same structures that generate_data.py's read_sheet() produces,
+    so swapping the data source requires no changes downstream.
+    """
+    result = get_client().table('shopify_orders').select(
+        'customer_email,serial,subscription_id,return_processed_at,subscription_assigned_at'
+    ).limit(20000).execute()
+    rows = result.data or []
+
+    email_map      = {}
+    serial_act_map = {}
+
+    for row in rows:
+        email  = (row.get('customer_email') or '').strip().lower()
+        serial = (row.get('serial') or '').strip()
+        if not email:
+            continue
+
+        sub_id   = (row.get('subscription_id')    or '').strip()
+        returned = (row.get('return_processed_at') or '').strip()
+        act_raw  = (row.get('subscription_assigned_at') or '').strip()
+
+        if email not in email_map:
+            email_map[email] = {'sub_id': '', 'returned': ''}
+        if sub_id:
+            email_map[email]['sub_id'] = sub_id
+        if returned:
+            email_map[email]['returned'] = returned
+
+        if serial and act_raw:
+            date_only = act_raw[:10]
+            if serial not in serial_act_map or date_only < serial_act_map[serial]:
+                serial_act_map[serial] = date_only
+
+    return email_map, serial_act_map
+
+
 def fetch_email_events():
     """
     Return all rows from sg_email_events as a dict keyed by lowercase email.
