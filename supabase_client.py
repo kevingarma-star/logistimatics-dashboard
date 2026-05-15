@@ -22,6 +22,28 @@ def get_client():
     return _client
 
 
+def _fetch_all(table, columns, filters=None, page_size=1000):
+    """
+    Paginate through a Supabase table and return all rows.
+    PostgREST caps responses at 1,000 rows by default regardless of .limit().
+    """
+    client = get_client()
+    rows = []
+    offset = 0
+    while True:
+        q = client.table(table).select(columns).range(offset, offset + page_size - 1)
+        if filters:
+            for method, *args in filters:
+                q = getattr(q, method)(*args)
+        result = q.execute()
+        batch = result.data or []
+        rows.extend(batch)
+        if len(batch) < page_size:
+            break
+        offset += page_size
+    return rows
+
+
 def insert_log(table, date, email, customer_name, serials, message_id, status):
     """Insert a single outreach log row into the given Supabase table."""
     get_client().table(table).insert({
@@ -36,18 +58,14 @@ def insert_log(table, date, email, customer_name, serials, message_id, status):
 
 def fetch_log(table):
     """Return all 'sent' rows from a log table as a list of dicts."""
-    result = get_client().table(table).select(
-        'date,email,customer_name,serials,message_id,status'
-    ).eq('status', 'sent').limit(10000).execute()
-    return result.data or []
+    return _fetch_all(table, 'date,email,customer_name,serials,message_id,status',
+                      filters=[('eq', 'status', 'sent')])
 
 
 def fetch_survey_responses():
     """Return all survey responses, deduplicated by email (first response wins)."""
-    result = get_client().table('survey_responses').select(
-        'date,email,name,reason,reason_label'
-    ).order('created_at', desc=False).limit(10000).execute()
-    rows = result.data or []
+    rows = _fetch_all('survey_responses', 'date,email,name,reason,reason_label,created_at',
+                      filters=[('order', 'created_at')])
     seen = set()
     deduped = []
     for row in rows:
@@ -89,10 +107,7 @@ def fetch_click_log():
     Return all rows from sg_click_log as a dict keyed by lowercase email.
     Merges multiple clicks per email (summing clicks_count, keeping True flags).
     """
-    result = get_client().table('sg_click_log').select(
-        'email,email_type,clicked_at,clicks_count'
-    ).limit(10000).execute()
-    rows = result.data or []
+    rows = _fetch_all('sg_click_log', 'email,email_type,clicked_at,clicks_count')
     merged = {}
     for row in rows:
         email = (row.get('email') or '').strip().lower()
@@ -139,10 +154,8 @@ def fetch_shopify_orders():
     These are the same structures that generate_data.py's read_sheet() produces,
     so swapping the data source requires no changes downstream.
     """
-    result = get_client().table('shopify_orders').select(
-        'customer_email,serial,subscription_id,return_processed_at,subscription_assigned_at'
-    ).limit(20000).execute()
-    rows = result.data or []
+    rows = _fetch_all('shopify_orders',
+                      'customer_email,serial,subscription_id,return_processed_at,subscription_assigned_at')
 
     email_map      = {}
     serial_act_map = {}
@@ -179,10 +192,8 @@ def fetch_email_events():
     counts are summed, most recent last_event_time is kept as sg_last_event.
     This is the permanent historical record that survives past the Activity Feed window.
     """
-    result = get_client().table('sg_email_events').select(
-        'email,email_type,status,delivered,bounced,opens_count,clicks_count,last_event_time'
-    ).limit(10000).execute()
-    rows = result.data or []
+    rows = _fetch_all('sg_email_events',
+                      'email,email_type,status,delivered,bounced,opens_count,clicks_count,last_event_time')
     merged = {}
     for row in rows:
         email = (row.get('email') or '').strip().lower()
