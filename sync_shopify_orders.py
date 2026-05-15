@@ -106,10 +106,20 @@ def rows_to_records(all_rows):
     if skipped:
         print(f"  Skipped {skipped} rows (no serial or email)")
 
-    # Deduplicate by serial — last row in sheet wins (most recent data)
+    # Deduplicate by serial — prefer the row with activation/subscription data,
+    # otherwise take the last occurrence (most recent data).
     seen = {}
     for r in records:
-        seen[r['serial']] = r
+        serial = r['serial']
+        prev = seen.get(serial)
+        if prev is None:
+            seen[serial] = r
+        else:
+            # Keep whichever row has more data (sub_id or activation date)
+            has_data     = bool(r.get('subscription_id') or r.get('subscription_assigned_at'))
+            prev_has_data = bool(prev.get('subscription_id') or prev.get('subscription_assigned_at'))
+            if has_data and not prev_has_data:
+                seen[serial] = r
     deduped = list(seen.values())
     dupes = len(records) - len(deduped)
     if dupes:
