@@ -57,9 +57,15 @@ function App() {
     if (!isInitial) setRefreshing(true)
     fetchData(bust)
       .then(d => {
+        const dates = [...d.cohorts.map(c => c.batch_date)].sort()
         if (isInitial) {
-          const dates = [...d.cohorts.map(c => c.batch_date)].sort()
           if (dates.length) { setStart(dates[0]); setEnd(dates[dates.length - 1]) }
+        } else {
+          // Expand the range if new cohorts appeared beyond the current window
+          if (dates.length) {
+            setStart(prev => (!prev || dates[0] < prev) ? dates[0] : prev)
+            setEnd(prev   => (!prev || dates[dates.length - 1] > prev) ? dates[dates.length - 1] : prev)
+          }
         }
         setRawData(d)
         setLastRefresh(new Date())
