@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-18T04:01:21",
+  "generated_at": "2026-05-18T04:44:51",
   "summary": {
-    "total_outreached": 441,
-    "activated": 243,
-    "pending": 194,
+    "total_outreached": 444,
+    "activated": 244,
+    "pending": 196,
     "returned": 4,
-    "activation_rate": 55.1,
+    "activation_rate": 55.0,
     "followup_sent": 461,
     "followup_customers_reached": 256,
     "followup_activated": 67,
@@ -179,6 +179,12 @@
       "label": "May 15",
       "activation": 0,
       "followup": 12
+    },
+    {
+      "date": "2026-05-18",
+      "label": "May 18",
+      "activation": 3,
+      "followup": 0
     }
   ],
   "cohorts": [
@@ -457,23 +463,35 @@
       "followup_activated": 0,
       "activation_rate": 40.0,
       "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-05-18",
+      "label": "May 18",
+      "total": 3,
+      "activated": 1,
+      "pending": 2,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 33.3,
+      "followup_conv_rate": 0
     }
   ],
   "funnel": [
     {
       "stage": "Outreached",
-      "value": 441,
+      "value": 444,
       "pct": 100
     },
     {
       "stage": "Follow-up Sent",
       "value": 256,
-      "pct": 58.0
+      "pct": 57.7
     },
     {
       "stage": "Activated",
-      "value": 243,
-      "pct": 55.1
+      "value": 244,
+      "pct": 55.0
     }
   ],
   "customers": [
@@ -9737,10 +9755,73 @@
       "sg_opens_count": 1,
       "sg_clicks_count": 0,
       "sg_last_event": ""
+    },
+    {
+      "email": "kgllax@kglamerica.com",
+      "sent_date": "2026-05-18",
+      "serials": "278321, 277998",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "status": "Activated",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": "T1",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "towannaaustin1825@gmail.com",
+      "sent_date": "2026-05-18",
+      "serials": "277975",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "busgula@hotmail.com",
+      "sent_date": "2026-05-18",
+      "serials": "278339",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
     }
   ],
   "activation_timing": {
-    "total_activated": 243,
+    "total_activated": 244,
     "with_activation_date": 204,
     "avg_days_to_activate": 11.6,
     "median_days_to_activate": 9,
@@ -9749,22 +9830,22 @@
         "touch": "T1",
         "label": "After Touch 1",
         "desc": "Activated without needing a follow-up",
-        "count": 176,
-        "pct": 72.4
+        "count": 177,
+        "pct": 72.5
       },
       {
         "touch": "T2",
         "label": "After Touch 2",
         "desc": "Activated after the second email",
         "count": 44,
-        "pct": 18.1
+        "pct": 18.0
       },
       {
         "touch": "T3",
         "label": "After Touch 3",
         "desc": "Activated after the third email",
         "count": 23,
-        "pct": 9.5
+        "pct": 9.4
       }
     ],
     "days_distribution": [
@@ -10092,32 +10173,51 @@
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
+    },
+    {
+      "requests": 4,
+      "delivered": 4,
+      "bounces": 0,
+      "unsubscribes": 0,
+      "unique_opens": 1,
+      "opens": 1,
+      "unique_clicks": 0,
+      "clicks": 0,
+      "activation": 4,
+      "followup": 0,
+      "followup2": 0,
+      "date": "2026-05-18",
+      "from_category_stats": true,
+      "open_rate": 25.0,
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     }
   ],
   "sendgrid_summary": {
     "has_campaign_data": true,
     "data_source": "category_stats",
     "period_start": "2026-04-27",
-    "period_end": "2026-05-16",
-    "total_delivered": 385,
-    "total_opens": 172,
+    "period_end": "2026-05-18",
+    "total_delivered": 389,
+    "total_opens": 173,
     "total_clicks": 9,
     "total_bounces": 0,
-    "total_requests": 402,
+    "total_requests": 406,
     "total_unsubscribes": 0,
-    "avg_open_rate": 44.8,
-    "avg_click_rate": 2.34,
+    "avg_open_rate": 44.6,
+    "avg_click_rate": 2.32,
     "avg_delivery_rate": 95.8,
     "avg_bounce_rate": 0.0,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (384 delivered). Delivery rate across all 385 campaign emails.",
-    "customer_tracked": 222,
-    "customer_delivered": 215,
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (388 delivered). Delivery rate across all 389 campaign emails.",
+    "customer_tracked": 225,
+    "customer_delivered": 218,
     "customer_opened": 105,
     "customer_clicked": 10,
     "customer_bounced": 0,
-    "customer_open_rate": 48.8,
-    "customer_click_rate": 4.65,
-    "customer_delivery_rate": 96.8,
+    "customer_open_rate": 48.2,
+    "customer_click_rate": 4.59,
+    "customer_delivery_rate": 96.9,
     "customer_bounce_rate": 0.0
   },
   "survey_summary": {
