@@ -196,11 +196,12 @@ function CustomerTable({ customers }) {
                     {c.activation_date?.slice(5) ?? '—'}
                   </td>
                   <td style={{ padding: '7px 10px', fontFamily: 'JetBrains Mono, monospace', fontSize: 12, fontWeight: 700,
-                    color: c.days_to_activate <= 7 ? '#00e5a0'
-                      : c.days_to_activate <= 21 ? '#00d4ff'
-                      : '#f97316'
+                    color: c.days_to_activate >= 0 && c.days_to_activate <= 7 ? '#00e5a0'
+                      : c.days_to_activate >= 0 && c.days_to_activate <= 21 ? '#00d4ff'
+                      : c.days_to_activate >= 0 ? '#f97316'
+                      : '#4a5568'
                   }}>
-                    {c.days_to_activate != null ? `${c.days_to_activate}d` : '—'}
+                    {c.days_to_activate != null && c.days_to_activate >= 0 ? `${c.days_to_activate}d` : '—'}
                   </td>
                   <td style={{ padding: '7px 10px' }}>
                     {c.activated_after_touch ? (
@@ -234,13 +235,14 @@ function CustomerTable({ customers }) {
 export default function ActivationTimingPage({ rawData, onDrill }) {
   const timing    = rawData?.activation_timing
   const allCustomers = rawData?.customers ?? []
-  // Only customers who activated AFTER their outreach (days >= 0). Pre-outreach
-  // activations have negative days and are excluded from timing stats.
-  const customers = allCustomers.filter(c => c.status === 'Activated' && c.days_to_activate != null && c.days_to_activate >= 0)
+  // All activated customers — pre-outreach activations count toward the total as T1.
+  const customers = allCustomers.filter(c => c.status === 'Activated')
+  // Subset with valid post-outreach timing (for avg/median drill-downs).
+  const timedCustomers = customers.filter(c => c.days_to_activate != null && c.days_to_activate >= 0)
 
   const drill = (title, subtitle, list) => onDrill?.(title, subtitle, list)
 
-  if (!timing || timing.with_activation_date === 0) {
+  if (!timing || timing.total_activated === 0) {
     return (
       <div style={{
         display: 'flex', flexDirection: 'column', alignItems: 'center',
@@ -280,13 +282,13 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
       {/* KPI strip */}
       <div style={{ display: 'flex', gap: 10, marginBottom: 28, flexWrap: 'wrap' }}>
         <StatPill
-          label="Activated w/ Date"
-          value={timing.with_activation_date}
+          label="Total Activated"
+          value={timing.total_activated}
           color="#00d4ff"
-          sub={`of ${timing.total_activated} total activated`}
+          sub={timing.timed_count != null ? `${timing.timed_count} with post-outreach timing` : undefined}
           onClick={() => drill(
             'Activated Customers',
-            'All activated customers with a known activation date',
+            'All activated customers',
             customers
           )}
         />
@@ -294,11 +296,11 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
           label="Avg Days to Activate"
           value={timing.avg_days_to_activate != null ? `${timing.avg_days_to_activate}d` : null}
           color="#00e5a0"
-          sub="from Touch 1 send date"
+          sub="post-outreach activations only"
           onClick={() => drill(
             'Activated — by Days to Activate',
             `Avg ${timing.avg_days_to_activate}d · Median ${timing.median_days_to_activate}d`,
-            [...customers].sort((a, b) => a.days_to_activate - b.days_to_activate)
+            [...timedCustomers].sort((a, b) => a.days_to_activate - b.days_to_activate)
           )}
         />
         <StatPill
@@ -309,7 +311,7 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
           onClick={() => drill(
             'Activated — by Days to Activate',
             `Avg ${timing.avg_days_to_activate}d · Median ${timing.median_days_to_activate}d`,
-            [...customers].sort((a, b) => a.days_to_activate - b.days_to_activate)
+            [...timedCustomers].sort((a, b) => a.days_to_activate - b.days_to_activate)
           )}
         />
       </div>
@@ -376,7 +378,7 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
                     drill(
                       `Activated in ${entry.bucket}`,
                       `Customers who activated within this window`,
-                      customers.filter(fn)
+                      timedCustomers.filter(fn)
                     )
                   }}
                 >
@@ -407,10 +409,10 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
       {/* Customer detail table */}
       <div className="panel">
         <div className="panel-title">Activated Customers — Timing Detail</div>
-        <div className="panel-sub">All customers with a known activation date · sortable</div>
+        <div className="panel-sub">All activated customers · days shown for post-outreach activations only · sortable</div>
         <div style={{ marginTop: 16 }}>
           {customers.length === 0 ? (
-            <div style={{ color: '#4a5568', fontSize: 13 }}>No customers with activation dates found.</div>
+            <div style={{ color: '#4a5568', fontSize: 13 }}>No activated customers found.</div>
           ) : (
             <CustomerTable customers={customers} />
           )}

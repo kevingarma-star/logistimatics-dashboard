@@ -112,12 +112,10 @@ export default function useFilteredData(data, start, end) {
     } : { ...baseSg, has_campaign_data: false }
 
     // ── Recompute activation timing from filtered customers ────────────
-    // Touch attribution counts ALL activated customers (matching generate_data.py).
-    // Days/avg/median only use the subset with a known activation date.
+    // Touch attribution and totals use ALL activated customers (pre-outreach
+    // activations are treated as T1, matching generate_data.py).
+    // Avg/median/histogram use only the post-outreach subset (days >= 0).
     const allActivated = customers.filter(c => c.status === 'Activated')
-    // Only count customers who activated AFTER their outreach (days >= 0).
-    // Negative days_to_activate means the customer had a pre-existing subscription
-    // and is meaningless for "time to activate from outreach" stats.
     const timed = allActivated.filter(c => c.days_to_activate != null && c.days_to_activate >= 0)
     const touchCounts = { T1: 0, T2: 0, T3: 0 }
     for (const c of allActivated) {
@@ -126,7 +124,7 @@ export default function useFilteredData(data, start, end) {
     }
     const nAll   = allActivated.length
     const nTimed = timed.length
-    const allDays = timed.map(c => c.days_to_activate).filter(d => d >= 0).sort((a, b) => a - b)
+    const allDays = timed.map(c => c.days_to_activate).sort((a, b) => a - b)
     const avgDays = allDays.length ? +(allDays.reduce((s, d) => s + d, 0) / allDays.length).toFixed(1) : null
     const medDays = allDays.length ? allDays[Math.floor(allDays.length / 2)] : null
 
@@ -142,7 +140,8 @@ export default function useFilteredData(data, start, end) {
 
     const activationTiming = {
       total_activated:         nAll,
-      with_activation_date:    nTimed,
+      with_activation_date:    nAll,   // all activated count toward the total
+      timed_count:             nTimed, // subset with post-outreach timing data
       avg_days_to_activate:    avgDays,
       median_days_to_activate: medDays,
       by_touch: [
