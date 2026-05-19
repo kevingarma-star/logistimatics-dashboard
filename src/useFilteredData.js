@@ -115,7 +115,10 @@ export default function useFilteredData(data, start, end) {
     // Touch attribution counts ALL activated customers (matching generate_data.py).
     // Days/avg/median only use the subset with a known activation date.
     const allActivated = customers.filter(c => c.status === 'Activated')
-    const timed = allActivated.filter(c => c.days_to_activate != null)
+    // Only count customers who activated AFTER their outreach (days >= 0).
+    // Negative days_to_activate means the customer had a pre-existing subscription
+    // and is meaningless for "time to activate from outreach" stats.
+    const timed = allActivated.filter(c => c.days_to_activate != null && c.days_to_activate >= 0)
     const touchCounts = { T1: 0, T2: 0, T3: 0 }
     for (const c of allActivated) {
       const t = c.activated_after_touch || 'T1'

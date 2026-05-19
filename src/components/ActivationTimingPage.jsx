@@ -234,7 +234,9 @@ function CustomerTable({ customers }) {
 export default function ActivationTimingPage({ rawData, onDrill }) {
   const timing    = rawData?.activation_timing
   const allCustomers = rawData?.customers ?? []
-  const customers = allCustomers.filter(c => c.status === 'Activated' && c.activation_date)
+  // Only customers who activated AFTER their outreach (days >= 0). Pre-outreach
+  // activations have negative days and are excluded from timing stats.
+  const customers = allCustomers.filter(c => c.status === 'Activated' && c.days_to_activate != null && c.days_to_activate >= 0)
 
   const drill = (title, subtitle, list) => onDrill?.(title, subtitle, list)
 

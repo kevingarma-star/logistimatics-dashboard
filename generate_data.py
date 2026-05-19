@@ -575,9 +575,10 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
                 candidates = [serial_act_map[s] for s in ser_list if s in serial_act_map]
                 after = [d for d in candidates if date.fromisoformat(d) >= sent_dt]
                 if after:
-                    activation_date = sorted(after)[0]       # earliest post-outreach
-                elif candidates:
-                    activation_date = sorted(candidates)[-1] # latest pre-outreach (fallback)
+                    activation_date = sorted(after)[0]  # earliest post-outreach date
+                # No fallback for pre-outreach dates: a customer who activated before
+                # being outreached is still Activated (sub_id drives status), but their
+                # timing data isn't meaningful for "days to activate from outreach."
             except Exception:
                 pass
 
