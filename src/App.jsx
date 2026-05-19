@@ -232,7 +232,7 @@ function App() {
             ↻
           </button>
           <div className="header-meta" style={{ textAlign: 'right' }}>
-            <div className="header-badge">Auto-refresh 70s</div>
+            <div className="header-badge">Auto-refresh 5m</div>
             <div style={{ fontSize: 11, color: '#4a5568' }}>
               {lastRefresh
                 ? `Fetched ${lastRefresh.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`
