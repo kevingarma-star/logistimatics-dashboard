@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T12:01:08",
+  "generated_at": "2026-05-18T20:18:39",
   "summary": {
     "total_outreached": 460,
     "activated": 248,
@@ -593,10 +593,10 @@
       "days_to_activate": null,
       "activated_after_touch": "T3",
       "sg_delivered": true,
-      "sg_opened": false,
+      "sg_opened": true,
       "sg_clicked": false,
       "sg_bounced": false,
-      "sg_opens_count": 0,
+      "sg_opens_count": 1,
       "sg_clicks_count": 0,
       "sg_last_event": ""
     },
@@ -1013,10 +1013,10 @@
       "days_to_activate": null,
       "activated_after_touch": "T3",
       "sg_delivered": true,
-      "sg_opened": false,
+      "sg_opened": true,
       "sg_clicked": false,
       "sg_bounced": false,
-      "sg_opens_count": 0,
+      "sg_opens_count": 1,
       "sg_clicks_count": 0,
       "sg_last_event": ""
     },
@@ -2609,10 +2609,10 @@
       "days_to_activate": 42,
       "activated_after_touch": "T3",
       "sg_delivered": true,
-      "sg_opened": false,
+      "sg_opened": true,
       "sg_clicked": true,
       "sg_bounced": false,
-      "sg_opens_count": 0,
+      "sg_opens_count": 1,
       "sg_clicks_count": 1,
       "sg_last_event": ""
     },
@@ -9500,7 +9500,7 @@
       "sg_opened": true,
       "sg_clicked": false,
       "sg_bounced": false,
-      "sg_opens_count": 3,
+      "sg_opens_count": 5,
       "sg_clicks_count": 0,
       "sg_last_event": ""
     },
@@ -9668,7 +9668,7 @@
       "sg_opened": true,
       "sg_clicked": false,
       "sg_bounced": false,
-      "sg_opens_count": 10,
+      "sg_opens_count": 11,
       "sg_clicks_count": 0,
       "sg_last_event": ""
     },
@@ -9731,7 +9731,7 @@
       "sg_opened": true,
       "sg_clicked": false,
       "sg_bounced": false,
-      "sg_opens_count": 1,
+      "sg_opens_count": 3,
       "sg_clicks_count": 0,
       "sg_last_event": ""
     },
@@ -9770,11 +9770,11 @@
       "days_to_activate": null,
       "activated_after_touch": "T1",
       "sg_delivered": true,
-      "sg_opened": false,
-      "sg_clicked": false,
+      "sg_opened": true,
+      "sg_clicked": true,
       "sg_bounced": false,
-      "sg_opens_count": 0,
-      "sg_clicks_count": 0,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 1,
       "sg_last_event": ""
     },
     {
@@ -9857,7 +9857,7 @@
       "sg_opened": true,
       "sg_clicked": false,
       "sg_bounced": false,
-      "sg_opens_count": 1,
+      "sg_opens_count": 3,
       "sg_clicks_count": 0,
       "sg_last_event": ""
     },
@@ -10514,17 +10514,17 @@
       "delivered": 56,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 18,
-      "opens": 25,
-      "unique_clicks": 3,
-      "clicks": 7,
+      "unique_opens": 24,
+      "opens": 36,
+      "unique_clicks": 4,
+      "clicks": 8,
       "activation": 20,
       "followup": 4,
       "followup2": 33,
       "date": "2026-05-18",
       "from_category_stats": true,
-      "open_rate": 32.1,
-      "click_rate": 5.36,
+      "open_rate": 42.9,
+      "click_rate": 7.14,
       "delivery_rate": 98.2,
       "bounce_rate": 0.0
     }
@@ -10535,43 +10535,43 @@
     "period_start": "2026-04-27",
     "period_end": "2026-05-18",
     "total_delivered": 441,
-    "total_opens": 190,
-    "total_clicks": 12,
+    "total_opens": 196,
+    "total_clicks": 13,
     "total_bounces": 0,
     "total_requests": 456,
     "total_unsubscribes": 0,
-    "avg_open_rate": 43.2,
-    "avg_click_rate": 2.73,
+    "avg_open_rate": 44.5,
+    "avg_click_rate": 2.95,
     "avg_delivery_rate": 96.7,
     "avg_bounce_rate": 0.0,
     "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (440 delivered). Delivery rate across all 441 campaign emails.",
     "customer_tracked": 257,
     "customer_delivered": 250,
-    "customer_opened": 118,
-    "customer_clicked": 12,
+    "customer_opened": 122,
+    "customer_clicked": 13,
     "customer_bounced": 0,
-    "customer_open_rate": 47.2,
-    "customer_click_rate": 4.8,
+    "customer_open_rate": 48.8,
+    "customer_click_rate": 5.2,
     "customer_delivery_rate": 97.3,
     "customer_bounce_rate": 0.0
   },
   "survey_summary": {
     "has_survey_data": true,
     "surveys_sent": 297,
-    "total_responses": 6,
-    "response_rate": 2.0,
+    "total_responses": 7,
+    "response_rate": 2.4,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
         "count": 3,
-        "pct": 50.0
+        "pct": 42.9
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
-        "count": 1,
-        "pct": 16.7
+        "count": 2,
+        "pct": 28.6
       },
       {
         "reason": "activation",
@@ -10583,7 +10583,7 @@
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 1,
-        "pct": 16.7
+        "pct": 14.3
       }
     ],
     "recent": [
@@ -10593,6 +10593,13 @@
         "name": "Robert",
         "reason": "ready",
         "reason_label": "Not ready for a paying subscription"
+      },
+      {
+        "date": "2026-05-18",
+        "email": "wfrichardsoncpa@gmail.com",
+        "name": "Wayne",
+        "reason": "need",
+        "reason_label": "Don't need it yet"
       },
       {
         "date": "2026-05-16",
@@ -10673,6 +10680,13 @@
       "name": "Robert",
       "reason": "ready",
       "reason_label": "Not ready for a paying subscription"
+    },
+    {
+      "date": "2026-05-18",
+      "email": "wfrichardsoncpa@gmail.com",
+      "name": "Wayne",
+      "reason": "need",
+      "reason_label": "Don't need it yet"
     }
   ]
 }
