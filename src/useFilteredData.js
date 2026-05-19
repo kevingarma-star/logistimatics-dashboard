@@ -112,13 +112,17 @@ export default function useFilteredData(data, start, end) {
     } : { ...baseSg, has_campaign_data: false }
 
     // ── Recompute activation timing from filtered customers ────────────
-    const timed = customers.filter(c => c.status === 'Activated' && c.days_to_activate != null)
+    // Touch attribution counts ALL activated customers (matching generate_data.py).
+    // Days/avg/median only use the subset with a known activation date.
+    const allActivated = customers.filter(c => c.status === 'Activated')
+    const timed = allActivated.filter(c => c.days_to_activate != null)
     const touchCounts = { T1: 0, T2: 0, T3: 0 }
-    for (const c of timed) {
+    for (const c of allActivated) {
       const t = c.activated_after_touch || 'T1'
       touchCounts[t] = (touchCounts[t] || 0) + 1
     }
-    const nTimed  = timed.length
+    const nAll   = allActivated.length
+    const nTimed = timed.length
     const allDays = timed.map(c => c.days_to_activate).filter(d => d >= 0).sort((a, b) => a - b)
     const avgDays = allDays.length ? +(allDays.reduce((s, d) => s + d, 0) / allDays.length).toFixed(1) : null
     const medDays = allDays.length ? allDays[Math.floor(allDays.length / 2)] : null
@@ -134,14 +138,14 @@ export default function useFilteredData(data, start, end) {
     ]
 
     const activationTiming = {
-      total_activated:         customers.filter(c => c.status === 'Activated').length,
+      total_activated:         nAll,
       with_activation_date:    nTimed,
       avg_days_to_activate:    avgDays,
       median_days_to_activate: medDays,
       by_touch: [
-        { touch: 'T1', label: 'After Touch 1', desc: 'No follow-up was sent',           count: touchCounts.T1, pct: nTimed ? +(touchCounts.T1 / nTimed * 100).toFixed(1) : 0 },
-        { touch: 'T2', label: 'After Touch 2', desc: 'Activated after the second email', count: touchCounts.T2, pct: nTimed ? +(touchCounts.T2 / nTimed * 100).toFixed(1) : 0 },
-        { touch: 'T3', label: 'After Touch 3', desc: 'Activated after the third email',  count: touchCounts.T3, pct: nTimed ? +(touchCounts.T3 / nTimed * 100).toFixed(1) : 0 },
+        { touch: 'T1', label: 'After Touch 1', desc: 'Activated without needing a follow-up', count: touchCounts.T1, pct: nAll ? +(touchCounts.T1 / nAll * 100).toFixed(1) : 0 },
+        { touch: 'T2', label: 'After Touch 2', desc: 'Activated after the second email',      count: touchCounts.T2, pct: nAll ? +(touchCounts.T2 / nAll * 100).toFixed(1) : 0 },
+        { touch: 'T3', label: 'After Touch 3', desc: 'Activated after the third email',       count: touchCounts.T3, pct: nAll ? +(touchCounts.T3 / nAll * 100).toFixed(1) : 0 },
       ],
       days_distribution: BUCKETS.map(([label, fn]) => ({
         bucket: label,
