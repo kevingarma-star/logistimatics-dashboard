@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-05-20T03:47:52",
+  "generated_at": "2026-05-20T04:01:18",
   "summary": {
     "total_outreached": 468,
-    "activated": 249,
-    "pending": 215,
+    "activated": 251,
+    "pending": 213,
     "returned": 4,
-    "activation_rate": 53.2,
+    "activation_rate": 53.6,
     "followup_sent": 499,
     "followup_customers_reached": 263,
-    "followup_activated": 68,
-    "followup_conversion_rate": 25.9
+    "followup_activated": 69,
+    "followup_conversion_rate": 26.2
   },
   "timeline": [
     {
@@ -198,13 +198,13 @@
       "batch_date": "2026-03-17",
       "label": "Mar 17",
       "total": 103,
-      "activated": 36,
-      "pending": 67,
+      "activated": 37,
+      "pending": 66,
       "returned": 0,
       "followup_sent": 85,
-      "followup_activated": 18,
-      "activation_rate": 35.0,
-      "followup_conv_rate": 21.2
+      "followup_activated": 19,
+      "activation_rate": 35.9,
+      "followup_conv_rate": 22.4
     },
     {
       "batch_date": "2026-03-24",
@@ -474,12 +474,12 @@
       "batch_date": "2026-05-18",
       "label": "May 18",
       "total": 19,
-      "activated": 5,
-      "pending": 14,
+      "activated": 6,
+      "pending": 13,
       "returned": 0,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 26.3,
+      "activation_rate": 31.6,
       "followup_conv_rate": 0
     },
     {
@@ -508,8 +508,8 @@
     },
     {
       "stage": "Activated",
-      "value": 249,
-      "pct": 53.2
+      "value": 251,
+      "pct": 53.6
     }
   ],
   "customers": [
@@ -564,10 +564,10 @@
       "fu_date": "2026-04-23",
       "fu2_sent": true,
       "fu2_date": "2026-05-07",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-05-19",
+      "days_to_activate": 63,
+      "activated_after_touch": "T3",
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -10098,10 +10098,10 @@
       "fu_date": "",
       "fu2_sent": false,
       "fu2_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-05-19",
+      "days_to_activate": 1,
+      "activated_after_touch": "T1",
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -10343,17 +10343,17 @@
     }
   ],
   "activation_timing": {
-    "total_activated": 249,
-    "with_activation_date": 205,
-    "avg_days_to_activate": 11.4,
+    "total_activated": 251,
+    "with_activation_date": 207,
+    "avg_days_to_activate": 11.9,
     "median_days_to_activate": 9,
     "by_touch": [
       {
         "touch": "T1",
         "label": "After Touch 1",
         "desc": "Activated without needing a follow-up",
-        "count": 181,
-        "pct": 72.7
+        "count": 182,
+        "pct": 72.5
       },
       {
         "touch": "T2",
@@ -10366,14 +10366,14 @@
         "touch": "T3",
         "label": "After Touch 3",
         "desc": "Activated after the third email",
-        "count": 47,
-        "pct": 18.9
+        "count": 48,
+        "pct": 19.1
       }
     ],
     "days_distribution": [
       {
         "bucket": "\u2264 3d",
-        "count": 24
+        "count": 25
       },
       {
         "bucket": "4\u20137d",
@@ -10397,7 +10397,7 @@
       },
       {
         "bucket": "46+d",
-        "count": 2
+        "count": 3
       }
     ]
   },
