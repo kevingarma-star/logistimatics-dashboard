@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T07:01:30",
+  "generated_at": "2026-05-20T07:48:07",
   "summary": {
     "total_outreached": 468,
     "activated": 251,
@@ -10785,9 +10785,9 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 297,
+    "surveys_sent": 310,
     "total_responses": 7,
-    "response_rate": 2.4,
+    "response_rate": 2.3,
     "breakdown": [
       {
         "reason": "time",
