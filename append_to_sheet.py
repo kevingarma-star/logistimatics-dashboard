@@ -2,6 +2,7 @@
 """
 Appends a single row to the Logistimatics Supabase log tables.
 Usage:
+  python append_to_sheet.py in_transit "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
   python append_to_sheet.py activation "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
   python append_to_sheet.py followup   "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
   python append_to_sheet.py followup2  "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
@@ -12,6 +13,7 @@ import sys
 from pathlib import Path
 
 TABLE_MAP = {
+    'in_transit': 'in_transit_log',
     'activation': 'activation_log',
     'followup':   'followup_log',
     'followup2':  'followup2_log',
