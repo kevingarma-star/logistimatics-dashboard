@@ -68,18 +68,22 @@ function Stat({ label, value, color, onClick }) {
   )
 }
 
-export default function EmailCampaignBreakdown({ customers, onDrill }) {
+export default function EmailCampaignBreakdown({ customers, summary, onDrill }) {
   if (!customers?.length) return null
 
   const total = customers.length
-  const t0Sent = customers.filter(c => c.in_transit_sent).length
   const t2Sent = customers.filter(c => c.fu_sent).length
   const t3Sent = customers.filter(c => c.fu2_sent).length
+
+  // T0 counts come from summary totals — in-transit recipients exist before T1 is sent,
+  // so most won't appear in the customers array (which is built from T1 recipients)
+  const t0Sent      = summary?.in_transit_sent      ?? 0
+  const t0Activated = summary?.in_transit_activated ?? 0
 
   const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent }
 
   const activatedByTouch = {
-    T0: customers.filter(c => c.activated_after_touch === 'T0').length,
+    T0: t0Activated,
     T1: customers.filter(c => c.activated_after_touch === 'T1').length,
     T2: customers.filter(c => c.activated_after_touch === 'T2').length,
     // generate_data.py doesn't set activated_after_touch for T3; derive from fu2_sent + status
