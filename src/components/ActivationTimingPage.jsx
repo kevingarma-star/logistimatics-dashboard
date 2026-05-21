@@ -4,12 +4,14 @@ import {
 } from 'recharts'
 
 const TOUCH_COLORS = {
+  T0: '#f59e0b',
   T1: '#00d4ff',
   T2: '#8b5cf6',
   T3: '#00e5a0',
 }
 
 const TOUCH_LABELS = {
+  T0: 'In-Transit',
   T1: 'Touch 1',
   T2: 'Touch 2',
   T3: 'Touch 3',
@@ -140,7 +142,7 @@ function CustomerTable({ customers }) {
     <div>
       {/* Touch filter */}
       <div style={{ display: 'flex', gap: 6, marginBottom: 14, flexWrap: 'wrap' }}>
-        {['all', 'T1', 'T2', 'T3'].map(t => (
+        {['all', 'T0', 'T1', 'T2', 'T3'].map(t => (
           <button
             key={t}
             onClick={() => setTouchFilter(t)}
@@ -167,6 +169,7 @@ function CustomerTable({ customers }) {
           <thead style={{ position: 'sticky', top: 0, background: '#0d1117', zIndex: 1 }}>
             <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
               <th style={{ textAlign: 'left', padding: '6px 10px 10px', color: '#4a5568', fontWeight: 600, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Email</th>
+              <th style={{ textAlign: 'left', padding: '6px 10px 10px', color: '#f59e0b', fontWeight: 600, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.5px' }}>In-Transit</th>
               <SortTh col="sent_date"        label="Touch 1"  sortKey={sortKey} asc={asc} onToggle={toggleSort} />
               <th style={{ textAlign: 'left', padding: '6px 10px 10px', color: '#4a5568', fontWeight: 600, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Touch 2</th>
               <th style={{ textAlign: 'left', padding: '6px 10px 10px', color: '#4a5568', fontWeight: 600, fontSize: 10, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Touch 3</th>
@@ -182,6 +185,9 @@ function CustomerTable({ customers }) {
                 <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
                   <td style={{ padding: '7px 10px', color: '#8892a4', fontSize: 11, maxWidth: 180, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                     {c.email}
+                  </td>
+                  <td style={{ padding: '7px 10px', fontFamily: 'JetBrains Mono, monospace', fontSize: 11, color: c.in_transit_date ? '#f59e0b' : undefined }}>
+                    {c.in_transit_date?.slice(5) || <span style={{ color: 'rgba(255,255,255,0.15)' }}>—</span>}
                   </td>
                   <td style={{ padding: '7px 10px', color: '#4a5568', fontFamily: 'JetBrains Mono, monospace', fontSize: 11 }}>
                     {c.sent_date?.slice(5) ?? '—'}
