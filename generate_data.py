@@ -107,7 +107,7 @@ def fetch_category_stats(key):
         combined = {
             'requests': 0, 'delivered': 0, 'bounces': 0, 'unsubscribes': 0,
             'unique_opens': 0, 'opens': 0, 'unique_clicks': 0, 'clicks': 0,
-            'activation': 0, 'followup': 0,
+            'in_transit': 0, 'activation': 0, 'followup': 0,
         }
         for s in row.get('stats', []):
             m = s.get('metrics', {})
@@ -119,7 +119,9 @@ def fetch_category_stats(key):
             combined['opens']         += m.get('opens',         0)
             combined['unique_clicks'] += m.get('unique_clicks', 0)
             combined['clicks']        += m.get('clicks',        0)
-            if s.get('name') == 'activation-email':
+            if s.get('name') == 'in-transit-email':
+                combined['in_transit'] += m.get('requests', 0)
+            elif s.get('name') == 'activation-email':
                 combined['activation'] += m.get('requests', 0)
             elif s.get('name') == 'followup-email':
                 combined['followup'] += m.get('requests', 0)
@@ -155,7 +157,7 @@ def fetch_activity_feed_stats():
     results = defaultdict(lambda: {
         'requests': 0, 'delivered': 0, 'bounces': 0, 'unsubscribes': 0,
         'unique_opens': 0, 'opens': 0, 'unique_clicks': 0, 'clicks': 0,
-        'activation': 0, 'followup': 0, 'followup2': 0,
+        'in_transit': 0, 'activation': 0, 'followup': 0, 'followup2': 0,
     })
 
     # email -> best engagement across all campaign messages

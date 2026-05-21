@@ -1,5 +1,14 @@
 const TOUCHES = [
   {
+    key:     'T0',
+    label:   'In-Transit',
+    sublabel: 'In-Transit',
+    color:   '#f59e0b',
+    dim:     'rgba(245,158,11,0.12)',
+    border:  'rgba(245,158,11,0.25)',
+    icon:    '📦',
+  },
+  {
     key:     'T1',
     label:   'Initial Outreach',
     sublabel: 'Initial Outreach',
@@ -63,12 +72,14 @@ export default function EmailCampaignBreakdown({ customers, onDrill }) {
   if (!customers?.length) return null
 
   const total = customers.length
+  const t0Sent = customers.filter(c => c.in_transit_sent).length
   const t2Sent = customers.filter(c => c.fu_sent).length
   const t3Sent = customers.filter(c => c.fu2_sent).length
 
-  const sentByTouch = { T1: total, T2: t2Sent, T3: t3Sent }
+  const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent }
 
   const activatedByTouch = {
+    T0: customers.filter(c => c.activated_after_touch === 'T0').length,
     T1: customers.filter(c => c.activated_after_touch === 'T1').length,
     T2: customers.filter(c => c.activated_after_touch === 'T2').length,
     // generate_data.py doesn't set activated_after_touch for T3; derive from fu2_sent + status
@@ -81,15 +92,20 @@ export default function EmailCampaignBreakdown({ customers, onDrill }) {
   }
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
       {TOUCHES.map(t => {
         const sent      = sentByTouch[t.key]
         const activated = activatedByTouch[t.key]
 
+        const sentFilter =
+          t.key === 'T0' ? c => c.in_transit_sent :
+          t.key === 'T1' ? () => true :
+          t.key === 'T2' ? c => c.fu_sent :
+                           c => c.fu2_sent
         const drillSent = drill(
           `${t.label} — All Sent`,
           `All customers who received the ${t.label.toLowerCase()}`,
-          t.key === 'T1' ? () => true : t.key === 'T2' ? c => c.fu_sent : c => c.fu2_sent,
+          sentFilter,
         )
         const drillActivated = drill(
           `Activated via ${t.label}`,
