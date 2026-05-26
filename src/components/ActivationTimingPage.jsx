@@ -66,7 +66,7 @@ function TouchBar({ item, onClick }) {
           <span style={{ fontSize: 11, color: '#4a5568', marginLeft: 8 }}>{item.desc}</span>
         </div>
         <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 13, color, fontWeight: 700 }}>
-          {item.count}&nbsp;<span style={{ color: '#4a5568', fontWeight: 400, fontSize: 11 }}>({item.pct}%)</span>
+          {item.count}&nbsp;<span style={{ color: '#4a5568', fontWeight: 400, fontSize: 11 }}>({item.pct}%{item.isConvRate ? ' conv.' : ''})</span>
           {clickable && <span style={{ color, fontSize: 10, marginLeft: 6 }}>↗</span>}
         </span>
       </div>
@@ -124,7 +124,11 @@ function CustomerTable({ customers }) {
   const [touchFilter, setTouchFilter] = useState('all')
 
   const filtered = customers
-    .filter(c => touchFilter === 'all' || c.activated_after_touch === touchFilter)
+    .filter(c => {
+      if (touchFilter === 'all') return true
+      if (touchFilter === 'T0') return c.in_transit_sent === true
+      return c.activated_after_touch === touchFilter
+    })
     .sort((a, b) => {
       const va = a[sortKey] ?? (sortKey === 'days_to_activate' ? Infinity : '')
       const vb = b[sortKey] ?? (sortKey === 'days_to_activate' ? Infinity : '')
@@ -337,7 +341,9 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
                 onClick={() => drill(
                   item.label,
                   item.desc,
-                  customers.filter(c => c.activated_after_touch === item.touch)
+                  item.touch === 'T0'
+                    ? customers.filter(c => c.in_transit_sent === true)
+                    : customers.filter(c => c.activated_after_touch === item.touch)
                 )}
               />
             ))}
