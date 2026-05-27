@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-27T06:51:02",
+  "generated_at": "2026-05-27T06:58:17",
   "summary": {
     "total_outreached": 596,
     "activated": 285,
     "pending": 306,
-    "returned": 5,
+    "returned": "",
     "activation_rate": 47.8,
     "followup_sent": 559,
     "followup_customers_reached": 299,
@@ -14352,6 +14352,8162 @@
       }
     ]
   },
+  "reengagement_customers": [
+    {
+      "email": "robfresh20@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265368",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chad@granitepeakequity.com",
+      "sent_date": "2026-05-27",
+      "serials": "265972",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tony45467@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265116",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dappwood@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264893",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aspellane@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "264883, 264898, 264866",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "streborben@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "274345, 274344",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tjha89145@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265966",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "em_m7mad23@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "265955",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fariddahi@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264867",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nytejc@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "264878",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "autobizfl@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264886",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "airfury83@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265105, 264896",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "parruebo17@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265982",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lucianogol1.8@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265281, 262539",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fredrickburke@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264856",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "karlieherron01@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264859",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tgs.karlamendoza@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264873",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shanenormand@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264847",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "niftyfingersconfectionery@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264833",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dougclark655@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264837",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "brockm39@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264851",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jacobcavila12@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "273940",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bhorton99@live.com",
+      "sent_date": "2026-05-27",
+      "serials": "265276",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lzane1988@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264829",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "scottmusick78@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265564, 265574",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "deangeloyoung152@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265561",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jparkercmi@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "265568",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "elshaddaisalal411@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265268",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "multanifam@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265270",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tonymgq12@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "264783",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rosirodriguez0415@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "264784",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "charlie.solar@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "264777",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "missyskinner001@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264736",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "franklanotte@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264741",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tnginvestigations@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264726",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "billy.johnson@ferguson.com",
+      "sent_date": "2026-05-27",
+      "serials": "264440",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "calvingbyfield54@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264774, 264756",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "pendleton.isaac.j.work@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264772",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "melissacarrigan@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264766",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bextoncarlisle9@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265295",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "leifdrill@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264480, 264499",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "carmendrakegordon@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "275149",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "romelito1charles@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264485",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "juliocarranza11.jc@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264488",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sweetiesweetrush@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264493",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sawdaddy2018@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265471",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "krystalhaskett@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264623",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joemacmillan@suprahuman.com",
+      "sent_date": "2026-05-27",
+      "serials": "273934, 265472",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "travisbaileyinc@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "274134",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chandlermoses1@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264476",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "e.paylor@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264474",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cwabear46@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264472",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "i.need.security@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264470, 264481",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joseoves50@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264498",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mrwest33@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264724",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "blh7434@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265483",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "yrjackson7@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265479",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joels@winecocorp.com",
+      "sent_date": "2026-05-27",
+      "serials": "274135",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "anthony@dragonettibrothers.com",
+      "sent_date": "2026-05-27",
+      "serials": "264606",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tastaca@usa.com",
+      "sent_date": "2026-05-27",
+      "serials": "264477, 264596",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tbuns2715@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264600",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cjmsecurity@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "273969, 273938",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "elmorales1987@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "273973",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "stoneage562@msn.com",
+      "sent_date": "2026-05-27",
+      "serials": "264589",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "n2lek2l@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264761, 264619, 264608, 264618",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "saveandrecycle0@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264603",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tfoot_4@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264758, 264755, 264757",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wamar773@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "235324",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kouboyz@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264722, 264729",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "eclep4life@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264656",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "israelperez80@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265231",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "silverdoan2021@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265234",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jesus1diaz2@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265225",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mavie.m@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "265230, 262782, 265256",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "antionehodnett262@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265236",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "showtimeaudio2@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263369",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeroarceo@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "273865",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "whitedemauria13@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264952",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "haskell_brown1@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264959",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rickhale720@roadrunner.com",
+      "sent_date": "2026-05-27",
+      "serials": "273781",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "karitaghicks@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263141",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jasonloaisiga@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "272867",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bellalouise7321@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262868",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jt209g@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262607",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cristie.cintron@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262608",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lustosaedmilson@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262602",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jasonwwalker14@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262282, 262869",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "timothyallison84@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262479",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "farhadafzali2001@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262481",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wesleyvernal88@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262356, 263259",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "erik.fisher1224@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262401, 262385",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "army1985d@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264748",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "himothyjackson15@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "264749",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "valenciaharvesting@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264754, 264746",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rdtaddeo@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "264747",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "glarkonj3@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264763",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vanessawhite776@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264705",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeremylutz33@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264738",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mariahfletcher94@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264715",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gypsylainexxx@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264714",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shanshell650@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264716",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "arboyce20@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264561",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mr.dray3030@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262447, 262896",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "leroyraymundo86@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264581",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dman9310@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "273782",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "money.vp2019@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263246",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "breannamurphy@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262867",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dixieautosalesbc@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262286",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "germancash007@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262290",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cejajuan2@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262507, 262508, 262506",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "patzy1968@icluod.com",
+      "sent_date": "2026-05-27",
+      "serials": "262400",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tspills@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "262411",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aquanetta310@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263330",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kimberlyanderson0551@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263331",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dhall@cityofchesapeake.net",
+      "sent_date": "2026-05-27",
+      "serials": "264973",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tyronegwallace1@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264576",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "adelekegabriel@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "272084",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jason.daniels@interstatepipeline.com",
+      "sent_date": "2026-05-27",
+      "serials": "235308",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "miscandari@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262393",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kizzyone@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262386",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lizzette@bellsouth.net",
+      "sent_date": "2026-05-27",
+      "serials": "263332, 263328",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rashardcolquitt@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "263371",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "exostar7@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263374",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "josealvarez1781@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263370",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "brunello97@msn.com",
+      "sent_date": "2026-05-27",
+      "serials": "263101",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "renemarroquin6920@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263414",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "trucestuard@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262341",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mason68606@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262641",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "allworldccs@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "272858",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "faceautosales@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "272855, 272854, 272856, 272859, 272860",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "haynesrobert1053@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262342",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "willmachinist2000@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "273512",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jasonb@wielanddesigns.com",
+      "sent_date": "2026-05-27",
+      "serials": "263211",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bykk1991@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262488",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "michaeldreid76@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271915",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mikeg95111@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264663",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kasibowles@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264633",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mrsv1122@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264650",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ronaldjohnson219221@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262866",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "skullyserves4you@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263195",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "hotrodleatherworks@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263140",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cptportor@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265625, 265626",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "blessedgirl1997@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264983",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "robertlewisbee@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264954",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cwdilts@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265663",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lcastillo.biz1@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265634",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tqracing@verizon.net",
+      "sent_date": "2026-05-27",
+      "serials": "270982, 270983, 270981",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nicolereed72@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265638",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cmbjosecalvo@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "270985",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "natenewton22@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264984",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shepherd_montray@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264563, 264571, 270987, 264584, 264551, 270988, 264582, 270986, 265254, 265240, 265249, 265235",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "all4youauto@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264552",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tborek444@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "264556",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "egci@msn.com",
+      "sent_date": "2026-05-27",
+      "serials": "265261",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jdanderson@candersonandassociates.com",
+      "sent_date": "2026-05-27",
+      "serials": "270993, 234855, 270992, 270990, 270989, 270991",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jpesak132@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265233",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "allenljungquist4@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265259",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ediereno9@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "270996",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alan.terry2387@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "265243, 265264",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kingnana1000@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262383",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "diggyray63@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "271634, 271635",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jjmarson@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "271637",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joelweeks770@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262789",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sam@waldropconstruction.com",
+      "sent_date": "2026-05-27",
+      "serials": "271643",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shawnfortney80@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263196",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lucretiaj63@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "272038",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "syndiandujar38@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264639",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mcmannisnick@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264644",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "c.lina.wilson@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263394, 263396, 263138",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "savadoisaiah@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263401",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sassy7026@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "262340",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cwright11.112000@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262843",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cardjoe64@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263405",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "hockeync77@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "234856",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aaa2x@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263258",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "huberthcastillogarcia@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263529",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "erdokz@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263389",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tchapman072@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "235311, 235312",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "macias.carlos49@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271741",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "414m.mazur@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262475",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "elizaso99@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262503",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aquil1.h.hills@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262498",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sonny.samra@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "262635, 262636",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "greyfox10@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262863",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "danathonesthvacllc@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "270911, 270914, 270910, 270913, 270912",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "warren.cornelius@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "270891, 270898, 270896, 270889, 270895, 270894, 270897, 270893, 270890, 270892",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "omaura822@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "263289",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ernesto@division16corp.com",
+      "sent_date": "2026-05-27",
+      "serials": "270884, 270881, 270885, 270882, 270883",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "genevaporreca5@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271488",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "garcia30680@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263264",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "stevebrown158@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "271500",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gt40man@me.com",
+      "sent_date": "2026-05-27",
+      "serials": "271510, 271509, 271506, 271508, 271507",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "liz@elizabethle.com",
+      "sent_date": "2026-05-27",
+      "serials": "262994",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chris.tuscano@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "271472, 270730, 270732, 271470, 271473, 270733, 271471, 270731",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "clayimi@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "263262",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vinnie.to.conn5@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262601",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kainkai0716@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263329, 263327",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rocknrobgomez@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262830",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "johnrbrown450@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263106",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kenanira@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "270708",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "leecrabtree1@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "270701",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nyjjd1@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "271224, 271121, 264071, 271223",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kurtz_christopher@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "270675",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dkgoldcoast@live.com",
+      "sent_date": "2026-05-27",
+      "serials": "271119",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "regggieharper@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "263129",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeff@mmservicesky.com",
+      "sent_date": "2026-05-27",
+      "serials": "262456",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "davgrin88@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271142",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "candicelwalker12@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262544, 262543",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sverrette@championinc.com",
+      "sent_date": "2026-05-27",
+      "serials": "271138, 271139",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "justincupid@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262540",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joshuadeclerck1982@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262463",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "swagga333@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "270258",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "im4egypt391@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262472",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jessecox252@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262531, 262530",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "oce312@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262516",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "deluxemonumentsetting@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262937",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rick@igi247.com",
+      "sent_date": "2026-05-27",
+      "serials": "264075",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "demon7545@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "263343",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gaa.210070@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "265227",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jobsiteservices@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "270997, 271585, 271583, 270998, 271584",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "andrewilkerson184@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271596, 250923, 250922",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gawzer@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "271624, 271628, 271627, 271626, 271625",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jmkinard4@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271632",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeffreykpeck@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "271636",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "pricetrans_2@msn.com",
+      "sent_date": "2026-05-27",
+      "serials": "272090",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rjfbuilders@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271644",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "margiefaze@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263148",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "amostarkey@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "272037",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vargasj1316@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "272039",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lfleischmann1977@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "234858, 234863",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "crawfordterrance27@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "264655",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "manuelcornett@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "272041",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "georgegossettjr@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "272060",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sgonzalez@sgperiodontics.com",
+      "sent_date": "2026-05-27",
+      "serials": "263375",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "umdc202@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271755",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "redmonkyngo@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262904",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "detrick.stanford@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262895",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ricehome12074@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262912, 271729, 257350, 257351",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeffgoetz35@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262450",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alston80@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262835",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "db85210@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "271737, 271731, 271738, 271734, 271736, 271739, 271730, 271735, 271733, 271732",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shadowelement13@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "235310",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joana.naranjo@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262504",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "reefclanfd@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "263538, 270926, 263537, 270927, 263539, 257733",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "norie@windowbright.com",
+      "sent_date": "2026-05-27",
+      "serials": "270920",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wyocampground@att.net",
+      "sent_date": "2026-05-27",
+      "serials": "270921, 270925, 270923, 270922, 270924",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "noelly.anselmo@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "264397",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tdoblie@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "263294",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "staminafuze@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "270888",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "emikeamos@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "235323",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "harris.l.regg@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "270735",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gabe.weeks@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271490, 262409",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "melanybrieno@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263269",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "grajaleslasndescaping@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271505",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "romie@rolleri.com",
+      "sent_date": "2026-05-27",
+      "serials": "271501, 271502, 271503, 271504",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "simpeykwabena@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262981",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "manuel_g408@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262979",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "melfel3@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263364",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "checboyd@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "270718, 270720, 270717, 270712, 270716, 270719, 270713, 270721, 270714, 270715",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "realfoodiemakes@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "255042, 262815",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dominicg305@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263334",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "poelovekids@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263107",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "david_briscoe16@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262723",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jkinder831@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "270704, 270702",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fsspender@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "270677",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wademonroe@live.com",
+      "sent_date": "2026-05-27",
+      "serials": "271221, 271222, 271219, 271220",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "coreybenzel@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271113, 271112, 271114",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tavarezsq@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271115",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jdlewis357@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271145, 271144",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "furmanborst@me.com",
+      "sent_date": "2026-05-27",
+      "serials": "263130",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ablakeman@eaglemountainfire.org",
+      "sent_date": "2026-05-27",
+      "serials": "271131, 271127, 271125, 271122, 271126, 271128, 271130, 271124, 271129, 271123",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ken.h.tyler@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271137, 271136, 271135",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "iceman.qw@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "271132",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "zeusxxx444@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262461",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cscwagley@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "270259",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sheldondvy50@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "270267, 270266",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "xavialouis@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262515",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vapecoma@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262949",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "putchela@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "263296, 263295, 263297, 263298, 262973, 262972",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "leo1976aug@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263311",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sswheatland@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262773",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rmiller@mistinc.com",
+      "sent_date": "2026-05-27",
+      "serials": "263354, 263352, 263353",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sragland1216@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "263349",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "damariusbilbo@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262616",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "maryannebarousse@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262744",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "billybridges1@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "262746",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "urlino0881@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262740",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mcadamsbernard2@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262703",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bodie_1964@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262706",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ianbailey1217@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262325",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "deltamightymouse@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262330",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gadsonwesleyjr@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263186",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "washkevin40@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262565",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jamesbrooks41@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263029",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bladesenterprise@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263177, 263178, 263179",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "taneshia1996@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262149, 262148, 262236",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tcairdjr@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263021",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jc4lyfe325@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "262425",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "stuckeyreginald9@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262420, 262415",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "liangweilan86@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262418",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dustyn.hirth@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "262423",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dulyaba@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262966",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "maria_morales01@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "263052",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "hawgracer@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262957",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lmorrison2767@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262962",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sgtdane5@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260436",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "adamshowardlpm@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260438",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fend78@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260446",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dusty58rhodes@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262587, 262588, 262589, 260353",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lamarshall21@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262593",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "carladennisse@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260451",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lawrencecooper@bellsouth.net",
+      "sent_date": "2026-05-27",
+      "serials": "262583",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mcpeace2004@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "260338",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "degsonpereira8@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260755, 260756",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "blitzingbullstailgaters@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260896",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "garywood687@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260773",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kendalmoore112@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260766, 260767",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "oliverjoseph23@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260911",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mahalobro74@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260901",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jenniferanne359@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260731",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "eborarouzan@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "260722, 260721",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "azautopilot@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "260368",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "carmenkayt@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260372",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ab.brenda@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260466",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "malcolmhart6016@msn.com",
+      "sent_date": "2026-05-27",
+      "serials": "260355",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "hunter.daniels@alohapoolsusa.com",
+      "sent_date": "2026-05-27",
+      "serials": "263541",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "april26.1921@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "261145",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bratzatlanta@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261177, 261178",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "scotttravis530@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261136",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ldelatorrenyc@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261190",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "diegomoyron904@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261187",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jamminorozco@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260917",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bsandlian85@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260919",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "momusic1104@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260933",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "elsysfuentes08@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260741",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vlf4133@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260749",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ks6614377@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260794",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vilmaalviter@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260787, 260788",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "paulalescano7@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261507",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "janetlissette@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261230",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "paulamccorbin@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "261250",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vuthara_sen@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260888",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jmil3210@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260321, 260893, 260894, 260324, 260323, 260320, 260322",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "doramorris44@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260316, 260317",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mday1981@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260332",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "glo3floyd@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263335",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "quantumreality80@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "262624",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "katorome051@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263344",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "twilliams@thehelpbutton.net",
+      "sent_date": "2026-05-27",
+      "serials": "262710, 263185",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sharokeen006@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262749",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "marquita.williams33@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262736, 262735",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "doralysrbd@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262628",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kathleen.delao@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262708",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "christine.moore4516@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262333",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ladonwilliams0207@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262319",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "suzanneauto@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263180",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeffreywpope@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "262561",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "momageny2011@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263176",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dpmaintena@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "263033",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "beckystoecklin32@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263175",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jquick22@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "263018",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fjzito3@mac.com",
+      "sent_date": "2026-05-27",
+      "serials": "260389",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nadoyadao@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "262974",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "samikadi@me.com",
+      "sent_date": "2026-05-27",
+      "serials": "262416",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "a.m.graves@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262426",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "justjessisbest@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262959",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mcelrath601@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262967",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "thehealingtouch@live.com",
+      "sent_date": "2026-05-27",
+      "serials": "262147",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ozellebaker@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262963, 262964, 262965",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gttrucking169@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260444",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vancouver808@yahoo.ca",
+      "sent_date": "2026-05-27",
+      "serials": "260437",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aldridge1955@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "260445",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "magdieendez1917@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260443",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeffhbo@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262591",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "johncioto@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260450",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "emilio.mata78@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "262577",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "javier0971@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "262585",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jackiejohnson1928@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260761",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shreeharden1@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260341",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeredkem12@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260770",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wecareclairea@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260774",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chessmaster35730@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260769",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sallysmith01011901@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260904",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mer759@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260734",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "c20755653@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260723",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fcm31587@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260720",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "givens43@gmail.co",
+      "sent_date": "2026-05-27",
+      "serials": "260374",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rats55chevy@sbcglobal.net",
+      "sent_date": "2026-05-27",
+      "serials": "260467, 250265",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rdbaileyllc@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260465",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mlancaster52@student.se.edu",
+      "sent_date": "2026-05-27",
+      "serials": "260392, 260393",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "reinaldoestrada15@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "263812",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jjchene@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261176",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "duhoffer@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "254828, 254829",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fern.carroll@cchealth.org",
+      "sent_date": "2026-05-27",
+      "serials": "261191",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "robertlevans@charter.net",
+      "sent_date": "2026-05-27",
+      "serials": "261188",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alancornwell3g@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261184",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "roberto__hdz@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260931",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "johnnyclark4220.jc@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260752",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "poindexterrich@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260736",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tysmith2219@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263702",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ruslanolayivola@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260775",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "leonardmanoushka@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260786",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ellismoses@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "263416, 263415",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "a1concretejr@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260792, 260791",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fleming.hvac@ymail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261234",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "charleslwright1978@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260887",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lonnieleethurmond@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260892",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "markscumberbatch@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260318",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "johnstacey123@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260315",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "garry.haggins1337@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "260325",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "devincampbell704@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "260876",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "priscillatvr@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260936",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "khan@fcigroup.org",
+      "sent_date": "2026-05-27",
+      "serials": "260877, 260882, 260881",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ajakaiye@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260937",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cklimek@protonmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260939",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cmvaughn47@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260940",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dannymechaniccorp@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "259018, 259019",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dexterbrewington1995@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "260944",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "zeyaad117@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260946",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shovondee83@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261238",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "brauliomercedes26@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261254",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "apexeagle6@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261251",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jbeckner244@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261000",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fletcher5554@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260548, 260549",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nmason1978a@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260551, 260552",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cmchelseamarie@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260420",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "handymanservices913@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261853",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tpalman1@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260839",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "b5zyn0@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260840",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chazmia@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260843",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "enea.malellarim@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260844",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bmitchell3452@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260852, 260851",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fmr760@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260853",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "asif21c@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257883, 260697, 260696, 260698",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "300zx1@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "260701",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mahoneysteve04@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260702",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "olawaleabiola27@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260703",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bzg9111@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "260704",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "antonomonteiro.usa@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260311",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tirezone641@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "260489",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "soto65000@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260300",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "babycastro2635@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260301",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "boahnsalon@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260303",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tljaphet@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260603",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "david@davidmaliklaw.com",
+      "sent_date": "2026-05-27",
+      "serials": "260614",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "momhodge4@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260613",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aaronwgood1979@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260612, 260611",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "pcace1988@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260478, 260477",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "richardckoonce@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260476",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "johnnyphilippe123@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260485",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lewistedford@sbcglobal.net",
+      "sent_date": "2026-05-27",
+      "serials": "260588",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "davisd375@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "260592",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rayshunwhitfield@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260562",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "briancook2023@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "260555, 260556",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeffbrad@live.com",
+      "sent_date": "2026-05-27",
+      "serials": "260565",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "californiasigns11@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "261128",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "playboy14jl@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261122",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "billyedwardbarnes@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "261121",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "raquenelgarcia@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261118",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rojaspaul84@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "261117",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mountainescapespa@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261116, 261115",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bob.hankerson@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "260631, 260630",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "coloradobuildingservices91@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261258",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ponce4692@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261133",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "howardfowler23@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261040",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "optionsgc@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "261038",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "elchamuco1986@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261036",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "geofrey_arika@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "261074",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "luisagerardojr@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261072",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "baldwinrandy54@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "261068",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chefdavidbrianlee@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261067",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wetpaddle80@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261065",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "middlegournd78@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "261051",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cornell345678@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257881",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "troyhobbs5@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257978",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "k.gingery52@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257977",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "g.crawdad@mail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257894",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "al.girl@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257893",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "javiccollision@att.net",
+      "sent_date": "2026-05-27",
+      "serials": "258187",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lpmastracci@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "258183, 258182",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "zacharynay44@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258176",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeffriesrobert04@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257982",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "trevaallen04@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257481",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dougharrington21@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258190, 258192, 258191",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wrf@kyrock.net",
+      "sent_date": "2026-05-27",
+      "serials": "257489",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mclose233@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258228",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "leotheis0923@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257830",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "beasley549@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257562",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cehs17@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "258240",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "armystrong06@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257572",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "zojo274@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "258039",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "susancoughlin00@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258048",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alucas6326@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257807",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kdvwig@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257403",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jhawk887_usarmy@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257414",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bailethomas@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257509",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "docdeno79@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257502, 257500, 257501",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "switched03@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257757",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "djones@reiser.com",
+      "sent_date": "2026-05-27",
+      "serials": "257376",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "young198274@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257769, 257770",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "pasion_perez@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "258059",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bd110455@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "255084",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "williamcriswell052@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258098",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "veronicadossantos1@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257963",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dmiforensics@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257580",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kwc2358jr@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257594",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "elizabeth3jorge@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257651",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "butchcalamia@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257781",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "finaged@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257652",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jediae@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257720",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jwhite7463@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257718",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "libradowilfrido2@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "259745",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "trriciaman2014@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "257303, 257300, 257301, 257302",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cccain@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257416, 257417",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "anthonymccallum869@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257472",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "julissa.mtz1985@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257312",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chevsilverado2020@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257699",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cmoreta97@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257325",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sandlot.flossy_7l@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "257842",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gf_w0@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257332",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "robinsgd@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257900",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ford8971@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257435",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "blholt@sbcglobal.net",
+      "sent_date": "2026-05-27",
+      "serials": "257907",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bradstephens714@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257451",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "andrew_jason_adams@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "258198",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "froghorn10@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "258208",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tfricker23@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "258206",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "zakira5555@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257355",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bookiebaker019@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "259061",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jyoungs1975@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258079",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kareennixon41@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258082",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "pingo1984@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "258092",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "adobepalm@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257939, 257937, 257938",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cindycaputo@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257870",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "doustoutkenneth@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257547",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lumbermatt@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "251273",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "erinleighjoplin@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250479",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "torynkids@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251069",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "auldenthomas1@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250390, 250391",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "boyceisabel5@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251328",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lmsexton@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258661, 251339",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "agoad1@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "258375, 250914, 258659, 258660",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jada.jg@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258194",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sandra.hernandez1974@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "258185",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "romil.olandez@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258178",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tracystults1929@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257989",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sairysalgado6@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257476",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kvkbsw@msn.com",
+      "sent_date": "2026-05-27",
+      "serials": "257480",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "franksaggio@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257623",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dg_rodgers@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257632",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "howardkaedee351@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257832",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sunnybug65@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "257563",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tbyce2000@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "255058",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "marieyelm35@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257574",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ajaxbshop@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257568",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mayaavery82@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258049",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "doolydale@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257802",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wsconstruction073@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257814",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gtwaterman@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257399",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alexnyaga.an@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257510",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gordonstuart82@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257508",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tammylzimmerman@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257759",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cali_man90@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257512",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "arboriststeve@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257772",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lela1111@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257390",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "brogers1000@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258067, 258068",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "greenturfowners@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258103",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "zilkicmali@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257971",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "1missgedeon@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257583",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nickjordan7673@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257640",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rwmwinders@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "259750",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "steelevet@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257643, 257644",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "meganballard4@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "257653",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gy10552@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257722",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mayortrobinson@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257719",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lharper@sobenefits.com",
+      "sent_date": "2026-05-27",
+      "serials": "257727",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gabebarnes44@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257726",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sapphire3602@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257310",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ssssmith216@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257474",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "j.jacobs062714@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257471",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "troisgroup23@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "257700",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alexm1234diaz@iclou.com",
+      "sent_date": "2026-05-27",
+      "serials": "257698",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jrhardro@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257324",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "purovino77@uahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257333",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kjarreau25@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257849",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jessemurugu@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257899",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "enelson35216@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "257914",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gparker5804@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257906",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "markthornhill69@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "250472",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aguinigarios51@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258195",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bclark@mpisd.net",
+      "sent_date": "2026-05-27",
+      "serials": "258207",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bill@barrysandersnissan.com",
+      "sent_date": "2026-05-27",
+      "serials": "257363",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "brandao.78@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257372, 257371",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "katieholmes67@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258078, 258076, 258077",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "michael_lueiro@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "258080",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "finance.arrowhead@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258090",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mark.milligan74@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257942",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mad.maddie28@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257536",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "solana.rose5@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "257554",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "frankdixon2021@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251262",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tanishaford91@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251268",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "carolpaglia@remax.net",
+      "sent_date": "2026-05-27",
+      "serials": "258672",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kerrisat@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250392",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sammyjsr@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "251332",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "spacecoastgraphics@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251325",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bhgators@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250904",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kevinmcgill@att.net",
+      "sent_date": "2026-05-27",
+      "serials": "250913",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "verarellan@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250631",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "duncaamaster@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250634",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "treman229@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250629",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gordonjimmy55@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250480, 250938",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chavezshoes@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "250492, 250489, 250490, 250491",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lowie_l_estabillo@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250091, 250092",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "roknowsre@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251444",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "1988paramo@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251450, 251451",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jmfcapitalusa@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251456, 250151",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "keculaho@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251038",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cpsmith6155@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251034, 251035",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "martinrivera259@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251033",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lizbethramos4969@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250950",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "hoschair@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250944",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rellierell2x@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250958",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tonio.cook62@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258362",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dalepruitt123@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251759",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "m042130@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251403",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "goldbrick56@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251407",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "donnakaypaulet@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "186951",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shrimppimp80@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "250167",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "elainesemailaddy@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "258357, 258354, 258356, 258355",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "greg@lunaxio.com",
+      "sent_date": "2026-05-27",
+      "serials": "186949",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "scclubpro@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "250980",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "charitydavis86@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250984",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jessicafbaby10@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256268",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ye.si200@live.com",
+      "sent_date": "2026-05-27",
+      "serials": "250899",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shaunfree78@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250885",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "benjamincordova820@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250881, 250882",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fawnaf2010@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250421, 250422",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rolymelgar328@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "186969",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "darrylrosier@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "250929",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "khalikwillis6@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251292",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fitzrphipps@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250402",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jed3500@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256202, 256201",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "loc973@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250154",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jbackus15@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250144",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mrogers2955@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251375",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alexayala80@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250149",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cbrownbrown56@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251290",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dhowell7289@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250237",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "timothy.montgomery974@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250195",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jetransport@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250228",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "albertoepenahernandez@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250198",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "melvingutierrez558@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250182",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "power1975wagon@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256070",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "melissacruzb7@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "187002",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "r-lund@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "250665",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "k.charette@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "250660",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "goleyvirgil@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "251538",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "syrwicks@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250332",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "anna@austinfamilydentistryvancouverwa.com",
+      "sent_date": "2026-05-27",
+      "serials": "186985",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "karyenid34@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "250334",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cdelacruz4744@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250500",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cassiee06@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250507",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "elpiwiboy@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250627",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "angelacarter823@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258657",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "barron13tory@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250097",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "electricalgod3289@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250867, 250866",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "anita@anstoneworks.com",
+      "sent_date": "2026-05-27",
+      "serials": "251447",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bernardoacosta50@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251459",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dentleyboy@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258593",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "twrizzo@sbcglobal.net",
+      "sent_date": "2026-05-27",
+      "serials": "251036",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ariannagates5535@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "258619",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "amycorbyn@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258622",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jennafyre@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250949",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "oscarzboyz@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250279",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "new.dimensions@live.com",
+      "sent_date": "2026-05-27",
+      "serials": "250261, 250262",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jgranvilleiii@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251753",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "djcox34@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "258361",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tammymoorease@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251404",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jodi.t.lattanzi@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258360",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "hytec.fh@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "258359",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rhiwedi@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250172",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ms.maikea@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250986",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "califotwiny@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250122",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "marilupintoq1994@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250983",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "spoiledrotten222@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250139",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tsepetu@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250897",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "troublemakesuwalk@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "186950",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rodney1214427@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250886",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "matthewdrury1980@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250423",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "faithmovesmoutains1111@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250420",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "acpowell80@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250424",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "smaxkfounder@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "186996",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "darcigiesen@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250405",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rolltidecjs@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251238",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "josie.medconnect@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251235",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "raquel.sbkr@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250159",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "badbanga@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251368",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dondee5317@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "251373",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "oscarito-reyes@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256179",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "notaro97@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "250232",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nick12202000@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "250236",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "topeteaag@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251289",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "blknblue07@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251557",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tylerpackrat@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251686",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "keloge@starlightcom-inc.com",
+      "sent_date": "2026-05-27",
+      "serials": "256066",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "beyeholy42@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251159",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jasminelindsey24@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251527",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ssgadamshoward@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250661",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dsnipes34@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251542",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sailorbill6969@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250322, 250325",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sararenee.87@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "187027",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mayrucha090693@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250513",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ladamiendickens41@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250514",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lasrosasdesharon@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250509",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "karinadejesus65@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251119",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ese.beltran1998@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250069, 250063",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kelleyking70@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "250066",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bob@robertjstrickland.com",
+      "sent_date": "2026-05-27",
+      "serials": "187034",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "erabadi@me.com",
+      "sent_date": "2026-05-27",
+      "serials": "251113, 251112",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mitchellfarming@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250061, 250068",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "deshaunceruti28@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250680",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "redh2000@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "255853",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "melisa23gallegos@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250073",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "daddiman26@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "255948",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alukoroberts3514@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250451, 250452",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wycoffjack@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250448",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rick@bouncenjumparama.com",
+      "sent_date": "2026-05-27",
+      "serials": "251795",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "zglenn391@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250440",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "collinxx@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "255866",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bradleybrad3@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251611",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joconn2359@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "251607, 251608",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rturek8128@zoominternet.net",
+      "sent_date": "2026-05-27",
+      "serials": "251626",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jim@hauslein.com",
+      "sent_date": "2026-05-27",
+      "serials": "251628",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "perrychristine3@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "255871",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "michaelpauly60031@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251629",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aledford1975@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251639",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kkday77@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "255879",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ragu283@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250000",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jkeebaker42@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "250016",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "swisbon9@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251460",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mykiss8@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251469",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joshdeleon91@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250653",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "info@etdiaspora.org",
+      "sent_date": "2026-05-27",
+      "serials": "255817",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ritadawood08@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "251487",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "landman1407@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250538",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "carsandcuts@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250352, 187021",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ramon.sanchez@controllednetworks.com",
+      "sent_date": "2026-05-27",
+      "serials": "251356",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "sgeorgesr@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256763",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jeff@chefjefflive.com",
+      "sent_date": "2026-05-27",
+      "serials": "256779",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "baiybegrl@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256789",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "axfireman@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251055",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "villalaw@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "251043, 255755, 256773, 187043",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "weaselsrun13@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256777",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mikieb359@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256775",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "thecleaningladytpv@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "250602, 250609",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "hdm4upm@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "249997",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "boogielee80@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256828",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jennifer.britton@flashco.com",
+      "sent_date": "2026-05-27",
+      "serials": "187049",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tyrodgers91@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "255409",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "euphoriagras@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "187042",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jessicavazquez9@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "247912",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lilmuchloving@verizon.net",
+      "sent_date": "2026-05-27",
+      "serials": "198385, 198386",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "richardleon24@myyahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "198398",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ericwedgar@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "198395, 198181, 198185",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "perskyjon@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "199185",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lbailey874@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199992",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rdentalda@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "198829",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fplutyk@climatech.com",
+      "sent_date": "2026-05-27",
+      "serials": "192033",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jennishappy723@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199573",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kjworldinc@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199800",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jdoskocil3@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199184",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kilgobilly@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199400",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "hlub4ever2012@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197910",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "zbolt1997@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "192169",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "p84021833@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "192171",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "walker.beric@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "192178",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "fixit59.jd@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "192177, 192176",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "labellaluzmerlin@live.com",
+      "sent_date": "2026-05-27",
+      "serials": "199931",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lctaz69@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "199452, 198194",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chamodakid@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "196159",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cmedina112@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "196160",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "robinjackson551@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "198195",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "transportfoe@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251791",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bcytlak65@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251615",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "komalsamar2@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "257066",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chadleebrittmarie@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "187033",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "saulsandoval3075@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "187031",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bruno.552@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251704",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "beckwithsaver@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "251634",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vivich420p@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251688",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "tjrford65@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251637",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "quezadajimenez1010@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "250003, 250002",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kmatola@cox.net",
+      "sent_date": "2026-05-27",
+      "serials": "250590",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bobshupper@calrad.com",
+      "sent_date": "2026-05-27",
+      "serials": "251466",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jbiddy1@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251468",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mmhendrix123@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251465",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bcjpools@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "255819",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "paparichy@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "256868, 256873, 256867, 256869, 199517, 199502, 199513",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jessicaelizabethmartin@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "256896, 255762, 255763",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "debbyknox@hvsi.net",
+      "sent_date": "2026-05-27",
+      "serials": "256871",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "exiluxer@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "187025",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jordanchapin1992@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "255757",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jimvick@alaskan.com",
+      "sent_date": "2026-05-27",
+      "serials": "250847",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "heyyou_1962@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "250856",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "brian.rota@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "256831",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jimtalley17@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "187012",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ktrausch9791@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "256775",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "henderson_lawnservicellc@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "256771",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rburch20@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "254347",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mamaz_boiz_mbj@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "251186",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "skylaraiblackwell@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "187515",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alfred_washington76@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "255403",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bobbyknox58@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "255504",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "steveo19862011@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "187046",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kingjj65@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "198391",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jacobbegin507@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "198384",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ksktj.madd@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "198387",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bajimenez78@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "247937, 192714",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "philipstewart76@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "198186",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jleporacejr@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199993",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "astrong6696@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "198832",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jgf31@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "199986",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "grandslampatiencesdm@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "192032",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "angeladramsey@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "194699",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ben.s.romano@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199192",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "edwardskimberly100@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199180",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joshpaul714@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "247916",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "angelmarin740@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199415",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mata040@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199418",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alvayugo39@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197454",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "p.puma75@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197446",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "motoryder79@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "181046",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jack@cmmtech.net",
+      "sent_date": "2026-05-27",
+      "serials": "181048",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joanne.sidoti@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "192160",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "smp22678@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "198113",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kingw68@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "192866",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cristiancruz0313@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "192037",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "daricern@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "198116",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ninahotmail65@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "198105",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "isaiahnegron816@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "196450",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jegasper@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "197901",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "therock214289@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197902",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jaleel.ameer@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197909",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "faraj_m1@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "190938",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aarroncarroll72@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "190936",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "butterflygh@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "198644",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "teamertony@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "191601",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mskelliejackson@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "196531",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dailynmayers@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "200184",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "surflover100@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "196726",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mjhnsn3333@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "198931",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "thomas3787@msn.com",
+      "sent_date": "2026-05-27",
+      "serials": "199305",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "drutland67@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "197724",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "twhensley96@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "198210",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "holman235@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "198176, 200206",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "goodacting@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "198177",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jerome1093@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "200217",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "boosie1180@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "200289",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jenniferwilson1972@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "195651",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "foglebasementrepair@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199059",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "alexandermarvin61@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "195730",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "babyjordanforever@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "195729",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "vicjara3000@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "197512",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "hunter_1014@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "194507",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "faridragab@parkavenuestyles.com",
+      "sent_date": "2026-05-27",
+      "serials": "194516",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jcr2020@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "195228",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mineerstan@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "194518, 195226, 195225",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jray68736@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "192709",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "wbruce2794@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "182587",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mz.roxy08@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "182581, 182580",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mekaniko_978@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "199512",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "brooke.myers@comcast.net",
+      "sent_date": "2026-05-27",
+      "serials": "196604",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "babajide.adesayo@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "190924",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "ddarrenbridgeking@icloud.com",
+      "sent_date": "2026-05-27",
+      "serials": "190927",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jacqualinross@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "190926",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gregberis@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197265",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mdnichols12@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197274",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jacobiewest@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "197259, 197260",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jarodfischer147@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197266",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "charlescason7@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197268",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jsgrewal1124@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197273",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cornbarney26@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "196841",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "brenda.johnsonbaldwin@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "200291",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "stgcswping1@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "197415",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "gary3416@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "197416",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "maxxxblaze@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "200199",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "smkgnd01@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199296",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "galindo.nice@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199294",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "joedgonzales91@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199290",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "pdliddle@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199298",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jwitchard64@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199283",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cerecerariel@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199287",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "jody@morrowcountydental.com",
+      "sent_date": "2026-05-27",
+      "serials": "199282",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "abcpleasurehorses@outlook.com",
+      "sent_date": "2026-05-27",
+      "serials": "199503",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "denniskaye84@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "194177",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nelson_everton@hotmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "195657",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "warmac88@aol.com",
+      "sent_date": "2026-05-27",
+      "serials": "195642",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rashaad_barnes@live.com",
+      "sent_date": "2026-05-27",
+      "serials": "193903",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "lizjanee.es@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "193901",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "turpinelectric@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "196125",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dekolas@yahoo.com",
+      "sent_date": "2026-05-27",
+      "serials": "200082",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rodrocket49@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "200098, 200097",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "pauld@texasspecialty.com",
+      "sent_date": "2026-05-27",
+      "serials": "196417",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kbtiphone@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199500",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "guy@wadsbro.com",
+      "sent_date": "2026-05-27",
+      "serials": "198944",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cora.jackson3@gmail.com",
+      "sent_date": "2026-05-27",
+      "serials": "199113",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    }
+  ],
   "sendgrid_stats": [
     {
       "requests": 74,
@@ -14780,8 +22936,8 @@
       "delivered": 899,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 137,
-      "opens": 167,
+      "unique_opens": 139,
+      "opens": 169,
       "unique_clicks": 16,
       "clicks": 62,
       "in_transit": 0,
@@ -14790,7 +22946,7 @@
       "followup2": 907,
       "date": "2026-05-27",
       "from_category_stats": false,
-      "open_rate": 15.2,
+      "open_rate": 15.5,
       "click_rate": 1.78,
       "delivery_rate": 98.3,
       "bounce_rate": 0.0
