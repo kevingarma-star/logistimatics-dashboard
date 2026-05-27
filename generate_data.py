@@ -517,7 +517,7 @@ def read_sheet():
 
 # ── Data computation ──────────────────────────────────────────────────────────
 
-def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None, serial_act_map=None, in_transit_rows=None):
+def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None, serial_act_map=None, in_transit_rows=None, reengagement_rows=None):
     today = date.today()
 
     # Build in-transit map: email → earliest T0 date
@@ -658,10 +658,82 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     act_rate  = round(activated / total * 100, 1) if total else 0
     fu_rate   = round(fu_activ / fu_sent * 100, 1) if fu_sent else 0
 
-    # In-transit totals — count all recipients from in_transit_log regardless of T1 status
-    it_emails = {r['email'].strip().lower() for r in (in_transit_rows or [])}
-    it_total     = len(it_emails)
-    it_activated = sum(1 for e in it_emails if sheet_map.get(e, {}).get('sub_id', ''))
+    # In-transit per-customer records for drill-down
+    # (must cover ALL T0 recipients, not just those who also got T1)
+    it_seen = {}
+    for row in (in_transit_rows or []):
+        key = row['email'].strip().lower()
+        if key not in it_seen:
+            it_seen[key] = row
+
+    in_transit_customers = []
+    for email_lc, row in it_seen.items():
+        sent_date = row['date']
+        serials   = row.get('serials', '').strip('"').strip("'")
+        try:
+            days_since = (today - datetime.strptime(sent_date, '%Y-%m-%d').date()).days
+        except Exception:
+            days_since = 0
+        info        = sheet_map.get(email_lc, {})
+        sub_id      = info.get('sub_id', '')
+        returned_at = info.get('returned', '')
+        if returned_at:
+            status = 'Returned'
+        elif sub_id:
+            status = 'Activated'
+        else:
+            status = 'Pending'
+        # fu_sent = whether this T0 customer also received T1 (activation email)
+        t1_row  = seen.get(email_lc)
+        in_transit_customers.append({
+            'email':      email_lc,
+            'sent_date':  sent_date,
+            'serials':    serials,
+            'days_since': days_since,
+            'fu_sent':    t1_row is not None,
+            'fu_date':    t1_row['date'] if t1_row else '',
+            'status':     status,
+        })
+
+    it_total     = len(in_transit_customers)
+    it_activated = sum(1 for c in in_transit_customers if c['status'] == 'Activated')
+
+    # Re-engagement per-customer records for drill-down
+    re_seen = {}
+    for row in (reengagement_rows or []):
+        key = row['email'].strip().lower()
+        if key not in re_seen:
+            re_seen[key] = row
+
+    reengagement_customers = []
+    for email_lc, row in re_seen.items():
+        sent_date = row['date']
+        serials   = row.get('serials', '').strip('"').strip("'")
+        try:
+            days_since = (today - datetime.strptime(sent_date, '%Y-%m-%d').date()).days
+        except Exception:
+            days_since = 0
+        info        = sheet_map.get(email_lc, {})
+        sub_id      = info.get('sub_id', '')
+        returned_at = info.get('returned', '')
+        if returned_at:
+            status = 'Returned'
+        elif sub_id:
+            status = 'Activated'
+        else:
+            status = 'Pending'
+        reengagement_customers.append({
+            'email':      email_lc,
+            'sent_date':  sent_date,
+            'serials':    serials,
+            'days_since': days_since,
+            'fu_sent':    False,
+            'fu_date':    '',
+            'status':     status,
+        })
+
+    re_total     = len(reengagement_customers)
+    re_activated = sum(1 for c in reengagement_customers if c['status'] == 'Activated')
 
     summary = {
         'total_outreached':         total,
@@ -675,6 +747,8 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         'followup_conversion_rate': fu_rate,
         'in_transit_sent':          it_total,
         'in_transit_activated':     it_activated,
+        'reengagement_sent':        re_total,
+        'reengagement_activated':   re_activated,
     }
 
     # ── Timeline (emails sent per date) ──
@@ -812,13 +886,15 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     }
 
     return {
-        'generated_at':      datetime.now().isoformat(timespec='seconds'),
-        'summary':           summary,
-        'timeline':          timeline,
-        'cohorts':           cohorts,
-        'funnel':            funnel,
-        'customers':         customers,
-        'activation_timing': activation_timing,
+        'generated_at':            datetime.now().isoformat(timespec='seconds'),
+        'summary':                 summary,
+        'timeline':                timeline,
+        'cohorts':                 cohorts,
+        'funnel':                  funnel,
+        'customers':               customers,
+        'activation_timing':       activation_timing,
+        'in_transit_customers':    in_transit_customers,
+        'reengagement_customers':  reengagement_customers,
     }
 
 # ── Survey responses ──────────────────────────────────────────────────────────
@@ -901,15 +977,17 @@ def main():
     print("=" * 55)
 
     print("\n[1/5] Reading Supabase logs...")
-    in_transit_rows  = load_log('in_transit_log')
-    activation_rows  = load_log('activation_log')
-    followup_rows    = load_log('followup_log')
-    followup2_rows   = load_log('followup2_log')
+    in_transit_rows    = load_log('in_transit_log')
+    activation_rows    = load_log('activation_log')
+    followup_rows      = load_log('followup_log')
+    followup2_rows     = load_log('followup2_log')
+    reengagement_rows  = load_log('reengagement_log')
     # Merge touch-2 and touch-3 into a single list for fu_sent tracking
     all_followup_rows = followup_rows + followup2_rows
-    print(f"  In-transit emails: {len(in_transit_rows)}")
-    print(f"  Activation emails: {len(activation_rows)}")
-    print(f"  Follow-up emails:  {len(followup_rows)} touch-2 + {len(followup2_rows)} touch-3 = {len(all_followup_rows)} total")
+    print(f"  In-transit emails:   {len(in_transit_rows)}")
+    print(f"  Activation emails:   {len(activation_rows)}")
+    print(f"  Follow-up emails:    {len(followup_rows)} touch-2 + {len(followup2_rows)} touch-3 = {len(all_followup_rows)} total")
+    print(f"  Re-engagement emails:{len(reengagement_rows)}")
 
     print("\n[2/5] Reading Google Sheet for activation status...")
     sheet_map, serial_act_map = read_sheet()
@@ -954,7 +1032,7 @@ def main():
     print("\n[4/5] Computing campaign metrics...")
     data = compute_data(activation_rows, all_followup_rows, sheet_map, sg_email_map,
                         followup2_rows=followup2_rows, serial_act_map=serial_act_map,
-                        in_transit_rows=in_transit_rows)
+                        in_transit_rows=in_transit_rows, reengagement_rows=reengagement_rows)
     s = data['summary']
     print(f"  Total outreached:    {s['total_outreached']}")
     print(f"  Activated:           {s['activated']} ({s['activation_rate']}%)")

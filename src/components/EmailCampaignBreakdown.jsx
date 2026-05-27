@@ -35,6 +35,15 @@ const TOUCHES = [
     border:  'rgba(0,229,160,0.25)',
     icon:    '✉️',
   },
+  {
+    key:     'RE',
+    label:   'Re-engagement',
+    sublabel: 'Re-engagement',
+    color:   '#ff6b6b',
+    dim:     'rgba(255,107,107,0.12)',
+    border:  'rgba(255,107,107,0.25)',
+    icon:    '🔄',
+  },
 ]
 
 function pct(num, den) {
@@ -68,7 +77,7 @@ function Stat({ label, value, color, onClick }) {
   )
 }
 
-export default function EmailCampaignBreakdown({ customers, summary, onDrill }) {
+export default function EmailCampaignBreakdown({ customers, summary, onDrill, inTransitCustomers = [], reengagementCustomers = [] }) {
   if (!customers?.length) return null
 
   const total = customers.length
@@ -80,7 +89,12 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill }) 
   const t0Sent      = summary?.in_transit_sent      ?? 0
   const t0Activated = summary?.in_transit_activated ?? 0
 
-  const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent }
+  // RE counts come from summary totals — re-engagement recipients predate the email program
+  // and are not in the customers array
+  const reSent      = summary?.reengagement_sent      ?? 0
+  const reActivated = summary?.reengagement_activated ?? 0
+
+  const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent, RE: reSent }
 
   const activatedByTouch = {
     T0: t0Activated,
@@ -88,6 +102,7 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill }) 
     T2: customers.filter(c => c.activated_after_touch === 'T2').length,
     // generate_data.py doesn't set activated_after_touch for T3; derive from fu2_sent + status
     T3: customers.filter(c => c.fu2_sent && c.status === 'Activated').length,
+    RE: reActivated,
   }
 
   const drill = (label, subtitle, filterFn) => {
@@ -95,29 +110,38 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill }) 
     return () => onDrill(label, subtitle, customers.filter(filterFn))
   }
 
+  const drillFrom = (pool) => (label, subtitle, filterFn) => {
+    if (!onDrill) return undefined
+    return () => onDrill(label, subtitle, pool.filter(filterFn))
+  }
+  const drillIt = drillFrom(inTransitCustomers)
+  const drillRe = drillFrom(reengagementCustomers)
+
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 14 }}>
       {TOUCHES.map(t => {
         const sent      = sentByTouch[t.key]
         const activated = activatedByTouch[t.key]
 
         const sentFilter =
-          t.key === 'T0' ? c => c.in_transit_sent :
           t.key === 'T1' ? () => true :
           t.key === 'T2' ? c => c.fu_sent :
-                           c => c.fu2_sent
-        const drillSent = drill(
-          `${t.label} — All Sent`,
-          `All customers who received the ${t.label.toLowerCase()}`,
-          sentFilter,
-        )
-        const drillActivated = drill(
-          `Activated via ${t.label}`,
-          `Customers who activated after receiving the ${t.label.toLowerCase()}`,
-          t.key === 'T3'
-            ? c => c.fu2_sent && c.status === 'Activated'
-            : c => c.activated_after_touch === t.key,
-        )
+                           c => c.fu2_sent  // T3
+        const drillSent =
+          t.key === 'T0' ? drillIt(`${t.label} — All Sent`, 'All customers who received the in-transit email', () => true) :
+          t.key === 'RE' ? drillRe(`${t.label} — All Sent`, 'All legacy customers who received the re-engagement email', () => true) :
+          drill(`${t.label} — All Sent`, `All customers who received the ${t.label.toLowerCase()}`, sentFilter)
+
+        const drillActivated =
+          t.key === 'T0' ? drillIt(`Activated via ${t.label}`, 'In-transit customers who have since activated', c => c.status === 'Activated') :
+          t.key === 'RE' ? drillRe(`Activated via ${t.label}`, 'Legacy customers who activated after the re-engagement email', c => c.status === 'Activated') :
+          drill(
+            `Activated via ${t.label}`,
+            `Customers who activated after receiving the ${t.label.toLowerCase()}`,
+            t.key === 'T3'
+              ? c => c.fu2_sent && c.status === 'Activated'
+              : c => c.activated_after_touch === t.key,
+          )
 
         return (
           <div
