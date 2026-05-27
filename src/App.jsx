@@ -336,7 +336,7 @@ function App() {
           <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10, marginTop: 24 }}>
             Email Campaigns
           </div>
-          <EmailCampaignBreakdown customers={all} summary={s} onDrill={openDrill} reengagementCustomers={data.reengagement_customers ?? []} />
+          <EmailCampaignBreakdown customers={all} summary={s} onDrill={openDrill} inTransitCustomers={data.in_transit_customers ?? []} reengagementCustomers={data.reengagement_customers ?? []} />
 
           {/* Email Health KPIs */}
           {sg.has_campaign_data && (
