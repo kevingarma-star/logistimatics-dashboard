@@ -663,10 +663,43 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     it_total     = len(it_emails)
     it_activated = sum(1 for e in it_emails if sheet_map.get(e, {}).get('sub_id', ''))
 
-    # Re-engagement totals — legacy customers who predated the email program
-    re_emails    = {r['email'].strip().lower() for r in (reengagement_rows or [])}
+    # Re-engagement totals + per-customer records for drill-down
+    re_seen = {}
+    for row in (reengagement_rows or []):
+        key = row['email'].strip().lower()
+        if key not in re_seen:
+            re_seen[key] = row
+
+    reengagement_customers = []
+    for email_lc, row in re_seen.items():
+        sent_date = row['date']
+        serials   = row.get('serials', '').strip('"').strip("'")
+        try:
+            days_since = (today - datetime.strptime(sent_date, '%Y-%m-%d').date()).days
+        except Exception:
+            days_since = 0
+        info     = sheet_map.get(email_lc, {})
+        sub_id   = info.get('sub_id', '')
+        returned = info.get('returned', '')
+        if returned:
+            status = 'Returned'
+        elif sub_id:
+            status = 'Activated'
+        else:
+            status = 'Pending'
+        reengagement_customers.append({
+            'email':      email_lc,
+            'sent_date':  sent_date,
+            'serials':    serials,
+            'days_since': days_since,
+            'fu_sent':    False,
+            'fu_date':    '',
+            'status':     status,
+        })
+
+    re_emails    = set(re_seen.keys())
     re_total     = len(re_emails)
-    re_activated = sum(1 for e in re_emails if sheet_map.get(e, {}).get('sub_id', ''))
+    re_activated = sum(1 for c in reengagement_customers if c['status'] == 'Activated')
 
     summary = {
         'total_outreached':         total,
@@ -819,13 +852,14 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     }
 
     return {
-        'generated_at':      datetime.now().isoformat(timespec='seconds'),
-        'summary':           summary,
-        'timeline':          timeline,
-        'cohorts':           cohorts,
-        'funnel':            funnel,
-        'customers':         customers,
-        'activation_timing': activation_timing,
+        'generated_at':            datetime.now().isoformat(timespec='seconds'),
+        'summary':                 summary,
+        'timeline':                timeline,
+        'cohorts':                 cohorts,
+        'funnel':                  funnel,
+        'customers':               customers,
+        'activation_timing':       activation_timing,
+        'reengagement_customers':  reengagement_customers,
     }
 
 # ── Survey responses ──────────────────────────────────────────────────────────

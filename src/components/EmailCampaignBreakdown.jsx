@@ -77,7 +77,7 @@ function Stat({ label, value, color, onClick }) {
   )
 }
 
-export default function EmailCampaignBreakdown({ customers, summary, onDrill }) {
+export default function EmailCampaignBreakdown({ customers, summary, onDrill, reengagementCustomers = [] }) {
   if (!customers?.length) return null
 
   const total = customers.length
@@ -110,6 +110,11 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill }) 
     return () => onDrill(label, subtitle, customers.filter(filterFn))
   }
 
+  const drillRe = (label, subtitle, filterFn) => {
+    if (!onDrill) return undefined
+    return () => onDrill(label, subtitle, reengagementCustomers.filter(filterFn))
+  }
+
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 14 }}>
       {TOUCHES.map(t => {
@@ -120,21 +125,20 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill }) 
           t.key === 'T0' ? c => c.in_transit_sent :
           t.key === 'T1' ? () => true :
           t.key === 'T2' ? c => c.fu_sent :
-          t.key === 'T3' ? c => c.fu2_sent :
-                           () => false  // RE: not in customers array
-        // RE recipients are not in the customers array, so no drill-down available
-        const drillSent = t.key === 'RE' ? undefined : drill(
-          `${t.label} — All Sent`,
-          `All customers who received the ${t.label.toLowerCase()}`,
-          sentFilter,
-        )
-        const drillActivated = t.key === 'RE' ? undefined : drill(
-          `Activated via ${t.label}`,
-          `Customers who activated after receiving the ${t.label.toLowerCase()}`,
-          t.key === 'T3'
-            ? c => c.fu2_sent && c.status === 'Activated'
-            : c => c.activated_after_touch === t.key,
-        )
+                           c => c.fu2_sent  // T3
+        const drillSent = t.key === 'RE'
+          ? drillRe(`${t.label} — All Sent`, 'All legacy customers who received the re-engagement email', () => true)
+          : drill(`${t.label} — All Sent`, `All customers who received the ${t.label.toLowerCase()}`, sentFilter)
+
+        const drillActivated = t.key === 'RE'
+          ? drillRe(`Activated via ${t.label}`, 'Legacy customers who activated after the re-engagement email', c => c.status === 'Activated')
+          : drill(
+              `Activated via ${t.label}`,
+              `Customers who activated after receiving the ${t.label.toLowerCase()}`,
+              t.key === 'T3'
+                ? c => c.fu2_sent && c.status === 'Activated'
+                : c => c.activated_after_touch === t.key,
+            )
 
         return (
           <div
