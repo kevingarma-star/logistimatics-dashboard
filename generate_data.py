@@ -517,7 +517,7 @@ def read_sheet():
 
 # ── Data computation ──────────────────────────────────────────────────────────
 
-def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None, serial_act_map=None, in_transit_rows=None):
+def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None, serial_act_map=None, in_transit_rows=None, reengagement_rows=None):
     today = date.today()
 
     # Build in-transit map: email → earliest T0 date
@@ -663,6 +663,11 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     it_total     = len(it_emails)
     it_activated = sum(1 for e in it_emails if sheet_map.get(e, {}).get('sub_id', ''))
 
+    # Re-engagement totals — legacy customers who predated the email program
+    re_emails    = {r['email'].strip().lower() for r in (reengagement_rows or [])}
+    re_total     = len(re_emails)
+    re_activated = sum(1 for e in re_emails if sheet_map.get(e, {}).get('sub_id', ''))
+
     summary = {
         'total_outreached':         total,
         'activated':                activated,
@@ -675,6 +680,8 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         'followup_conversion_rate': fu_rate,
         'in_transit_sent':          it_total,
         'in_transit_activated':     it_activated,
+        'reengagement_sent':        re_total,
+        'reengagement_activated':   re_activated,
     }
 
     # ── Timeline (emails sent per date) ──
@@ -901,15 +908,17 @@ def main():
     print("=" * 55)
 
     print("\n[1/5] Reading Supabase logs...")
-    in_transit_rows  = load_log('in_transit_log')
-    activation_rows  = load_log('activation_log')
-    followup_rows    = load_log('followup_log')
-    followup2_rows   = load_log('followup2_log')
+    in_transit_rows    = load_log('in_transit_log')
+    activation_rows    = load_log('activation_log')
+    followup_rows      = load_log('followup_log')
+    followup2_rows     = load_log('followup2_log')
+    reengagement_rows  = load_log('reengagement_log')
     # Merge touch-2 and touch-3 into a single list for fu_sent tracking
     all_followup_rows = followup_rows + followup2_rows
-    print(f"  In-transit emails: {len(in_transit_rows)}")
-    print(f"  Activation emails: {len(activation_rows)}")
-    print(f"  Follow-up emails:  {len(followup_rows)} touch-2 + {len(followup2_rows)} touch-3 = {len(all_followup_rows)} total")
+    print(f"  In-transit emails:   {len(in_transit_rows)}")
+    print(f"  Activation emails:   {len(activation_rows)}")
+    print(f"  Follow-up emails:    {len(followup_rows)} touch-2 + {len(followup2_rows)} touch-3 = {len(all_followup_rows)} total")
+    print(f"  Re-engagement emails:{len(reengagement_rows)}")
 
     print("\n[2/5] Reading Google Sheet for activation status...")
     sheet_map, serial_act_map = read_sheet()
@@ -954,7 +963,7 @@ def main():
     print("\n[4/5] Computing campaign metrics...")
     data = compute_data(activation_rows, all_followup_rows, sheet_map, sg_email_map,
                         followup2_rows=followup2_rows, serial_act_map=serial_act_map,
-                        in_transit_rows=in_transit_rows)
+                        in_transit_rows=in_transit_rows, reengagement_rows=reengagement_rows)
     s = data['summary']
     print(f"  Total outreached:    {s['total_outreached']}")
     print(f"  Activated:           {s['activated']} ({s['activation_rate']}%)")

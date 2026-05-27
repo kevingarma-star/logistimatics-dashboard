@@ -35,6 +35,15 @@ const TOUCHES = [
     border:  'rgba(0,229,160,0.25)',
     icon:    '✉️',
   },
+  {
+    key:     'RE',
+    label:   'Re-engagement',
+    sublabel: 'Re-engagement',
+    color:   '#ff6b6b',
+    dim:     'rgba(255,107,107,0.12)',
+    border:  'rgba(255,107,107,0.25)',
+    icon:    '🔄',
+  },
 ]
 
 function pct(num, den) {
@@ -80,7 +89,12 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill }) 
   const t0Sent      = summary?.in_transit_sent      ?? 0
   const t0Activated = summary?.in_transit_activated ?? 0
 
-  const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent }
+  // RE counts come from summary totals — re-engagement recipients predate the email program
+  // and are not in the customers array
+  const reSent      = summary?.reengagement_sent      ?? 0
+  const reActivated = summary?.reengagement_activated ?? 0
+
+  const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent, RE: reSent }
 
   const activatedByTouch = {
     T0: t0Activated,
@@ -88,6 +102,7 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill }) 
     T2: customers.filter(c => c.activated_after_touch === 'T2').length,
     // generate_data.py doesn't set activated_after_touch for T3; derive from fu2_sent + status
     T3: customers.filter(c => c.fu2_sent && c.status === 'Activated').length,
+    RE: reActivated,
   }
 
   const drill = (label, subtitle, filterFn) => {
@@ -96,7 +111,7 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill }) 
   }
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 14 }}>
       {TOUCHES.map(t => {
         const sent      = sentByTouch[t.key]
         const activated = activatedByTouch[t.key]
@@ -105,13 +120,15 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill }) 
           t.key === 'T0' ? c => c.in_transit_sent :
           t.key === 'T1' ? () => true :
           t.key === 'T2' ? c => c.fu_sent :
-                           c => c.fu2_sent
-        const drillSent = drill(
+          t.key === 'T3' ? c => c.fu2_sent :
+                           () => false  // RE: not in customers array
+        // RE recipients are not in the customers array, so no drill-down available
+        const drillSent = t.key === 'RE' ? undefined : drill(
           `${t.label} — All Sent`,
           `All customers who received the ${t.label.toLowerCase()}`,
           sentFilter,
         )
-        const drillActivated = drill(
+        const drillActivated = t.key === 'RE' ? undefined : drill(
           `Activated via ${t.label}`,
           `Customers who activated after receiving the ${t.label.toLowerCase()}`,
           t.key === 'T3'
