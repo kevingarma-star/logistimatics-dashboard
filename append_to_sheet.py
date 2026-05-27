@@ -13,11 +13,12 @@ import sys
 from pathlib import Path
 
 TABLE_MAP = {
-    'in_transit': 'in_transit_log',
-    'activation': 'activation_log',
-    'followup':   'followup_log',
-    'followup2':  'followup2_log',
-    'survey':     'survey_log',
+    'in_transit':   'in_transit_log',
+    'activation':   'activation_log',
+    'followup':     'followup_log',
+    'followup2':    'followup2_log',
+    'survey':       'survey_log',
+    'reengagement': 'reengagement_log',
 }
 
 if __name__ == '__main__':
