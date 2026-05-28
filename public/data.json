@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T05:51:20",
+  "generated_at": "2026-05-28T06:04:42",
   "summary": {
     "total_outreached": 596,
     "activated": 290,
@@ -10,8 +10,8 @@
     "followup_customers_reached": 299,
     "followup_activated": 81,
     "followup_conversion_rate": 27.1,
-    "in_transit_sent": 248,
-    "in_transit_activated": 85,
+    "in_transit_sent": 265,
+    "in_transit_activated": 86,
     "reengagement_sent": 906,
     "reengagement_activated": 0
   },
@@ -16584,6 +16584,159 @@
       "fu_sent": false,
       "fu_date": "",
       "status": "Pending"
+    },
+    {
+      "email": "gatesbianca@ymail.com",
+      "sent_date": "2026-05-28",
+      "serials": "277411",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "apatel24@aol.com",
+      "sent_date": "2026-05-28",
+      "serials": "273964, 277424",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "planetelectronics@ymail.com",
+      "sent_date": "2026-05-28",
+      "serials": "277437",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Activated"
+    },
+    {
+      "email": "lindrahill1@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "277163",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "stephaniebthacker@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "277190",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dragoneddie3@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "278080",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "larryhutchinson322@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "278092",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "kayla.cubero@yahoo.com",
+      "sent_date": "2026-05-28",
+      "serials": "289091",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "keishalovestoshop@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "278081",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nathanandmiko@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "278093",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "adam@signore.net",
+      "sent_date": "2026-05-28",
+      "serials": "278083",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "rbrgburns@aol.com",
+      "sent_date": "2026-05-28",
+      "serials": "278096",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mariagcastillo8@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "277939",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "birdyleepdx@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "278385",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "chal2024chih@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "278384",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nicmaddox333@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "277169",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "brianmciver10@gmail.com",
+      "sent_date": "2026-05-28",
+      "serials": "278388",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
     }
   ],
   "reengagement_customers": [
@@ -25186,23 +25339,23 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 87,
-      "delivered": 59,
+      "requests": 110,
+      "delivered": 80,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 1,
-      "opens": 4,
+      "unique_opens": 7,
+      "opens": 10,
       "unique_clicks": 0,
       "clicks": 0,
-      "in_transit": 48,
+      "in_transit": 71,
       "activation": 1,
       "followup": 0,
       "followup2": 38,
       "date": "2026-05-28",
       "from_category_stats": true,
-      "open_rate": 1.7,
+      "open_rate": 8.8,
       "click_rate": 0.0,
-      "delivery_rate": 67.8,
+      "delivery_rate": 72.7,
       "bounce_rate": 0.0
     }
   ],
@@ -25211,17 +25364,17 @@
     "data_source": "category_stats",
     "period_start": "2026-04-27",
     "period_end": "2026-05-28",
-    "total_delivered": 906,
-    "total_opens": 385,
+    "total_delivered": 927,
+    "total_opens": 391,
     "total_clicks": 35,
     "total_bounces": 3,
-    "total_requests": 1842,
+    "total_requests": 1865,
     "total_unsubscribes": 0,
-    "avg_open_rate": 42.6,
-    "avg_click_rate": 3.87,
-    "avg_delivery_rate": 49.2,
+    "avg_open_rate": 42.3,
+    "avg_click_rate": 3.78,
+    "avg_delivery_rate": 49.7,
     "avg_bounce_rate": 0.16,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (904 delivered). Delivery rate across all 906 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (925 delivered). Delivery rate across all 927 campaign emails.",
     "customer_tracked": 406,
     "customer_delivered": 395,
     "customer_opened": 207,
