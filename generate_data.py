@@ -401,10 +401,16 @@ def compute_sg_summary(sg_stats, cat_stats_dates):
     rate_note = ('Category Stats (activation-email + followup-email categories)'
                  if use_cat else 'Activity Feed (subject match)')
 
-    all_del  = sum(d.get('delivered',     0) for d in sg_stats)
-    all_bnc  = sum(d.get('bounces',       0) for d in sg_stats)
-    all_req  = sum(d.get('requests',      0) for d in sg_stats) or all_del or 1
-    all_uns  = sum(d.get('unsubscribes',  0) for d in sg_stats)
+    # Category Stats delivery counts lag 24-48 h for large batches.
+    # Exclude the last 2 days so a same-day bulk send doesn't crater the rate.
+    from datetime import timedelta
+    settled_cutoff = (date.today() - timedelta(days=2)).isoformat()
+    settled = [d for d in sg_stats if d.get('date', '') <= settled_cutoff] or sg_stats
+
+    all_del  = sum(d.get('delivered',     0) for d in settled)
+    all_bnc  = sum(d.get('bounces',       0) for d in settled)
+    all_req  = sum(d.get('requests',      0) for d in settled) or all_del or 1
+    all_uns  = sum(d.get('unsubscribes',  0) for d in settled)
 
     # Open rate and click rate: use Category Stats rows only.
     # Activity Feed is unreliable for historical data — it only returns messages

@@ -151,10 +151,10 @@ export default function SendGridPanel({ sgStats, sgSummary }) {
     <div>
       {/* KPI strip */}
       <div style={{ display: 'flex', gap: 10, marginBottom: 20, flexWrap: 'wrap' }}>
-        <SgKPI label="Avg Open Rate"     value={sgSummary.avg_open_rate}     suffix="%" color="#00d4ff" />
-        <SgKPI label="Avg Click Rate"    value={sgSummary.avg_click_rate}    suffix="%" color="#8b5cf6" />
-        <SgKPI label="Avg Delivery Rate" value={sgSummary.avg_delivery_rate} suffix="%" color="#00e5a0" />
-        <SgKPI label="Avg Bounce Rate"   value={sgSummary.avg_bounce_rate}   suffix="%" color="#ff4757" />
+        <SgKPI label="Avg Open Rate"      value={sgSummary.avg_open_rate}          suffix="%" color="#00d4ff" />
+        <SgKPI label="Avg Click Rate"     value={sgSummary.avg_click_rate}         suffix="%" color="#8b5cf6" />
+        <SgKPI label="Delivery Rate"      value={sgSummary.customer_delivery_rate} suffix="%" color="#00e5a0" />
+        <SgKPI label="Avg Bounce Rate"    value={sgSummary.avg_bounce_rate}        suffix="%" color="#ff4757" />
       </div>
 
       {/* Chart */}
