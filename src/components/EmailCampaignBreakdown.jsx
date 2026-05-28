@@ -77,8 +77,18 @@ function Stat({ label, value, color, onClick }) {
   )
 }
 
+function formatDate(iso) {
+  if (!iso) return null
+  const [y, m, d] = iso.split('-').map(Number)
+  return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+}
+
 export default function EmailCampaignBreakdown({ customers, summary, onDrill, inTransitCustomers = [], reengagementCustomers = [] }) {
   if (!customers?.length) return null
+
+  const inTransitStartDate = inTransitCustomers.length
+    ? formatDate(inTransitCustomers.map(c => c.sent_date).filter(Boolean).sort()[0])
+    : null
 
   const total = customers.length
   const t2Sent = customers.filter(c => c.fu_sent).length
@@ -182,6 +192,11 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
                 onClick={drillActivated}
               />
             </div>
+            {t.key === 'T0' && inTransitStartDate && (
+              <div style={{ padding: '0 10px 10px', fontSize: 11, color: 'rgba(245,158,11,0.7)' }}>
+                Campaign started {inTransitStartDate}
+              </div>
+            )}
           </div>
         )
       })}
