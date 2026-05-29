@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T10:05:10",
+  "generated_at": "2026-05-29T10:35:21",
   "summary": {
     "total_outreached": 625,
     "activated": 293,
@@ -26257,7 +26257,7 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 854,
+      "requests": 853,
       "delivered": 2,
       "bounces": 0,
       "unsubscribes": 0,
@@ -26268,7 +26268,7 @@
       "in_transit": 2,
       "activation": 13,
       "followup": 0,
-      "followup2": 839,
+      "followup2": 838,
       "date": "2026-05-27",
       "from_category_stats": true,
       "open_rate": 100.0,
@@ -26277,7 +26277,7 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 145,
+      "requests": 144,
       "delivered": 108,
       "bounces": 0,
       "unsubscribes": 0,
@@ -26285,7 +26285,7 @@
       "opens": 88,
       "unique_clicks": 8,
       "clicks": 16,
-      "in_transit": 85,
+      "in_transit": 84,
       "activation": 3,
       "followup": 0,
       "followup2": 57,
@@ -26293,27 +26293,27 @@
       "from_category_stats": true,
       "open_rate": 44.4,
       "click_rate": 7.41,
-      "delivery_rate": 74.5,
+      "delivery_rate": 75.0,
       "bounce_rate": 0.0
     },
     {
-      "requests": 50,
+      "requests": 52,
       "delivered": 29,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 12,
-      "opens": 25,
+      "unique_opens": 13,
+      "opens": 27,
       "unique_clicks": 2,
       "clicks": 5,
-      "in_transit": 7,
+      "in_transit": 8,
       "activation": 29,
       "followup": 0,
-      "followup2": 14,
+      "followup2": 15,
       "date": "2026-05-29",
       "from_category_stats": true,
-      "open_rate": 41.4,
+      "open_rate": 44.8,
       "click_rate": 6.9,
-      "delivery_rate": 58.0,
+      "delivery_rate": 55.8,
       "bounce_rate": 0.0
     }
   ],
@@ -26323,12 +26323,12 @@
     "period_start": "2026-04-27",
     "period_end": "2026-05-29",
     "total_delivered": 845,
-    "total_opens": 444,
+    "total_opens": 445,
     "total_clicks": 45,
     "total_bounces": 3,
-    "total_requests": 1719,
+    "total_requests": 1718,
     "total_unsubscribes": 0,
-    "avg_open_rate": 45.2,
+    "avg_open_rate": 45.3,
     "avg_click_rate": 4.58,
     "avg_delivery_rate": 49.2,
     "avg_bounce_rate": 0.17,
@@ -26345,7 +26345,7 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 374,
+    "surveys_sent": 376,
     "total_responses": 10,
     "response_rate": 2.7,
     "breakdown": [
