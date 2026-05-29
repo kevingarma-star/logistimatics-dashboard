@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T06:51:14",
+  "generated_at": "2026-05-29T07:04:40",
   "summary": {
     "total_outreached": 611,
     "activated": 292,
@@ -14509,10 +14509,10 @@
       "days_to_activate": null,
       "activated_after_touch": null,
       "sg_delivered": true,
-      "sg_opened": false,
+      "sg_opened": true,
       "sg_clicked": false,
       "sg_bounced": false,
-      "sg_opens_count": 0,
+      "sg_opens_count": 1,
       "sg_clicks_count": 0,
       "sg_last_event": ""
     },
@@ -26013,10 +26013,10 @@
     "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (972 delivered). Delivery rate across all 845 campaign emails.",
     "customer_tracked": 421,
     "customer_delivered": 409,
-    "customer_opened": 209,
+    "customer_opened": 210,
     "customer_clicked": 23,
     "customer_bounced": 0,
-    "customer_open_rate": 51.1,
+    "customer_open_rate": 51.3,
     "customer_click_rate": 5.62,
     "customer_delivery_rate": 97.1,
     "customer_bounce_rate": 0.0
