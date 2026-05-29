@@ -11,6 +11,7 @@ import DrillDownModal from './components/DrillDownModal'
 import SurveyPanel from './components/SurveyPanel'
 import InsightsPage from './components/InsightsPage'
 import ActivationTimingPage from './components/ActivationTimingPage'
+import WeekOverWeekChart from './components/WeekOverWeekChart'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -392,6 +393,13 @@ function App() {
               <div className="panel-sub">Selected period</div>
               <StatusDonut summary={s} onDrillDown={drillStatus} />
             </div>
+          </div>
+
+          {/* Week-over-week activations */}
+          <div className="panel" style={{ marginTop: 20 }}>
+            <div className="panel-title">Campaign Activations — Week over Week</div>
+            <div className="panel-sub">Sat–Fri weeks · campaign-driven only (excludes uncontacted customers) · stacked by email touch</div>
+            <WeekOverWeekChart customers={all} />
           </div>
 
           {/* SendGrid engagement */}
