@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T04:48:38",
+  "generated_at": "2026-06-01T04:51:20",
   "summary": {
     "total_outreached": 625,
     "activated": 301,
@@ -10,7 +10,7 @@
     "followup_customers_reached": 318,
     "followup_activated": 84,
     "followup_conversion_rate": 26.4,
-    "in_transit_sent": 307,
+    "in_transit_sent": 312,
     "in_transit_activated": 132,
     "reengagement_sent": 906,
     "reengagement_activated": 2
@@ -17806,6 +17806,51 @@
       "fu_sent": false,
       "fu_date": "",
       "status": "Pending"
+    },
+    {
+      "email": "moplinger1987@gmail.com",
+      "sent_date": "2026-06-01",
+      "serials": "277688",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bhurgriabdul@gmail.com",
+      "sent_date": "2026-06-01",
+      "serials": "277691",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "christonyagorum@yahoo.com",
+      "sent_date": "2026-06-01",
+      "serials": "277699",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "richkid7825@yahoo.com",
+      "sent_date": "2026-06-01",
+      "serials": "277091",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "slippy1234@yahoo.com",
+      "sent_date": "2026-06-01",
+      "serials": "277706",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
     }
   ],
   "reengagement_customers": [
@@ -26447,21 +26492,21 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 19,
-      "delivered": 19,
+      "requests": 23,
+      "delivered": 23,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 4,
       "opens": 5,
       "unique_clicks": 0,
       "clicks": 0,
-      "in_transit": 11,
+      "in_transit": 14,
       "activation": 0,
       "followup": 0,
       "followup2": 4,
       "date": "2026-06-01",
       "from_category_stats": true,
-      "open_rate": 21.1,
+      "open_rate": 17.4,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -26478,11 +26523,11 @@
     "total_bounces": 3,
     "total_requests": 1908,
     "total_unsubscribes": 0,
-    "avg_open_rate": 46.0,
-    "avg_click_rate": 4.8,
+    "avg_open_rate": 45.8,
+    "avg_click_rate": 4.78,
     "avg_delivery_rate": 52.4,
     "avg_bounce_rate": 0.16,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (1001 delivered). Delivery rate across all 1000 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (1005 delivered). Delivery rate across all 1000 campaign emails.",
     "customer_tracked": 435,
     "customer_delivered": 423,
     "customer_opened": 218,
