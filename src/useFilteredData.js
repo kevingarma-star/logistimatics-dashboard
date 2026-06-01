@@ -23,14 +23,29 @@ export default function useFilteredData(data, start, end) {
     const sgStats   = (data.sendgrid_stats || []).filter(s => inRange(s.date))
     const customers = (data.customers || []).filter(c => inRange(c.sent_date))
 
-    // ── Recompute summary from filtered cohorts ────────────────────────
-    const total     = cohorts.reduce((s, c) => s + c.total,     0)
-    const activated = cohorts.reduce((s, c) => s + c.activated, 0)
-    const pending   = cohorts.reduce((s, c) => s + c.pending,   0)
-    const returned  = cohorts.reduce((s, c) => s + c.returned,  0)
+    // ── T0-only customers: in-transit recipients who never received T1 ──
+    // These are NOT in the customers array (which is built from T1 recipients)
+    // so they must be counted separately to get accurate Campaign Overview totals.
+    const customerEmailSet = new Set(customers.map(c => c.email))
+    const inTransitFiltered = (data.in_transit_customers || []).filter(c => inRange(c.sent_date))
+    const t0Only            = inTransitFiltered.filter(c => !customerEmailSet.has(c.email))
+    const t0OnlyActivated   = t0Only.filter(c => c.status === 'Activated').length
+    const t0OnlyPending     = t0Only.filter(c => c.status === 'Pending').length
+    const t0OnlyReturned    = t0Only.filter(c => c.status === 'Returned').length
+
+    // ── Recompute summary from filtered cohorts + T0-only ─────────────
+    const t1Total   = cohorts.reduce((s, c) => s + c.total,     0)
+    const t1Act     = cohorts.reduce((s, c) => s + c.activated, 0)
+    const t1Pending = cohorts.reduce((s, c) => s + c.pending,   0)
+    const t1Return  = cohorts.reduce((s, c) => s + c.returned,  0)
     // Use timeline for follow-up sent count so it reflects actual send date, not cohort date
     const fuSent    = timeline.reduce((s, t) => s + (t.followup ?? 0), 0)
     const fuActiv   = cohorts.reduce((s, c) => s + (c.followup_activated ?? 0), 0)
+
+    const total     = t1Total   + t0Only.length
+    const activated = t1Act     + t0OnlyActivated
+    const pending   = t1Pending + t0OnlyPending
+    const returned  = t1Return  + t0OnlyReturned
 
     const summary = {
       ...data.summary,
@@ -42,6 +57,9 @@ export default function useFilteredData(data, start, end) {
       followup_activated:       fuActiv,
       activation_rate:          total  ? +(activated / total  * 100).toFixed(1) : 0,
       followup_conversion_rate: fuSent ? +(fuActiv   / fuSent * 100).toFixed(1) : 0,
+      // Expose T0-exclusive counts for EmailCampaignBreakdown
+      in_transit_exclusive_sent:      t0Only.length,
+      in_transit_exclusive_activated: t0OnlyActivated,
     }
 
     // ── Recompute funnel from filtered summary ─────────────────────────

@@ -94,10 +94,13 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
   const t2Sent = customers.filter(c => c.fu_sent).length
   const t3Sent = customers.filter(c => c.fu2_sent).length
 
-  // T0 counts come from summary totals — in-transit recipients exist before T1 is sent,
-  // so most won't appear in the customers array (which is built from T1 recipients)
-  const t0Sent      = summary?.in_transit_sent      ?? 0
-  const t0Activated = summary?.in_transit_activated ?? 0
+  // T0 counts: use exclusive figures (recipients who never received T1) so that the
+  // numbers are non-overlapping with the T1 campaign and align with Campaign Overview.
+  // in_transit_exclusive_* is computed in useFilteredData from in_transit_customers
+  // filtered to emails not in the main customers list.
+  // Falls back to the full in_transit totals for data.json generated before this fix.
+  const t0Sent      = summary?.in_transit_exclusive_sent      ?? summary?.in_transit_sent      ?? 0
+  const t0Activated = summary?.in_transit_exclusive_activated ?? summary?.in_transit_activated ?? 0
 
   // RE counts come from summary totals — re-engagement recipients predate the email program
   // and are not in the customers array

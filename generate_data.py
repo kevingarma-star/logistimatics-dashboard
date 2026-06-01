@@ -691,18 +691,49 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
             status = 'Pending'
         # fu_sent = whether this T0 customer also received T1 (activation email)
         t1_row  = seen.get(email_lc)
+
+        # Look up activation date by serial number so the WoW chart can correctly
+        # bucket T0-only activations (customers who never got T1) by the week
+        # they actually activated, not by when the in-transit email was sent.
+        activation_date = ''
+        if serial_act_map and serials and status == 'Activated':
+            try:
+                sent_dt  = datetime.strptime(sent_date, '%Y-%m-%d').date()
+                ser_list = [s.strip() for s in serials.split(',') if s.strip()]
+                candidates = [serial_act_map[s] for s in ser_list if s in serial_act_map]
+                after = [d for d in candidates if date.fromisoformat(d) >= sent_dt]
+                if after:
+                    activation_date = sorted(after)[0]
+                elif candidates:
+                    activation_date = sorted(candidates)[-1]
+            except Exception:
+                pass
+
         in_transit_customers.append({
-            'email':      email_lc,
-            'sent_date':  sent_date,
-            'serials':    serials,
-            'days_since': days_since,
-            'fu_sent':    t1_row is not None,
-            'fu_date':    t1_row['date'] if t1_row else '',
-            'status':     status,
+            'email':                 email_lc,
+            'sent_date':             sent_date,
+            'serials':               serials,
+            'days_since':            days_since,
+            'fu_sent':               t1_row is not None,
+            'fu_date':               t1_row['date'] if t1_row else '',
+            'status':                status,
+            'activation_date':       activation_date,
+            'activated_after_touch': 'T0' if status == 'Activated' else None,
         })
 
     it_total     = len(in_transit_customers)
     it_activated = sum(1 for c in in_transit_customers if c['status'] == 'Activated')
+
+    # Exclusive T0 counts: in-transit recipients who never received T1.
+    # These are NOT in the main customers list, so they represent incremental
+    # activations that the T1 campaign would never have captured.
+    # Used by Campaign Overview and the T0 email card so numbers align.
+    seen_emails    = set(seen.keys())
+    it_excl        = [c for c in in_transit_customers if c['email'] not in seen_emails]
+    it_excl_total  = len(it_excl)
+    it_excl_act    = sum(1 for c in it_excl if c['status'] == 'Activated')
+    it_excl_pend   = sum(1 for c in it_excl if c['status'] == 'Pending')
+    it_excl_ret    = sum(1 for c in it_excl if c['status'] == 'Returned')
 
     # Re-engagement per-customer records for drill-down
     re_seen = {}
@@ -741,18 +772,30 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     re_total     = len(reengagement_customers)
     re_activated = sum(1 for c in reengagement_customers if c['status'] == 'Activated')
 
+    # True campaign-wide totals include T0-only customers (never got T1).
+    # These are the numbers shown in the Campaign Overview KPIs.
+    true_total     = total     + it_excl_total
+    true_activated = activated + it_excl_act
+    true_pending   = pending   + it_excl_pend
+    true_returned  = returned  + it_excl_ret
+    true_act_rate  = round(true_activated / true_total * 100, 1) if true_total else 0
+
     summary = {
-        'total_outreached':         total,
-        'activated':                activated,
-        'pending':                  pending,
-        'returned':                 returned,
-        'activation_rate':          act_rate,
+        'total_outreached':         true_total,
+        'activated':                true_activated,
+        'pending':                  true_pending,
+        'returned':                 true_returned,
+        'activation_rate':          true_act_rate,
         'followup_sent':            fu_total_emails,   # total emails sent (all touches)
         'followup_customers_reached': fu_sent,         # unique customers reached
         'followup_activated':       fu_activ,
         'followup_conversion_rate': fu_rate,
         'in_transit_sent':          it_total,
         'in_transit_activated':     it_activated,
+        # Exclusive T0 counts: recipients who never got T1 (no overlap with T1 campaign).
+        # Used by the T0 email card so per-campaign numbers add up to Campaign Overview.
+        'in_transit_exclusive_sent':      it_excl_total,
+        'in_transit_exclusive_activated': it_excl_act,
         'reengagement_sent':        re_total,
         'reengagement_activated':   re_activated,
     }
