@@ -1,7 +1,7 @@
 const TOUCHES = [
   {
     key:     'T0',
-    label:   'In-Transit',
+    label:   'Touch 1',
     sublabel: 'In-Transit',
     color:   '#f59e0b',
     dim:     'rgba(245,158,11,0.12)',
@@ -10,8 +10,8 @@ const TOUCHES = [
   },
   {
     key:     'T1',
-    label:   'Initial Outreach',
-    sublabel: 'Initial Outreach',
+    label:   'Touch 2',
+    sublabel: 'Features Showcase',
     color:   '#00d4ff',
     dim:     'rgba(0,212,255,0.12)',
     border:  'rgba(0,212,255,0.25)',
@@ -19,8 +19,8 @@ const TOUCHES = [
   },
   {
     key:     'T2',
-    label:   '1st Follow-up',
-    sublabel: '1st Follow-up',
+    label:   'Touch 3',
+    sublabel: 'Social Proof',
     color:   '#8b5cf6',
     dim:     'rgba(139,92,246,0.12)',
     border:  'rgba(139,92,246,0.25)',
@@ -28,8 +28,8 @@ const TOUCHES = [
   },
   {
     key:     'T3',
-    label:   '2nd Follow-up',
-    sublabel: '2nd Follow-up',
+    label:   'Touch 4',
+    sublabel: 'Friction Removal',
     color:   '#00e5a0',
     dim:     'rgba(0,229,160,0.12)',
     border:  'rgba(0,229,160,0.25)',
@@ -37,7 +37,7 @@ const TOUCHES = [
   },
   {
     key:     'T4',
-    label:   'Personal Note',
+    label:   'Touch 5',
     sublabel: 'Personal Note',
     color:   '#ec4899',
     dim:     'rgba(236,72,153,0.12)',
@@ -47,7 +47,7 @@ const TOUCHES = [
   {
     key:     'RE',
     label:   'Re-engagement',
-    sublabel: 'Re-engagement',
+    sublabel: '',
     color:   '#ff6b6b',
     dim:     'rgba(255,107,107,0.12)',
     border:  'rgba(255,107,107,0.25)',
@@ -186,7 +186,10 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
               display: 'flex', alignItems: 'center', gap: 10,
             }}>
               <span style={{ fontSize: 18 }}>{t.icon}</span>
-              <div style={{ fontSize: 14, fontWeight: 700, color: t.color }}>{t.label}</div>
+              <div>
+                <div style={{ fontSize: 14, fontWeight: 700, color: t.color }}>{t.label}</div>
+                {t.sublabel && <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.45)', marginTop: 1 }}>{t.sublabel}</div>}
+              </div>
               <div style={{ marginLeft: 'auto', fontFamily: 'JetBrains Mono, monospace', fontSize: 13, color: t.color, fontWeight: 600 }}>
                 {pct(activated, sent)} conv.
               </div>
