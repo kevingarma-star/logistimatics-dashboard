@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T04:34:49",
+  "generated_at": "2026-06-01T04:48:38",
   "summary": {
     "total_outreached": 625,
     "activated": 301,
@@ -10,7 +10,7 @@
     "followup_customers_reached": 318,
     "followup_activated": 84,
     "followup_conversion_rate": 26.4,
-    "in_transit_sent": 297,
+    "in_transit_sent": 307,
     "in_transit_activated": 132,
     "reengagement_sent": 906,
     "reengagement_activated": 2
@@ -17716,6 +17716,96 @@
       "fu_sent": false,
       "fu_date": "",
       "status": "Pending"
+    },
+    {
+      "email": "denniscarter37@aol.com",
+      "sent_date": "2026-06-01",
+      "serials": "277714",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "dmarcic@gmail.com",
+      "sent_date": "2026-06-01",
+      "serials": "288204",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "aztlan249@hotmail.com",
+      "sent_date": "2026-06-01",
+      "serials": "289213",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "bstoreyb@aol.com",
+      "sent_date": "2026-06-01",
+      "serials": "277716",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "cledave81@gmail.com",
+      "sent_date": "2026-06-01",
+      "serials": "277704",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "mgnonna@gmail.com",
+      "sent_date": "2026-06-01",
+      "serials": "277711",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "esurface.lets@gmail.com",
+      "sent_date": "2026-06-01",
+      "serials": "277718",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "nmaetinez0323@icloud.com",
+      "sent_date": "2026-06-01",
+      "serials": "277689",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "shovan_bhattacharya@yahoo.com",
+      "sent_date": "2026-06-01",
+      "serials": "277687",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
+    },
+    {
+      "email": "floundergetter345@proton.me",
+      "sent_date": "2026-06-01",
+      "serials": "277685",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending"
     }
   ],
   "reengagement_customers": [
@@ -26357,21 +26447,21 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 4,
-      "delivered": 4,
+      "requests": 19,
+      "delivered": 19,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 4,
-      "opens": 24,
+      "opens": 5,
       "unique_clicks": 0,
       "clicks": 0,
-      "in_transit": 0,
+      "in_transit": 11,
       "activation": 0,
       "followup": 0,
       "followup2": 4,
       "date": "2026-06-01",
-      "from_category_stats": false,
-      "open_rate": 100.0,
+      "from_category_stats": true,
+      "open_rate": 21.1,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -26383,16 +26473,16 @@
     "period_start": "2026-04-27",
     "period_end": "2026-06-01",
     "total_delivered": 1000,
-    "total_opens": 456,
+    "total_opens": 460,
     "total_clicks": 48,
     "total_bounces": 3,
     "total_requests": 1908,
     "total_unsubscribes": 0,
-    "avg_open_rate": 46.4,
-    "avg_click_rate": 4.89,
+    "avg_open_rate": 46.0,
+    "avg_click_rate": 4.8,
     "avg_delivery_rate": 52.4,
     "avg_bounce_rate": 0.16,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (982 delivered). Delivery rate across all 1000 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (1001 delivered). Delivery rate across all 1000 campaign emails.",
     "customer_tracked": 435,
     "customer_delivered": 423,
     "customer_opened": 218,
