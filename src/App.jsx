@@ -399,7 +399,7 @@ function App() {
           <div className="panel" style={{ marginTop: 20 }}>
             <div className="panel-title">Campaign Activations — Week over Week</div>
             <div className="panel-sub">Sat–Fri weeks · campaign-driven only (excludes uncontacted customers) · stacked by email touch</div>
-            <WeekOverWeekChart customers={all} />
+            <WeekOverWeekChart customers={all} inTransitCustomers={data.in_transit_customers ?? []} />
           </div>
 
           {/* SendGrid engagement */}

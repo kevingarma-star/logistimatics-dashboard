@@ -81,13 +81,28 @@ const CustomLegend = ({ payload }) => (
   </div>
 )
 
-export default function WeekOverWeekChart({ customers }) {
-  // Campaign-driven activations only: must have activation_date and a touch attribution
+export default function WeekOverWeekChart({ customers, inTransitCustomers }) {
+  // Campaign-driven activations from main list (T1/T2/T3, plus T0 overlap cases)
   const activated = (customers || []).filter(
     c => c.status === 'Activated' && c.activation_date && c.activated_after_touch
   )
 
-  if (!activated.length) {
+  // T0-only activations: in-transit customers who activated but never received T1.
+  // The main customers list only contains T1+ recipients, so these activations are
+  // otherwise completely invisible to this chart.
+  // - activation_date is populated after the generate_data.py enrichment fix.
+  // - Falls back to sent_date (when the in-transit email was sent, 1–10 days post-ship)
+  //   for existing data.json records that pre-date the fix — close enough for weekly bucketing.
+  // - Does not require activated_after_touch since all in_transit_customers are by
+  //   definition T0 recipients.
+  const mainEmails = new Set((customers || []).map(c => c.email))
+  const t0Only = (inTransitCustomers || []).filter(
+    c => c.status === 'Activated' && !mainEmails.has(c.email)
+  )
+
+  const allActivated = [...activated, ...t0Only]
+
+  if (!allActivated.length) {
     return (
       <div style={{ color: '#4a5568', fontSize: 13, paddingTop: 40, textAlign: 'center' }}>
         No campaign-driven activations yet
@@ -97,10 +112,14 @@ export default function WeekOverWeekChart({ customers }) {
 
   // Build a map: weekSat → { T0, T1, T2, T3 }
   const weekMap = {}
-  activated.forEach(c => {
-    const sat = getWeekSaturday(c.activation_date)
+  allActivated.forEach(c => {
+    // Use activation_date when available; fall back to sent_date for T0-only records
+    // that pre-date the generate_data.py enrichment (no activation_date stored yet).
+    const dateKey = c.activation_date || c.sent_date
+    if (!dateKey) return
+    const sat = getWeekSaturday(dateKey)
     if (!weekMap[sat]) weekMap[sat] = { T0: 0, T1: 0, T2: 0, T3: 0 }
-    const t = c.activated_after_touch
+    const t = c.activated_after_touch || 'T0'
     if (weekMap[sat][t] !== undefined) weekMap[sat][t]++
   })
 

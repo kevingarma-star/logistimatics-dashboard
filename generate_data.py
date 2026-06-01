@@ -691,14 +691,34 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
             status = 'Pending'
         # fu_sent = whether this T0 customer also received T1 (activation email)
         t1_row  = seen.get(email_lc)
+
+        # Look up activation date by serial number so the WoW chart can correctly
+        # bucket T0-only activations (customers who never got T1) by the week
+        # they actually activated, not by when the in-transit email was sent.
+        activation_date = ''
+        if serial_act_map and serials and status == 'Activated':
+            try:
+                sent_dt  = datetime.strptime(sent_date, '%Y-%m-%d').date()
+                ser_list = [s.strip() for s in serials.split(',') if s.strip()]
+                candidates = [serial_act_map[s] for s in ser_list if s in serial_act_map]
+                after = [d for d in candidates if date.fromisoformat(d) >= sent_dt]
+                if after:
+                    activation_date = sorted(after)[0]
+                elif candidates:
+                    activation_date = sorted(candidates)[-1]
+            except Exception:
+                pass
+
         in_transit_customers.append({
-            'email':      email_lc,
-            'sent_date':  sent_date,
-            'serials':    serials,
-            'days_since': days_since,
-            'fu_sent':    t1_row is not None,
-            'fu_date':    t1_row['date'] if t1_row else '',
-            'status':     status,
+            'email':                 email_lc,
+            'sent_date':             sent_date,
+            'serials':               serials,
+            'days_since':            days_since,
+            'fu_sent':               t1_row is not None,
+            'fu_date':               t1_row['date'] if t1_row else '',
+            'status':                status,
+            'activation_date':       activation_date,
+            'activated_after_touch': 'T0' if status == 'Activated' else None,
         })
 
     it_total     = len(in_transit_customers)
