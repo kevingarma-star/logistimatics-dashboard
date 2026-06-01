@@ -6,6 +6,7 @@ Usage:
   python append_to_sheet.py activation "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
   python append_to_sheet.py followup   "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
   python append_to_sheet.py followup2  "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
+  python append_to_sheet.py followup3  "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
   python append_to_sheet.py survey     "2026-04-27" "email@example.com" "John" "123456" "msg_id" "sent"
 """
 
@@ -17,13 +18,14 @@ TABLE_MAP = {
     'activation':   'activation_log',
     'followup':     'followup_log',
     'followup2':    'followup2_log',
+    'followup3':    'followup3_log',
     'survey':       'survey_log',
     'reengagement': 'reengagement_log',
 }
 
 if __name__ == '__main__':
     if len(sys.argv) < 8:
-        print("Usage: python append_to_sheet.py <activation|followup|followup2|survey> "
+        print("Usage: python append_to_sheet.py <activation|followup|followup2|followup3|survey> "
               "<date> <email> <name> <serials> <message_id> <status>")
         sys.exit(1)
 

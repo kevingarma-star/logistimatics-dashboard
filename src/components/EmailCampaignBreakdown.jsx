@@ -36,6 +36,15 @@ const TOUCHES = [
     icon:    '✉️',
   },
   {
+    key:     'T4',
+    label:   'Personal Note',
+    sublabel: 'Personal Note',
+    color:   '#ec4899',
+    dim:     'rgba(236,72,153,0.12)',
+    border:  'rgba(236,72,153,0.25)',
+    icon:    '✍️',
+  },
+  {
     key:     'RE',
     label:   'Re-engagement',
     sublabel: 'Re-engagement',
@@ -93,6 +102,7 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
   const total = customers.length
   const t2Sent = customers.filter(c => c.fu_sent).length
   const t3Sent = customers.filter(c => c.fu2_sent).length
+  const t4Sent = customers.filter(c => c.fu3_sent).length
 
   // T0 counts: use exclusive figures (recipients who never received T1) so that the
   // numbers are non-overlapping with the T1 campaign and align with Campaign Overview.
@@ -107,7 +117,7 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
   const reSent      = summary?.reengagement_sent      ?? 0
   const reActivated = summary?.reengagement_activated ?? 0
 
-  const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent, RE: reSent }
+  const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent, T4: t4Sent, RE: reSent }
 
   const activatedByTouch = {
     T0: t0Activated,
@@ -115,6 +125,7 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
     T2: customers.filter(c => c.activated_after_touch === 'T2').length,
     // generate_data.py doesn't set activated_after_touch for T3; derive from fu2_sent + status
     T3: customers.filter(c => c.fu2_sent && c.status === 'Activated').length,
+    T4: customers.filter(c => c.activated_after_touch === 'T4').length,
     RE: reActivated,
   }
 
@@ -131,7 +142,7 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
   const drillRe = drillFrom(reengagementCustomers)
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 14 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: 14 }}>
       {TOUCHES.map(t => {
         const sent      = sentByTouch[t.key]
         const activated = activatedByTouch[t.key]
@@ -139,7 +150,8 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
         const sentFilter =
           t.key === 'T1' ? () => true :
           t.key === 'T2' ? c => c.fu_sent :
-                           c => c.fu2_sent  // T3
+          t.key === 'T3' ? c => c.fu2_sent :
+                           c => c.fu3_sent  // T4
         const drillSent =
           t.key === 'T0' ? drillIt(`${t.label} — All Sent`, 'All customers who received the in-transit email', () => true) :
           t.key === 'RE' ? drillRe(`${t.label} — All Sent`, 'All legacy customers who received the re-engagement email', () => true) :

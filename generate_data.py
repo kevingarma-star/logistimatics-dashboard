@@ -523,7 +523,7 @@ def read_sheet():
 
 # ── Data computation ──────────────────────────────────────────────────────────
 
-def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None, serial_act_map=None, in_transit_rows=None, reengagement_rows=None):
+def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, followup2_rows=None, serial_act_map=None, in_transit_rows=None, reengagement_rows=None, followup3_rows=None):
     today = date.today()
 
     # Build in-transit map: email → earliest T0 date
@@ -546,6 +546,13 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         key = row['email'].strip().lower()
         if key not in fu2_map:
             fu2_map[key] = row['date']
+
+    # Build touch-4 map: email → earliest T4 (personal note) date
+    fu3_map = {}
+    for row in (followup3_rows or []):
+        key = row['email'].strip().lower()
+        if key not in fu3_map:
+            fu3_map[key] = row['date']
 
     # Dedup activation rows by email (keep first sent)
     seen = {}
@@ -571,6 +578,8 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         fu_date  = fu_map.get(email_lc, '')
         fu2_sent = email_lc in fu2_map
         fu2_date = fu2_map.get(email_lc, '')
+        fu3_sent = email_lc in fu3_map
+        fu3_date = fu3_map.get(email_lc, '')
 
         info     = sheet_map.get(email_lc, {})
         sub_id   = info.get('sub_id', '')
@@ -613,9 +622,11 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
                 except (ValueError, TypeError):
                     pass
             # Attribution based on which touches were sent (regardless of timing).
-            # A customer who received fu2 is always counted as T3, fu1-only as T2, else T1.
+            # Priority: T4 > T3 > T2 > T0 > T1
             # T0 applies when the customer received only the in-transit email (activated before T1 sent).
-            if fu2_sent:
+            if fu3_sent:
+                activated_after_touch = 'T4'
+            elif fu2_sent:
                 activated_after_touch = 'T3'
             elif fu_sent:
                 activated_after_touch = 'T2'
@@ -639,6 +650,8 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
             'fu_date':                fu_date,
             'fu2_sent':               fu2_sent,
             'fu2_date':               fu2_date,
+            'fu3_sent':               fu3_sent,
+            'fu3_date':               fu3_date,
             'status':                 status,
             'activation_date':        activation_date,
             'days_to_activate':       days_to_activate,
@@ -868,7 +881,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
     # timed is the subset that also have an activation date (for days/avg/distribution).
     all_activated = [c for c in customers if c['status'] == 'Activated']
     timed = [c for c in all_activated if c['days_to_activate'] is not None]
-    touch_counts = {'T0': 0, 'T1': 0, 'T2': 0, 'T3': 0}
+    touch_counts = {'T0': 0, 'T1': 0, 'T2': 0, 'T3': 0, 'T4': 0}
     for c in all_activated:
         t = c['activated_after_touch'] or 'T1'
         touch_counts[t] = touch_counts.get(t, 0) + 1
@@ -902,6 +915,13 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
             'desc':  'Activated after the third email',
             'count': touch_counts['T3'],
             'pct':   round(touch_counts['T3'] / n_all * 100, 1) if n_all else 0,
+        },
+        {
+            'touch': 'T4',
+            'label': 'After Personal Note',
+            'desc':  'Activated after the personal note from Kevin',
+            'count': touch_counts['T4'],
+            'pct':   round(touch_counts['T4'] / n_all * 100, 1) if n_all else 0,
         },
     ]
 
@@ -1030,12 +1050,13 @@ def main():
     activation_rows    = load_log('activation_log')
     followup_rows      = load_log('followup_log')
     followup2_rows     = load_log('followup2_log')
+    followup3_rows     = load_log('followup3_log')
     reengagement_rows  = load_log('reengagement_log')
     # Merge touch-2 and touch-3 into a single list for fu_sent tracking
     all_followup_rows = followup_rows + followup2_rows
     print(f"  In-transit emails:   {len(in_transit_rows)}")
     print(f"  Activation emails:   {len(activation_rows)}")
-    print(f"  Follow-up emails:    {len(followup_rows)} touch-2 + {len(followup2_rows)} touch-3 = {len(all_followup_rows)} total")
+    print(f"  Follow-up emails:    {len(followup_rows)} touch-2 + {len(followup2_rows)} touch-3 + {len(followup3_rows)} touch-4 = {len(all_followup_rows) + len(followup3_rows)} total")
     print(f"  Re-engagement emails:{len(reengagement_rows)}")
 
     print("\n[2/5] Reading Google Sheet for activation status...")
@@ -1081,7 +1102,8 @@ def main():
     print("\n[4/5] Computing campaign metrics...")
     data = compute_data(activation_rows, all_followup_rows, sheet_map, sg_email_map,
                         followup2_rows=followup2_rows, serial_act_map=serial_act_map,
-                        in_transit_rows=in_transit_rows, reengagement_rows=reengagement_rows)
+                        in_transit_rows=in_transit_rows, reengagement_rows=reengagement_rows,
+                        followup3_rows=followup3_rows)
     s = data['summary']
     print(f"  Total outreached:    {s['total_outreached']}")
     print(f"  Activated:           {s['activated']} ({s['activation_rate']}%)")
