@@ -165,6 +165,9 @@ def fetch_shopify_orders():
         serial = (row.get('serial') or '').strip()
         if not email:
             continue
+        # Exclude SmartLabel devices (serial starts with 'SL')
+        if serial.upper().startswith('SL'):
+            continue
 
         sub_id   = (row.get('subscription_id')    or '').strip()
         returned = (row.get('return_processed_at') or '').strip()

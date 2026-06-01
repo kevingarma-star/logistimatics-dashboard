@@ -21,13 +21,27 @@ CACHED_CREDS    = Path.home() / '.google_workspace_mcp/credentials/kevin.garma@g
 MCP_CONFIG      = Path.home() / '.mcp.json'
 OUTPUT_PATH     = Path(__file__).parent / 'public' / 'data.json'
 
+# ── SmartLabel exclusion ─────────────────────────────────────────────────────
+
+import re as _re
+
+def _is_smartlabel(serials: str) -> bool:
+    """Return True if any serial in the (comma/pipe-separated) string starts with 'SL'."""
+    if not serials:
+        return False
+    return any(p.strip().upper().startswith('SL') for p in _re.split(r'[,|]', serials))
+
+def _filter_sl(rows):
+    """Drop any log rows whose serials field is a SmartLabel serial."""
+    return [r for r in rows if not _is_smartlabel(r.get('serials', ''))]
+
 # ── Supabase log helpers ──────────────────────────────────────────────────────
 
 def load_log(table):
-    """Fetch all sent rows from a Supabase log table."""
+    """Fetch all sent rows from a Supabase log table, excluding SmartLabel devices."""
     try:
         from supabase_client import fetch_log
-        return fetch_log(table)
+        return _filter_sl(fetch_log(table))
     except Exception as e:
         print(f"  [warn] Could not read {table} from Supabase: {e}")
         return []

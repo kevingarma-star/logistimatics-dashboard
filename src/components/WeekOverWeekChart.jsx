@@ -31,7 +31,6 @@ const TOUCH_CONFIG = [
   { key: 'T1', label: 'Activation Email', color: '#00d4ff' },
   { key: 'T2', label: 'Follow-up 1',      color: '#8b5cf6' },
   { key: 'T3', label: 'Follow-up 2',      color: '#10b981' },
-  { key: 'T4', label: 'Personal Note',    color: '#ec4899' },
 ]
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -119,7 +118,7 @@ export default function WeekOverWeekChart({ customers, inTransitCustomers }) {
     const dateKey = c.activation_date || c.sent_date
     if (!dateKey) return
     const sat = getWeekSaturday(dateKey)
-    if (!weekMap[sat]) weekMap[sat] = { T0: 0, T1: 0, T2: 0, T3: 0, T4: 0 }
+    if (!weekMap[sat]) weekMap[sat] = { T0: 0, T1: 0, T2: 0, T3: 0 }
     const t = c.activated_after_touch || 'T0'
     if (weekMap[sat][t] !== undefined) weekMap[sat][t]++
   })
@@ -159,7 +158,7 @@ export default function WeekOverWeekChart({ customers, inTransitCustomers }) {
             stackId="a"
             fill={color}
             fillOpacity={0.85}
-            radius={key === 'T4' ? [3, 3, 0, 0] : [0, 0, 0, 0]}
+            radius={key === 'T3' ? [3, 3, 0, 0] : [0, 0, 0, 0]}
             maxBarSize={40}
           />
         ))}

@@ -135,7 +135,7 @@ export default function useFilteredData(data, start, end) {
     const allActivated = customers.filter(c => c.status === 'Activated')
     // timed = post-outreach subset used for avg/median/histogram only
     const timed = allActivated.filter(c => c.days_to_activate != null && c.days_to_activate >= 0)
-    const touchCounts = { T0: 0, T1: 0, T2: 0, T3: 0, T4: 0 }
+    const touchCounts = { T0: 0, T1: 0, T2: 0, T3: 0 }
     for (const c of allActivated) {
       const t = c.activated_after_touch || 'T1'
       touchCounts[t] = (touchCounts[t] || 0) + 1
@@ -173,7 +173,6 @@ export default function useFilteredData(data, start, end) {
         { touch: 'T1', label: 'After Touch 1', desc: 'Activated without needing a follow-up',    count: touchCounts.T1, pct: nAll ? +(touchCounts.T1 / nAll * 100).toFixed(1) : 0 },
         { touch: 'T2', label: 'After Touch 2', desc: 'Activated after the second email',          count: touchCounts.T2, pct: nAll ? +(touchCounts.T2 / nAll * 100).toFixed(1) : 0 },
         { touch: 'T3', label: 'After Touch 3', desc: 'Activated after the third email',           count: touchCounts.T3, pct: nAll ? +(touchCounts.T3 / nAll * 100).toFixed(1) : 0 },
-        { touch: 'T4', label: 'After Personal Note', desc: 'Activated after the personal note from Kevin', count: touchCounts.T4, pct: nAll ? +(touchCounts.T4 / nAll * 100).toFixed(1) : 0 },
       ],
       days_distribution: BUCKETS.map(([label, fn]) => ({
         bucket: label,
