@@ -94,17 +94,18 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
   const t2Sent = customers.filter(c => c.fu_sent).length
   const t3Sent = customers.filter(c => c.fu2_sent).length
 
-  // T0 counts: use exclusive figures (recipients who never received T1) so that the
-  // numbers are non-overlapping with the T1 campaign and align with Campaign Overview.
-  // in_transit_exclusive_* is computed in useFilteredData from in_transit_customers
-  // filtered to emails not in the main customers list.
-  // Falls back to the full in_transit totals for data.json generated before this fix.
-  const t0Sent      = summary?.in_transit_exclusive_sent      ?? summary?.in_transit_sent      ?? 0
-  const t0Activated = summary?.in_transit_exclusive_activated ?? summary?.in_transit_activated ?? 0
+  // T0 counts: exclusive in-transit (never got T1) + T1-recipients who activated
+  // before T1 was sent (attributed T0 by generate_data.py but live in customers[]).
+  // This makes the campaign card total equal the true activated count.
+  const customerEmails = new Set(customers.map(c => c.email))
+  const t0InMainList  = customers.filter(c => c.activated_after_touch === 'T0')
+  const t0ExclSent    = summary?.in_transit_exclusive_sent      ?? summary?.in_transit_sent      ?? 0
+  const t0ExclActiv   = summary?.in_transit_exclusive_activated ?? summary?.in_transit_activated ?? 0
+  const t0Sent        = t0ExclSent
+  const t0Activated   = t0ExclActiv + t0InMainList.length
 
   // Exclusive in-transit customers: those who never received T1.
   // Used for drill-ins so the modal count matches the card number.
-  const customerEmails = new Set(customers.map(c => c.email))
   const exclusiveInTransitCustomers = inTransitCustomers.filter(c => !customerEmails.has(c.email))
 
   // RE counts come from summary totals — re-engagement recipients predate the email program
@@ -118,7 +119,6 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
     T0: t0Activated,
     T1: customers.filter(c => c.activated_after_touch === 'T1').length,
     T2: customers.filter(c => c.activated_after_touch === 'T2').length,
-    // generate_data.py doesn't set activated_after_touch for T3; derive from fu2_sent + status
     T3: customers.filter(c => c.fu2_sent && c.status === 'Activated').length,
     RE: reActivated,
   }
@@ -154,7 +154,14 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
           drill(`${t.label} — All Sent`, `All customers who received the ${t.label.toLowerCase()}`, sentFilter)
 
         const drillActivated =
-          t.key === 'T0' ? drillIt(`Activated via ${t.label}`, 'In-transit customers who activated (excluding those who also received Touch 2)', c => c.status === 'Activated') :
+          t.key === 'T0' ? (() => {
+            if (!onDrill) return undefined
+            const pool = [
+              ...exclusiveInTransitCustomers.filter(c => c.status === 'Activated'),
+              ...t0InMainList,
+            ]
+            return () => onDrill(`Activated via ${t.label}`, 'Activated before or without Touch 2 (includes T1-recipients who activated before T1 was sent)', pool)
+          })() :
           t.key === 'RE' ? drillRe(`Activated via ${t.label}`, 'Legacy customers who activated after the re-engagement email', c => c.status === 'Activated') :
           drill(
             `Activated via ${t.label}`,
