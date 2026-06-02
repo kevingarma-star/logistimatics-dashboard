@@ -599,12 +599,16 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         sub_id   = info.get('sub_id', '')
         returned = info.get('returned', '')
 
+        # Use serial-level activation check when possible so that a subscription
+        # on a prior order doesn't incorrectly mark new unactivated devices as
+        # Activated. Falls back to email-level sub_id only when serials are absent.
         if returned:
             status = 'Returned'
-        elif sub_id:
-            status = 'Activated'
+        elif serials and serial_act_map:
+            ser_list_status = [s.strip() for s in serials.split(',') if s.strip()]
+            status = 'Activated' if any(s in serial_act_map for s in ser_list_status) else 'Pending'
         else:
-            status = 'Pending'
+            status = 'Activated' if sub_id else 'Pending'
 
         # Look up activation date by serial number to avoid matching old
         # subscriptions from prior orders (email-based lookup causes negative days).
@@ -712,10 +716,11 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         returned_at = info.get('returned', '')
         if returned_at:
             status = 'Returned'
-        elif sub_id:
-            status = 'Activated'
+        elif serials and serial_act_map:
+            ser_list_status = [s.strip() for s in serials.split(',') if s.strip()]
+            status = 'Activated' if any(s in serial_act_map for s in ser_list_status) else 'Pending'
         else:
-            status = 'Pending'
+            status = 'Activated' if sub_id else 'Pending'
         # fu_sent = whether this T0 customer also received T1 (activation email)
         t1_row  = seen.get(email_lc)
 
@@ -782,10 +787,11 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         returned_at = info.get('returned', '')
         if returned_at:
             status = 'Returned'
-        elif sub_id:
-            status = 'Activated'
+        elif serials and serial_act_map:
+            ser_list_status = [s.strip() for s in serials.split(',') if s.strip()]
+            status = 'Activated' if any(s in serial_act_map for s in ser_list_status) else 'Pending'
         else:
-            status = 'Pending'
+            status = 'Activated' if sub_id else 'Pending'
         reengagement_customers.append({
             'email':      email_lc,
             'sent_date':  sent_date,
