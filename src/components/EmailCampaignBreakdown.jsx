@@ -102,6 +102,11 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
   const t0Sent      = summary?.in_transit_exclusive_sent      ?? summary?.in_transit_sent      ?? 0
   const t0Activated = summary?.in_transit_exclusive_activated ?? summary?.in_transit_activated ?? 0
 
+  // Exclusive in-transit customers: those who never received T1.
+  // Used for drill-ins so the modal count matches the card number.
+  const customerEmails = new Set(customers.map(c => c.email))
+  const exclusiveInTransitCustomers = inTransitCustomers.filter(c => !customerEmails.has(c.email))
+
   // RE counts come from summary totals — re-engagement recipients predate the email program
   // and are not in the customers array
   const reSent      = summary?.reengagement_sent      ?? 0
@@ -127,8 +132,11 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
     if (!onDrill) return undefined
     return () => onDrill(label, subtitle, pool.filter(filterFn))
   }
-  const drillIt = drillFrom(inTransitCustomers)
-  const drillRe = drillFrom(reengagementCustomers)
+  // Sent drill uses all in-transit recipients; activated drill uses exclusive pool
+  // so the count matches the card number (which shows exclusive activated only).
+  const drillItSent = drillFrom(inTransitCustomers)
+  const drillIt     = drillFrom(exclusiveInTransitCustomers)
+  const drillRe     = drillFrom(reengagementCustomers)
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 14 }}>
@@ -141,12 +149,12 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
           t.key === 'T2' ? c => c.fu_sent :
                            c => c.fu2_sent  // T3
         const drillSent =
-          t.key === 'T0' ? drillIt(`${t.label} — All Sent`, 'All customers who received the in-transit email', () => true) :
+          t.key === 'T0' ? drillItSent(`${t.label} — All Sent`, 'All customers who received the in-transit email', () => true) :
           t.key === 'RE' ? drillRe(`${t.label} — All Sent`, 'All legacy customers who received the re-engagement email', () => true) :
           drill(`${t.label} — All Sent`, `All customers who received the ${t.label.toLowerCase()}`, sentFilter)
 
         const drillActivated =
-          t.key === 'T0' ? drillIt(`Activated via ${t.label}`, 'In-transit customers who have since activated', c => c.status === 'Activated') :
+          t.key === 'T0' ? drillIt(`Activated via ${t.label}`, 'In-transit customers who activated (excluding those who also received Touch 2)', c => c.status === 'Activated') :
           t.key === 'RE' ? drillRe(`Activated via ${t.label}`, 'Legacy customers who activated after the re-engagement email', c => c.status === 'Activated') :
           drill(
             `Activated via ${t.label}`,
