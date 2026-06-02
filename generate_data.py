@@ -605,7 +605,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         if returned:
             status = 'Returned'
         elif serials and serial_act_map:
-            ser_list_status = [s.strip() for s in serials.split(',') if s.strip()]
+            ser_list_status = [s.strip() for s in _re.split(r'[,|]', serials) if s.strip()]
             status = 'Activated' if any(s in serial_act_map for s in ser_list_status) else 'Pending'
         else:
             status = 'Activated' if sub_id else 'Pending'
@@ -616,7 +616,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         if serial_act_map and serials:
             try:
                 sent_dt  = datetime.strptime(sent_date, '%Y-%m-%d').date()
-                ser_list = [s.strip() for s in serials.split(',') if s.strip()]
+                ser_list = [s.strip() for s in _re.split(r'[,|]', serials) if s.strip()]
                 candidates = [serial_act_map[s] for s in ser_list if s in serial_act_map]
                 after = [d for d in candidates if date.fromisoformat(d) >= sent_dt]
                 if after:
@@ -717,7 +717,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         if returned_at:
             status = 'Returned'
         elif serials and serial_act_map:
-            ser_list_status = [s.strip() for s in serials.split(',') if s.strip()]
+            ser_list_status = [s.strip() for s in _re.split(r'[,|]', serials) if s.strip()]
             status = 'Activated' if any(s in serial_act_map for s in ser_list_status) else 'Pending'
         else:
             status = 'Activated' if sub_id else 'Pending'
@@ -731,7 +731,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         if serial_act_map and serials and status == 'Activated':
             try:
                 sent_dt  = datetime.strptime(sent_date, '%Y-%m-%d').date()
-                ser_list = [s.strip() for s in serials.split(',') if s.strip()]
+                ser_list = [s.strip() for s in _re.split(r'[,|]', serials) if s.strip()]
                 candidates = [serial_act_map[s] for s in ser_list if s in serial_act_map]
                 after = [d for d in candidates if date.fromisoformat(d) >= sent_dt]
                 if after:
@@ -788,7 +788,7 @@ def compute_data(activation_rows, followup_rows, sheet_map, sg_email_map=None, f
         if returned_at:
             status = 'Returned'
         elif serials and serial_act_map:
-            ser_list_status = [s.strip() for s in serials.split(',') if s.strip()]
+            ser_list_status = [s.strip() for s in _re.split(r'[,|]', serials) if s.strip()]
             status = 'Activated' if any(s in serial_act_map for s in ser_list_status) else 'Pending'
         else:
             status = 'Activated' if sub_id else 'Pending'
