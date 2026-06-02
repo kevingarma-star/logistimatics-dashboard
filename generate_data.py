@@ -121,18 +121,22 @@ def fetch_category_stats(key):
         combined = {
             'requests': 0, 'delivered': 0, 'bounces': 0, 'unsubscribes': 0,
             'unique_opens': 0, 'opens': 0, 'unique_clicks': 0, 'clicks': 0,
+            'drops': 0, 'blocks': 0, 'spam_report_drops': 0,
             'in_transit': 0, 'activation': 0, 'followup': 0,
         }
         for s in row.get('stats', []):
             m = s.get('metrics', {})
-            combined['requests']      += m.get('requests',      0)
-            combined['delivered']     += m.get('delivered',     0)
-            combined['bounces']       += m.get('bounces',       0)
-            combined['unsubscribes']  += m.get('unsubscribes',  0)
-            combined['unique_opens']  += m.get('unique_opens',  0)
-            combined['opens']         += m.get('opens',         0)
-            combined['unique_clicks'] += m.get('unique_clicks', 0)
-            combined['clicks']        += m.get('clicks',        0)
+            combined['requests']          += m.get('requests',          0)
+            combined['delivered']         += m.get('delivered',         0)
+            combined['bounces']           += m.get('bounces',           0)
+            combined['unsubscribes']      += m.get('unsubscribes',      0)
+            combined['unique_opens']      += m.get('unique_opens',      0)
+            combined['opens']             += m.get('opens',             0)
+            combined['unique_clicks']     += m.get('unique_clicks',     0)
+            combined['clicks']            += m.get('clicks',            0)
+            combined['drops']             += m.get('drops',             0)
+            combined['blocks']            += m.get('blocks',            0)
+            combined['spam_report_drops'] += m.get('spam_report_drops', 0)
             if s.get('name') == 'in-transit-email':
                 combined['in_transit'] += m.get('requests', 0)
             elif s.get('name') == 'activation-email':
@@ -321,14 +325,20 @@ def fetch_activity_feed_stats():
     cat_stats = fetch_category_stats(key)
     for d, cs in cat_stats.items():
         if d in results:
-            # Override engagement metrics with Category Stats numbers
-            results[d]['unique_opens']  = cs['unique_opens']
-            results[d]['opens']         = cs['opens']
-            results[d]['unique_clicks'] = cs['unique_clicks']
-            results[d]['clicks']        = cs['clicks']
-            results[d]['delivered']     = cs['delivered']
-            results[d]['bounces']       = cs['bounces']
-            results[d]['requests']      = max(results[d]['requests'], cs['requests'])
+            # Override ALL delivery+engagement metrics with Category Stats numbers.
+            # Critically, use Category Stats request count — NOT max() — to avoid
+            # inflating requests with Activity Feed emails from other campaigns
+            # (e.g. reengagement emails that share a subject pattern with followup2).
+            results[d]['unique_opens']      = cs['unique_opens']
+            results[d]['opens']             = cs['opens']
+            results[d]['unique_clicks']     = cs['unique_clicks']
+            results[d]['clicks']            = cs['clicks']
+            results[d]['delivered']         = cs['delivered']
+            results[d]['bounces']           = cs['bounces']
+            results[d]['requests']          = cs['requests']
+            results[d]['drops']             = cs.get('drops', 0)
+            results[d]['blocks']            = cs.get('blocks', 0)
+            results[d]['spam_report_drops'] = cs.get('spam_report_drops', 0)
         else:
             # Date only in Category Stats (e.g. today's sends not yet in Activity Feed)
             results[d] = cs
@@ -415,16 +425,23 @@ def compute_sg_summary(sg_stats, cat_stats_dates):
     rate_note = ('Category Stats (activation-email + followup-email categories)'
                  if use_cat else 'Activity Feed (subject match)')
 
-    # Category Stats delivery counts lag 24-48 h for large batches.
-    # Exclude the last 2 days so a same-day bulk send doesn't crater the rate.
+    # Use Category Stats rows for delivery metrics — the Activity Feed can capture
+    # emails from other campaigns (e.g. reengagement) that share a subject pattern,
+    # inflating requests and cratering the apparent delivery rate.
+    # Fall back to all rows if we have no Category Stats data.
     from datetime import timedelta
     settled_cutoff = (date.today() - timedelta(days=2)).isoformat()
-    settled = [d for d in sg_stats if d.get('date', '') <= settled_cutoff] or sg_stats
+    settled_all = [d for d in sg_stats if d.get('date', '') <= settled_cutoff] or sg_stats
+    settled_cat = [d for d in cat_rows if d.get('date', '') <= settled_cutoff] or cat_rows
+    settled     = settled_cat if settled_cat else settled_all
 
     all_del  = sum(d.get('delivered',     0) for d in settled)
     all_bnc  = sum(d.get('bounces',       0) for d in settled)
     all_req  = sum(d.get('requests',      0) for d in settled) or all_del or 1
     all_uns  = sum(d.get('unsubscribes',  0) for d in settled)
+    all_drp  = sum(d.get('drops',         0) for d in settled)
+    all_blk  = sum(d.get('blocks',        0) for d in settled)
+    all_spd  = sum(d.get('spam_report_drops', 0) for d in settled)
 
     # Open rate and click rate: use Category Stats rows only.
     # Activity Feed is unreliable for historical data — it only returns messages
@@ -435,23 +452,26 @@ def compute_sg_summary(sg_stats, cat_stats_dates):
     clk_cnt  = sum(d.get('unique_clicks', 0) for d in rate_rows)
 
     return {
-        'has_campaign_data':  True,
-        'data_source':        'category_stats' if use_cat else 'activity_feed',
-        'period_start':       sg_stats[0]['date'],
-        'period_end':         sg_stats[-1]['date'],
-        'total_delivered':    all_del,
-        'total_opens':        open_cnt,
-        'total_clicks':       clk_cnt,
-        'total_bounces':      all_bnc,
-        'total_requests':     all_req,
-        'total_unsubscribes': all_uns,
-        'avg_open_rate':      min(round(open_cnt / rate_del * 100, 1), 100.0),
-        'avg_click_rate':     min(round(clk_cnt  / rate_del * 100, 2), 100.0) if rate_del else 0,
-        'avg_delivery_rate':  round(all_del  / all_req * 100, 1) if all_req else 0,
-        'avg_bounce_rate':    round(all_bnc  / all_req * 100, 2) if all_req else 0,
+        'has_campaign_data':       True,
+        'data_source':             'category_stats' if use_cat else 'activity_feed',
+        'period_start':            sg_stats[0]['date'],
+        'period_end':              sg_stats[-1]['date'],
+        'total_delivered':         all_del,
+        'total_opens':             open_cnt,
+        'total_clicks':            clk_cnt,
+        'total_bounces':           all_bnc,
+        'total_requests':          all_req,
+        'total_unsubscribes':      all_uns,
+        'total_drops':             all_drp,
+        'total_blocks':            all_blk,
+        'total_spam_report_drops': all_spd,
+        'avg_open_rate':           min(round(open_cnt / rate_del * 100, 1), 100.0),
+        'avg_click_rate':          min(round(clk_cnt  / rate_del * 100, 2), 100.0) if rate_del else 0,
+        'avg_delivery_rate':       round(all_del / all_req * 100, 1) if all_req else 0,
+        'avg_bounce_rate':         round(all_bnc / all_req * 100, 2) if all_req else 0,
         'data_note': (
             f'Open & click rates from {rate_note} ({rate_del} delivered). '
-            f'Delivery rate across all {all_del} campaign emails.'
+            f'Delivery rate from Category Stats rows ({all_del} delivered / {all_req} sent).'
         ),
     }
 
