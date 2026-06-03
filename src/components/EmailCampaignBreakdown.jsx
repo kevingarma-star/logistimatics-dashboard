@@ -35,15 +35,6 @@ const TOUCHES = [
     border:  'rgba(0,229,160,0.25)',
     icon:    '✉️',
   },
-  {
-    key:     'RE',
-    label:   'Re-engagement',
-    sublabel: '',
-    color:   '#ff6b6b',
-    dim:     'rgba(255,107,107,0.12)',
-    border:  'rgba(255,107,107,0.25)',
-    icon:    '🔄',
-  },
 ]
 
 function pct(num, den) {
@@ -83,7 +74,7 @@ function formatDate(iso) {
   return new Date(y, m - 1, d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }
 
-export default function EmailCampaignBreakdown({ customers, summary, onDrill, inTransitCustomers = [], reengagementCustomers = [] }) {
+export default function EmailCampaignBreakdown({ customers, summary, onDrill, inTransitCustomers = [] }) {
   if (!customers?.length) return null
 
   const inTransitStartDate = inTransitCustomers.length
@@ -102,12 +93,7 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
   const t0Sent      = summary?.in_transit_exclusive_sent      ?? summary?.in_transit_sent      ?? 0
   const t0Activated = summary?.in_transit_exclusive_activated ?? summary?.in_transit_activated ?? 0
 
-  // RE counts come from summary totals — re-engagement recipients predate the email program
-  // and are not in the customers array
-  const reSent      = summary?.reengagement_sent      ?? 0
-  const reActivated = summary?.reengagement_activated ?? 0
-
-  const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent, RE: reSent }
+  const sentByTouch = { T0: t0Sent, T1: total, T2: t2Sent, T3: t3Sent }
 
   const activatedByTouch = {
     T0: t0Activated,
@@ -115,7 +101,6 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
     T2: customers.filter(c => c.activated_after_touch === 'T2').length,
     // generate_data.py doesn't set activated_after_touch for T3; derive from fu2_sent + status
     T3: customers.filter(c => c.fu2_sent && c.status === 'Activated').length,
-    RE: reActivated,
   }
 
   const drill = (label, subtitle, filterFn) => {
@@ -128,10 +113,9 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
     return () => onDrill(label, subtitle, pool.filter(filterFn))
   }
   const drillIt = drillFrom(inTransitCustomers)
-  const drillRe = drillFrom(reengagementCustomers)
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 14 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 14 }}>
       {TOUCHES.map(t => {
         const sent      = sentByTouch[t.key]
         const activated = activatedByTouch[t.key]
@@ -142,12 +126,10 @@ export default function EmailCampaignBreakdown({ customers, summary, onDrill, in
                            c => c.fu2_sent  // T3
         const drillSent =
           t.key === 'T0' ? drillIt(`${t.label} — All Sent`, 'All customers who received the in-transit email', () => true) :
-          t.key === 'RE' ? drillRe(`${t.label} — All Sent`, 'All legacy customers who received the re-engagement email', () => true) :
           drill(`${t.label} — All Sent`, `All customers who received the ${t.label.toLowerCase()}`, sentFilter)
 
         const drillActivated =
           t.key === 'T0' ? drillIt(`Activated via ${t.label}`, 'In-transit customers who have since activated', c => c.status === 'Activated') :
-          t.key === 'RE' ? drillRe(`Activated via ${t.label}`, 'Legacy customers who activated after the re-engagement email', c => c.status === 'Activated') :
           drill(
             `Activated via ${t.label}`,
             `Customers who activated after receiving the ${t.label.toLowerCase()}`,
