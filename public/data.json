@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-03T05:05:31",
+  "generated_at": "2026-06-03T05:34:37",
   "summary": {
-    "total_outreached": 854,
+    "total_outreached": 857,
     "activated": 362,
-    "pending": 482,
+    "pending": 485,
     "returned": 10,
-    "activation_rate": 42.4,
+    "activation_rate": 42.2,
     "followup_sent": 617,
     "followup_customers_reached": 349,
     "followup_activated": 47,
@@ -239,6 +239,12 @@
       "label": "Jun 02",
       "activation": 14,
       "followup": 80
+    },
+    {
+      "date": "2026-06-03",
+      "label": "Jun 03",
+      "activation": 3,
+      "followup": 0
     }
   ],
   "cohorts": [
@@ -589,23 +595,35 @@
       "followup_activated": 0,
       "activation_rate": 0.0,
       "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-06-03",
+      "label": "Jun 03",
+      "total": 3,
+      "activated": 0,
+      "pending": 3,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0
     }
   ],
   "funnel": [
     {
       "stage": "Outreached",
-      "value": 629,
+      "value": 632,
       "pct": 100
     },
     {
       "stage": "Follow-up Sent",
       "value": 349,
-      "pct": 55.5
+      "pct": 55.2
     },
     {
       "stage": "Activated",
       "value": 256,
-      "pct": 40.7
+      "pct": 40.5
     }
   ],
   "customers": [
@@ -16333,6 +16351,81 @@
       "sg_opens_count": 1,
       "sg_clicks_count": 0,
       "sg_last_event": ""
+    },
+    {
+      "email": "metromonitoring1@gmail.com",
+      "sent_date": "2026-06-03",
+      "serials": "277074",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "gorellana0809@yahoo.com",
+      "sent_date": "2026-06-03",
+      "serials": "273957",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "gpsguy913@gmail.com",
+      "sent_date": "2026-06-03",
+      "serials": "276735, 276736, 276737, 276738, 276739",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
     }
   ],
   "activation_timing": {
@@ -29144,7 +29237,7 @@
       "in_transit": 2,
       "activation": 1,
       "followup": 0,
-      "followup2": 803,
+      "followup2": 802,
       "drops": 0,
       "blocks": 0,
       "spam_report_drops": 0,
@@ -29288,12 +29381,12 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 14,
-      "delivered": 13,
+      "requests": 17,
+      "delivered": 16,
       "bounces": 1,
       "unsubscribes": 0,
-      "unique_opens": 6,
-      "opens": 6,
+      "unique_opens": 7,
+      "opens": 8,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 18,
@@ -29305,10 +29398,10 @@
       "spam_report_drops": 0,
       "date": "2026-06-03",
       "from_category_stats": true,
-      "open_rate": 46.2,
+      "open_rate": 43.8,
       "click_rate": 0.0,
-      "delivery_rate": 92.9,
-      "bounce_rate": 7.14
+      "delivery_rate": 94.1,
+      "bounce_rate": 5.88
     }
   ],
   "sendgrid_summary": {
@@ -29317,7 +29410,7 @@
     "period_start": "2026-04-27",
     "period_end": "2026-06-03",
     "total_delivered": 1050,
-    "total_opens": 556,
+    "total_opens": 557,
     "total_clicks": 55,
     "total_bounces": 4,
     "total_requests": 1077,
@@ -29325,18 +29418,18 @@
     "total_drops": 0,
     "total_blocks": 6,
     "total_spam_report_drops": 11,
-    "avg_open_rate": 45.6,
-    "avg_click_rate": 4.51,
+    "avg_open_rate": 45.5,
+    "avg_click_rate": 4.5,
     "avg_delivery_rate": 97.5,
     "avg_bounce_rate": 0.37,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (1220 delivered). Delivery rate from Category Stats rows (1050 delivered / 1077 sent).",
-    "customer_tracked": 440,
-    "customer_delivered": 426,
-    "customer_opened": 211,
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (1223 delivered). Delivery rate from Category Stats rows (1050 delivered / 1077 sent).",
+    "customer_tracked": 443,
+    "customer_delivered": 429,
+    "customer_opened": 212,
     "customer_clicked": 18,
     "customer_bounced": 0,
-    "customer_open_rate": 49.5,
-    "customer_click_rate": 4.23,
+    "customer_open_rate": 49.4,
+    "customer_click_rate": 4.2,
     "customer_delivery_rate": 96.8,
     "customer_bounce_rate": 0.0
   },
