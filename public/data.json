@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-06-03T03:51:24",
+  "generated_at": "2026-06-03T04:05:13",
   "summary": {
     "total_outreached": 840,
-    "activated": 329,
-    "pending": 507,
-    "returned": 4,
-    "activation_rate": 39.2,
+    "activated": 362,
+    "pending": 468,
+    "returned": 10,
+    "activation_rate": 43.1,
     "followup_sent": 617,
     "followup_customers_reached": 349,
-    "followup_activated": 43,
-    "followup_conversion_rate": 12.3,
+    "followup_activated": 47,
+    "followup_conversion_rate": 13.5,
     "in_transit_sent": 361,
-    "in_transit_activated": 112,
+    "in_transit_activated": 143,
     "in_transit_exclusive_sent": 211,
-    "in_transit_exclusive_activated": 82,
+    "in_transit_exclusive_activated": 106,
     "reengagement_sent": 906,
     "reengagement_activated": 5
   },
@@ -330,13 +330,13 @@
       "batch_date": "2026-04-15",
       "label": "Apr 15",
       "total": 31,
-      "activated": 9,
-      "pending": 22,
+      "activated": 10,
+      "pending": 21,
       "returned": 0,
       "followup_sent": 30,
-      "followup_activated": 8,
-      "activation_rate": 29.0,
-      "followup_conv_rate": 26.7
+      "followup_activated": 9,
+      "activation_rate": 32.3,
+      "followup_conv_rate": 30.0
     },
     {
       "batch_date": "2026-04-16",
@@ -522,13 +522,13 @@
       "batch_date": "2026-05-19",
       "label": "May 19",
       "total": 24,
-      "activated": 4,
-      "pending": 20,
+      "activated": 5,
+      "pending": 19,
       "returned": 0,
       "followup_sent": 20,
-      "followup_activated": 3,
-      "activation_rate": 16.7,
-      "followup_conv_rate": 15.0
+      "followup_activated": 4,
+      "activation_rate": 20.8,
+      "followup_conv_rate": 20.0
     },
     {
       "batch_date": "2026-05-21",
@@ -546,36 +546,36 @@
       "batch_date": "2026-05-26",
       "label": "May 26",
       "total": 84,
-      "activated": 26,
-      "pending": 58,
-      "returned": 0,
+      "activated": 29,
+      "pending": 53,
+      "returned": 2,
       "followup_sent": 54,
-      "followup_activated": 0,
-      "activation_rate": 31.0,
-      "followup_conv_rate": 0.0
+      "followup_activated": 2,
+      "activation_rate": 34.5,
+      "followup_conv_rate": 3.7
     },
     {
       "batch_date": "2026-05-29",
       "label": "May 29",
       "total": 27,
-      "activated": 2,
-      "pending": 25,
-      "returned": 0,
+      "activated": 4,
+      "pending": 22,
+      "returned": 1,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 7.4,
+      "activation_rate": 14.8,
       "followup_conv_rate": 0
     },
     {
       "batch_date": "2026-06-01",
       "label": "Jun 01",
       "total": 26,
-      "activated": 0,
-      "pending": 26,
+      "activated": 2,
+      "pending": 24,
       "returned": 0,
       "followup_sent": 0,
       "followup_activated": 0,
-      "activation_rate": 0.0,
+      "activation_rate": 7.7,
       "followup_conv_rate": 0
     },
     {
@@ -583,8 +583,8 @@
       "label": "Jun 02",
       "total": 14,
       "activated": 0,
-      "pending": 14,
-      "returned": 0,
+      "pending": 11,
+      "returned": 3,
       "followup_sent": 0,
       "followup_activated": 0,
       "activation_rate": 0.0,
@@ -604,8 +604,8 @@
     },
     {
       "stage": "Activated",
-      "value": 247,
-      "pct": 39.3
+      "value": 256,
+      "pct": 40.7
     }
   ],
   "customers": [
@@ -9697,10 +9697,10 @@
       "fu2_date": "2026-05-07",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-06-03",
+      "days_to_activate": 49,
+      "activated_after_touch": "T3",
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -11647,10 +11647,10 @@
       "fu2_date": "2026-06-02",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "days_to_activate": 13,
+      "activated_after_touch": "T3",
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -12822,10 +12822,10 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "days_to_activate": 7,
+      "activated_after_touch": "T2",
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -13072,10 +13072,10 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "days_to_activate": 6,
+      "activated_after_touch": "T1",
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -13547,10 +13547,10 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "days_to_activate": 7,
+      "activated_after_touch": "T2",
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": false,
@@ -13897,7 +13897,7 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "days_to_activate": null,
       "activated_after_touch": null,
@@ -14447,7 +14447,7 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "days_to_activate": null,
       "activated_after_touch": null,
@@ -15022,7 +15022,7 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "days_to_activate": null,
       "activated_after_touch": null,
@@ -15147,10 +15147,10 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "days_to_activate": 4,
+      "activated_after_touch": "T1",
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -15247,10 +15247,10 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "days_to_activate": 4,
+      "activated_after_touch": "T1",
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -15497,10 +15497,10 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "days_to_activate": 1,
+      "activated_after_touch": "T1",
       "sg_delivered": true,
       "sg_opened": false,
       "sg_clicked": false,
@@ -15572,10 +15572,10 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "days_to_activate": null,
-      "activated_after_touch": null,
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "days_to_activate": 0,
+      "activated_after_touch": "T1",
       "sg_delivered": true,
       "sg_opened": true,
       "sg_clicked": true,
@@ -15997,7 +15997,7 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "days_to_activate": null,
       "activated_after_touch": null,
@@ -16022,7 +16022,7 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "days_to_activate": null,
       "activated_after_touch": null,
@@ -16272,7 +16272,7 @@
       "fu2_date": "",
       "fu3_sent": false,
       "fu3_date": "",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "days_to_activate": null,
       "activated_after_touch": null,
@@ -16336,9 +16336,9 @@
     }
   ],
   "activation_timing": {
-    "total_activated": 247,
-    "with_activation_date": 247,
-    "avg_days_to_activate": 12.2,
+    "total_activated": 256,
+    "with_activation_date": 256,
+    "avg_days_to_activate": 12.1,
     "median_days_to_activate": 6,
     "by_touch": [
       {
@@ -16346,28 +16346,28 @@
         "label": "After In-Transit",
         "desc": "Activated before the first follow-up email",
         "count": 10,
-        "pct": 4.0
+        "pct": 3.9
       },
       {
         "touch": "T1",
         "label": "After Touch 1",
         "desc": "Activated without needing a follow-up",
-        "count": 194,
-        "pct": 78.5
+        "count": 199,
+        "pct": 77.7
       },
       {
         "touch": "T2",
         "label": "After Touch 2",
         "desc": "Activated after the second email",
-        "count": 5,
-        "pct": 2.0
+        "count": 7,
+        "pct": 2.7
       },
       {
         "touch": "T3",
         "label": "After Touch 3",
         "desc": "Activated after the third email",
-        "count": 38,
-        "pct": 15.4
+        "count": 40,
+        "pct": 15.6
       },
       {
         "touch": "T4",
@@ -16380,15 +16380,15 @@
     "days_distribution": [
       {
         "bucket": "\u2264 3d",
-        "count": 42
+        "count": 44
       },
       {
         "bucket": "4\u20137d",
-        "count": 11
+        "count": 16
       },
       {
         "bucket": "8\u201314d",
-        "count": 22
+        "count": 23
       },
       {
         "bucket": "15\u201321d",
@@ -16404,7 +16404,7 @@
       },
       {
         "bucket": "46+d",
-        "count": 5
+        "count": 6
       }
     ]
   },
@@ -16416,9 +16416,9 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-06-01",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "asorensenplumb@gmail.com",
@@ -16449,9 +16449,9 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-06-01",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "johnsonbernardin@yahoo.com",
@@ -16988,9 +16988,9 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-05-29",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "clyde.coleman@pfgc.com",
@@ -17087,7 +17087,7 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-05-29",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "activated_after_touch": null
     },
@@ -17153,9 +17153,9 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-05-29",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "shaun@advancedriser.com",
@@ -17340,9 +17340,9 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-05-26",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "4qualitycable@gmail.com",
@@ -17450,9 +17450,9 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-05-26",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "logan.galli@gmail.com",
@@ -17659,9 +17659,9 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-05-26",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "mkoscianska@yahoo.com",
@@ -17824,7 +17824,7 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-05-26",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "activated_after_touch": null
     },
@@ -18088,7 +18088,7 @@
       "days_since": 13,
       "fu_sent": true,
       "fu_date": "2026-05-26",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "activated_after_touch": null
     },
@@ -18451,7 +18451,7 @@
       "days_since": 8,
       "fu_sent": true,
       "fu_date": "2026-06-02",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "activated_after_touch": null
     },
@@ -18462,9 +18462,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "newton.madeline1@gmail.com",
@@ -18517,9 +18517,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "mrxxclusive@gmail.com",
@@ -18715,9 +18715,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "jfjf2818@gmail.com",
@@ -18737,9 +18737,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "tim.thehailfirm@gmail.com",
@@ -18968,9 +18968,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-03",
+      "activated_after_touch": "T0"
     },
     {
       "email": "kayla.cubero@yahoo.com",
@@ -18990,9 +18990,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "nathanandmiko@gmail.com",
@@ -19001,9 +19001,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "adam@signore.net",
@@ -19023,9 +19023,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-03",
+      "activated_after_touch": "T0"
     },
     {
       "email": "mariagcastillo8@gmail.com",
@@ -19056,9 +19056,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "nicmaddox333@gmail.com",
@@ -19100,9 +19100,9 @@
       "days_since": 6,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "adrian_phx_09@yahoo.com",
@@ -19287,7 +19287,7 @@
       "days_since": 6,
       "fu_sent": true,
       "fu_date": "2026-06-02",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "activated_after_touch": null
     },
@@ -19331,7 +19331,7 @@
       "days_since": 6,
       "fu_sent": true,
       "fu_date": "2026-06-02",
-      "status": "Pending",
+      "status": "Returned",
       "activation_date": "",
       "activated_after_touch": null
     },
@@ -19441,9 +19441,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "bstoreyb@aol.com",
@@ -19463,9 +19463,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "mgnonna@gmail.com",
@@ -19474,9 +19474,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "esurface.lets@gmail.com",
@@ -19551,9 +19551,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "richkid7825@yahoo.com",
@@ -19595,9 +19595,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "demolierejeanmaxime@gmail.com",
@@ -19606,9 +19606,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "janalacelle@gmail.com",
@@ -19672,9 +19672,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "ryanmay1995@gmail.com",
@@ -19694,9 +19694,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "burntouttransport@gmail.com",
@@ -19727,9 +19727,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "deb.debinka@gmail.com",
@@ -19738,9 +19738,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-01",
+      "activated_after_touch": "T0"
     },
     {
       "email": "anabri_59@icloud.com",
@@ -19771,9 +19771,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "zmarvin44@yahoo.com",
@@ -19815,9 +19815,9 @@
       "days_since": 2,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "stevejoihn@email.com",
@@ -19859,9 +19859,9 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-02",
+      "activated_after_touch": "T0"
     },
     {
       "email": "carlosyuri_@hotmail.com",
@@ -19936,9 +19936,9 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-06-03",
+      "activated_after_touch": "T0"
     },
     {
       "email": "csven55@yahoo.com",
