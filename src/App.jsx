@@ -22,8 +22,9 @@ function App() {
   const [rangeEnd,   setEnd]      = useState(null)
   const [refreshing, setRefreshing] = useState(false)
   const [lastRefresh, setLastRefresh] = useState(null)
-  const [drill, setDrill] = useState(null) // { title, subtitle, customers }
-  const [tab, setTab]     = useState('dashboard')
+  const [drill, setDrill]     = useState(null) // { title, subtitle, customers }
+  const [tab, setTab]         = useState('dashboard')
+  const [section, setSection] = useState('activation')
 
   // Insights state (lifted so it survives tab switches)
   const [insights, setInsights]             = useState(null)
@@ -206,7 +207,11 @@ function App() {
           <img className="header-logo" src={`${import.meta.env.BASE_URL}lgmx-bolt.png`} alt="Logistimatics" />
           <div>
             <div className="header-title">Logistimatics</div>
-            <div className="header-sub">Activation Campaign Dashboard</div>
+            <div className="header-sub">
+              {section === 'activation' && 'Activation Dashboard'}
+              {section === 'return'     && 'Return Dashboard'}
+              {section === 'churn'      && 'Churn Dashboard'}
+            </div>
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -247,6 +252,74 @@ function App() {
           </div>
         </div>
       </header>
+
+      {/* ── Section nav ── */}
+      <div style={{
+        display: 'flex', gap: 6, marginBottom: 24,
+        padding: '6px 8px',
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.07)',
+        borderRadius: 12,
+        width: 'fit-content',
+      }}>
+        {[
+          { key: 'activation', label: 'Activation Dashboard', icon: '◉' },
+          { key: 'return',     label: 'Return Dashboard',     icon: '↩' },
+          { key: 'churn',      label: 'Churn Dashboard',      icon: '⚠' },
+        ].map(sec => (
+          <button
+            key={sec.key}
+            onClick={() => setSection(sec.key)}
+            style={{
+              padding: '9px 22px',
+              fontSize: 13,
+              fontWeight: section === sec.key ? 600 : 400,
+              background: section === sec.key
+                ? 'linear-gradient(135deg, rgba(0,212,255,0.15), rgba(0,212,255,0.07))'
+                : 'transparent',
+              border: section === sec.key
+                ? '1px solid rgba(0,212,255,0.35)'
+                : '1px solid transparent',
+              borderRadius: 8,
+              color: section === sec.key ? '#00d4ff' : '#8892a4',
+              cursor: 'pointer',
+              fontFamily: 'Inter, sans-serif',
+              transition: 'all 0.15s',
+              display: 'flex', alignItems: 'center', gap: 7,
+            }}
+            onMouseEnter={e => { if (section !== sec.key) e.currentTarget.style.color = '#c0cad8' }}
+            onMouseLeave={e => { if (section !== sec.key) e.currentTarget.style.color = '#8892a4' }}
+          >
+            <span style={{ fontSize: 14 }}>{sec.icon}</span>
+            {sec.label}
+          </button>
+        ))}
+      </div>
+
+      {/* ── Return Dashboard ── */}
+      {section === 'return' && (
+        <div className="panel" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 320, gap: 12 }}>
+          <div style={{ fontSize: 36 }}>↩</div>
+          <div className="panel-title" style={{ fontSize: 18 }}>Return Dashboard</div>
+          <div className="panel-sub" style={{ textAlign: 'center', maxWidth: 400 }}>
+            Coming soon — analysis of returned devices, return rates, and customer patterns.
+          </div>
+        </div>
+      )}
+
+      {/* ── Churn Dashboard ── */}
+      {section === 'churn' && (
+        <div className="panel" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 320, gap: 12 }}>
+          <div style={{ fontSize: 36 }}>⚠</div>
+          <div className="panel-title" style={{ fontSize: 18 }}>Churn Dashboard</div>
+          <div className="panel-sub" style={{ textAlign: 'center', maxWidth: 400 }}>
+            Coming soon — churn signals, at-risk customers, and retention metrics.
+          </div>
+        </div>
+      )}
+
+      {/* ── Activation Dashboard ── */}
+      {section === 'activation' && <>
 
       {/* ── Tab toggle ── */}
       <div style={{ display: 'flex', gap: 4, marginBottom: 28 }}>
@@ -438,7 +511,10 @@ function App() {
           </div>
 
       </div>}
-      {/* /Two-column body (dashboard tab only) */}
+      {/* /Dashboard tab body */}
+
+      </>}
+      {/* /Activation Dashboard section */}
 
       {/* ── Drill-down modal — rendered outside layout so it overlays everything ── */}
       {drill && (
