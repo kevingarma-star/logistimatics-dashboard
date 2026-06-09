@@ -130,17 +130,26 @@ export default function useFilteredData(data, start, end) {
     } : { ...baseSg, has_campaign_data: false }
 
     // ── Recompute activation timing from filtered customers ────────────
-    // Touch attribution counts ALL activated customers (matching generate_data.py).
-    // Days/avg/median only use the subset with a known activation date.
+    // T0-only customers (received in-transit but never T1) are not in customers[].
+    // Normalize their fields so sent_date (in-transit date) maps to in_transit_date
+    // for consistent display in the customer table.
+    const t0OnlyActivatedList = t0Only
+      .filter(c => c.status === 'Activated')
+      .map(c => ({ ...c, in_transit_date: c.sent_date, sent_date: null, in_transit_sent: true }))
+
+    // T1+ attribution counts
     const allActivated = customers.filter(c => c.status === 'Activated')
-    // timed = post-outreach subset used for avg/median/histogram only
+    // timed = T1+ subset with known days_to_activate (used for avg/median/histogram)
     const timed = allActivated.filter(c => c.days_to_activate != null && c.days_to_activate >= 0)
     const touchCounts = { T0: 0, T1: 0, T2: 0, T3: 0 }
     for (const c of allActivated) {
       const t = c.activated_after_touch || 'T1'
       touchCounts[t] = (touchCounts[t] || 0) + 1
     }
-    const nAll   = allActivated.length
+    // Total = T1+ activated + T0-only activated (matches dashboard total)
+    const nAll   = allActivated.length + t0OnlyActivatedList.length
+    // T0 attribution = T0-only + T1+ customers who activated before T1 was sent
+    const t0Count = t0OnlyActivatedList.length + (touchCounts.T0 || 0)
     const nTimed = timed.length
     const allDays = timed.map(c => c.days_to_activate).sort((a, b) => a - b)
     const avgDays = allDays.length ? +(allDays.reduce((s, d) => s + d, 0) / allDays.length).toFixed(1) : null
@@ -156,20 +165,14 @@ export default function useFilteredData(data, start, end) {
       ['46+d',   d => d >= 46],
     ]
 
-    // T0 uses campaign-level totals from the summary (in_transit_log covers recipients
-    // who may have activated before T1 was sent and aren't in customers[]).
-    // Pct for T0 is a conversion rate (activated / sent), not an attribution share.
-    const t0Count = summary.in_transit_activated ?? 0
-    const t0Sent  = summary.in_transit_sent ?? 0
-
     const activationTiming = {
       total_activated:         nAll,
-      with_activation_date:    nAll,   // all activated count toward the total
-      timed_count:             nTimed, // post-outreach subset shown as sub-text
+      with_activation_date:    nAll,
+      timed_count:             nTimed,
       avg_days_to_activate:    avgDays,
       median_days_to_activate: medDays,
       by_touch: [
-        { touch: 'T0', label: 'After In-Transit', desc: `${t0Sent} sent · includes pre-T1 activations`, count: t0Count, pct: t0Sent ? +(t0Count / t0Sent * 100).toFixed(1) : 0, isConvRate: true },
+        { touch: 'T0', label: 'After In-Transit', desc: 'Activated via in-transit email', count: t0Count, pct: nAll ? +(t0Count / nAll * 100).toFixed(1) : 0 },
         { touch: 'T1', label: 'After Touch 1', desc: 'Activated without needing a follow-up',    count: touchCounts.T1, pct: nAll ? +(touchCounts.T1 / nAll * 100).toFixed(1) : 0 },
         { touch: 'T2', label: 'After Touch 2', desc: 'Activated after the second email',          count: touchCounts.T2, pct: nAll ? +(touchCounts.T2 / nAll * 100).toFixed(1) : 0 },
         { touch: 'T3', label: 'After Touch 3', desc: 'Activated after the third email',           count: touchCounts.T3, pct: nAll ? +(touchCounts.T3 / nAll * 100).toFixed(1) : 0 },
@@ -178,6 +181,8 @@ export default function useFilteredData(data, start, end) {
         bucket: label,
         count:  allDays.filter(fn).length,
       })),
+      // T0-only activated customers, normalized for the timing customer table
+      t0_only_activated: t0OnlyActivatedList,
     }
 
     return {

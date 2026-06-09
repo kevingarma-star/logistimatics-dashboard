@@ -113,6 +113,11 @@ function App() {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       generateInsights()
     }
+    if (tab === 'timing') {
+      // Bust-fetch on every visit so the timing tab always reflects the latest data.json,
+      // even if the 5-min poll hasn't fired yet or the CDN served a cached response.
+      loadData(false, true)
+    }
   }, [tab]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {

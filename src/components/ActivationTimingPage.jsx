@@ -245,9 +245,12 @@ function CustomerTable({ customers }) {
 export default function ActivationTimingPage({ rawData, onDrill }) {
   const timing    = rawData?.activation_timing
   const allCustomers = rawData?.customers ?? []
-  // All activated — pre-outreach activations count toward the 248 total as T1.
-  const customers = allCustomers.filter(c => c.status === 'Activated')
-  // Post-outreach subset for avg/median/histogram drill-downs.
+  // All activated: T1+ activated + T0-only activated (matches dashboard total)
+  const customers = [
+    ...allCustomers.filter(c => c.status === 'Activated'),
+    ...(timing?.t0_only_activated ?? []),
+  ]
+  // Post-outreach subset (T1+ with known days_to_activate) for avg/median/histogram drill-downs.
   const timedCustomers = customers.filter(c => c.days_to_activate != null && c.days_to_activate >= 0)
 
   const drill = (title, subtitle, list) => onDrill?.(title, subtitle, list)
@@ -330,7 +333,7 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 20, marginBottom: 24 }}>
 
         {/* Touch attribution */}
-        <div className="panel">
+        <div className="panel" style={{ minWidth: 0 }}>
           <div className="panel-title">Touch Attribution</div>
           <div className="panel-sub">Which email preceded activation?</div>
           <div style={{ marginTop: 20 }}>
@@ -341,9 +344,7 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
                 onClick={() => drill(
                   item.label,
                   item.desc,
-                  item.touch === 'T0'
-                    ? customers.filter(c => c.in_transit_sent === true)
-                    : customers.filter(c => c.activated_after_touch === item.touch)
+                  customers.filter(c => c.activated_after_touch === item.touch)
                 )}
               />
             ))}
@@ -360,11 +361,11 @@ export default function ActivationTimingPage({ rawData, onDrill }) {
         </div>
 
         {/* Days histogram */}
-        <div className="panel">
+        <div className="panel" style={{ minWidth: 0 }}>
           <div className="panel-title">Days to Activate</div>
           <div className="panel-sub">Distribution from Touch 1 to activation date</div>
-          <div style={{ marginTop: 16, height: 220 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div style={{ marginTop: 16, height: 220, minWidth: 0 }}>
+            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
               <BarChart data={histoData} barCategoryGap="20%">
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
                 <XAxis
