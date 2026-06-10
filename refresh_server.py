@@ -24,8 +24,9 @@ if not os.environ.get('ANTHROPIC_API_KEY') and _cfg_path.exists():
         pass
 
 PORT      = 8765
-REPO_DIR  = Path(__file__).parent
-SCRIPT    = REPO_DIR / 'generate_data.py'
+REPO_DIR      = Path(__file__).parent
+SCRIPT        = REPO_DIR / 'generate_data.py'
+RETURN_SCRIPT = REPO_DIR / 'generate_return_data.py'
 ALLOWED_ORIGINS = [
     'https://kevingarma-star.github.io',
     'http://localhost:5173',
@@ -414,6 +415,8 @@ class RefreshHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         if self.path == '/refresh':
             self._handle_refresh()
+        elif self.path == '/return-refresh':
+            self._handle_return_refresh()
         elif self.path == '/ask':
             self._handle_ask()
         elif self.path == '/insights':
@@ -441,6 +444,32 @@ class RefreshHandler(BaseHTTPRequestHandler):
             print(output[-500:])
         except subprocess.TimeoutExpired:
             payload = json.dumps({'ok': False, 'output': 'Timed out after 120s'}).encode()
+            status  = 500
+
+        self.send_response(status)
+        self._cors()
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', str(len(payload)))
+        self.end_headers()
+        self.wfile.write(payload)
+
+    def _handle_return_refresh(self):
+        print('\n[return-refresh] Running generate_return_data.py ...')
+        try:
+            result = subprocess.run(
+                [sys.executable, str(RETURN_SCRIPT)],
+                cwd=str(REPO_DIR),
+                capture_output=True,
+                text=True,
+                timeout=300,   # 5 min — Intercom calls per return can be slow
+            )
+            ok      = result.returncode == 0
+            output  = result.stdout[-2000:] if result.stdout else result.stderr[-2000:]
+            payload = json.dumps({'ok': ok, 'output': output}).encode()
+            status  = 200 if ok else 500
+            print(output[-500:])
+        except subprocess.TimeoutExpired:
+            payload = json.dumps({'ok': False, 'output': 'Timed out after 300s'}).encode()
             status  = 500
 
         self.send_response(status)

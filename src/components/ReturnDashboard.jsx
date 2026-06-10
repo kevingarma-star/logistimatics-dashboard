@@ -38,10 +38,15 @@ function SortIcon({ col, sortBy, sortDir }) {
   return <span style={{ color: '#00d4ff', marginLeft: 4 }}>{sortDir === 'asc' ? '↑' : '↓'}</span>
 }
 
+const RETURN_REFRESH_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/return-refresh'
+const POLL_MS = 30 * 60 * 1000   // 30 minutes
+
 export default function ReturnDashboard() {
   const [data, setData]               = useState(null)
   const [loading, setLoading]         = useState(true)
   const [noData, setNoData]           = useState(false)
+  const [refreshing, setRefreshing]   = useState(false)
+  const [lastRefresh, setLastRefresh] = useState(null)
   const [expandedRow, setExpandedRow] = useState(null)
   const [sortBy, setSortBy]           = useState('return_date')
   const [sortDir, setSortDir]         = useState('desc')
@@ -81,16 +86,41 @@ export default function ReturnDashboard() {
     }
   }, [tab]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}return_data.json`)
+  const loadReturnData = useCallback((isInitial = false, bust = false) => {
+    const url = `${import.meta.env.BASE_URL}return_data.json${bust ? `?t=${Date.now()}` : ''}`
+    if (!isInitial) setRefreshing(true)
+    fetch(url)
       .then(r => {
         if (r.status === 404) { setNoData(true); setLoading(false); return null }
         if (!r.ok) throw new Error(`HTTP ${r.status}`)
         return r.json()
       })
-      .then(d => { if (d) { setData(d); setLoading(false) } })
-      .catch(() => { setNoData(true); setLoading(false) })
+      .then(d => {
+        if (d) {
+          setData(d)
+          setLastRefresh(new Date())
+        }
+        if (isInitial) setLoading(false)
+        else setRefreshing(false)
+      })
+      .catch(() => {
+        setNoData(true)
+        if (isInitial) setLoading(false)
+        else setRefreshing(false)
+      })
   }, [])
+
+  const hardRefresh = () => {
+    loadReturnData(false, true)
+    fetch(RETURN_REFRESH_ENDPOINT, { method: 'POST' }).catch(() => {})
+  }
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadReturnData(true)
+    const timer = setInterval(() => loadReturnData(false), POLL_MS)
+    return () => clearInterval(timer)
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const returns = useMemo(() => data?.returns_list || [], [data])
 
@@ -257,8 +287,8 @@ export default function ReturnDashboard() {
   return (
     <div>
 
-      {/* ── Tab toggle ── */}
-      <div style={{ display: 'flex', gap: 4, marginBottom: 24 }}>
+      {/* ── Tab toggle + refresh ── */}
+      <div style={{ display: 'flex', gap: 4, marginBottom: 24, alignItems: 'center' }}>
         {[
           { key: 'analytics', label: '◧ Analytics' },
           { key: 'insights',  label: '✦ AI Insights' },
@@ -286,6 +316,36 @@ export default function ReturnDashboard() {
             {t.label}
           </button>
         ))}
+        <div style={{ flex: 1 }} />
+        <button
+          onClick={hardRefresh}
+          disabled={refreshing}
+          title="Refresh return data"
+          style={{
+            width: 34, height: 34,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: refreshing ? 'rgba(0,212,255,0.25)' : 'rgba(0,212,255,0.12)',
+            border: '1px solid rgba(0,212,255,0.25)',
+            borderRadius: 8, cursor: refreshing ? 'default' : 'pointer',
+            fontSize: 16, color: '#00d4ff',
+            animation: refreshing ? 'spin 0.8s linear infinite' : 'none',
+          }}
+        >
+          ↻
+        </button>
+        {lastRefresh && (
+          <div style={{ fontSize: 11, color: '#4a5568' }}>
+            {lastRefresh.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+          </div>
+        )}
+        <div style={{
+          fontSize: 10, color: '#4a5568',
+          background: 'rgba(0,0,0,0.2)',
+          border: '1px solid rgba(255,255,255,0.06)',
+          borderRadius: 6, padding: '3px 8px',
+        }}>
+          Auto-refresh 30m
+        </div>
       </div>
 
       {/* ── AI Insights tab ── */}
@@ -514,11 +574,10 @@ export default function ReturnDashboard() {
       {/* Footer metadata */}
       {generatedAt && (
         <div style={{ marginTop: 12, fontSize: 11, color: '#4a5568', textAlign: 'right' }}>
-          Data generated {generatedAt} · Run{' '}
-          <code style={{ background: 'rgba(0,0,0,0.2)', padding: '1px 5px', borderRadius: 3 }}>
-            python generate_return_data.py
-          </code>{' '}
-          to refresh
+          Data generated {generatedAt}
+          {lastRefresh && (
+            <> · Last fetched {lastRefresh.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</>
+          )}
         </div>
       )}
 

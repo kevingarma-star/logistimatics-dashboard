@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS return_conversations (
   serial           TEXT,
   conversation_id  TEXT,           -- Intercom conversation ID (null if undeliverable)
   reason_summary   TEXT,           -- Claude-generated free-text summary
+  reason_category  TEXT,           -- Standardised slug (see REASON_CONFIG in returnReasons.js)
   is_undeliverable BOOLEAN NOT NULL DEFAULT FALSE,
   processed_at     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
   updated_at       TIMESTAMPTZ NOT NULL DEFAULT NOW()
@@ -28,6 +29,9 @@ $$ LANGUAGE plpgsql;
 CREATE TRIGGER return_conversations_updated_at
 BEFORE UPDATE ON return_conversations
 FOR EACH ROW EXECUTE FUNCTION set_updated_at();
+
+-- If the table already exists, add reason_category if it's not there yet
+ALTER TABLE return_conversations ADD COLUMN IF NOT EXISTS reason_category TEXT;
 
 -- Useful indexes
 CREATE INDEX IF NOT EXISTS idx_return_conversations_email       ON return_conversations(email);

@@ -46,7 +46,7 @@ LGMX_TEAM_ID    = '5466207'    # LGMX – Customer Support inbox
 RETURN_TAG_NAME = 'B2C - Returns'
 
 # Only process returns on or after this date
-RETURNS_SINCE = '2025-05-01'
+RETURNS_SINCE = '2026-05-01'
 
 # Anthropic model for conversation summarisation
 CLAUDE_MODEL = 'claude-haiku-4-5-20251001'   # fast + cheap for summarisation
@@ -138,7 +138,7 @@ def load_all_returns():
     return _fetch_all(
         'return_conversations',
         'order_number,email,customer_name,return_date,ship_date,device_type,'
-        'serial,conversation_id,reason_summary,is_undeliverable,processed_at',
+        'serial,conversation_id,reason_summary,reason_category,is_undeliverable,processed_at',
         filters=[('order', 'return_date', {'desc': True})]
     )
 
@@ -277,25 +277,47 @@ def _strip_html(text):
     return text
 
 
+# Valid reason category slugs (must match REASON_CONFIG in src/lib/returnReasons.js)
+VALID_CATEGORIES = [
+    'no_longer_needed',
+    'subscription_cost_surprise',
+    'size_form_factor',
+    'device_defective',
+    'wrong_product',
+    'audio_quality',
+    'activation_issue',
+    'battery_life',
+    'tracking_accuracy',
+    'network_sunset',
+    'other',
+]
+
+
 # ── Claude summarisation ──────────────────────────────────────────────────────
 
 def summarise_return(anthropic_key, customer_name, transcript):
     """
-    Call Claude to produce a 1–2 sentence free-text summary of why the customer
-    returned the device, based on the conversation transcript.
+    Call Claude to produce a JSON object with:
+      - summary: 1-2 sentence free-text summary of why the customer returned
+      - category: one slug from VALID_CATEGORIES
+    Returns a dict {'summary': ..., 'category': ...} or None on failure.
     """
+    categories_list = '\n'.join(f'  - {c}' for c in VALID_CATEGORIES)
     prompt = (
         f"The following is a customer support conversation with {customer_name or 'a customer'} "
         f"who returned a GPS tracker.\n\n"
         f"Conversation:\n{transcript}\n\n"
-        f"In 1–2 sentences, summarise why this customer returned the device. "
-        f"Be specific and concise. If the reason is unclear from the conversation, "
-        f"say so briefly."
+        f"Return a JSON object with exactly two keys:\n"
+        f"1. \"summary\": A 1-2 sentence plain-text summary of why this customer returned the device. "
+        f"Be specific and concise. Reference exact complaints or quotes when relevant.\n"
+        f"2. \"category\": One of the following slugs that best describes the primary return reason:\n"
+        f"{categories_list}\n\n"
+        f"Return ONLY the JSON object, no markdown fences, no explanation."
     )
 
     body = json.dumps({
         'model':      CLAUDE_MODEL,
-        'max_tokens': 200,
+        'max_tokens': 300,
         'messages':   [{'role': 'user', 'content': prompt}],
     }).encode()
 
@@ -312,7 +334,13 @@ def summarise_return(anthropic_key, customer_name, transcript):
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
             resp = json.loads(r.read())
-        return resp['content'][0]['text'].strip()
+        raw = resp['content'][0]['text'].strip()
+        result = json.loads(raw)
+        summary  = result.get('summary', '').strip()
+        category = result.get('category', '').strip()
+        if category not in VALID_CATEGORIES:
+            category = 'other'
+        return {'summary': summary, 'category': category}
     except Exception as e:
         print(f"    [warn] Claude summarisation failed: {e}")
         return None
@@ -345,15 +373,16 @@ def build_return_data(all_returns):
 
     returns_list = [
         {
-            'order_number':   r.get('order_number'),
-            'email':          r.get('email'),
-            'customer_name':  r.get('customer_name'),
-            'return_date':    r.get('return_date'),
-            'ship_date':      r.get('ship_date'),
-            'device_type':    r.get('device_type'),
-            'serial':         r.get('serial'),
+            'order_number':    r.get('order_number'),
+            'email':           r.get('email'),
+            'customer_name':   r.get('customer_name'),
+            'return_date':     r.get('return_date'),
+            'ship_date':       r.get('ship_date'),
+            'device_type':     r.get('device_type'),
+            'serial':          r.get('serial'),
             'conversation_id': r.get('conversation_id'),
-            'reason_summary': r.get('reason_summary'),
+            'reason_summary':  r.get('reason_summary'),
+            'reason_category': r.get('reason_category'),
             'is_undeliverable': r.get('is_undeliverable', False),
         }
         for r in all_returns
@@ -420,17 +449,18 @@ def main():
         print(f"\n  [{i}/{len(new_orders)}] {order_num} — {email}")
 
         record = {
-            'order_number':   order_num,
-            'email':          email,
-            'customer_name':  name,
-            'return_date':    ret_date[:10] if ret_date else None,
-            'ship_date':      ship_date[:10] if ship_date else None,
-            'device_type':    device,
-            'serial':         serial,
+            'order_number':    order_num,
+            'email':           email,
+            'customer_name':   name,
+            'return_date':     ret_date[:10] if ret_date else None,
+            'ship_date':       ship_date[:10] if ship_date else None,
+            'device_type':     device,
+            'serial':          serial,
             'conversation_id': None,
             'reason_summary':  None,
+            'reason_category': None,
             'is_undeliverable': False,
-            'processed_at':   datetime.utcnow().isoformat() + 'Z',
+            'processed_at':    datetime.utcnow().isoformat() + 'Z',
         }
 
         # Look up Intercom contact
@@ -458,11 +488,13 @@ def main():
                 if full_conv:
                     transcript = build_transcript(full_conv)
                     if transcript.strip():
-                        summary = summarise_return(anthropic_key, name, transcript)
-                        if summary:
-                            record['reason_summary'] = summary
+                        result = summarise_return(anthropic_key, name, transcript)
+                        if result:
+                            record['reason_summary']  = result['summary']
+                            record['reason_category'] = result['category']
                             summarised_count += 1
-                            print(f"    Summary: {summary[:120]}…" if len(summary) > 120 else f"    Summary: {summary}")
+                            summary = result['summary']
+                            print(f"    [{result['category']}] {summary[:100]}…" if len(summary) > 100 else f"    [{result['category']}] {summary}")
 
         if not DRY_RUN:
             upsert_return(record)
