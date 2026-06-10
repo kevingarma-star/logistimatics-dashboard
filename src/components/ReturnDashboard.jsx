@@ -1,0 +1,586 @@
+import { useState, useEffect, useMemo, useCallback, Fragment } from 'react'
+import KPICard from './KPICard'
+import ReturnTrendChart from './ReturnTrendChart'
+import ReturnSkuChart from './ReturnSkuChart'
+import ReturnReasonCharts from './ReturnReasonCharts'
+import InsightsPage from './InsightsPage'
+import { REASON_CONFIG } from '../lib/returnReasons'
+
+const RETURN_FOCUS_OPTIONS = [
+  { key: null,       label: 'All Insights',    icon: '✦' },
+  { key: 'reasons',  label: 'Return Reasons',  icon: '📋' },
+  { key: 'products', label: 'Product Issues',  icon: '📦' },
+  { key: 'pricing',  label: 'Pricing Signals', icon: '💰' },
+  { key: 'churn',    label: 'Churn Risk',      icon: '⚠' },
+]
+
+function formatMonth(m) {
+  const [y, mo] = m.split('-')
+  return new Date(+y, +mo - 1, 1).toLocaleDateString('en-US', { month: 'short', year: '2-digit' })
+}
+
+function getWeekMonday(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00Z')
+  const day = d.getUTCDay()
+  const offset = (day + 6) % 7
+  const mon = new Date(d)
+  mon.setUTCDate(d.getUTCDate() - offset)
+  return mon.toISOString().slice(0, 10)
+}
+
+function formatWeekLabel(monStr) {
+  const d = new Date(monStr + 'T12:00:00Z')
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })
+}
+
+function SortIcon({ col, sortBy, sortDir }) {
+  if (sortBy !== col) return <span style={{ color: '#4a5568', marginLeft: 4 }}>↕</span>
+  return <span style={{ color: '#00d4ff', marginLeft: 4 }}>{sortDir === 'asc' ? '↑' : '↓'}</span>
+}
+
+const RETURN_REFRESH_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/return-refresh'
+const POLL_MS = 30 * 60 * 1000   // 30 minutes
+
+export default function ReturnDashboard() {
+  const [data, setData]               = useState(null)
+  const [loading, setLoading]         = useState(true)
+  const [noData, setNoData]           = useState(false)
+  const [refreshing, setRefreshing]   = useState(false)
+  const [lastRefresh, setLastRefresh] = useState(null)
+  const [expandedRow, setExpandedRow] = useState(null)
+  const [sortBy, setSortBy]           = useState('return_date')
+  const [sortDir, setSortDir]         = useState('desc')
+
+  // ── Tab + AI Insights state ──────────────────────────────────────────────
+  const [tab, setTab]                         = useState('analytics')
+  const [rInsights, setRInsights]             = useState(null)
+  const [rInsightsLoading, setRInsightsLoading] = useState(false)
+  const [rInsightsError, setRInsightsError]   = useState(null)
+  const [rInsightsAt, setRInsightsAt]         = useState(null)
+
+  const RETURN_INSIGHTS_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/return-insights'
+
+  const generateReturnInsights = useCallback((focus) => {
+    if (!data) return
+    setRInsightsLoading(true)
+    setRInsightsError(null)
+    fetch(RETURN_INSIGHTS_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data, focus: focus || null }),
+    })
+      .then(res => res.json().then(json => ({ ok: res.ok, json })))
+      .then(({ ok, json }) => {
+        if (!ok) throw new Error(json.error || 'Server error')
+        setRInsights(json)
+        setRInsightsAt(new Date())
+      })
+      .catch(err => setRInsightsError(err.message))
+      .finally(() => setRInsightsLoading(false))
+  }, [data]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (tab === 'insights' && !rInsights && !rInsightsLoading && data) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      generateReturnInsights()
+    }
+  }, [tab]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const loadReturnData = useCallback((isInitial = false, bust = false) => {
+    const url = `${import.meta.env.BASE_URL}return_data.json${bust ? `?t=${Date.now()}` : ''}`
+    if (!isInitial) setRefreshing(true)
+    fetch(url)
+      .then(r => {
+        if (r.status === 404) { setNoData(true); setLoading(false); return null }
+        if (!r.ok) throw new Error(`HTTP ${r.status}`)
+        return r.json()
+      })
+      .then(d => {
+        if (d) {
+          setData(d)
+          setLastRefresh(new Date())
+        }
+        if (isInitial) setLoading(false)
+        else setRefreshing(false)
+      })
+      .catch(() => {
+        setNoData(true)
+        if (isInitial) setLoading(false)
+        else setRefreshing(false)
+      })
+  }, [])
+
+  const hardRefresh = () => {
+    loadReturnData(false, true)
+    fetch(RETURN_REFRESH_ENDPOINT, { method: 'POST' }).catch(() => {})
+  }
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadReturnData(true)
+    const timer = setInterval(() => loadReturnData(false), POLL_MS)
+    return () => clearInterval(timer)
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const returns = useMemo(() => data?.returns_list || [], [data])
+
+  // ── KPI derivations ──────────────────────────────────────────────────────
+  const withReason = useMemo(
+    () => returns.filter(r => r.reason_summary && !r.is_undeliverable).length,
+    [returns],
+  )
+  const thisMonth      = new Date().toISOString().slice(0, 7)
+  const thisMonthCount = useMemo(
+    () => (data?.returns_by_month || []).find(m => m.month === thisMonth)?.count ?? 0,
+    [data, thisMonth],
+  )
+  const avgDaysToReturn = useMemo(() => {
+    const valid = returns.filter(r => !r.is_undeliverable && r.ship_date && r.return_date)
+    if (!valid.length) return null
+    const total = valid.reduce((sum, r) => {
+      const ship = new Date(r.ship_date   + 'T12:00:00Z')
+      const ret  = new Date(r.return_date + 'T12:00:00Z')
+      return sum + Math.max(0, (ret - ship) / 86400000)
+    }, 0)
+    return Math.round((total / valid.length) * 10) / 10
+  }, [returns])
+
+  // ── Trend chart data ─────────────────────────────────────────────────────
+  const weeklyChartData = useMemo(() => {
+    const map = {}
+    returns.forEach(r => {
+      if (!r.return_date) return
+      const mon = getWeekMonday(r.return_date)
+      map[mon] = (map[mon] || 0) + 1
+    })
+    return Object.keys(map).sort().map(mon => ({
+      week: formatWeekLabel(mon),
+      count: map[mon],
+    }))
+  }, [returns])
+
+  const monthlyChartData = useMemo(
+    () => (data?.returns_by_month || []).map(m => ({
+      month: formatMonth(m.month),
+      count: m.count,
+    })),
+    [data],
+  )
+
+  // ── Product / SKU breakdown ──────────────────────────────────────────────
+  const skuChartData = useMemo(() => {
+    const map = {}
+    returns.forEach(r => {
+      const device = r.device_type || 'Unknown'
+      map[device] = (map[device] || 0) + 1
+    })
+    return Object.entries(map)
+      .map(([device, count]) => ({ device, count }))
+      .sort((a, b) => {
+        if (a.device === 'Unknown') return 1
+        if (b.device === 'Unknown') return -1
+        return b.count - a.count
+      })
+  }, [returns])
+
+  // ── Reason charts data ───────────────────────────────────────────────────
+  const reasonTopData = useMemo(() => {
+    const map = {}
+    returns.forEach(r => {
+      const cat = r.reason_category || (r.is_undeliverable ? 'undeliverable' : null)
+      if (!cat) return
+      map[cat] = (map[cat] || 0) + 1
+    })
+    return Object.entries(map)
+      .map(([key, count]) => ({
+        key,
+        label: REASON_CONFIG.find(rc => rc.key === key)?.label || key,
+        count,
+      }))
+      .sort((a, b) => {
+        if (a.key === 'undeliverable') return 1
+        if (b.key === 'undeliverable') return -1
+        return b.count - a.count
+      })
+  }, [returns])
+
+  const reasonByMonthData = useMemo(() => {
+    const months = [...new Set(
+      returns.filter(r => r.return_date).map(r => r.return_date.slice(0, 7)),
+    )].sort()
+    return months.map(month => {
+      const entry = { month: formatMonth(month) }
+      returns
+        .filter(r => r.return_date?.startsWith(month))
+        .forEach(r => {
+          const cat = r.reason_category || (r.is_undeliverable ? 'undeliverable' : null)
+          if (cat) entry[cat] = (entry[cat] || 0) + 1
+        })
+      return entry
+    })
+  }, [returns])
+
+  const reasonByProductData = useMemo(() => {
+    const devices = [...new Set(returns.map(r => r.device_type || 'Unknown'))].sort((a, b) => {
+      if (a === 'Unknown') return 1
+      if (b === 'Unknown') return -1
+      return a.localeCompare(b)
+    })
+    return devices.map(device => {
+      const entry = { device }
+      returns
+        .filter(r => (r.device_type || 'Unknown') === device)
+        .forEach(r => {
+          const cat = r.reason_category || (r.is_undeliverable ? 'undeliverable' : null)
+          if (cat) entry[cat] = (entry[cat] || 0) + 1
+        })
+      return entry
+    })
+  }, [returns])
+
+  // ── Sorted table rows ────────────────────────────────────────────────────
+  const sorted = useMemo(() => [...returns].sort((a, b) => {
+    let va = a[sortBy] || ''
+    let vb = b[sortBy] || ''
+    if (sortDir === 'desc') [va, vb] = [vb, va]
+    return va < vb ? -1 : va > vb ? 1 : 0
+  }), [returns, sortBy, sortDir])
+
+  const toggleSort = col => {
+    if (sortBy === col) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
+    else { setSortBy(col); setSortDir('desc') }
+  }
+
+  // ── Loading / empty states ───────────────────────────────────────────────
+  if (loading) return (
+    <div className="state-center" style={{ minHeight: 200 }}>
+      <div className="spinner" />
+    </div>
+  )
+
+  if (noData || !data) return (
+    <div className="panel" style={{
+      display: 'flex', flexDirection: 'column', alignItems: 'center',
+      justifyContent: 'center', minHeight: 320, gap: 16,
+    }}>
+      <div style={{ fontSize: 40 }}>↩</div>
+      <div className="panel-title" style={{ fontSize: 18 }}>Return Dashboard</div>
+      <div className="panel-sub" style={{ textAlign: 'center', maxWidth: 440 }}>
+        No return data yet. Run{' '}
+        <code style={{
+          background: 'rgba(0,212,255,0.08)', padding: '2px 7px',
+          borderRadius: 4, fontSize: 12, color: '#00d4ff',
+        }}>
+          python generate_return_data.py
+        </code>
+        {' '}to populate returns from Supabase + Intercom.
+      </div>
+    </div>
+  )
+
+  const generatedAt = data.generated_at
+    ? new Date(data.generated_at).toLocaleString('en-US', {
+        month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
+      })
+    : null
+
+  return (
+    <div>
+
+      {/* ── Tab toggle + refresh ── */}
+      <div style={{ display: 'flex', gap: 4, marginBottom: 24, alignItems: 'center' }}>
+        {[
+          { key: 'analytics', label: '◧ Analytics' },
+          { key: 'insights',  label: '✦ AI Insights' },
+        ].map(t => (
+          <button
+            key={t.key}
+            onClick={() => setTab(t.key)}
+            style={{
+              padding: '8px 20px',
+              fontSize: 13,
+              fontWeight: tab === t.key ? 600 : 400,
+              background: tab === t.key ? 'rgba(0,212,255,0.1)' : 'transparent',
+              border: tab === t.key
+                ? '1px solid rgba(0,212,255,0.35)'
+                : '1px solid rgba(255,255,255,0.07)',
+              borderRadius: 8,
+              color: tab === t.key ? '#00d4ff' : '#8892a4',
+              cursor: 'pointer',
+              fontFamily: 'Inter, sans-serif',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { if (tab !== t.key) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)' }}
+            onMouseLeave={e => { if (tab !== t.key) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)' }}
+          >
+            {t.label}
+          </button>
+        ))}
+        <div style={{ flex: 1 }} />
+        <button
+          onClick={hardRefresh}
+          disabled={refreshing}
+          title="Refresh return data"
+          style={{
+            width: 34, height: 34,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: refreshing ? 'rgba(0,212,255,0.25)' : 'rgba(0,212,255,0.12)',
+            border: '1px solid rgba(0,212,255,0.25)',
+            borderRadius: 8, cursor: refreshing ? 'default' : 'pointer',
+            fontSize: 16, color: '#00d4ff',
+            animation: refreshing ? 'spin 0.8s linear infinite' : 'none',
+          }}
+        >
+          ↻
+        </button>
+        {lastRefresh && (
+          <div style={{ fontSize: 11, color: '#4a5568' }}>
+            {lastRefresh.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+          </div>
+        )}
+        <div style={{
+          fontSize: 10, color: '#4a5568',
+          background: 'rgba(0,0,0,0.2)',
+          border: '1px solid rgba(255,255,255,0.06)',
+          borderRadius: 6, padding: '3px 8px',
+        }}>
+          Auto-refresh 30m
+        </div>
+      </div>
+
+      {/* ── AI Insights tab ── */}
+      {tab === 'insights' && (
+        <InsightsPage
+          insights={rInsights}
+          loading={rInsightsLoading}
+          error={rInsightsError}
+          generatedAt={rInsightsAt}
+          onGenerate={generateReturnInsights}
+          focusOptions={RETURN_FOCUS_OPTIONS}
+          title="AI Return Insights"
+          subtitle="Powered by Claude Sonnet · Structured analysis of return patterns and root causes"
+        />
+      )}
+
+      {/* ── Analytics tab ── */}
+      {tab === 'analytics' && <>
+
+      {/* ── KPIs ── */}
+      <div style={{
+        fontSize: 10, color: '#4a5568', textTransform: 'uppercase',
+        letterSpacing: '0.8px', marginBottom: 10,
+      }}>
+        Return Overview
+      </div>
+      <div className="kpi-grid">
+        <KPICard
+          label="Total Returns"
+          value={data.total_returns}
+          icon="↩"
+          accent="red"
+          sub="All returned devices"
+        />
+        <KPICard
+          label="Reason Found"
+          value={withReason}
+          icon="💬"
+          accent="green"
+          sub={`${data.total_returns ? Math.round(withReason / data.total_returns * 100) : 0}% have Intercom summary`}
+        />
+        <KPICard
+          label="Undeliverable"
+          value={data.undeliverable_count}
+          icon="⚠"
+          accent="amber"
+          sub="No Intercom conversation found"
+        />
+        <KPICard
+          label="This Month"
+          value={thisMonthCount}
+          icon="📅"
+          accent="cyan"
+          sub={new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+        />
+        <KPICard
+          label="Avg Days to Return"
+          value={avgDaysToReturn ?? 0}
+          icon="⏱"
+          accent="purple"
+          suffix=" days"
+          sub="Ship date → return date"
+        />
+      </div>
+
+      {/* ── Period trend chart ── */}
+      <ReturnTrendChart weeklyData={weeklyChartData} monthlyData={monthlyChartData} />
+
+      {/* ── Product breakdown ── */}
+      <ReturnSkuChart data={skuChartData} />
+
+      {/* ── Reason analysis ── */}
+      <ReturnReasonCharts
+        topData={reasonTopData}
+        byMonthData={reasonByMonthData}
+        byProductData={reasonByProductData}
+      />
+
+      {/* ── Returns table ── */}
+      <div className="panel" style={{ marginTop: 20 }}>
+        <div className="panel-title">All Returns</div>
+        <div className="panel-sub">
+          {returns.length} returned device{returns.length !== 1 ? 's' : ''} · Click a row to expand the return reason
+        </div>
+
+        {returns.length === 0 ? (
+          <div style={{ color: '#4a5568', fontSize: 13, paddingTop: 24, textAlign: 'center' }}>
+            No returns on record
+          </div>
+        ) : (
+          <div className="cohort-table-wrap" style={{ marginTop: 16 }}>
+            <table className="cohort-table">
+              <thead>
+                <tr>
+                  <th style={{ cursor: 'pointer' }} onClick={() => toggleSort('return_date')}>
+                    Return Date <SortIcon col="return_date" sortBy={sortBy} sortDir={sortDir} />
+                  </th>
+                  <th style={{ cursor: 'pointer' }} onClick={() => toggleSort('customer_name')}>
+                    Customer <SortIcon col="customer_name" sortBy={sortBy} sortDir={sortDir} />
+                  </th>
+                  <th>Device</th>
+                  <th style={{ cursor: 'pointer' }} onClick={() => toggleSort('ship_date')}>
+                    Shipped <SortIcon col="ship_date" sortBy={sortBy} sortDir={sortDir} />
+                  </th>
+                  <th>Status</th>
+                  <th>Return Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sorted.map((r, i) => {
+                  const isExpanded = expandedRow === i
+                  const hasReason  = r.reason_summary && !r.is_undeliverable
+                  return (
+                    <Fragment key={r.order_number || r.email || i}>
+                      <tr
+                        onClick={() => setExpandedRow(isExpanded ? null : i)}
+                        style={{
+                          cursor: 'pointer',
+                          background: isExpanded ? 'rgba(0,212,255,0.05)' : undefined,
+                        }}
+                        onMouseEnter={e => { if (!isExpanded) e.currentTarget.style.background = 'rgba(0,212,255,0.03)' }}
+                        onMouseLeave={e => { if (!isExpanded) e.currentTarget.style.background = isExpanded ? 'rgba(0,212,255,0.05)' : 'transparent' }}
+                      >
+                        <td>
+                          <span className="mono" style={{ color: '#00d4ff', fontSize: 12 }}>
+                            {r.return_date || '—'}
+                          </span>
+                        </td>
+                        <td>
+                          <div style={{ fontWeight: 500, color: '#f0f4ff', fontSize: 13 }}>
+                            {r.customer_name || '—'}
+                          </div>
+                          <div style={{ fontSize: 11, color: '#4a5568' }}>{r.email}</div>
+                        </td>
+                        <td>
+                          <span style={{ fontSize: 12, color: '#8892a4' }}>{r.device_type || '—'}</span>
+                          {r.serial && (
+                            <div className="mono" style={{ fontSize: 10, color: '#4a5568' }}>{r.serial}</div>
+                          )}
+                        </td>
+                        <td>
+                          <span className="mono" style={{ fontSize: 12, color: '#8892a4' }}>
+                            {r.ship_date || '—'}
+                          </span>
+                        </td>
+                        <td>
+                          {r.is_undeliverable
+                            ? <span className="badge badge-amber">No Conversation</span>
+                            : <span className="badge badge-green">Summarised</span>
+                          }
+                        </td>
+                        <td style={{ maxWidth: 260 }}>
+                          {hasReason ? (
+                            <span style={{
+                              fontSize: 12, color: '#8892a4',
+                              display: '-webkit-box',
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: 'vertical',
+                              overflow: 'hidden',
+                            }}>
+                              {r.reason_summary}
+                            </span>
+                          ) : (
+                            <span style={{ color: '#4a5568', fontSize: 12 }}>—</span>
+                          )}
+                        </td>
+                      </tr>
+
+                      {isExpanded && (
+                        <tr style={{ background: 'rgba(0,212,255,0.04)' }}>
+                          <td colSpan={6} style={{ padding: '10px 16px 16px' }}>
+                            <div style={{ fontSize: 12, color: '#8892a4', marginBottom: 10, display: 'flex', gap: 20, flexWrap: 'wrap' }}>
+                              {r.order_number && (
+                                <span>
+                                  <span style={{ color: '#4a5568' }}>Order: </span>
+                                  <span className="mono" style={{ color: '#00d4ff' }}>{r.order_number}</span>
+                                </span>
+                              )}
+                              {r.conversation_id && (
+                                <span>
+                                  <span style={{ color: '#4a5568' }}>Conversation ID: </span>
+                                  <span className="mono" style={{ color: '#8b5cf6', fontSize: 11 }}>{r.conversation_id}</span>
+                                </span>
+                              )}
+                              {r.reason_category && (
+                                <span>
+                                  <span style={{ color: '#4a5568' }}>Category: </span>
+                                  <span style={{ color: '#ffa502', fontSize: 11 }}>
+                                    {REASON_CONFIG.find(rc => rc.key === r.reason_category)?.label || r.reason_category}
+                                  </span>
+                                </span>
+                              )}
+                            </div>
+                            {r.reason_summary ? (
+                              <div style={{
+                                background: 'rgba(0,0,0,0.3)',
+                                border: '1px solid rgba(255,255,255,0.07)',
+                                borderRadius: 8,
+                                padding: '10px 14px',
+                                fontSize: 13,
+                                color: '#c8d0dc',
+                                lineHeight: 1.65,
+                              }}>
+                                {r.reason_summary}
+                              </div>
+                            ) : (
+                              <div style={{ color: '#4a5568', fontSize: 12 }}>
+                                No return reason available — no Intercom conversation found for this customer.
+                              </div>
+                            )}
+                          </td>
+                        </tr>
+                      )}
+                    </Fragment>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
+
+      {/* ── End analytics tab ── */}
+      </>}
+
+      {/* Footer metadata */}
+      {generatedAt && (
+        <div style={{ marginTop: 12, fontSize: 11, color: '#4a5568', textAlign: 'right' }}>
+          Data generated {generatedAt}
+          {lastRefresh && (
+            <> · Last fetched {lastRefresh.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</>
+          )}
+        </div>
+      )}
+
+    </div>
+  )
+}

@@ -12,6 +12,7 @@ import SurveyPanel from './components/SurveyPanel'
 import InsightsPage from './components/InsightsPage'
 import ActivationTimingPage from './components/ActivationTimingPage'
 import WeekOverWeekChart from './components/WeekOverWeekChart'
+import ReturnDashboard from './components/ReturnDashboard'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -297,15 +298,7 @@ function App() {
       </div>
 
       {/* ── Return Dashboard ── */}
-      {section === 'return' && (
-        <div className="panel" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 320, gap: 12 }}>
-          <div style={{ fontSize: 36 }}>↩</div>
-          <div className="panel-title" style={{ fontSize: 18 }}>Return Dashboard</div>
-          <div className="panel-sub" style={{ textAlign: 'center', maxWidth: 400 }}>
-            Coming soon — analysis of returned devices, return rates, and customer patterns.
-          </div>
-        </div>
-      )}
+      {section === 'return' && <ReturnDashboard />}
 
       {/* ── Churn Dashboard ── */}
       {section === 'churn' && (

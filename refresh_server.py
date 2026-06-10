@@ -24,8 +24,9 @@ if not os.environ.get('ANTHROPIC_API_KEY') and _cfg_path.exists():
         pass
 
 PORT      = 8765
-REPO_DIR  = Path(__file__).parent
-SCRIPT    = REPO_DIR / 'generate_data.py'
+REPO_DIR      = Path(__file__).parent
+SCRIPT        = REPO_DIR / 'generate_data.py'
+RETURN_SCRIPT = REPO_DIR / 'generate_return_data.py'
 ALLOWED_ORIGINS = [
     'https://kevingarma-star.github.io',
     'http://localhost:5173',
@@ -151,6 +152,168 @@ def _call_claude_insights(data):
         return None, str(exc)
 
 
+RETURN_INSIGHTS_SYSTEM_PROMPT = """You are a senior returns analyst for Logistimatics, a GPS tracker company.
+You will receive product return data and must return a single JSON object — nothing else, no markdown fences, no explanation.
+
+The JSON must match this exact schema:
+{
+  "health_score": <integer 0-100, where 100 = best possible, lower = more concerning return patterns>,
+  "health_label": <"Healthy" | "Needs Attention" | "Concerning">,
+  "summary": <2-3 sentence plain-text executive summary of return patterns and their root causes>,
+  "sections": [
+    {
+      "id": <unique snake_case string>,
+      "title": <section title>,
+      "content": <2-4 sentences of specific analysis referencing real numbers from the data>,
+      "metric": <key number as string, e.g. "31.6%" or "3">,
+      "metric_label": <short label for the metric>,
+      "sentiment": <"positive" | "neutral" | "negative">
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": <"high" | "medium" | "low">,
+      "title": <short imperative action title, max 8 words>,
+      "detail": <1-2 sentences explaining exactly what to do and why>
+    }
+  ]
+}
+
+Rules:
+- sections must include: return_volume, reason_breakdown, product_analysis, pricing_signals, undeliverable_rate
+- recommendations must have 3-5 items ordered high to low priority
+- health_score: start at 100, deduct for rising return trends, high undeliverable %, quick return times (under 14 days), fixable recurring reasons
+- Every metric and claim must come from the provided data — no fabrication
+- Be specific and actionable — generic advice is not useful
+- Return ONLY the JSON object"""
+
+
+def _build_return_insights_context(data, focus=None):
+    import datetime
+    returns_list = data.get('returns_list', [])
+    total        = data.get('total_returns', 0)
+    undeliv      = data.get('undeliverable_count', 0)
+    by_month     = data.get('returns_by_month', [])
+    categorised  = total - undeliv
+
+    ctx  = '=== RETURN DATA ===\n'
+    ctx += f'\nTotal returns tracked (May 2026 onwards): {total}\n'
+    ctx += f'Undeliverable (no B2C Returns conversation in Intercom): {undeliv}'
+    ctx += f' ({round(undeliv / total * 100) if total else 0}%)\n'
+    ctx += f'Categorised returns with Intercom reason: {categorised}\n'
+
+    ctx += '\n--- Returns by Month ---\n'
+    for m in by_month:
+        ctx += f"  {m.get('month')}: {m.get('count')} returns\n"
+
+    # Reason category breakdown
+    reason_counts = {}
+    for r in returns_list:
+        cat = r.get('reason_category')
+        if cat and not r.get('is_undeliverable'):
+            reason_counts[cat] = reason_counts.get(cat, 0) + 1
+
+    ctx += '\n--- Return Reason Categories ---\n'
+    for cat, count in sorted(reason_counts.items(), key=lambda x: -x[1]):
+        pct = round(count / categorised * 100) if categorised else 0
+        ctx += f"  {cat.replace('_', ' ')}: {count} ({pct}%)\n"
+
+    # Product breakdown
+    product_counts = {}
+    for r in returns_list:
+        d = r.get('device_type')
+        if d and not r.get('is_undeliverable'):
+            product_counts[d] = product_counts.get(d, 0) + 1
+
+    ctx += '\n--- Returns by Product/SKU ---\n'
+    for prod, count in sorted(product_counts.items(), key=lambda x: -x[1]):
+        ctx += f"  {prod}: {count} returns\n"
+
+    # Avg days to return
+    days_list = []
+    for r in returns_list:
+        if r.get('ship_date') and r.get('return_date') and not r.get('is_undeliverable'):
+            try:
+                ship = datetime.date.fromisoformat(r['ship_date'])
+                ret  = datetime.date.fromisoformat(r['return_date'])
+                d    = (ret - ship).days
+                if d >= 0:
+                    days_list.append(d)
+            except ValueError:
+                pass
+    if days_list:
+        avg_d = sum(days_list) / len(days_list)
+        ctx += f'\nAverage days ship → return: {avg_d:.1f} days'
+        ctx += f' (from {len(days_list)} records with both dates)\n'
+
+    # Weekly cadence
+    week_counts = {}
+    for r in returns_list:
+        rd = r.get('return_date')
+        if rd:
+            try:
+                d   = datetime.date.fromisoformat(rd)
+                day = d.weekday()  # Mon=0
+                mon = d - datetime.timedelta(days=day)
+                key = str(mon)
+                week_counts[key] = week_counts.get(key, 0) + 1
+            except ValueError:
+                pass
+    if week_counts:
+        ctx += '\n--- Weekly return cadence ---\n'
+        for wk in sorted(week_counts):
+            ctx += f"  Week of {wk}: {week_counts[wk]} returns\n"
+
+    # Individual return summaries
+    ctx += '\n--- Individual Return Summaries (categorised only) ---\n'
+    for r in returns_list:
+        if not r.get('is_undeliverable') and r.get('reason_summary'):
+            ctx += (
+                f"[{r.get('customer_name', 'Unknown')}]"
+                f" {r.get('device_type', 'Unknown device')}"
+                f" · {r.get('reason_category', 'uncategorised')}"
+                f": {r.get('reason_summary', '')}\n\n"
+            )
+
+    if focus:
+        ctx += f'\n=== ANALYSIS FOCUS: {focus.upper()} ===\n'
+        ctx += 'Go deeper on this area in your sections and recommendations.\n'
+
+    ctx += '\n=== END DATA ==='
+    return ctx
+
+
+def _call_claude_return_insights(data, focus=None):
+    """Call Claude Sonnet with return-specific insights prompt. Returns (result_dict, error_str)."""
+    try:
+        import anthropic
+    except ImportError:
+        return None, "anthropic package not installed. Run: pip install anthropic"
+
+    api_key = os.environ.get('ANTHROPIC_API_KEY', '').strip()
+    if not api_key:
+        return None, "ANTHROPIC_API_KEY environment variable is not set."
+
+    import datetime
+    ctx    = _build_return_insights_context(data, focus)
+    client = anthropic.Anthropic(api_key=api_key)
+    try:
+        response = client.messages.create(
+            model='claude-sonnet-4-6',
+            max_tokens=2048,
+            system=RETURN_INSIGHTS_SYSTEM_PROMPT,
+            messages=[{'role': 'user', 'content': ctx}],
+        )
+        raw    = response.content[0].text
+        result = json.loads(raw)
+        result['generated_at'] = datetime.datetime.utcnow().isoformat() + 'Z'
+        return result, None
+    except json.JSONDecodeError as exc:
+        return None, f"Model returned invalid JSON: {exc}"
+    except Exception as exc:
+        return None, str(exc)
+
+
 def _call_claude(messages, data):
     """Call Claude API and return the assistant reply text."""
     try:
@@ -252,10 +415,14 @@ class RefreshHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         if self.path == '/refresh':
             self._handle_refresh()
+        elif self.path == '/return-refresh':
+            self._handle_return_refresh()
         elif self.path == '/ask':
             self._handle_ask()
         elif self.path == '/insights':
             self._handle_insights()
+        elif self.path == '/return-insights':
+            self._handle_return_insights()
         else:
             self.send_response(404)
             self.end_headers()
@@ -277,6 +444,32 @@ class RefreshHandler(BaseHTTPRequestHandler):
             print(output[-500:])
         except subprocess.TimeoutExpired:
             payload = json.dumps({'ok': False, 'output': 'Timed out after 120s'}).encode()
+            status  = 500
+
+        self.send_response(status)
+        self._cors()
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', str(len(payload)))
+        self.end_headers()
+        self.wfile.write(payload)
+
+    def _handle_return_refresh(self):
+        print('\n[return-refresh] Running generate_return_data.py ...')
+        try:
+            result = subprocess.run(
+                [sys.executable, str(RETURN_SCRIPT)],
+                cwd=str(REPO_DIR),
+                capture_output=True,
+                text=True,
+                timeout=300,   # 5 min — Intercom calls per return can be slow
+            )
+            ok      = result.returncode == 0
+            output  = result.stdout[-2000:] if result.stdout else result.stderr[-2000:]
+            payload = json.dumps({'ok': ok, 'output': output}).encode()
+            status  = 200 if ok else 500
+            print(output[-500:])
+        except subprocess.TimeoutExpired:
+            payload = json.dumps({'ok': False, 'output': 'Timed out after 300s'}).encode()
             status  = 500
 
         self.send_response(status)
@@ -322,6 +515,24 @@ class RefreshHandler(BaseHTTPRequestHandler):
             self._send_json(500, {'error': error})
         else:
             print('[insights] Done.')
+            self._send_json(200, result)
+
+    def _handle_return_insights(self):
+        try:
+            body  = json.loads(self._read_body())
+            data  = body.get('data', {})
+            focus = body.get('focus', None)
+        except Exception:
+            self._send_json(400, {'error': 'Invalid JSON body'})
+            return
+
+        print('\n[return-insights] Generating return insights with Claude Sonnet...')
+        result, error = _call_claude_return_insights(data, focus)
+        if error:
+            print(f'[return-insights] Error: {error}')
+            self._send_json(500, {'error': error})
+        else:
+            print('[return-insights] Done.')
             self._send_json(200, result)
 
     def log_message(self, fmt, *args):
