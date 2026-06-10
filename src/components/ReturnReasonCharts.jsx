@@ -203,7 +203,7 @@ export default function ReturnReasonCharts({ topData, byMonthData, byProductData
       {/* Top reasons */}
       <div className="panel" style={{ marginTop: 20 }}>
         <div className="panel-title">Top Return Reasons</div>
-        <div className="panel-sub">Categorised returns only · excludes undeliverable</div>
+        <div className="panel-sub">All returns · undeliverable shown as separate category</div>
         <div style={{ marginTop: 16 }}>
           <TopReasonsChart data={topData} />
         </div>
@@ -214,7 +214,7 @@ export default function ReturnReasonCharts({ topData, byMonthData, byProductData
         {byMonthData?.length > 0 && (
           <div className="panel">
             <div className="panel-title">Reason Trends by Month</div>
-            <div className="panel-sub">Are certain reasons rising over time?</div>
+            <div className="panel-sub">All returns including undeliverable</div>
             <div style={{ marginTop: 12 }}>
               <ReasonTrendsChart data={byMonthData} />
             </div>
@@ -223,7 +223,7 @@ export default function ReturnReasonCharts({ topData, byMonthData, byProductData
         {byProductData?.length > 0 && (
           <div className="panel">
             <div className="panel-title">Reason by Product</div>
-            <div className="panel-sub">Which devices drive which return reasons?</div>
+            <div className="panel-sub">All returns · "Unknown" = no device on record</div>
             <div style={{ marginTop: 12 }}>
               <ReasonByProductChart data={byProductData} />
             </div>

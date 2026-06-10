@@ -141,20 +141,25 @@ export default function ReturnDashboard() {
   const skuChartData = useMemo(() => {
     const map = {}
     returns.forEach(r => {
-      if (r.is_undeliverable || !r.device_type) return
-      map[r.device_type] = (map[r.device_type] || 0) + 1
+      const device = r.device_type || 'Unknown'
+      map[device] = (map[device] || 0) + 1
     })
     return Object.entries(map)
       .map(([device, count]) => ({ device, count }))
-      .sort((a, b) => b.count - a.count)
+      .sort((a, b) => {
+        if (a.device === 'Unknown') return 1
+        if (b.device === 'Unknown') return -1
+        return b.count - a.count
+      })
   }, [returns])
 
   // ── Reason charts data ───────────────────────────────────────────────────
   const reasonTopData = useMemo(() => {
     const map = {}
     returns.forEach(r => {
-      if (!r.reason_category || r.is_undeliverable) return
-      map[r.reason_category] = (map[r.reason_category] || 0) + 1
+      const cat = r.reason_category || (r.is_undeliverable ? 'undeliverable' : null)
+      if (!cat) return
+      map[cat] = (map[cat] || 0) + 1
     })
     return Object.entries(map)
       .map(([key, count]) => ({
@@ -162,33 +167,43 @@ export default function ReturnDashboard() {
         label: REASON_CONFIG.find(rc => rc.key === key)?.label || key,
         count,
       }))
-      .sort((a, b) => b.count - a.count)
+      .sort((a, b) => {
+        if (a.key === 'undeliverable') return 1
+        if (b.key === 'undeliverable') return -1
+        return b.count - a.count
+      })
   }, [returns])
 
   const reasonByMonthData = useMemo(() => {
     const months = [...new Set(
-      returns
-        .filter(r => r.return_date && r.reason_category && !r.is_undeliverable)
-        .map(r => r.return_date.slice(0, 7)),
+      returns.filter(r => r.return_date).map(r => r.return_date.slice(0, 7)),
     )].sort()
     return months.map(month => {
       const entry = { month: formatMonth(month) }
       returns
-        .filter(r => r.return_date?.startsWith(month) && r.reason_category && !r.is_undeliverable)
-        .forEach(r => { entry[r.reason_category] = (entry[r.reason_category] || 0) + 1 })
+        .filter(r => r.return_date?.startsWith(month))
+        .forEach(r => {
+          const cat = r.reason_category || (r.is_undeliverable ? 'undeliverable' : null)
+          if (cat) entry[cat] = (entry[cat] || 0) + 1
+        })
       return entry
     })
   }, [returns])
 
   const reasonByProductData = useMemo(() => {
-    const devices = [...new Set(
-      returns.filter(r => r.device_type && !r.is_undeliverable).map(r => r.device_type),
-    )].sort()
+    const devices = [...new Set(returns.map(r => r.device_type || 'Unknown'))].sort((a, b) => {
+      if (a === 'Unknown') return 1
+      if (b === 'Unknown') return -1
+      return a.localeCompare(b)
+    })
     return devices.map(device => {
       const entry = { device }
       returns
-        .filter(r => r.device_type === device && r.reason_category && !r.is_undeliverable)
-        .forEach(r => { entry[r.reason_category] = (entry[r.reason_category] || 0) + 1 })
+        .filter(r => (r.device_type || 'Unknown') === device)
+        .forEach(r => {
+          const cat = r.reason_category || (r.is_undeliverable ? 'undeliverable' : null)
+          if (cat) entry[cat] = (entry[cat] || 0) + 1
+        })
       return entry
     })
   }, [returns])

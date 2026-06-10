@@ -10,4 +10,5 @@ export const REASON_CONFIG = [
   { key: 'tracking_accuracy',          label: 'Tracking Accuracy',        color: '#14b8a6' },
   { key: 'network_sunset',             label: 'Network Sunset',           color: '#a3a3a3' },
   { key: 'other',                      label: 'Other',                    color: '#64748b' },
+  { key: 'undeliverable',             label: 'Undeliverable / No Data',  color: '#4a5568' },
 ]
