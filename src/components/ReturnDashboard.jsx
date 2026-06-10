@@ -1,30 +1,27 @@
-import { useState, useEffect, Fragment } from 'react'
-import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-} from 'recharts'
+import { useState, useEffect, useMemo, Fragment } from 'react'
 import KPICard from './KPICard'
+import ReturnTrendChart from './ReturnTrendChart'
+import ReturnSkuChart from './ReturnSkuChart'
+import ReturnReasonCharts from './ReturnReasonCharts'
+import { REASON_CONFIG } from '../lib/returnReasons'
 
 function formatMonth(m) {
   const [y, mo] = m.split('-')
   return new Date(+y, +mo - 1, 1).toLocaleDateString('en-US', { month: 'short', year: '2-digit' })
 }
 
-const MonthTooltip = ({ active, payload, label }) => {
-  if (!active || !payload?.length) return null
-  return (
-    <div style={{
-      background: 'rgba(10,10,20,0.95)',
-      border: '1px solid rgba(255,71,87,0.25)',
-      borderRadius: 8,
-      padding: '10px 14px',
-      fontSize: 12,
-    }}>
-      <div style={{ color: '#8892a4', marginBottom: 6 }}>{label}</div>
-      <div style={{ color: '#ff4757', fontWeight: 700, fontFamily: 'JetBrains Mono, monospace' }}>
-        {payload[0].value} return{payload[0].value !== 1 ? 's' : ''}
-      </div>
-    </div>
-  )
+function getWeekMonday(dateStr) {
+  const d = new Date(dateStr + 'T12:00:00Z')
+  const day = d.getUTCDay()
+  const offset = (day + 6) % 7
+  const mon = new Date(d)
+  mon.setUTCDate(d.getUTCDate() - offset)
+  return mon.toISOString().slice(0, 10)
+}
+
+function formatWeekLabel(monStr) {
+  const d = new Date(monStr + 'T12:00:00Z')
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })
 }
 
 function SortIcon({ col, sortBy, sortDir }) {
@@ -33,12 +30,12 @@ function SortIcon({ col, sortBy, sortDir }) {
 }
 
 export default function ReturnDashboard() {
-  const [data, setData]           = useState(null)
-  const [loading, setLoading]     = useState(true)
-  const [noData, setNoData]       = useState(false)
+  const [data, setData]               = useState(null)
+  const [loading, setLoading]         = useState(true)
+  const [noData, setNoData]           = useState(false)
   const [expandedRow, setExpandedRow] = useState(null)
-  const [sortBy, setSortBy]       = useState('return_date')
-  const [sortDir, setSortDir]     = useState('desc')
+  const [sortBy, setSortBy]           = useState('return_date')
+  const [sortDir, setSortDir]         = useState('desc')
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}return_data.json`)
@@ -51,6 +48,121 @@ export default function ReturnDashboard() {
       .catch(() => { setNoData(true); setLoading(false) })
   }, [])
 
+  const returns = useMemo(() => data?.returns_list || [], [data])
+
+  // ── KPI derivations ──────────────────────────────────────────────────────
+  const withReason = useMemo(
+    () => returns.filter(r => r.reason_summary && !r.is_undeliverable).length,
+    [returns],
+  )
+  const thisMonth      = new Date().toISOString().slice(0, 7)
+  const thisMonthCount = useMemo(
+    () => (data?.returns_by_month || []).find(m => m.month === thisMonth)?.count ?? 0,
+    [data, thisMonth],
+  )
+  const avgDaysToReturn = useMemo(() => {
+    const valid = returns.filter(r => !r.is_undeliverable && r.ship_date && r.return_date)
+    if (!valid.length) return null
+    const total = valid.reduce((sum, r) => {
+      const ship = new Date(r.ship_date   + 'T12:00:00Z')
+      const ret  = new Date(r.return_date + 'T12:00:00Z')
+      return sum + Math.max(0, (ret - ship) / 86400000)
+    }, 0)
+    return Math.round((total / valid.length) * 10) / 10
+  }, [returns])
+
+  // ── Trend chart data ─────────────────────────────────────────────────────
+  const weeklyChartData = useMemo(() => {
+    const map = {}
+    returns.forEach(r => {
+      if (!r.return_date) return
+      const mon = getWeekMonday(r.return_date)
+      map[mon] = (map[mon] || 0) + 1
+    })
+    return Object.keys(map).sort().map(mon => ({
+      week: formatWeekLabel(mon),
+      count: map[mon],
+    }))
+  }, [returns])
+
+  const monthlyChartData = useMemo(
+    () => (data?.returns_by_month || []).map(m => ({
+      month: formatMonth(m.month),
+      count: m.count,
+    })),
+    [data],
+  )
+
+  // ── Product / SKU breakdown ──────────────────────────────────────────────
+  const skuChartData = useMemo(() => {
+    const map = {}
+    returns.forEach(r => {
+      if (r.is_undeliverable || !r.device_type) return
+      map[r.device_type] = (map[r.device_type] || 0) + 1
+    })
+    return Object.entries(map)
+      .map(([device, count]) => ({ device, count }))
+      .sort((a, b) => b.count - a.count)
+  }, [returns])
+
+  // ── Reason charts data ───────────────────────────────────────────────────
+  const reasonTopData = useMemo(() => {
+    const map = {}
+    returns.forEach(r => {
+      if (!r.reason_category || r.is_undeliverable) return
+      map[r.reason_category] = (map[r.reason_category] || 0) + 1
+    })
+    return Object.entries(map)
+      .map(([key, count]) => ({
+        key,
+        label: REASON_CONFIG.find(rc => rc.key === key)?.label || key,
+        count,
+      }))
+      .sort((a, b) => b.count - a.count)
+  }, [returns])
+
+  const reasonByMonthData = useMemo(() => {
+    const months = [...new Set(
+      returns
+        .filter(r => r.return_date && r.reason_category && !r.is_undeliverable)
+        .map(r => r.return_date.slice(0, 7)),
+    )].sort()
+    return months.map(month => {
+      const entry = { month: formatMonth(month) }
+      returns
+        .filter(r => r.return_date?.startsWith(month) && r.reason_category && !r.is_undeliverable)
+        .forEach(r => { entry[r.reason_category] = (entry[r.reason_category] || 0) + 1 })
+      return entry
+    })
+  }, [returns])
+
+  const reasonByProductData = useMemo(() => {
+    const devices = [...new Set(
+      returns.filter(r => r.device_type && !r.is_undeliverable).map(r => r.device_type),
+    )].sort()
+    return devices.map(device => {
+      const entry = { device }
+      returns
+        .filter(r => r.device_type === device && r.reason_category && !r.is_undeliverable)
+        .forEach(r => { entry[r.reason_category] = (entry[r.reason_category] || 0) + 1 })
+      return entry
+    })
+  }, [returns])
+
+  // ── Sorted table rows ────────────────────────────────────────────────────
+  const sorted = useMemo(() => [...returns].sort((a, b) => {
+    let va = a[sortBy] || ''
+    let vb = b[sortBy] || ''
+    if (sortDir === 'desc') [va, vb] = [vb, va]
+    return va < vb ? -1 : va > vb ? 1 : 0
+  }), [returns, sortBy, sortDir])
+
+  const toggleSort = col => {
+    if (sortBy === col) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
+    else { setSortBy(col); setSortDir('desc') }
+  }
+
+  // ── Loading / empty states ───────────────────────────────────────────────
   if (loading) return (
     <div className="state-center" style={{ minHeight: 200 }}>
       <div className="spinner" />
@@ -77,27 +189,6 @@ export default function ReturnDashboard() {
     </div>
   )
 
-  const returns    = data.returns_list || []
-  const withReason = returns.filter(r => r.reason_summary && !r.is_undeliverable).length
-  const thisMonth  = new Date().toISOString().slice(0, 7)
-  const thisMonthCount = (data.returns_by_month || []).find(m => m.month === thisMonth)?.count ?? 0
-  const chartData  = (data.returns_by_month || []).map(m => ({
-    month: formatMonth(m.month),
-    count: m.count,
-  }))
-
-  const sorted = [...returns].sort((a, b) => {
-    let va = a[sortBy] || ''
-    let vb = b[sortBy] || ''
-    if (sortDir === 'desc') [va, vb] = [vb, va]
-    return va < vb ? -1 : va > vb ? 1 : 0
-  })
-
-  const toggleSort = col => {
-    if (sortBy === col) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
-    else { setSortBy(col); setSortDir('desc') }
-  }
-
   const generatedAt = data.generated_at
     ? new Date(data.generated_at).toLocaleString('en-US', {
         month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit',
@@ -114,7 +205,7 @@ export default function ReturnDashboard() {
       }}>
         Return Overview
       </div>
-      <div className="kpi-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+      <div className="kpi-grid">
         <KPICard
           label="Total Returns"
           value={data.total_returns}
@@ -143,41 +234,28 @@ export default function ReturnDashboard() {
           accent="cyan"
           sub={new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
         />
+        <KPICard
+          label="Avg Days to Return"
+          value={avgDaysToReturn ?? 0}
+          icon="⏱"
+          accent="purple"
+          suffix=" days"
+          sub="Ship date → return date"
+        />
       </div>
 
-      {/* ── Monthly trend ── */}
-      {chartData.length > 0 && (
-        <div className="panel" style={{ marginTop: 24 }}>
-          <div className="panel-title">Returns by Month</div>
-          <div className="panel-sub">Devices returned per calendar month · SmartLabel excluded</div>
-          <ResponsiveContainer width="100%" height={220}>
-            <BarChart data={chartData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-              <XAxis
-                dataKey="month"
-                tick={{ fill: '#8892a4', fontSize: 11 }}
-                axisLine={false}
-                tickLine={false}
-              />
-              <YAxis
-                tick={{ fill: '#8892a4', fontSize: 11 }}
-                axisLine={false}
-                tickLine={false}
-                allowDecimals={false}
-              />
-              <Tooltip content={<MonthTooltip />} cursor={{ fill: 'rgba(255,71,87,0.05)' }} />
-              <Bar
-                dataKey="count"
-                name="Returns"
-                fill="#ff4757"
-                fillOpacity={0.8}
-                radius={[4, 4, 0, 0]}
-                maxBarSize={52}
-              />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      )}
+      {/* ── Period trend chart ── */}
+      <ReturnTrendChart weeklyData={weeklyChartData} monthlyData={monthlyChartData} />
+
+      {/* ── Product breakdown ── */}
+      <ReturnSkuChart data={skuChartData} />
+
+      {/* ── Reason analysis ── */}
+      <ReturnReasonCharts
+        topData={reasonTopData}
+        byMonthData={reasonByMonthData}
+        byProductData={reasonByProductData}
+      />
 
       {/* ── Returns table ── */}
       <div className="panel" style={{ marginTop: 20 }}>
@@ -214,7 +292,7 @@ export default function ReturnDashboard() {
                   const isExpanded = expandedRow === i
                   const hasReason  = r.reason_summary && !r.is_undeliverable
                   return (
-                    <Fragment key={r.order_number || i}>
+                    <Fragment key={r.order_number || r.email || i}>
                       <tr
                         onClick={() => setExpandedRow(isExpanded ? null : i)}
                         style={{
@@ -273,14 +351,24 @@ export default function ReturnDashboard() {
                         <tr style={{ background: 'rgba(0,212,255,0.04)' }}>
                           <td colSpan={6} style={{ padding: '10px 16px 16px' }}>
                             <div style={{ fontSize: 12, color: '#8892a4', marginBottom: 10, display: 'flex', gap: 20, flexWrap: 'wrap' }}>
-                              <span>
-                                <span style={{ color: '#4a5568' }}>Order: </span>
-                                <span className="mono" style={{ color: '#00d4ff' }}>{r.order_number}</span>
-                              </span>
+                              {r.order_number && (
+                                <span>
+                                  <span style={{ color: '#4a5568' }}>Order: </span>
+                                  <span className="mono" style={{ color: '#00d4ff' }}>{r.order_number}</span>
+                                </span>
+                              )}
                               {r.conversation_id && (
                                 <span>
                                   <span style={{ color: '#4a5568' }}>Conversation ID: </span>
                                   <span className="mono" style={{ color: '#8b5cf6', fontSize: 11 }}>{r.conversation_id}</span>
+                                </span>
+                              )}
+                              {r.reason_category && (
+                                <span>
+                                  <span style={{ color: '#4a5568' }}>Category: </span>
+                                  <span style={{ color: '#ffa502', fontSize: 11 }}>
+                                    {REASON_CONFIG.find(rc => rc.key === r.reason_category)?.label || r.reason_category}
+                                  </span>
                                 </span>
                               )}
                             </div>

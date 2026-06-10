@@ -3,8 +3,8 @@
   "total_returns": 19,
   "undeliverable_count": 6,
   "returns_by_month": [
-    { "month": "2026-05", "count": 7 },
-    { "month": "2026-06", "count": 12 }
+    { "month": "2026-05", "count": 9 },
+    { "month": "2026-06", "count": 10 }
   ],
   "returns_list": [
     {
@@ -17,6 +17,7 @@
       "serial": null,
       "conversation_id": null,
       "reason_summary": "Undeliverable — no Intercom conversation found for this customer.",
+      "reason_category": null,
       "is_undeliverable": true
     },
     {
@@ -29,6 +30,7 @@
       "serial": null,
       "conversation_id": "215474407156725",
       "reason_summary": "Customer returned the AssetTrack Mini because it was too bulky for their intended use on a teenager's e-bike; the device was brand new and unused with no subscription activated.",
+      "reason_category": "size_form_factor",
       "is_undeliverable": false
     },
     {
@@ -41,6 +43,7 @@
       "serial": null,
       "conversation_id": null,
       "reason_summary": "Undeliverable — Fin AI handled a return inquiry as assumed resolution; no human-assigned return conversation was found in the LGMX Support inbox.",
+      "reason_category": null,
       "is_undeliverable": true
     },
     {
@@ -53,6 +56,7 @@
       "serial": "277619",
       "conversation_id": "215474519747796",
       "reason_summary": "Customer returned the Mobile 200 because it was too large and bulky for their intended application — specifically noting there was no way to discreetly install it in a vehicle. No issues with the product performance or subscription pricing were cited.",
+      "reason_category": "size_form_factor",
       "is_undeliverable": false
     },
     {
@@ -65,6 +69,7 @@
       "serial": "277630",
       "conversation_id": "215474505597838",
       "reason_summary": "Customer returned the Mobile 200 immediately upon receipt, reporting the device was entirely non-functional straight out of the box. \"It's entirely not working and aggravating I just received this today.\"",
+      "reason_category": "device_defective",
       "is_undeliverable": false
     },
     {
@@ -77,6 +82,7 @@
       "serial": null,
       "conversation_id": "215474491282109",
       "reason_summary": "Customer returned the device after realizing it was not the correct product for their needs. Return initiated in Spanish — customer stated they ordered the wrong item rather than citing any product performance issue.",
+      "reason_category": "wrong_product",
       "is_undeliverable": false
     },
     {
@@ -89,6 +95,7 @@
       "serial": "277635",
       "conversation_id": "215474483145757",
       "reason_summary": "Customer returned the Mobile 200 because the phone call and live audio feature was not functional on their Verizon iPhone. The primary use case they purchased the device for could not be fulfilled.",
+      "reason_category": "device_defective",
       "is_undeliverable": false
     },
     {
@@ -101,6 +108,7 @@
       "serial": null,
       "conversation_id": "215474548251920",
       "reason_summary": "Customer returned the device due to undisclosed live audio costs. At $6/hour, the audio feature was not affordable for their intended use of 8–10 hours of daily monitoring. The pricing was not communicated at the time of purchase or in the advertisement.",
+      "reason_category": "subscription_cost_surprise",
       "is_undeliverable": false
     },
     {
@@ -113,6 +121,7 @@
       "serial": null,
       "conversation_id": "215474453844957",
       "reason_summary": "Customer returned the Road Wired GPS tracker, stating they no longer needed the item. No product performance issues or pricing concerns were cited.",
+      "reason_category": "no_longer_needed",
       "is_undeliverable": false
     },
     {
@@ -125,6 +134,7 @@
       "serial": "277075",
       "conversation_id": "215474307554769",
       "reason_summary": "Customer returned the Mobile 200 after experiencing persistent difficulties activating the live audio feature. Despite support attempts, the issue could not be resolved and the customer opted to return the device.",
+      "reason_category": "activation_issue",
       "is_undeliverable": false
     },
     {
@@ -137,6 +147,7 @@
       "serial": "287934",
       "conversation_id": "215474311160931",
       "reason_summary": "Customer returned the AssetTrack Voyager due to activation issues — the device model did not match what the activation system expected, resulting in a failed setup experience. The conversation required extended handling before a return was processed.",
+      "reason_category": "activation_issue",
       "is_undeliverable": false
     },
     {
@@ -149,6 +160,7 @@
       "serial": null,
       "conversation_id": "215474350986693",
       "reason_summary": "Customer returned the device citing undisclosed live audio pricing — at $6/hour, the listening feature was not financially viable for extended daily use. The audio cost was not disclosed in the advertisement at the time of purchase.",
+      "reason_category": "subscription_cost_surprise",
       "is_undeliverable": false
     },
     {
@@ -161,6 +173,7 @@
       "serial": null,
       "conversation_id": "215474264084316",
       "reason_summary": "Customer returned the Mobile 200 citing the audio feature cost as prohibitive. The stated reason on file is \"cost too much for the audio.\" No issues with device hardware or shipping were reported.",
+      "reason_category": "subscription_cost_surprise",
       "is_undeliverable": false
     },
     {
@@ -173,6 +186,7 @@
       "serial": null,
       "conversation_id": "215474274919685",
       "reason_summary": "Customer initiated a return without providing specific details beyond wanting to return the item. The return was processed through the standard RMA/exchanges workflow.",
+      "reason_category": "no_longer_needed",
       "is_undeliverable": false
     },
     {
@@ -185,6 +199,7 @@
       "serial": null,
       "conversation_id": "215474305385173",
       "reason_summary": "Customer requested a return for order SHOP-1331193, citing that the item was no longer needed. No product performance issues or pricing concerns were cited.",
+      "reason_category": "no_longer_needed",
       "is_undeliverable": false
     },
     {
@@ -197,6 +212,7 @@
       "serial": null,
       "conversation_id": "215474471082133",
       "reason_summary": "Undeliverable — conversation found was categorized under live audio tech support only; no human-assigned return conversation with B2C Returns tag was found in the LGMX Support inbox.",
+      "reason_category": null,
       "is_undeliverable": true
     },
     {
@@ -209,6 +225,7 @@
       "serial": null,
       "conversation_id": "215474355290701",
       "reason_summary": "Undeliverable — conversation found was categorized under Order/Shipping only; no human-assigned return conversation with B2C Returns tag was found in the LGMX Support inbox.",
+      "reason_category": null,
       "is_undeliverable": true
     },
     {
@@ -221,6 +238,7 @@
       "serial": null,
       "conversation_id": "215474459386288",
       "reason_summary": "Package was returned to shipper — customer reported the item was never received and was sent back to origin. No customer-initiated return conversation with B2C Returns tag was found.",
+      "reason_category": null,
       "is_undeliverable": true
     },
     {
@@ -233,6 +251,7 @@
       "serial": null,
       "conversation_id": "215474279100236",
       "reason_summary": "Package was returned to shipper due to an incorrect delivery address — customer reported the order was never delivered. No customer-initiated return conversation with B2C Returns tag was found.",
+      "reason_category": null,
       "is_undeliverable": true
     }
   ]
