@@ -12,15 +12,15 @@ Flow:
   4. For each new return:
        a. Look up the customer email in Intercom
        b. Find a conversation tagged "B2C - Returns" in LGMX Support inbox
-       c. If found → send transcript to Claude → free-text reason summary
-       d. If not found → mark as "Undeliverable"
+       c. If found -> send transcript to Claude -> free-text reason summary
+       d. If not found -> mark as "Undeliverable"
   5. Upsert results into Supabase return_conversations
   6. Write public/return_data.json
 
 Prerequisites:
   - Run once: execute create_return_conversations_table.sql in Supabase
   - Add INTERCOM_TOKEN to server_config.json
-    (get it from Intercom → Settings → Integrations → Developer Hub → Your App → Access Token)
+    (get it from Intercom -> Settings -> Integrations -> Developer Hub -> Your App -> Access Token)
 
 Usage:
     python generate_return_data.py [--dry-run]
@@ -43,7 +43,7 @@ OUTPUT_PATH = REPO_DIR / 'public' / 'return_data.json'
 
 # Intercom
 LGMX_TEAM_ID    = '5466207'    # LGMX – Customer Support inbox
-RETURN_TAG_NAME = 'B2C - Returns'
+RETURN_TAG_NAME = 'B2C Returns'
 
 # Only process returns on or after this date
 RETURNS_SINCE = '2026-05-01'
@@ -73,8 +73,8 @@ def load_config():
     if not intercom_token:
         print(
             "\nERROR: INTERCOM_TOKEN missing from server_config.json\n"
-            "  1. Go to Intercom → Settings → Integrations → Developer Hub\n"
-            "  2. Open your app (or create one) → Authentication\n"
+            "  1. Go to Intercom -> Settings -> Integrations -> Developer Hub\n"
+            "  2. Open your app (or create one) -> Authentication\n"
             "  3. Copy the Access Token\n"
             "  4. Add to server_config.json:  \"INTERCOM_TOKEN\": \"<token>\"\n"
         )
@@ -90,15 +90,25 @@ def fetch_returned_orders():
     Pull all rows from shopify_orders where return_processed_at is not null
     and >= RETURNS_SINCE. Excludes SmartLabel devices.
     """
-    from supabase_client import _fetch_all
-    rows = _fetch_all(
-        'shopify_orders',
-        'order_number,customer_email,billing_name,ship_date,return_processed_at,device_type,serial',
-        filters=[
-            ('not.is', 'return_processed_at', 'null'),
-            ('gte', 'return_processed_at', RETURNS_SINCE),
-        ]
-    )
+    from supabase_client import get_client
+    client = get_client()
+    rows = []
+    offset = 0
+    page_size = 1000
+    while True:
+        result = (
+            client.table('shopify_orders')
+            .select('order_number,customer_email,billing_name,ship_date,return_processed_at,device_type,serial')
+            .neq('return_processed_at', None)
+            .gte('return_processed_at', RETURNS_SINCE)
+            .range(offset, offset + page_size - 1)
+            .execute()
+        )
+        batch = result.data or []
+        rows.extend(batch)
+        if len(batch) < page_size:
+            break
+        offset += page_size
     # Filter out SmartLabel devices and rows without email
     result = []
     for r in rows:
@@ -134,13 +144,28 @@ def upsert_return(record):
 
 def load_all_returns():
     """Load all records from return_conversations ordered by return_date desc."""
-    from supabase_client import _fetch_all
-    return _fetch_all(
-        'return_conversations',
-        'order_number,email,customer_name,return_date,ship_date,device_type,'
-        'serial,conversation_id,reason_summary,reason_category,is_undeliverable,processed_at',
-        filters=[('order', 'return_date', {'desc': True})]
-    )
+    from supabase_client import get_client
+    client = get_client()
+    rows = []
+    offset = 0
+    page_size = 1000
+    while True:
+        result = (
+            client.table('return_conversations')
+            .select(
+                'order_number,email,customer_name,return_date,ship_date,device_type,'
+                'serial,conversation_id,reason_summary,reason_category,is_undeliverable,processed_at'
+            )
+            .order('return_date', desc=True)
+            .range(offset, offset + page_size - 1)
+            .execute()
+        )
+        batch = result.data or []
+        rows.extend(batch)
+        if len(batch) < page_size:
+            break
+        offset += page_size
+    return rows
 
 
 # ── Intercom helpers ──────────────────────────────────────────────────────────
@@ -161,7 +186,7 @@ def _intercom_request(token, method, path, body=None):
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
         body_text = e.read().decode('utf-8', errors='replace')
-        raise RuntimeError(f"Intercom {method} {path} → HTTP {e.code}: {body_text[:300]}")
+        raise RuntimeError(f"Intercom {method} {path} -> HTTP {e.code}: {body_text[:300]}")
 
 
 def get_return_tag_id(token):
@@ -335,6 +360,12 @@ def summarise_return(anthropic_key, customer_name, transcript):
         with urllib.request.urlopen(req, timeout=30) as r:
             resp = json.loads(r.read())
         raw = resp['content'][0]['text'].strip()
+        # Strip markdown code fences if present
+        if raw.startswith('```'):
+            raw = raw.split('```')[1]
+            if raw.startswith('json'):
+                raw = raw[4:]
+            raw = raw.strip()
         result = json.loads(raw)
         summary  = result.get('summary', '').strip()
         category = result.get('category', '').strip()
@@ -400,20 +431,20 @@ def build_return_data(all_returns):
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
-    print(f"\n{'[DRY RUN] ' if DRY_RUN else ''}generate_return_data.py starting…")
+    print(f"\n{'[DRY RUN] ' if DRY_RUN else ''}generate_return_data.py starting...")
     print(f"  Returns since: {RETURNS_SINCE}")
 
     anthropic_key, intercom_token = load_config()
 
     # ── Step 1: Fetch returned orders from Supabase ───────────────────────────
-    print("\n[1] Fetching returned orders from Supabase…")
+    print("\n[1] Fetching returned orders from Supabase...")
     returned_orders = fetch_returned_orders()
     if not returned_orders:
         print("  No returned orders found. Exiting.")
         return
 
     # ── Step 2: Skip already-processed orders ────────────────────────────────
-    print("\n[2] Checking already-processed orders…")
+    print("\n[2] Checking already-processed orders...")
     processed = fetch_processed_order_numbers()
     new_orders = [o for o in returned_orders if o.get('order_number') not in processed]
     print(f"  Already processed: {len(processed)} | New to process: {len(new_orders)}")
@@ -421,7 +452,7 @@ def main():
     # ── Step 3: Fetch the Intercom return tag ID ──────────────────────────────
     tag_id = None
     if new_orders:
-        print(f"\n[3] Looking up Intercom tag '{RETURN_TAG_NAME}'…")
+        print(f"\n[3] Looking up Intercom tag '{RETURN_TAG_NAME}'...")
         try:
             tag_id = get_return_tag_id(intercom_token)
             print(f"  Tag ID: {tag_id}")
@@ -435,7 +466,7 @@ def main():
     summarised_count = 0
 
     if new_orders:
-        print(f"\n[4] Processing {len(new_orders)} new return(s)…")
+        print(f"\n[4] Processing {len(new_orders)} new return(s)...")
 
     for i, order in enumerate(new_orders, 1):
         email     = (order.get('customer_email') or '').strip().lower()
@@ -466,7 +497,7 @@ def main():
         # Look up Intercom contact
         contact_id = find_contact_id(intercom_token, email)
         if not contact_id:
-            print(f"    No Intercom contact → Undeliverable")
+            print(f"    No Intercom contact -> Undeliverable")
             record['reason_summary']  = 'Undeliverable — no Intercom contact found'
             record['is_undeliverable'] = True
             undeliverable_count += 1
@@ -474,7 +505,7 @@ def main():
             # Search for return conversation
             conv = find_return_conversation(intercom_token, contact_id, tag_id)
             if not conv:
-                print(f"    No 'B2C - Returns' conversation → Undeliverable")
+                print(f"    No 'B2C - Returns' conversation -> Undeliverable")
                 record['reason_summary']  = 'Undeliverable — no return conversation in Intercom'
                 record['is_undeliverable'] = True
                 undeliverable_count += 1
@@ -494,7 +525,7 @@ def main():
                             record['reason_category'] = result['category']
                             summarised_count += 1
                             summary = result['summary']
-                            print(f"    [{result['category']}] {summary[:100]}…" if len(summary) > 100 else f"    [{result['category']}] {summary}")
+                            print(f"    [{result['category']}] {summary[:100]}..." if len(summary) > 100 else f"    [{result['category']}] {summary}")
 
         if not DRY_RUN:
             upsert_return(record)
@@ -506,7 +537,7 @@ def main():
             time.sleep(1)
 
     # ── Step 5: Build and write output ───────────────────────────────────────
-    print("\n[5] Building return_data.json…")
+    print("\n[5] Building return_data.json...")
     if DRY_RUN:
         print("  [dry-run] Skipping Supabase writes and output.")
         print(f"\n  Would have processed {processed_count} orders "
