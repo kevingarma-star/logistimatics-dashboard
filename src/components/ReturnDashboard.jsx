@@ -1,9 +1,18 @@
-import { useState, useEffect, useMemo, Fragment } from 'react'
+import { useState, useEffect, useMemo, useCallback, Fragment } from 'react'
 import KPICard from './KPICard'
 import ReturnTrendChart from './ReturnTrendChart'
 import ReturnSkuChart from './ReturnSkuChart'
 import ReturnReasonCharts from './ReturnReasonCharts'
+import InsightsPage from './InsightsPage'
 import { REASON_CONFIG } from '../lib/returnReasons'
+
+const RETURN_FOCUS_OPTIONS = [
+  { key: null,       label: 'All Insights',    icon: '✦' },
+  { key: 'reasons',  label: 'Return Reasons',  icon: '📋' },
+  { key: 'products', label: 'Product Issues',  icon: '📦' },
+  { key: 'pricing',  label: 'Pricing Signals', icon: '💰' },
+  { key: 'churn',    label: 'Churn Risk',      icon: '⚠' },
+]
 
 function formatMonth(m) {
   const [y, mo] = m.split('-')
@@ -36,6 +45,41 @@ export default function ReturnDashboard() {
   const [expandedRow, setExpandedRow] = useState(null)
   const [sortBy, setSortBy]           = useState('return_date')
   const [sortDir, setSortDir]         = useState('desc')
+
+  // ── Tab + AI Insights state ──────────────────────────────────────────────
+  const [tab, setTab]                         = useState('analytics')
+  const [rInsights, setRInsights]             = useState(null)
+  const [rInsightsLoading, setRInsightsLoading] = useState(false)
+  const [rInsightsError, setRInsightsError]   = useState(null)
+  const [rInsightsAt, setRInsightsAt]         = useState(null)
+
+  const RETURN_INSIGHTS_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/return-insights'
+
+  const generateReturnInsights = useCallback((focus) => {
+    if (!data) return
+    setRInsightsLoading(true)
+    setRInsightsError(null)
+    fetch(RETURN_INSIGHTS_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ data, focus: focus || null }),
+    })
+      .then(res => res.json().then(json => ({ ok: res.ok, json })))
+      .then(({ ok, json }) => {
+        if (!ok) throw new Error(json.error || 'Server error')
+        setRInsights(json)
+        setRInsightsAt(new Date())
+      })
+      .catch(err => setRInsightsError(err.message))
+      .finally(() => setRInsightsLoading(false))
+  }, [data]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (tab === 'insights' && !rInsights && !rInsightsLoading && data) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      generateReturnInsights()
+    }
+  }, [tab]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}return_data.json`)
@@ -197,6 +241,54 @@ export default function ReturnDashboard() {
 
   return (
     <div>
+
+      {/* ── Tab toggle ── */}
+      <div style={{ display: 'flex', gap: 4, marginBottom: 24 }}>
+        {[
+          { key: 'analytics', label: '◧ Analytics' },
+          { key: 'insights',  label: '✦ AI Insights' },
+        ].map(t => (
+          <button
+            key={t.key}
+            onClick={() => setTab(t.key)}
+            style={{
+              padding: '8px 20px',
+              fontSize: 13,
+              fontWeight: tab === t.key ? 600 : 400,
+              background: tab === t.key ? 'rgba(0,212,255,0.1)' : 'transparent',
+              border: tab === t.key
+                ? '1px solid rgba(0,212,255,0.35)'
+                : '1px solid rgba(255,255,255,0.07)',
+              borderRadius: 8,
+              color: tab === t.key ? '#00d4ff' : '#8892a4',
+              cursor: 'pointer',
+              fontFamily: 'Inter, sans-serif',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => { if (tab !== t.key) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.14)' }}
+            onMouseLeave={e => { if (tab !== t.key) e.currentTarget.style.borderColor = 'rgba(255,255,255,0.07)' }}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      {/* ── AI Insights tab ── */}
+      {tab === 'insights' && (
+        <InsightsPage
+          insights={rInsights}
+          loading={rInsightsLoading}
+          error={rInsightsError}
+          generatedAt={rInsightsAt}
+          onGenerate={generateReturnInsights}
+          focusOptions={RETURN_FOCUS_OPTIONS}
+          title="AI Return Insights"
+          subtitle="Powered by Claude Sonnet · Structured analysis of return patterns and root causes"
+        />
+      )}
+
+      {/* ── Analytics tab ── */}
+      {tab === 'analytics' && <>
 
       {/* ── KPIs ── */}
       <div style={{
@@ -400,6 +492,9 @@ export default function ReturnDashboard() {
           </div>
         )}
       </div>
+
+      {/* ── End analytics tab ── */}
+      </>}
 
       {/* Footer metadata */}
       {generatedAt && (

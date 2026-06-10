@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const FOCUS_OPTIONS = [
+const DEFAULT_FOCUS_OPTIONS = [
   { key: null,      label: 'All Insights',       icon: '✦' },
   { key: 'funnel',  label: 'Funnel Drop-off',    icon: '📉' },
   { key: 'email',   label: 'Email Health',        icon: '📬' },
@@ -20,7 +20,12 @@ const PRIORITY_STYLE = {
   low:    { color: '#00d4ff', bg: 'rgba(0,212,255,0.08)',  border: 'rgba(0,212,255,0.22)',  label: 'LOW'  },
 }
 
-export default function InsightsPage({ insights, loading, error, generatedAt, onGenerate }) {
+export default function InsightsPage({
+  insights, loading, error, generatedAt, onGenerate,
+  focusOptions = DEFAULT_FOCUS_OPTIONS,
+  title = 'AI Campaign Insights',
+  subtitle = 'Powered by Claude Sonnet · Structured analysis of live campaign data',
+}) {
   const [selectedFocus, setSelectedFocus] = useState(null)
 
   const handleFocusClick = (key) => {
@@ -48,10 +53,10 @@ export default function InsightsPage({ insights, loading, error, generatedAt, on
       }}>
         <div>
           <div style={{ fontSize: 18, fontWeight: 700, color: '#f0f4ff', marginBottom: 4 }}>
-            AI Campaign Insights
+            {title}
           </div>
           <div style={{ fontSize: 12, color: '#8892a4' }}>
-            Powered by Claude Sonnet · Structured analysis of live campaign data
+            {subtitle}
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexShrink: 0 }}>
@@ -90,7 +95,7 @@ export default function InsightsPage({ insights, loading, error, generatedAt, on
         <span style={{ fontSize: 11, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.6px', alignSelf: 'center', marginRight: 4 }}>
           Focus
         </span>
-        {FOCUS_OPTIONS.map(opt => {
+        {focusOptions.map(opt => {
           const isActive = selectedFocus === opt.key
           return (
             <button
@@ -119,7 +124,7 @@ export default function InsightsPage({ insights, loading, error, generatedAt, on
         })}
         {selectedFocus && (
           <span style={{ fontSize: 11, color: '#4a5568', alignSelf: 'center', marginLeft: 4 }}>
-            · Claude will go deeper on <span style={{ color: '#00d4ff' }}>{FOCUS_OPTIONS.find(o => o.key === selectedFocus)?.label}</span>
+            · Claude will go deeper on <span style={{ color: '#00d4ff' }}>{focusOptions.find(o => o.key === selectedFocus)?.label}</span>
           </span>
         )}
       </div>
