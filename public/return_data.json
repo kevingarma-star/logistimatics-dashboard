@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-10T14:00:00Z",
-  "total_returns": 19,
-  "undeliverable_count": 6,
+  "generated_at": "2026-06-10T15:00:00Z",
+  "total_returns": 23,
+  "undeliverable_count": 8,
   "returns_by_month": [
-    { "month": "2026-05", "count": 9 },
+    { "month": "2026-05", "count": 13 },
     { "month": "2026-06", "count": 10 }
   ],
   "returns_list": [
@@ -21,7 +21,7 @@
       "is_undeliverable": true
     },
     {
-      "order_number": "1331370",
+      "order_number": "SHOP-1331370",
       "email": "justo2k6@gmail.com",
       "customer_name": "Justus N",
       "return_date": "2026-05-21",
@@ -60,7 +60,7 @@
       "is_undeliverable": false
     },
     {
-      "order_number": null,
+      "order_number": "SHOP-1331589",
       "email": "sara.donley@yahoo.com",
       "customer_name": "Sara Buff",
       "return_date": "2026-06-09",
@@ -86,7 +86,7 @@
       "is_undeliverable": false
     },
     {
-      "order_number": null,
+      "order_number": "SHOP-1331618",
       "email": "tatercutter@yahoo.com",
       "customer_name": "Tatum Clark",
       "return_date": "2026-06-04",
@@ -125,7 +125,7 @@
       "is_undeliverable": false
     },
     {
-      "order_number": null,
+      "order_number": "SHOP-1331414",
       "email": "kingkeatz@icloud.com",
       "customer_name": "Emmanuel Audu",
       "return_date": "2026-06-02",
@@ -251,6 +251,58 @@
       "serial": "278141",
       "conversation_id": "215474279100236",
       "reason_summary": "Package was returned to shipper due to an incorrect delivery address — customer reported the order was never delivered. No customer-initiated return conversation with B2C Returns tag was found.",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "SHOP-1330670",
+      "email": "rgwc11@gmail.com",
+      "customer_name": "Robin Welch",
+      "return_date": "2026-05-07",
+      "ship_date": "2026-03-16",
+      "device_type": "Mobile 200",
+      "serial": "265508",
+      "conversation_id": "215473878546778",
+      "reason_summary": "Robin Welch returned the GPS tracker due to setup issues and fees. They stated \"The fees and couldn't set it up\" as their reason for the return.",
+      "reason_category": "activation_issue",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1331147",
+      "email": "tim201726@yahoo.com",
+      "customer_name": "Tim Hays",
+      "return_date": "2026-05-13",
+      "ship_date": "2026-05-04",
+      "device_type": "AssetTrack Mini",
+      "serial": "276676",
+      "conversation_id": "215474217532820",
+      "reason_summary": "Customer entered an incorrect SOS number during device setup and was unable to locate the option to change it in the app despite multiple troubleshooting attempts. Customer ultimately stated 'i dont like this tracker' and requested to speak with a human agent.",
+      "reason_category": "activation_issue",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1331007",
+      "email": "arganadayspa@gmail.com",
+      "customer_name": "Inna Shagabaeva",
+      "return_date": "2026-05-07",
+      "ship_date": "2026-04-02",
+      "device_type": "AssetTrack Mini",
+      "serial": "274620",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable — no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "SHOP-1331089",
+      "email": "ismaniamat@yahoo.com",
+      "customer_name": "Isma Niamat",
+      "return_date": "2026-05-07",
+      "ship_date": "2026-04-20",
+      "device_type": "AssetTrack Mini",
+      "serial": "274991",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable — no return conversation in Intercom",
       "reason_category": null,
       "is_undeliverable": true
     }
