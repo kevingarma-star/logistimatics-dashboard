@@ -27,7 +27,7 @@ export default function ReturnSkuChart({ data }) {
   return (
     <div className="panel" style={{ marginTop: 20 }}>
       <div className="panel-title">Returns by Product</div>
-      <div className="panel-sub">All {data.reduce((s, d) => s + d.count, 0)} returns · undeliverable and unknown device grouped as "Unknown"</div>
+      <div className="panel-sub">All {data.reduce((s, d) => s + d.count, 0)} returns · includes undeliverable</div>
       <ResponsiveContainer width="100%" height={Math.max(160, data.length * 52)}>
         <BarChart
           data={data}
