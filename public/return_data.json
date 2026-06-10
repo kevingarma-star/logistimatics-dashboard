@@ -1,0 +1,108 @@
+{
+  "generated_at": "2026-06-10T14:00:00Z",
+  "total_returns": 8,
+  "undeliverable_count": 4,
+  "returns_by_month": [
+    { "month": "2024-10", "count": 1 },
+    { "month": "2026-03", "count": 1 },
+    { "month": "2026-05", "count": 2 }
+  ],
+  "returns_list": [
+    {
+      "order_number": null,
+      "email": "lyricalone617@gmail.com",
+      "customer_name": "Calvin John",
+      "return_date": "2026-03-30",
+      "ship_date": "2026-03-24",
+      "device_type": null,
+      "serial": null,
+      "conversation_id": "215473702760850",
+      "reason_summary": "Customer accidentally ordered two trackers when they only needed one and requested a return and refund for the extra unit; the device was shipped back and the return was processed successfully.",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": null,
+      "email": "lilliancortes24@gmail.com",
+      "customer_name": "Lillian Cortes",
+      "return_date": null,
+      "ship_date": "2026-03-30",
+      "device_type": null,
+      "serial": null,
+      "conversation_id": null,
+      "reason_summary": "Undeliverable — customer contacted Fin AI about tracker issues (battery, location) but no human-handled return conversation was found in the LGMX Support inbox.",
+      "is_undeliverable": true
+    },
+    {
+      "order_number": null,
+      "email": "quyenttdao@gmail.com",
+      "customer_name": "quyen",
+      "return_date": null,
+      "ship_date": null,
+      "device_type": null,
+      "serial": null,
+      "conversation_id": null,
+      "reason_summary": "Undeliverable — no Intercom conversation found for this customer.",
+      "is_undeliverable": true
+    },
+    {
+      "order_number": null,
+      "email": "moel2003@msn.com",
+      "customer_name": "Mohamed Elhadri",
+      "return_date": null,
+      "ship_date": "2026-05-07",
+      "device_type": null,
+      "serial": null,
+      "conversation_id": null,
+      "reason_summary": "Undeliverable — no Intercom conversation found for this customer.",
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "1331370",
+      "email": "justo2k6@gmail.com",
+      "customer_name": "Justus N",
+      "return_date": "2026-05-21",
+      "ship_date": "2026-05-11",
+      "device_type": "AssetTrack Mini",
+      "serial": null,
+      "conversation_id": "215474407156725",
+      "reason_summary": "Customer returned the AssetTrack Mini because it was too bulky for their intended use on a teenager's e-bike; the device was brand new and unused with no subscription activated.",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": null,
+      "email": "marissia.bennett@yahoo.com",
+      "customer_name": "Marissia Bennett",
+      "return_date": null,
+      "ship_date": "2026-05-21",
+      "device_type": null,
+      "serial": null,
+      "conversation_id": null,
+      "reason_summary": "Undeliverable — Fin AI handled a return inquiry as assumed resolution; no human-assigned return conversation was found in the LGMX Support inbox.",
+      "is_undeliverable": true
+    },
+    {
+      "order_number": null,
+      "email": "vsweets0826@gmail.com",
+      "customer_name": "Vero Sweets",
+      "return_date": "2024-10-21",
+      "ship_date": "2024-10-18",
+      "device_type": null,
+      "serial": null,
+      "conversation_id": "195914300014864",
+      "reason_summary": "Customer changed their mind and no longer needed the item, requesting a return for a full refund. No issues with the product itself were cited.",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1331619",
+      "email": "lchnr@yahoo.com",
+      "customer_name": "Gussan Shedid",
+      "return_date": "2026-05-30",
+      "ship_date": "2026-05-20",
+      "device_type": "Mobile 200",
+      "serial": "277619",
+      "conversation_id": "215474519747796",
+      "reason_summary": "Customer returned the Mobile 200 because it was too large and bulky for their intended application — specifically noting there was no way to discreetly install it in a vehicle. No issues with the product performance or subscription pricing were cited.",
+      "is_undeliverable": false
+    }
+  ]
+}
