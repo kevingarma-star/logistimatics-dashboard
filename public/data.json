@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-11T07:48:57",
+  "generated_at": "2026-06-11T08:03:00",
   "summary": {
-    "total_outreached": 1030,
+    "total_outreached": 1033,
     "activated": 476,
-    "pending": 544,
+    "pending": 547,
     "returned": 10,
-    "activation_rate": 46.2,
+    "activation_rate": 46.1,
     "followup_sent": 730,
     "followup_customers_reached": 394,
     "followup_activated": 56,
     "followup_conversion_rate": 14.2,
-    "in_transit_sent": 541,
+    "in_transit_sent": 544,
     "in_transit_activated": 257,
-    "in_transit_exclusive_sent": 342,
+    "in_transit_exclusive_sent": 345,
     "in_transit_exclusive_activated": 199,
     "reengagement_sent": 906,
     "reengagement_activated": 6
@@ -23906,6 +23906,39 @@
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
+    },
+    {
+      "email": "apadams03@yahoo.com",
+      "sent_date": "2026-06-11",
+      "serials": "277086",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "bhartman82@gmail.com",
+      "sent_date": "2026-06-11",
+      "serials": "277572",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "andrade.404luis@gmail.com",
+      "sent_date": "2026-06-11",
+      "serials": "277737",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     }
   ],
   "reengagement_customers": [
@@ -32704,8 +32737,8 @@
       "delivered": 167,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 32,
-      "opens": 40,
+      "unique_opens": 33,
+      "opens": 41,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 10,
@@ -32713,7 +32746,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-06-11",
-      "open_rate": 19.2,
+      "open_rate": 19.8,
       "click_rate": 0.0,
       "delivery_rate": 94.9,
       "bounce_rate": 0.0
@@ -32725,7 +32758,7 @@
     "period_start": "2026-04-27",
     "period_end": "2026-06-11",
     "total_delivered": 1593,
-    "total_opens": 783,
+    "total_opens": 784,
     "total_clicks": 78,
     "total_bounces": 12,
     "total_requests": 2533,
