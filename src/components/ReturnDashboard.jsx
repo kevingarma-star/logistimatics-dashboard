@@ -38,7 +38,7 @@ function SortIcon({ col, sortBy, sortDir }) {
   return <span style={{ color: '#00d4ff', marginLeft: 4 }}>{sortDir === 'asc' ? '↑' : '↓'}</span>
 }
 
-const RETURN_REFRESH_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/return-refresh'
+const RETURN_REFRESH_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://127.0.0.1:8765') + '/return-refresh'
 const POLL_MS = 30 * 60 * 1000   // 30 minutes
 
 export default function ReturnDashboard() {
@@ -58,7 +58,7 @@ export default function ReturnDashboard() {
   const [rInsightsError, setRInsightsError]   = useState(null)
   const [rInsightsAt, setRInsightsAt]         = useState(null)
 
-  const RETURN_INSIGHTS_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/return-insights'
+  const RETURN_INSIGHTS_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://127.0.0.1:8765') + '/return-insights'
 
   const generateReturnInsights = useCallback((focus) => {
     if (!data) return
@@ -359,6 +359,8 @@ export default function ReturnDashboard() {
           focusOptions={RETURN_FOCUS_OPTIONS}
           title="AI Return Insights"
           subtitle="Powered by Claude Sonnet · Structured analysis of return patterns and root causes"
+          loadingTitle="Analyzing return data…"
+          loadingSubtitle="Claude Sonnet is reviewing your return reasons, product breakdown, and undeliverable patterns. This typically takes 20–40 seconds."
         />
       )}
 

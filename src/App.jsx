@@ -85,10 +85,10 @@ function App() {
     // Always re-fetch data.json with a cache-busting timestamp so the browser
     // never returns a stale cached response. Also poke the local server (best-effort).
     loadData(false, true)
-    fetch('http://localhost:8765/refresh', { method: 'POST' }).catch(() => {})
+    fetch('http://127.0.0.1:8765/refresh', { method: 'POST' }).catch(() => {})
   }
 
-  const INSIGHTS_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://localhost:8765') + '/insights'
+  const INSIGHTS_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://127.0.0.1:8765') + '/insights'
 
   const generateInsights = useCallback((focus) => {
     if (!rawData) return

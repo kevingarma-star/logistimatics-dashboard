@@ -11,6 +11,7 @@ import sys
 import json
 import os
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from socketserver import ThreadingMixIn
 from pathlib import Path
 
 # Load API key from server_config.json if env var not set
@@ -140,6 +141,7 @@ def _call_claude_insights(data):
             max_tokens=2048,
             system=INSIGHTS_SYSTEM_PROMPT,
             messages=[{'role': 'user', 'content': ctx}],
+            timeout=90.0,
         )
         raw = response.content[0].text
         import datetime
@@ -303,6 +305,7 @@ def _call_claude_return_insights(data, focus=None):
             max_tokens=2048,
             system=RETURN_INSIGHTS_SYSTEM_PROMPT,
             messages=[{'role': 'user', 'content': ctx}],
+            timeout=90.0,
         )
         raw    = response.content[0].text
         result = json.loads(raw)
@@ -379,6 +382,7 @@ def _call_claude(messages, data):
             max_tokens=1024,
             system=SYSTEM_PROMPT,
             messages=api_messages,
+            timeout=90.0,
         )
         return response.content[0].text, None
     except Exception as exc:
@@ -539,8 +543,12 @@ class RefreshHandler(BaseHTTPRequestHandler):
         pass  # suppress default access log noise
 
 
+class ThreadingHTTPServer(ThreadingMixIn, HTTPServer):
+    daemon_threads = True
+
+
 if __name__ == '__main__':
-    server = HTTPServer(('127.0.0.1', PORT), RefreshHandler)
+    server = ThreadingHTTPServer(('127.0.0.1', PORT), RefreshHandler)
     print(f'[refresh-server] Listening on http://localhost:{PORT}')
     try:
         server.serve_forever()
