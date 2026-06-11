@@ -25,6 +25,8 @@ export default function InsightsPage({
   focusOptions = DEFAULT_FOCUS_OPTIONS,
   title = 'AI Campaign Insights',
   subtitle = 'Powered by Claude Sonnet · Structured analysis of live campaign data',
+  loadingTitle = 'Analyzing campaign data…',
+  loadingSubtitle = 'Claude Sonnet is reviewing your activation metrics, email performance, cohort data, and survey signals.',
 }) {
   const [selectedFocus, setSelectedFocus] = useState(null)
 
@@ -142,9 +144,9 @@ export default function InsightsPage({
             borderRadius: '50%',
             animation: 'spin 0.9s linear infinite',
           }} />
-          <div style={{ color: '#8892a4', fontSize: 14, fontWeight: 500 }}>Analyzing campaign data…</div>
+          <div style={{ color: '#8892a4', fontSize: 14, fontWeight: 500 }}>{loadingTitle}</div>
           <div style={{ color: '#4a5568', fontSize: 12, maxWidth: 380, textAlign: 'center', lineHeight: 1.6 }}>
-            Claude Sonnet is reviewing your activation metrics, email performance, cohort data, and survey signals.
+            {loadingSubtitle}
           </div>
         </div>
       )}
