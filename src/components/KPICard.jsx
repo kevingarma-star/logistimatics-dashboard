@@ -30,7 +30,7 @@ function useCountUp(target, duration = 1200, isFloat = false) {
   return display
 }
 
-export default function KPICard({ label, value, icon, accent = 'cyan', sub, trend, trendColor, suffix = '', onClick }) {
+export default function KPICard({ label, value, icon, accent = 'cyan', sub, trend, trendColor, suffix = '', onClick, active = false }) {
   const ac = ACCENT[accent] || ACCENT.cyan
   const isFloat = !Number.isInteger(value)
   const displayed = useCountUp(value, 1200, isFloat)
@@ -41,7 +41,12 @@ export default function KPICard({ label, value, icon, accent = 'cyan', sub, tren
   return (
     <div
       className="kpi-card"
-      style={{ '--accent-color': ac.color, '--accent-dim': ac.dim, cursor: onClick ? 'pointer' : 'default' }}
+      style={{
+        '--accent-color': ac.color,
+        '--accent-dim': ac.dim,
+        cursor: onClick ? 'pointer' : 'default',
+        ...(active ? { boxShadow: `0 0 0 1.5px ${ac.color}80, 0 0 14px ${ac.color}20` } : {}),
+      }}
       onClick={onClick}
       title={onClick ? `Click to drill down into ${label}` : undefined}
     >

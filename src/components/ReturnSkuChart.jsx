@@ -22,8 +22,9 @@ const SkuTooltip = ({ active, payload, label }) => {
   )
 }
 
-export default function ReturnSkuChart({ data }) {
+export default function ReturnSkuChart({ data, onDrillDown, drillFilter }) {
   if (!data?.length) return null
+  const isFiltered = drillFilter?.type === 'device'
   return (
     <div className="panel" style={{ marginTop: 20 }}>
       <div className="panel-title">Returns by Product</div>
@@ -33,6 +34,7 @@ export default function ReturnSkuChart({ data }) {
           data={data}
           layout="vertical"
           margin={{ top: 4, right: 32, left: 4, bottom: 0 }}
+          style={{ cursor: onDrillDown ? 'pointer' : 'default' }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" horizontal={false} />
           <XAxis
@@ -51,10 +53,22 @@ export default function ReturnSkuChart({ data }) {
             tickLine={false}
           />
           <Tooltip content={<SkuTooltip />} cursor={{ fill: 'rgba(0,212,255,0.04)' }} />
-          <Bar dataKey="count" radius={[0, 4, 4, 0]} maxBarSize={32}>
-            {data.map((_, i) => (
-              <Cell key={i} fill={SKU_COLORS[i % SKU_COLORS.length]} fillOpacity={0.85} />
-            ))}
+          <Bar
+            dataKey="count"
+            radius={[0, 4, 4, 0]}
+            maxBarSize={32}
+            onClick={onDrillDown ? (barData) => onDrillDown({ type: 'device', value: barData.device, label: barData.device }) : undefined}
+          >
+            {data.map((entry, i) => {
+              const isActive = isFiltered && drillFilter.value === entry.device
+              return (
+                <Cell
+                  key={i}
+                  fill={SKU_COLORS[i % SKU_COLORS.length]}
+                  fillOpacity={isFiltered ? (isActive ? 0.95 : 0.2) : 0.85}
+                />
+              )
+            })}
           </Bar>
         </BarChart>
       </ResponsiveContainer>

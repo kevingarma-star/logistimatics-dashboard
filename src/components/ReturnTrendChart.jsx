@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
 } from 'recharts'
 
 const PeriodTooltip = ({ active, payload, label }) => {
@@ -21,10 +21,12 @@ const PeriodTooltip = ({ active, payload, label }) => {
   )
 }
 
-export default function ReturnTrendChart({ weeklyData, monthlyData }) {
+export default function ReturnTrendChart({ weeklyData, monthlyData, onDrillDown, drillFilter }) {
   const [mode, setMode] = useState('weekly')
-  const chartData = mode === 'weekly' ? weeklyData : monthlyData
-  const dataKey  = mode === 'weekly' ? 'week' : 'month'
+  const chartData  = mode === 'weekly' ? weeklyData : monthlyData
+  const dataKey    = mode === 'weekly' ? 'week' : 'month'
+  const filterType = mode === 'weekly' ? 'week' : 'month'
+  const isFiltered = drillFilter?.type === filterType
 
   return (
     <div className="panel" style={{ marginTop: 24 }}>
@@ -61,7 +63,11 @@ export default function ReturnTrendChart({ weeklyData, monthlyData }) {
         </div>
       </div>
       <ResponsiveContainer width="100%" height={220}>
-        <BarChart data={chartData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+        <BarChart
+          data={chartData}
+          margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
+          style={{ cursor: onDrillDown ? 'pointer' : 'default' }}
+        >
           <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
           <XAxis
             dataKey={dataKey}
@@ -80,10 +86,27 @@ export default function ReturnTrendChart({ weeklyData, monthlyData }) {
             dataKey="count"
             name="Returns"
             fill="#ff4757"
-            fillOpacity={0.8}
             radius={[4, 4, 0, 0]}
             maxBarSize={52}
-          />
+            onClick={onDrillDown ? (barData) => {
+              onDrillDown({
+                type: filterType,
+                value: barData._key,
+                label: mode === 'weekly' ? `Week of ${barData.week}` : barData.month,
+              })
+            } : undefined}
+          >
+            {chartData.map((entry, i) => {
+              const isActive = isFiltered && drillFilter.value === entry._key
+              return (
+                <Cell
+                  key={i}
+                  fill="#ff4757"
+                  fillOpacity={isFiltered ? (isActive ? 0.95 : 0.2) : 0.8}
+                />
+              )
+            })}
+          </Bar>
         </BarChart>
       </ResponsiveContainer>
     </div>

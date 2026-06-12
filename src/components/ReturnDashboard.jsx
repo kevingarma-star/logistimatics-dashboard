@@ -3,6 +3,7 @@ import KPICard from './KPICard'
 import ReturnTrendChart from './ReturnTrendChart'
 import ReturnSkuChart from './ReturnSkuChart'
 import ReturnReasonCharts from './ReturnReasonCharts'
+import ReturnDrillModal from './ReturnDrillModal'
 import InsightsPage from './InsightsPage'
 import { REASON_CONFIG } from '../lib/returnReasons'
 
@@ -48,6 +49,8 @@ export default function ReturnDashboard() {
   const [refreshing, setRefreshing]   = useState(false)
   const [lastRefresh, setLastRefresh] = useState(null)
   const [expandedRow, setExpandedRow] = useState(null)
+  const [drillFilter, setDrillFilter] = useState(null)   // chart visual dimming
+  const [drillModal,  setDrillModal]  = useState(null)   // { title, subtitle, rows }
   const [sortBy, setSortBy]           = useState('return_date')
   const [sortDir, setSortDir]         = useState('desc')
 
@@ -155,6 +158,7 @@ export default function ReturnDashboard() {
     })
     return Object.keys(map).sort().map(mon => ({
       week: formatWeekLabel(mon),
+      _key: mon,
       count: map[mon],
     }))
   }, [returns])
@@ -162,6 +166,7 @@ export default function ReturnDashboard() {
   const monthlyChartData = useMemo(
     () => (data?.returns_by_month || []).map(m => ({
       month: formatMonth(m.month),
+      _key: m.month,
       count: m.count,
     })),
     [data],
@@ -250,6 +255,32 @@ export default function ReturnDashboard() {
     if (sortBy === col) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
     else { setSortBy(col); setSortDir('desc') }
   }
+
+  const openDrill = useCallback((filter, title, subtitle) => {
+    const rows = returns.filter(r => {
+      if (!filter) return true
+      if (filter.type === 'device') return (r.device_type || 'Unknown') === filter.value
+      if (filter.type === 'reason') {
+        const cat = r.reason_category || (r.is_undeliverable ? 'undeliverable' : null)
+        return cat === filter.value
+      }
+      if (filter.type === 'week')   return r.return_date && getWeekMonday(r.return_date) === filter.value
+      if (filter.type === 'month')  return r.return_date?.startsWith(filter.value)
+      if (filter.type === 'status') {
+        if (filter.value === 'has_reason')    return !!(r.reason_summary && !r.is_undeliverable)
+        if (filter.value === 'undeliverable') return !!r.is_undeliverable
+      }
+      return true
+    })
+    setDrillFilter(filter)
+    setDrillModal({ title, subtitle: subtitle || `${rows.length} return${rows.length !== 1 ? 's' : ''}`, rows })
+    setExpandedRow(null)
+  }, [returns])
+
+  const closeDrill = useCallback(() => {
+    setDrillModal(null)
+    setDrillFilter(null)
+  }, [])
 
   // ── Loading / empty states ───────────────────────────────────────────────
   if (loading) return (
@@ -381,6 +412,7 @@ export default function ReturnDashboard() {
           icon="↩"
           accent="red"
           sub="All returned devices"
+          onClick={() => openDrill(null, 'All Returns', `${returns.length} total returns`)}
         />
         <KPICard
           label="Reason Found"
@@ -388,6 +420,8 @@ export default function ReturnDashboard() {
           icon="💬"
           accent="green"
           sub={`${data.total_returns ? Math.round(withReason / data.total_returns * 100) : 0}% have Intercom summary`}
+          onClick={() => openDrill({ type: 'status', value: 'has_reason' }, 'Has Return Reason')}
+          active={drillFilter?.type === 'status' && drillFilter?.value === 'has_reason'}
         />
         <KPICard
           label="Undeliverable"
@@ -395,6 +429,8 @@ export default function ReturnDashboard() {
           icon="⚠"
           accent="amber"
           sub="No Intercom conversation found"
+          onClick={() => openDrill({ type: 'status', value: 'undeliverable' }, 'Undeliverable Returns')}
+          active={drillFilter?.type === 'status' && drillFilter?.value === 'undeliverable'}
         />
         <KPICard
           label="This Month"
@@ -402,6 +438,11 @@ export default function ReturnDashboard() {
           icon="📅"
           accent="cyan"
           sub={new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+          onClick={() => openDrill(
+            { type: 'month', value: thisMonth },
+            `${new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} Returns`,
+          )}
+          active={drillFilter?.type === 'month' && drillFilter?.value === thisMonth}
         />
         <KPICard
           label="Avg Days to Return"
@@ -414,16 +455,36 @@ export default function ReturnDashboard() {
       </div>
 
       {/* ── Period trend chart ── */}
-      <ReturnTrendChart weeklyData={weeklyChartData} monthlyData={monthlyChartData} />
+      <ReturnTrendChart
+        weeklyData={weeklyChartData}
+        monthlyData={monthlyChartData}
+        onDrillDown={(f) => openDrill(
+          { type: f.type, value: f.value },
+          `${f.label} — Returns`,
+        )}
+        drillFilter={drillFilter}
+      />
 
       {/* ── Product breakdown ── */}
-      <ReturnSkuChart data={skuChartData} />
+      <ReturnSkuChart
+        data={skuChartData}
+        onDrillDown={(f) => openDrill(
+          { type: f.type, value: f.value },
+          `${f.value} — Returns`,
+        )}
+        drillFilter={drillFilter}
+      />
 
       {/* ── Reason analysis ── */}
       <ReturnReasonCharts
         topData={reasonTopData}
         byMonthData={reasonByMonthData}
         byProductData={reasonByProductData}
+        onDrillDown={(f) => openDrill(
+          { type: f.type, value: f.value },
+          `${f.label} — Returns`,
+        )}
+        drillFilter={drillFilter}
       />
 
       {/* ── Returns table ── */}
@@ -581,6 +642,16 @@ export default function ReturnDashboard() {
             <> · Last fetched {lastRefresh.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}</>
           )}
         </div>
+      )}
+
+      {/* Drill-down modal */}
+      {drillModal && (
+        <ReturnDrillModal
+          title={drillModal.title}
+          subtitle={drillModal.subtitle}
+          rows={drillModal.rows}
+          onClose={closeDrill}
+        />
       )}
 
     </div>
