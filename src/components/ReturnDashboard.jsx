@@ -48,6 +48,7 @@ export default function ReturnDashboard() {
   const [refreshing, setRefreshing]   = useState(false)
   const [lastRefresh, setLastRefresh] = useState(null)
   const [expandedRow, setExpandedRow] = useState(null)
+  const [drillFilter, setDrillFilter] = useState(null)
   const [sortBy, setSortBy]           = useState('return_date')
   const [sortDir, setSortDir]         = useState('desc')
 
@@ -155,6 +156,7 @@ export default function ReturnDashboard() {
     })
     return Object.keys(map).sort().map(mon => ({
       week: formatWeekLabel(mon),
+      _key: mon,
       count: map[mon],
     }))
   }, [returns])
@@ -162,6 +164,7 @@ export default function ReturnDashboard() {
   const monthlyChartData = useMemo(
     () => (data?.returns_by_month || []).map(m => ({
       month: formatMonth(m.month),
+      _key: m.month,
       count: m.count,
     })),
     [data],
@@ -250,6 +253,31 @@ export default function ReturnDashboard() {
     if (sortBy === col) setSortDir(d => d === 'asc' ? 'desc' : 'asc')
     else { setSortBy(col); setSortDir('desc') }
   }
+
+  const handleDrillDown = useCallback((filter) => {
+    setDrillFilter(prev =>
+      prev?.type === filter.type && prev?.value === filter.value ? null : filter
+    )
+    setExpandedRow(null)
+  }, [])
+
+  const tableRows = useMemo(() => {
+    if (!drillFilter) return sorted
+    return sorted.filter(r => {
+      if (drillFilter.type === 'device') return (r.device_type || 'Unknown') === drillFilter.value
+      if (drillFilter.type === 'reason') {
+        const cat = r.reason_category || (r.is_undeliverable ? 'undeliverable' : null)
+        return cat === drillFilter.value
+      }
+      if (drillFilter.type === 'week') return r.return_date && getWeekMonday(r.return_date) === drillFilter.value
+      if (drillFilter.type === 'month') return r.return_date?.startsWith(drillFilter.value)
+      if (drillFilter.type === 'status') {
+        if (drillFilter.value === 'has_reason') return !!(r.reason_summary && !r.is_undeliverable)
+        if (drillFilter.value === 'undeliverable') return !!r.is_undeliverable
+      }
+      return true
+    })
+  }, [sorted, drillFilter])
 
   // ── Loading / empty states ───────────────────────────────────────────────
   if (loading) return (
@@ -380,7 +408,9 @@ export default function ReturnDashboard() {
           value={data.total_returns}
           icon="↩"
           accent="red"
-          sub="All returned devices"
+          sub={drillFilter ? 'Click to clear filter' : 'All returned devices'}
+          onClick={drillFilter ? () => setDrillFilter(null) : undefined}
+          active={!drillFilter}
         />
         <KPICard
           label="Reason Found"
@@ -388,6 +418,8 @@ export default function ReturnDashboard() {
           icon="💬"
           accent="green"
           sub={`${data.total_returns ? Math.round(withReason / data.total_returns * 100) : 0}% have Intercom summary`}
+          onClick={() => handleDrillDown({ type: 'status', value: 'has_reason', label: 'Has Return Reason' })}
+          active={drillFilter?.type === 'status' && drillFilter?.value === 'has_reason'}
         />
         <KPICard
           label="Undeliverable"
@@ -395,6 +427,8 @@ export default function ReturnDashboard() {
           icon="⚠"
           accent="amber"
           sub="No Intercom conversation found"
+          onClick={() => handleDrillDown({ type: 'status', value: 'undeliverable', label: 'Undeliverable' })}
+          active={drillFilter?.type === 'status' && drillFilter?.value === 'undeliverable'}
         />
         <KPICard
           label="This Month"
@@ -402,6 +436,8 @@ export default function ReturnDashboard() {
           icon="📅"
           accent="cyan"
           sub={new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+          onClick={() => handleDrillDown({ type: 'month', value: thisMonth, label: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) })}
+          active={drillFilter?.type === 'month' && drillFilter?.value === thisMonth}
         />
         <KPICard
           label="Avg Days to Return"
@@ -414,28 +450,73 @@ export default function ReturnDashboard() {
       </div>
 
       {/* ── Period trend chart ── */}
-      <ReturnTrendChart weeklyData={weeklyChartData} monthlyData={monthlyChartData} />
+      <ReturnTrendChart
+        weeklyData={weeklyChartData}
+        monthlyData={monthlyChartData}
+        onDrillDown={handleDrillDown}
+        drillFilter={drillFilter}
+      />
 
       {/* ── Product breakdown ── */}
-      <ReturnSkuChart data={skuChartData} />
+      <ReturnSkuChart
+        data={skuChartData}
+        onDrillDown={handleDrillDown}
+        drillFilter={drillFilter}
+      />
 
       {/* ── Reason analysis ── */}
       <ReturnReasonCharts
         topData={reasonTopData}
         byMonthData={reasonByMonthData}
         byProductData={reasonByProductData}
+        onDrillDown={handleDrillDown}
+        drillFilter={drillFilter}
       />
 
       {/* ── Returns table ── */}
       <div className="panel" style={{ marginTop: 20 }}>
         <div className="panel-title">All Returns</div>
         <div className="panel-sub">
-          {returns.length} returned device{returns.length !== 1 ? 's' : ''} · Click a row to expand the return reason
+          {drillFilter
+            ? `${tableRows.length} of ${returns.length} return${returns.length !== 1 ? 's' : ''} · filtered by "${drillFilter.label}"`
+            : `${returns.length} returned device${returns.length !== 1 ? 's' : ''} · Click a row to expand the return reason`
+          }
         </div>
+
+        {drillFilter && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 10 }}>
+            <span style={{ fontSize: 11, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.6px' }}>
+              Filter:
+            </span>
+            <span style={{
+              display: 'inline-flex', alignItems: 'center', gap: 6,
+              background: 'rgba(0,212,255,0.08)',
+              border: '1px solid rgba(0,212,255,0.25)',
+              borderRadius: 20,
+              padding: '3px 8px 3px 10px',
+              fontSize: 12,
+              color: '#00d4ff',
+            }}>
+              {drillFilter.label}
+              <button
+                onClick={() => setDrillFilter(null)}
+                title="Clear filter"
+                style={{
+                  background: 'none', border: 'none', color: '#00d4ff',
+                  cursor: 'pointer', padding: 0, fontSize: 15, lineHeight: 1, opacity: 0.7,
+                }}
+              >×</button>
+            </span>
+          </div>
+        )}
 
         {returns.length === 0 ? (
           <div style={{ color: '#4a5568', fontSize: 13, paddingTop: 24, textAlign: 'center' }}>
             No returns on record
+          </div>
+        ) : tableRows.length === 0 ? (
+          <div style={{ color: '#4a5568', fontSize: 13, paddingTop: 24, textAlign: 'center' }}>
+            No returns match this filter
           </div>
         ) : (
           <div className="cohort-table-wrap" style={{ marginTop: 16 }}>
@@ -457,7 +538,7 @@ export default function ReturnDashboard() {
                 </tr>
               </thead>
               <tbody>
-                {sorted.map((r, i) => {
+                {tableRows.map((r, i) => {
                   const isExpanded = expandedRow === i
                   const hasReason  = r.reason_summary && !r.is_undeliverable
                   return (
