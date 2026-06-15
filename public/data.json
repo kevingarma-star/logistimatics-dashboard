@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T08:31:53",
+  "generated_at": "2026-06-15T08:45:44",
   "summary": {
     "total_outreached": 1070,
     "activated": 522,
@@ -34289,8 +34289,8 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 59,
-      "delivered": 58,
+      "requests": 76,
+      "delivered": 74,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 12,
@@ -34302,9 +34302,9 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-06-15",
-      "open_rate": 20.7,
-      "click_rate": 3.45,
-      "delivery_rate": 98.3,
+      "open_rate": 16.2,
+      "click_rate": 2.7,
+      "delivery_rate": 97.4,
       "bounce_rate": 0.0
     }
   ],
@@ -34319,11 +34319,11 @@
     "total_bounces": 13,
     "total_requests": 2802,
     "total_unsubscribes": 0,
-    "avg_open_rate": 45.8,
-    "avg_click_rate": 4.99,
+    "avg_open_rate": 45.4,
+    "avg_click_rate": 4.95,
     "avg_delivery_rate": 66.0,
     "avg_bounce_rate": 0.46,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (1884 delivered). Delivery rate across all 1848 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (1900 delivered). Delivery rate across all 1848 campaign emails.",
     "customer_tracked": 532,
     "customer_delivered": 515,
     "customer_opened": 262,
