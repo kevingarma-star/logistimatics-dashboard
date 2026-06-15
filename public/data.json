@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-15T10:31:51",
+  "generated_at": "2026-06-15T10:48:57",
   "summary": {
     "total_outreached": 1070,
     "activated": 522,
@@ -34300,8 +34300,8 @@
       "in_transit": 39,
       "activation": 20,
       "followup": 18,
-      "date": "2026-06-15",
       "from_category_stats": true,
+      "date": "2026-06-15",
       "open_rate": 19.8,
       "click_rate": 2.2,
       "delivery_rate": 97.8,
