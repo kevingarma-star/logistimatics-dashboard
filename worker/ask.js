@@ -325,6 +325,204 @@ async function handleInsights(request, env) {
   return new Response(JSON.stringify(insights), { status: 200, headers })
 }
 
+const RETURN_INSIGHTS_SYSTEM_PROMPT = `You are a senior returns analyst for Logistimatics, a GPS tracker company.
+You will receive product return data and must return a single JSON object — nothing else, no markdown fences, no explanation.
+
+The JSON must match this exact schema:
+{
+  "health_score": <integer 0-100, where 100 = best possible, lower = more concerning return patterns>,
+  "health_label": <"Healthy" | "Needs Attention" | "Concerning">,
+  "summary": <2-3 sentence plain-text executive summary of return patterns and their root causes>,
+  "sections": [
+    {
+      "id": <unique snake_case string>,
+      "title": <section title>,
+      "content": <2-4 sentences of specific analysis referencing real numbers from the data>,
+      "metric": <key number as string, e.g. "31.6%" or "3">,
+      "metric_label": <short label for the metric>,
+      "sentiment": <"positive" | "neutral" | "negative">
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": <"high" | "medium" | "low">,
+      "title": <short imperative action title, max 8 words>,
+      "detail": <1-2 sentences explaining exactly what to do and why>
+    }
+  ]
+}
+
+Rules:
+- sections must include: return_volume, reason_breakdown, product_analysis, pricing_signals, undeliverable_rate
+- recommendations must have 3-5 items ordered high to low priority
+- health_score: start at 100, deduct for rising return trends, high undeliverable %, quick return times (under 14 days), fixable recurring reasons
+- Every metric and claim must come from the provided data — no fabrication
+- Be specific and actionable — generic advice is not useful
+- Return ONLY the JSON object`
+
+const RETURN_FOCUS_DIRECTIVES = {
+  reasons:  'FOCUS DIRECTIVE: Go significantly deeper on return reason categories. Break down each reason by volume, trend over time, and which product SKUs are most affected. Identify the top fixable reason and exactly what should change.',
+  products: 'FOCUS DIRECTIVE: Go significantly deeper on product/SKU analysis. Compare return rates per device type, flag which SKU has the highest return rate, and surface any reason patterns that are SKU-specific.',
+  pricing:  'FOCUS DIRECTIVE: Go significantly deeper on pricing signals. Look for patterns in return timing (quick returns may signal buyer remorse), reason categories related to value or cost, and what this implies for pricing or onboarding messaging.',
+  churn:    'FOCUS DIRECTIVE: Go significantly deeper on churn risk. Identify which return reasons suggest permanently lost customers vs those who may be re-engaged. Flag any patterns in undeliverable returns that suggest address or fulfillment issues.',
+}
+
+function buildReturnInsightsContext(data, focus) {
+  const returnsList = data.returns_list        || []
+  const total       = data.total_returns       || 0
+  const undeliv     = data.undeliverable_count || 0
+  const byMonth     = data.returns_by_month    || []
+  const categorised = total - undeliv
+
+  let ctx = '=== RETURN DATA ===\n'
+  ctx += `\nTotal returns tracked (May 2026 onwards): ${total}\n`
+  ctx += `Undeliverable (no B2C Returns conversation in Intercom): ${undeliv}`
+  ctx += ` (${total ? Math.round(undeliv / total * 100) : 0}%)\n`
+  ctx += `Categorised returns with Intercom reason: ${categorised}\n`
+
+  ctx += '\n--- Returns by Month ---\n'
+  for (const m of byMonth) {
+    ctx += `  ${m.month}: ${m.count} returns\n`
+  }
+
+  // Reason category breakdown
+  const reasonCounts = {}
+  for (const r of returnsList) {
+    if (r.reason_category && !r.is_undeliverable) {
+      reasonCounts[r.reason_category] = (reasonCounts[r.reason_category] || 0) + 1
+    }
+  }
+  ctx += '\n--- Return Reason Categories ---\n'
+  for (const [cat, count] of Object.entries(reasonCounts).sort((a, b) => b[1] - a[1])) {
+    const pct = categorised ? Math.round(count / categorised * 100) : 0
+    ctx += `  ${cat.replace(/_/g, ' ')}: ${count} (${pct}%)\n`
+  }
+
+  // Product breakdown
+  const productCounts = {}
+  for (const r of returnsList) {
+    if (r.device_type && !r.is_undeliverable) {
+      productCounts[r.device_type] = (productCounts[r.device_type] || 0) + 1
+    }
+  }
+  ctx += '\n--- Returns by Product/SKU ---\n'
+  for (const [prod, count] of Object.entries(productCounts).sort((a, b) => b[1] - a[1])) {
+    ctx += `  ${prod}: ${count} returns\n`
+  }
+
+  // Avg days to return
+  const daysList = []
+  for (const r of returnsList) {
+    if (r.ship_date && r.return_date && !r.is_undeliverable) {
+      const ship = new Date(r.ship_date + 'T12:00:00Z')
+      const ret  = new Date(r.return_date + 'T12:00:00Z')
+      const d    = Math.round((ret - ship) / 86400000)
+      if (d >= 0) daysList.push(d)
+    }
+  }
+  if (daysList.length) {
+    const avg = daysList.reduce((a, b) => a + b, 0) / daysList.length
+    ctx += `\nAverage days ship → return: ${avg.toFixed(1)} days (from ${daysList.length} records with both dates)\n`
+  }
+
+  // Weekly cadence
+  const weekCounts = {}
+  for (const r of returnsList) {
+    if (r.return_date) {
+      const d      = new Date(r.return_date + 'T12:00:00Z')
+      const offset = (d.getUTCDay() + 6) % 7   // Mon = 0
+      const mon    = new Date(d)
+      mon.setUTCDate(d.getUTCDate() - offset)
+      const key = mon.toISOString().slice(0, 10)
+      weekCounts[key] = (weekCounts[key] || 0) + 1
+    }
+  }
+  if (Object.keys(weekCounts).length) {
+    ctx += '\n--- Weekly return cadence ---\n'
+    for (const wk of Object.keys(weekCounts).sort()) {
+      ctx += `  Week of ${wk}: ${weekCounts[wk]} returns\n`
+    }
+  }
+
+  // Individual return summaries (categorised only)
+  ctx += '\n--- Individual Return Summaries (categorised only) ---\n'
+  for (const r of returnsList) {
+    if (!r.is_undeliverable && r.reason_summary) {
+      ctx += `[${r.customer_name || 'Unknown'}] ${r.device_type || 'Unknown device'} · ${r.reason_category || 'uncategorised'}: ${r.reason_summary}\n\n`
+    }
+  }
+
+  if (focus) {
+    ctx += `\n=== ANALYSIS FOCUS: ${focus.toUpperCase()} ===\n`
+    ctx += 'Go deeper on this area in your sections and recommendations.\n'
+  }
+
+  ctx += '\n=== END DATA ==='
+  return ctx
+}
+
+async function handleReturnInsights(request, env) {
+  const origin  = request.headers.get('Origin') || ''
+  const headers = { 'Content-Type': 'application/json', ...corsHeaders(origin) }
+
+  if (!env.ANTHROPIC_API_KEY) {
+    return new Response(
+      JSON.stringify({ error: 'ANTHROPIC_API_KEY secret is not set on this Worker.' }),
+      { status: 500, headers }
+    )
+  }
+
+  let body
+  try { body = await request.json() } catch {
+    return new Response(JSON.stringify({ error: 'Invalid JSON body' }), { status: 400, headers })
+  }
+
+  const focus      = body.focus || null
+  const ctx        = buildReturnInsightsContext(body.data || {}, focus)
+  const systemPrompt = focus && RETURN_FOCUS_DIRECTIVES[focus]
+    ? RETURN_INSIGHTS_SYSTEM_PROMPT + '\n\n' + RETURN_FOCUS_DIRECTIVES[focus]
+    : RETURN_INSIGHTS_SYSTEM_PROMPT
+
+  const anthropicRes = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'x-api-key':         env.ANTHROPIC_API_KEY,
+      'anthropic-version': '2023-06-01',
+      'content-type':      'application/json',
+    },
+    body: JSON.stringify({
+      model:      'claude-sonnet-4-6',
+      max_tokens: 2048,
+      system:     systemPrompt,
+      messages:   [{ role: 'user', content: ctx }],
+    }),
+  })
+
+  if (!anthropicRes.ok) {
+    const err = await anthropicRes.text()
+    return new Response(
+      JSON.stringify({ error: `Anthropic API error ${anthropicRes.status}: ${err}` }),
+      { status: 502, headers }
+    )
+  }
+
+  const result  = await anthropicRes.json()
+  const rawText = result.content?.[0]?.text ?? ''
+
+  let insights
+  try {
+    insights = JSON.parse(rawText)
+  } catch {
+    return new Response(
+      JSON.stringify({ error: 'Model returned invalid JSON', raw: rawText }),
+      { status: 502, headers }
+    )
+  }
+
+  insights.generated_at = new Date().toISOString()
+  return new Response(JSON.stringify(insights), { status: 200, headers })
+}
+
 const REASON_LABELS = {
   time:       "Haven't had time yet",
   need:       "Don't need it yet",
@@ -395,6 +593,10 @@ export default {
 
     if (request.method === 'POST' && url.pathname === '/insights') {
       return handleInsights(request, env)
+    }
+
+    if (request.method === 'POST' && url.pathname === '/return-insights') {
+      return handleReturnInsights(request, env)
     }
 
     if (request.method === 'GET' && url.pathname === '/survey') {
