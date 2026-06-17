@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-06-17T08:45:50",
+  "generated_at": "2026-06-17T08:48:42",
   "summary": {
     "total_outreached": 1142,
     "activated": 562,
     "pending": 571,
     "returned": 9,
     "activation_rate": 49.2,
-    "followup_sent": 797,
-    "followup_customers_reached": 427,
+    "followup_sent": 838,
+    "followup_customers_reached": 432,
     "followup_activated": 65,
-    "followup_conversion_rate": 15.2,
+    "followup_conversion_rate": 15.0,
     "in_transit_sent": 654,
     "in_transit_activated": 343,
     "in_transit_exclusive_sent": 403,
@@ -293,6 +293,12 @@
       "label": "Jun 16",
       "activation": 8,
       "followup": 13
+    },
+    {
+      "date": "2026-06-17",
+      "label": "Jun 17",
+      "activation": 0,
+      "followup": 41
     }
   ],
   "cohorts": [
@@ -615,10 +621,10 @@
       "activated": 8,
       "pending": 18,
       "returned": 1,
-      "followup_sent": 20,
+      "followup_sent": 21,
       "followup_activated": 4,
       "activation_rate": 29.6,
-      "followup_conv_rate": 20.0
+      "followup_conv_rate": 19.0
     },
     {
       "batch_date": "2026-06-01",
@@ -627,10 +633,10 @@
       "activated": 6,
       "pending": 20,
       "returned": 0,
-      "followup_sent": 18,
+      "followup_sent": 20,
       "followup_activated": 2,
       "activation_rate": 23.1,
-      "followup_conv_rate": 11.1
+      "followup_conv_rate": 10.0
     },
     {
       "batch_date": "2026-06-02",
@@ -675,7 +681,7 @@
       "activated": 3,
       "pending": 30,
       "returned": 0,
-      "followup_sent": 13,
+      "followup_sent": 15,
       "followup_activated": 0,
       "activation_rate": 9.1,
       "followup_conv_rate": 0.0
@@ -725,8 +731,8 @@
     },
     {
       "stage": "Follow-up Sent",
-      "value": 427,
-      "pct": 57.8
+      "value": 432,
+      "pct": 58.5
     },
     {
       "stage": "Activated",
@@ -15117,8 +15123,8 @@
       "days_since": 19,
       "in_transit_sent": true,
       "in_transit_date": "2026-05-21",
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-17",
       "fu2_sent": false,
       "fu2_date": "",
       "fu3_sent": false,
@@ -15967,8 +15973,8 @@
       "days_since": 16,
       "in_transit_sent": false,
       "in_transit_date": "",
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-17",
       "fu2_sent": false,
       "fu2_date": "",
       "fu3_sent": false,
@@ -16017,8 +16023,8 @@
       "days_since": 16,
       "in_transit_sent": true,
       "in_transit_date": "2026-05-26",
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-17",
       "fu2_sent": false,
       "fu2_date": "",
       "fu3_sent": false,
@@ -17392,8 +17398,8 @@
       "days_since": 8,
       "in_transit_sent": true,
       "in_transit_date": "2026-06-01",
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-17",
       "fu2_sent": false,
       "fu2_date": "",
       "fu3_sent": false,
@@ -17517,8 +17523,8 @@
       "days_since": 8,
       "in_transit_sent": true,
       "in_transit_date": "2026-06-01",
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-17",
       "fu2_sent": false,
       "fu2_date": "",
       "fu3_sent": false,
@@ -35352,8 +35358,8 @@
       "delivered": 127,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 24,
-      "opens": 34,
+      "unique_opens": 25,
+      "opens": 35,
       "unique_clicks": 5,
       "clicks": 9,
       "in_transit": 73,
@@ -35361,7 +35367,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-06-17",
-      "open_rate": 18.9,
+      "open_rate": 19.7,
       "click_rate": 3.94,
       "delivery_rate": 96.9,
       "bounce_rate": 0.0
@@ -35373,7 +35379,7 @@
     "period_start": "2026-04-27",
     "period_end": "2026-06-17",
     "total_delivered": 1939,
-    "total_opens": 924,
+    "total_opens": 925,
     "total_clicks": 102,
     "total_bounces": 13,
     "total_requests": 2895,
