@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-22T07:02:50",
+  "generated_at": "2026-06-22T07:32:25",
   "summary": {
-    "total_outreached": 1185,
+    "total_outreached": 1191,
     "activated": 609,
-    "pending": 565,
+    "pending": 571,
     "returned": 11,
-    "activation_rate": 51.4,
+    "activation_rate": 51.1,
     "followup_sent": 860,
     "followup_customers_reached": 433,
     "followup_activated": 73,
     "followup_conversion_rate": 16.9,
-    "in_transit_sent": 697,
+    "in_transit_sent": 703,
     "in_transit_activated": 387,
-    "in_transit_exclusive_sent": 446,
+    "in_transit_exclusive_sent": 452,
     "in_transit_exclusive_activated": 302,
     "reengagement_sent": 906,
     "reengagement_activated": 11
@@ -26957,6 +26957,72 @@
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
+    },
+    {
+      "email": "jaheyla25@gmail.com",
+      "sent_date": "2026-06-22",
+      "serials": "277453",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "danny@rhinodesignbuild.com",
+      "sent_date": "2026-06-22",
+      "serials": "278439",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "tomymilo2@aol.com",
+      "sent_date": "2026-06-22",
+      "serials": "278281",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "jevaviness111858@icloud.com",
+      "sent_date": "2026-06-22",
+      "serials": "278287",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "tamiannevans@gmail.com",
+      "sent_date": "2026-06-22",
+      "serials": "277813,277826",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "aseretboschpa@icloud.com",
+      "sent_date": "2026-06-22",
+      "serials": "278435,288269",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     }
   ],
   "reengagement_customers": [
@@ -35846,12 +35912,12 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 46,
-      "delivered": 44,
+      "requests": 49,
+      "delivered": 47,
       "bounces": 1,
       "unsubscribes": 0,
-      "unique_opens": 4,
-      "opens": 6,
+      "unique_opens": 6,
+      "opens": 8,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 2,
@@ -35859,10 +35925,10 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-06-22",
-      "open_rate": 9.1,
+      "open_rate": 12.8,
       "click_rate": 0.0,
-      "delivery_rate": 95.7,
-      "bounce_rate": 2.17
+      "delivery_rate": 95.9,
+      "bounce_rate": 2.04
     }
   ],
   "sendgrid_summary": {
@@ -35871,16 +35937,16 @@
     "period_start": "2026-04-27",
     "period_end": "2026-06-22",
     "total_delivered": 2090,
-    "total_opens": 961,
+    "total_opens": 963,
     "total_clicks": 103,
     "total_bounces": 13,
     "total_requests": 3052,
     "total_unsubscribes": 0,
     "avg_open_rate": 45.5,
-    "avg_click_rate": 4.88,
+    "avg_click_rate": 4.87,
     "avg_delivery_rate": 68.5,
     "avg_bounce_rate": 0.43,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (2112 delivered). Delivery rate across all 2090 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (2115 delivered). Delivery rate across all 2090 campaign emails.",
     "customer_tracked": 540,
     "customer_delivered": 523,
     "customer_opened": 265,
