@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-22T09:48:39",
+  "generated_at": "2026-06-22T10:03:12",
   "summary": {
     "total_outreached": 1191,
     "activated": 609,
@@ -12,8 +12,8 @@
     "followup_conversion_rate": 16.9,
     "in_transit_sent": 703,
     "in_transit_activated": 387,
-    "in_transit_exclusive_sent": 440,
-    "in_transit_exclusive_activated": 290,
+    "in_transit_exclusive_sent": 438,
+    "in_transit_exclusive_activated": 288,
     "reengagement_sent": 906,
     "reengagement_activated": 11
   },
@@ -303,7 +303,7 @@
     {
       "date": "2026-06-22",
       "label": "Jun 22",
-      "activation": 12,
+      "activation": 14,
       "followup": 0
     }
   ],
@@ -731,8 +731,8 @@
     {
       "batch_date": "2026-06-22",
       "label": "Jun 22",
-      "total": 12,
-      "activated": 12,
+      "total": 14,
+      "activated": 14,
       "pending": 0,
       "returned": 0,
       "followup_sent": 0,
@@ -744,18 +744,18 @@
   "funnel": [
     {
       "stage": "Outreached",
-      "value": 751,
+      "value": 753,
       "pct": 100
     },
     {
       "stage": "Follow-up Sent",
       "value": 433,
-      "pct": 57.7
+      "pct": 57.5
     },
     {
       "stage": "Activated",
-      "value": 319,
-      "pct": 42.5
+      "value": 321,
+      "pct": 42.6
     }
   ],
   "customers": [
@@ -19533,11 +19533,61 @@
       "sg_opens_count": 4,
       "sg_clicks_count": 0,
       "sg_last_event": ""
+    },
+    {
+      "email": "sergio_albornoz26@yahoo.com",
+      "sent_date": "2026-06-22",
+      "serials": "277843",
+      "days_since": 0,
+      "in_transit_sent": true,
+      "in_transit_date": "2026-05-28",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Activated",
+      "activation_date": "2026-05-29",
+      "days_to_activate": -24,
+      "activated_after_touch": "T0",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "summerdawnhuskey@outlook.com",
+      "sent_date": "2026-06-22",
+      "serials": "277856",
+      "days_since": 0,
+      "in_transit_sent": true,
+      "in_transit_date": "2026-05-28",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Activated",
+      "activation_date": "2026-06-03",
+      "days_to_activate": -19,
+      "activated_after_touch": "T0",
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
     }
   ],
   "activation_timing": {
-    "total_activated": 319,
-    "with_activation_date": 319,
+    "total_activated": 321,
+    "with_activation_date": 321,
     "avg_days_to_activate": 13.7,
     "median_days_to_activate": 8,
     "by_touch": [
@@ -19545,15 +19595,15 @@
         "touch": "T0",
         "label": "After In-Transit",
         "desc": "Activated before the first follow-up email",
-        "count": 26,
-        "pct": 8.2
+        "count": 28,
+        "pct": 8.7
       },
       {
         "touch": "T1",
         "label": "After Touch 1",
         "desc": "Activated without needing a follow-up",
         "count": 220,
-        "pct": 69.0
+        "pct": 68.5
       },
       {
         "touch": "T2",
@@ -19567,7 +19617,7 @@
         "label": "After Touch 3",
         "desc": "Activated after the third email",
         "count": 47,
-        "pct": 14.7
+        "pct": 14.6
       },
       {
         "touch": "T4",
@@ -21869,8 +21919,8 @@
       "sent_date": "2026-05-28",
       "serials": "277856",
       "days_since": 25,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-22",
       "status": "Activated",
       "activation_date": "2026-06-03",
       "activated_after_touch": "T0"
@@ -21880,8 +21930,8 @@
       "sent_date": "2026-05-28",
       "serials": "277843",
       "days_since": 25,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-22",
       "status": "Activated",
       "activation_date": "2026-05-29",
       "activated_after_touch": "T0"
@@ -36231,11 +36281,11 @@
     },
     {
       "requests": 63,
-      "delivered": 60,
+      "delivered": 61,
       "bounces": 1,
       "unsubscribes": 0,
-      "unique_opens": 9,
-      "opens": 11,
+      "unique_opens": 11,
+      "opens": 14,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 2,
@@ -36243,9 +36293,9 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-06-22",
-      "open_rate": 15.0,
+      "open_rate": 18.0,
       "click_rate": 0.0,
-      "delivery_rate": 95.2,
+      "delivery_rate": 96.8,
       "bounce_rate": 1.59
     }
   ],
@@ -36255,23 +36305,23 @@
     "period_start": "2026-04-27",
     "period_end": "2026-06-22",
     "total_delivered": 2090,
-    "total_opens": 966,
+    "total_opens": 968,
     "total_clicks": 103,
     "total_bounces": 13,
     "total_requests": 3052,
     "total_unsubscribes": 0,
-    "avg_open_rate": 45.4,
+    "avg_open_rate": 45.5,
     "avg_click_rate": 4.84,
     "avg_delivery_rate": 68.5,
     "avg_bounce_rate": 0.43,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (2128 delivered). Delivery rate across all 2090 campaign emails.",
-    "customer_tracked": 552,
-    "customer_delivered": 535,
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (2129 delivered). Delivery rate across all 2090 campaign emails.",
+    "customer_tracked": 554,
+    "customer_delivered": 537,
     "customer_opened": 271,
     "customer_clicked": 22,
     "customer_bounced": 0,
-    "customer_open_rate": 50.7,
-    "customer_click_rate": 4.11,
+    "customer_open_rate": 50.5,
+    "customer_click_rate": 4.1,
     "customer_delivery_rate": 96.9,
     "customer_bounce_rate": 0.0
   },
