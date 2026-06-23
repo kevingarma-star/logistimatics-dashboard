@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T11:02:33",
+  "generated_at": "2026-06-23T11:34:20",
   "summary": {
     "total_outreached": 1194,
     "activated": 623,
@@ -38322,7 +38322,7 @@
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 27,
-      "opens": 36,
+      "opens": 38,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 0,
