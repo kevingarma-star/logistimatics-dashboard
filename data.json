@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-23T04:44:57",
+  "generated_at": "2026-06-23T04:47:57",
   "summary": {
     "total_outreached": 1194,
     "activated": 624,
@@ -12,7 +12,7 @@
     "followup_conversion_rate": 40.1,
     "in_transit_sent": 703,
     "in_transit_activated": 400,
-    "in_transit_exclusive_sent": 369,
+    "in_transit_exclusive_sent": 366,
     "in_transit_exclusive_activated": 275,
     "reengagement_sent": 906,
     "reengagement_activated": 12
@@ -305,6 +305,12 @@
       "label": "Jun 22",
       "activation": 86,
       "followup": 266
+    },
+    {
+      "date": "2026-06-23",
+      "label": "Jun 23",
+      "activation": 3,
+      "followup": 0
     }
   ],
   "cohorts": [
@@ -739,23 +745,35 @@
       "followup_activated": 39,
       "activation_rate": 47.7,
       "followup_conv_rate": 53.4
+    },
+    {
+      "batch_date": "2026-06-23",
+      "label": "Jun 23",
+      "total": 3,
+      "activated": 0,
+      "pending": 3,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0
     }
   ],
   "funnel": [
     {
       "stage": "Outreached",
-      "value": 825,
+      "value": 828,
       "pct": 100
     },
     {
       "stage": "Follow-up Sent",
       "value": 673,
-      "pct": 81.6
+      "pct": 81.3
     },
     {
       "stage": "Activated",
       "value": 349,
-      "pct": 42.3
+      "pct": 42.1
     }
   ],
   "customers": [
@@ -21383,6 +21401,81 @@
       "sg_opens_count": 0,
       "sg_clicks_count": 0,
       "sg_last_event": ""
+    },
+    {
+      "email": "bebilenars3@gmail.com",
+      "sent_date": "2026-06-23",
+      "serials": "277258,288281,277278",
+      "days_since": 0,
+      "in_transit_sent": true,
+      "in_transit_date": "2026-06-15",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 5,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "cleygerlapara@gmail.com",
+      "sent_date": "2026-06-23",
+      "serials": "277265",
+      "days_since": 0,
+      "in_transit_sent": true,
+      "in_transit_date": "2026-06-15",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "arhamhanif902@gmail.com",
+      "sent_date": "2026-06-23",
+      "serials": "277927",
+      "days_since": 0,
+      "in_transit_sent": true,
+      "in_transit_date": "2026-06-15",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
     }
   ],
   "activation_timing": {
@@ -27448,8 +27541,8 @@
       "sent_date": "2026-06-15",
       "serials": "277927",
       "days_since": 8,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-23",
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
@@ -27459,8 +27552,8 @@
       "sent_date": "2026-06-15",
       "serials": "277258,288281,277278",
       "days_since": 8,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-23",
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
@@ -27481,8 +27574,8 @@
       "sent_date": "2026-06-15",
       "serials": "277265",
       "days_since": 8,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-06-23",
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
@@ -38097,31 +38190,50 @@
       "click_rate": 0.77,
       "delivery_rate": 97.5,
       "bounce_rate": 0.25
+    },
+    {
+      "requests": 3,
+      "delivered": 3,
+      "bounces": 0,
+      "unsubscribes": 0,
+      "unique_opens": 3,
+      "opens": 10,
+      "unique_clicks": 0,
+      "clicks": 0,
+      "in_transit": 0,
+      "activation": 3,
+      "followup": 0,
+      "date": "2026-06-23",
+      "from_category_stats": true,
+      "open_rate": 100.0,
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     }
   ],
   "sendgrid_summary": {
     "has_campaign_data": true,
     "data_source": "category_stats",
     "period_start": "2026-04-27",
-    "period_end": "2026-06-22",
+    "period_end": "2026-06-23",
     "total_delivered": 2090,
-    "total_opens": 1067,
+    "total_opens": 1070,
     "total_clicks": 106,
     "total_bounces": 13,
     "total_requests": 3052,
     "total_unsubscribes": 0,
-    "avg_open_rate": 43.4,
+    "avg_open_rate": 43.5,
     "avg_click_rate": 4.31,
     "avg_delivery_rate": 68.5,
     "avg_bounce_rate": 0.43,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (2459 delivered). Delivery rate across all 2090 campaign emails.",
-    "customer_tracked": 625,
-    "customer_delivered": 605,
-    "customer_opened": 303,
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (2462 delivered). Delivery rate across all 2090 campaign emails.",
+    "customer_tracked": 628,
+    "customer_delivered": 608,
+    "customer_opened": 304,
     "customer_clicked": 29,
     "customer_bounced": 0,
-    "customer_open_rate": 50.1,
-    "customer_click_rate": 4.79,
+    "customer_open_rate": 50.0,
+    "customer_click_rate": 4.77,
     "customer_delivery_rate": 96.8,
     "customer_bounce_rate": 0.0
   },
