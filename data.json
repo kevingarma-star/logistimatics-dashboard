@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-25T06:32:43",
+  "generated_at": "2026-06-25T06:48:42",
   "summary": {
     "total_outreached": 1327,
     "activated": 649,
@@ -39915,36 +39915,43 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 389,
-    "total_responses": 10,
-    "response_rate": 2.6,
+    "surveys_sent": 407,
+    "total_responses": 11,
+    "response_rate": 2.7,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
         "count": 3,
-        "pct": 30.0
+        "pct": 27.3
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
-        "count": 2,
-        "pct": 20.0
+        "count": 3,
+        "pct": 27.3
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
         "count": 1,
-        "pct": 10.0
+        "pct": 9.1
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 3,
-        "pct": 30.0
+        "pct": 27.3
       }
     ],
     "recent": [
+      {
+        "date": "2026-06-25",
+        "email": "ray.graeber@progressiveus.com",
+        "name": "Ray",
+        "reason": "need",
+        "reason_label": "Don't need it yet"
+      },
       {
         "date": "2026-05-27",
         "email": "mojowaddy1@gmail.com",
@@ -40087,6 +40094,13 @@
       "name": "Tony",
       "reason": "ready",
       "reason_label": "Not ready for a paying subscription"
+    },
+    {
+      "date": "2026-06-25",
+      "email": "ray.graeber@progressiveus.com",
+      "name": "Ray",
+      "reason": "need",
+      "reason_label": "Don't need it yet"
     }
   ]
 }
