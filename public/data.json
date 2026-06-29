@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-06-29T05:31:46",
+  "generated_at": "2026-06-29T05:48:26",
   "summary": {
-    "total_outreached": 1366,
+    "total_outreached": 1370,
     "activated": 714,
-    "pending": 643,
+    "pending": 647,
     "returned": 9,
-    "activation_rate": 52.3,
+    "activation_rate": 52.1,
     "followup_sent": 1189,
     "followup_customers_reached": 719,
     "followup_activated": 284,
     "followup_conversion_rate": 39.5,
-    "in_transit_sent": 879,
+    "in_transit_sent": 883,
     "in_transit_activated": 492,
-    "in_transit_exclusive_sent": 494,
+    "in_transit_exclusive_sent": 498,
     "in_transit_exclusive_activated": 345,
     "reengagement_sent": 906,
     "reengagement_activated": 12
@@ -32344,6 +32344,50 @@
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
+    },
+    {
+      "email": "cassiepooh0925@icloud.com",
+      "sent_date": "2026-06-29",
+      "serials": "281457",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "serenityhurst@icloud.com",
+      "sent_date": "2026-06-29",
+      "serials": "281466",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "cooleddieg@yahoo.com",
+      "sent_date": "2026-06-29",
+      "serials": "281451",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "chrissiebittle@gmail.com",
+      "sent_date": "2026-06-29",
+      "serials": "281404",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     }
   ],
   "reengagement_customers": [
@@ -41328,8 +41372,8 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 23,
-      "delivered": 23,
+      "requests": 24,
+      "delivered": 24,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 2,
@@ -41339,9 +41383,9 @@
       "in_transit": 23,
       "activation": 0,
       "followup": 0,
-      "date": "2026-06-29",
       "from_category_stats": true,
-      "open_rate": 8.7,
+      "date": "2026-06-29",
+      "open_rate": 8.3,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -41362,7 +41406,7 @@
     "avg_click_rate": 4.24,
     "avg_delivery_rate": 74.4,
     "avg_bounce_rate": 0.39,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (2854 delivered). Delivery rate across all 2853 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (2855 delivered). Delivery rate across all 2853 campaign emails.",
     "customer_tracked": 675,
     "customer_delivered": 655,
     "customer_opened": 325,
