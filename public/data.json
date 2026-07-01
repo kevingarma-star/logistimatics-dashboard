@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-01T06:02:47",
+  "generated_at": "2026-07-01T06:31:59",
   "summary": {
     "total_outreached": 1454,
     "activated": 741,
     "pending": 703,
     "returned": 10,
     "activation_rate": 51.0,
-    "followup_sent": 1264,
+    "followup_sent": 1265,
     "followup_customers_reached": 736,
     "followup_activated": 285,
     "followup_conversion_rate": 38.7,
@@ -340,7 +340,7 @@
       "date": "2026-07-01",
       "label": "Jul 01",
       "activation": 3,
-      "followup": 0
+      "followup": 1
     }
   ],
   "cohorts": [
@@ -18964,8 +18964,8 @@
       "in_transit_date": "2026-06-05",
       "fu_sent": true,
       "fu_date": "2026-06-23",
-      "fu2_sent": false,
-      "fu2_date": "",
+      "fu2_sent": true,
+      "fu2_date": "2026-07-01",
       "fu3_sent": false,
       "fu3_date": "",
       "status": "Pending",
@@ -43149,8 +43149,8 @@
       "bounce_rate": 0.83
     },
     {
-      "requests": 33,
-      "delivered": 33,
+      "requests": 34,
+      "delivered": 34,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 4,
@@ -43162,7 +43162,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-01",
-      "open_rate": 12.1,
+      "open_rate": 11.8,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -43180,10 +43180,10 @@
     "total_requests": 3954,
     "total_unsubscribes": 0,
     "avg_open_rate": 44.1,
-    "avg_click_rate": 4.04,
+    "avg_click_rate": 4.03,
     "avg_delivery_rate": 75.1,
     "avg_bounce_rate": 0.38,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3097 delivered). Delivery rate across all 2969 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3098 delivered). Delivery rate across all 2969 campaign emails.",
     "customer_tracked": 705,
     "customer_delivered": 683,
     "customer_opened": 340,
