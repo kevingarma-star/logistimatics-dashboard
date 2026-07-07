@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-07-07T05:31:11",
+  "generated_at": "2026-07-07T05:48:21",
   "summary": {
-    "total_outreached": 1497,
+    "total_outreached": 1498,
     "activated": 828,
-    "pending": 660,
+    "pending": 661,
     "returned": 9,
     "activation_rate": 55.3,
     "followup_sent": 1326,
     "followup_customers_reached": 787,
     "followup_activated": 293,
     "followup_conversion_rate": 37.2,
-    "in_transit_sent": 1011,
+    "in_transit_sent": 1012,
     "in_transit_activated": 612,
-    "in_transit_exclusive_sent": 557,
+    "in_transit_exclusive_sent": 558,
     "in_transit_exclusive_activated": 442,
     "reengagement_sent": 906,
     "reengagement_activated": 14
@@ -35568,6 +35568,17 @@
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
+    },
+    {
+      "email": "djriderlive@gmail.com",
+      "sent_date": "2026-07-07",
+      "serials": "281540",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     }
   ],
   "reengagement_customers": [
@@ -44647,12 +44658,12 @@
       "bounce_rate": 0.65
     },
     {
-      "requests": 22,
-      "delivered": 22,
-      "bounces": 0,
+      "requests": 51,
+      "delivered": 49,
+      "bounces": 1,
       "unsubscribes": 0,
-      "unique_opens": 7,
-      "opens": 10,
+      "unique_opens": 13,
+      "opens": 17,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 2,
@@ -44660,10 +44671,10 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-07",
-      "open_rate": 31.8,
+      "open_rate": 26.5,
       "click_rate": 0.0,
-      "delivery_rate": 100.0,
-      "bounce_rate": 0.0
+      "delivery_rate": 96.1,
+      "bounce_rate": 1.96
     }
   ],
   "sendgrid_summary": {
@@ -44672,16 +44683,16 @@
     "period_start": "2026-04-27",
     "period_end": "2026-07-07",
     "total_delivered": 3143,
-    "total_opens": 1475,
+    "total_opens": 1481,
     "total_clicks": 136,
     "total_bounces": 17,
     "total_requests": 4133,
     "total_unsubscribes": 0,
-    "avg_open_rate": 44.8,
-    "avg_click_rate": 4.13,
+    "avg_open_rate": 44.6,
+    "avg_click_rate": 4.1,
     "avg_delivery_rate": 76.0,
     "avg_bounce_rate": 0.41,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3291 delivered). Delivery rate across all 3143 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3318 delivered). Delivery rate across all 3143 campaign emails.",
     "customer_tracked": 743,
     "customer_delivered": 720,
     "customer_opened": 361,
