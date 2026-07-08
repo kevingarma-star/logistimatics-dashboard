@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-07-08T04:47:51",
+  "generated_at": "2026-07-08T05:02:07",
   "summary": {
-    "total_outreached": 1556,
-    "activated": 846,
-    "pending": 696,
+    "total_outreached": 1581,
+    "activated": 845,
+    "pending": 722,
     "returned": 14,
-    "activation_rate": 54.4,
+    "activation_rate": 53.4,
     "followup_sent": 1373,
     "followup_customers_reached": 828,
     "followup_activated": 318,
     "followup_conversion_rate": 38.4,
-    "in_transit_sent": 1071,
-    "in_transit_activated": 630,
-    "in_transit_exclusive_sent": 604,
-    "in_transit_exclusive_activated": 456,
+    "in_transit_sent": 1096,
+    "in_transit_activated": 629,
+    "in_transit_exclusive_sent": 629,
+    "in_transit_exclusive_activated": 455,
     "reengagement_sent": 906,
     "reengagement_activated": 14
   },
@@ -26164,6 +26164,17 @@
       "activated_after_touch": "T0"
     },
     {
+      "email": "jamesc.acme@me.com",
+      "sent_date": "2026-07-08",
+      "serials": "281244, 281040",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
       "email": "jen.martinez4455@gmail.com",
       "sent_date": "2026-05-21",
       "serials": "277956",
@@ -26846,6 +26857,17 @@
       "activated_after_touch": null
     },
     {
+      "email": "jabbar.mickles76@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281505",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
       "email": "valorihowse@gmail.com",
       "sent_date": "2026-05-26",
       "serials": "277624",
@@ -26910,6 +26932,17 @@
       "status": "Activated",
       "activation_date": "2026-06-01",
       "activated_after_touch": "T0"
+    },
+    {
+      "email": "ronaldoderegules@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281042",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     },
     {
       "email": "newton.madeline1@gmail.com",
@@ -27154,6 +27187,17 @@
       "activated_after_touch": "T0"
     },
     {
+      "email": "lee62underhill@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281500",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
       "email": "williams.vnzla94@gmail.com",
       "sent_date": "2026-05-28",
       "serials": "277854",
@@ -27308,6 +27352,17 @@
       "activated_after_touch": null
     },
     {
+      "email": "somuchcuteness@yahoo.com",
+      "sent_date": "2026-07-08",
+      "serials": "281044",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
       "email": "guillermo.garcia760@icloud.com",
       "sent_date": "2026-05-28",
       "serials": "277439",
@@ -27358,6 +27413,28 @@
       "days_since": 41,
       "fu_sent": true,
       "fu_date": "2026-06-08",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "inahenry75@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281041, 281248",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "bumpercropfarm@yahoo.com",
+      "sent_date": "2026-07-08",
+      "serials": "281263",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
@@ -27715,6 +27792,17 @@
       "activated_after_touch": "T0"
     },
     {
+      "email": "trevorsilvera85@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281033",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
       "email": "jdriver421@frontiernet.net",
       "sent_date": "2026-05-28",
       "serials": "278138",
@@ -27856,6 +27944,17 @@
       "status": "Activated",
       "activation_date": "2026-06-06",
       "activated_after_touch": "T0"
+    },
+    {
+      "email": "eparrette50@icloud.com",
+      "sent_date": "2026-07-08",
+      "serials": "281043",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     },
     {
       "email": "denniscarter37@aol.com",
@@ -28120,6 +28219,17 @@
       "status": "Activated",
       "activation_date": "2026-06-02",
       "activated_after_touch": "T0"
+    },
+    {
+      "email": "mosaleh23@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281243",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     },
     {
       "email": "ryanmay1995@gmail.com",
@@ -30762,6 +30872,193 @@
       "activated_after_touch": "T0"
     },
     {
+      "email": "minmay28@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281502",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "bridgett8053@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281247, 281506",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "shuler123@comcast.net",
+      "sent_date": "2026-07-08",
+      "serials": "281242",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "juansardorealtor@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281298",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "jennifersmith797@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281301",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "ashleytuck86@icloud.com",
+      "sent_date": "2026-07-08",
+      "serials": "281233",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "djriderlive@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281540",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "jakesterling42@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281541",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "smoa224@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281544, 281543",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "intrinsicsigns@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281542",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "alonsom67@aol.com",
+      "sent_date": "2026-07-08",
+      "serials": "281547",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "sototanya22@yahoo.com",
+      "sent_date": "2026-07-08",
+      "serials": "281546",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "jberm004@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281545",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "catchmeoutside77@icloud.com",
+      "sent_date": "2026-07-08",
+      "serials": "281548, 281549",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "brianbaker0716@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281531",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "robertodavidpizano@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "281151",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "sgt_fergus@yahoo.com",
+      "sent_date": "2026-07-08",
+      "serials": "281539",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
       "email": "andrewlubert57@gmail.com",
       "sent_date": "2026-06-11",
       "serials": "277350",
@@ -31375,17 +31672,6 @@
       "fu_date": "2026-06-26",
       "status": "Activated",
       "activation_date": "2026-07-04",
-      "activated_after_touch": "T0"
-    },
-    {
-      "email": "ashleytuck86@icloud.com",
-      "sent_date": "2026-06-17",
-      "serials": "277272",
-      "days_since": 21,
-      "fu_sent": false,
-      "fu_date": "",
-      "status": "Activated",
-      "activation_date": "2026-06-24",
       "activated_after_touch": "T0"
     },
     {
@@ -35969,17 +36255,6 @@
       "sent_date": "2026-07-06",
       "serials": "281652,280317,280315",
       "days_since": 2,
-      "fu_sent": false,
-      "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
-    },
-    {
-      "email": "djriderlive@gmail.com",
-      "sent_date": "2026-07-07",
-      "serials": "281540",
-      "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
       "status": "Pending",
@@ -45644,20 +45919,20 @@
       "bounce_rate": 1.4
     },
     {
-      "requests": 5,
-      "delivered": 5,
+      "requests": 39,
+      "delivered": 39,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 0,
-      "opens": 5,
+      "unique_opens": 1,
+      "opens": 6,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 5,
       "activation": 0,
       "followup": 0,
-      "date": "2026-07-08",
       "from_category_stats": true,
-      "open_rate": 0.0,
+      "date": "2026-07-08",
+      "open_rate": 2.6,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -45669,16 +45944,16 @@
     "period_start": "2026-04-27",
     "period_end": "2026-07-08",
     "total_delivered": 3291,
-    "total_opens": 1538,
+    "total_opens": 1539,
     "total_clicks": 140,
     "total_bounces": 18,
     "total_requests": 4287,
     "total_unsubscribes": 0,
-    "avg_open_rate": 45.2,
-    "avg_click_rate": 4.11,
+    "avg_open_rate": 44.7,
+    "avg_click_rate": 4.07,
     "avg_delivery_rate": 76.8,
     "avg_bounce_rate": 0.42,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3406 delivered). Delivery rate across all 3291 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3440 delivered). Delivery rate across all 3291 campaign emails.",
     "customer_tracked": 755,
     "customer_delivered": 732,
     "customer_opened": 365,
