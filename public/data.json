@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-07-08T04:31:32",
+  "generated_at": "2026-07-08T04:47:51",
   "summary": {
-    "total_outreached": 1551,
+    "total_outreached": 1556,
     "activated": 846,
-    "pending": 691,
+    "pending": 696,
     "returned": 14,
-    "activation_rate": 54.5,
+    "activation_rate": 54.4,
     "followup_sent": 1373,
     "followup_customers_reached": 828,
     "followup_activated": 318,
     "followup_conversion_rate": 38.4,
-    "in_transit_sent": 1066,
+    "in_transit_sent": 1071,
     "in_transit_activated": 630,
-    "in_transit_exclusive_sent": 599,
+    "in_transit_exclusive_sent": 604,
     "in_transit_exclusive_activated": 456,
     "reengagement_sent": 906,
     "reengagement_activated": 14
@@ -25416,6 +25416,17 @@
       "activated_after_touch": "T0"
     },
     {
+      "email": "mario121280@yahoo.com",
+      "sent_date": "2026-07-08",
+      "serials": "281296",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
       "email": "incorpus17@gmail.com",
       "sent_date": "2026-05-21",
       "serials": "276666, 276667",
@@ -25592,6 +25603,17 @@
       "activated_after_touch": null
     },
     {
+      "email": "dannypruteanu@gmail.com",
+      "sent_date": "2026-07-08",
+      "serials": "278461",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
       "email": "kendrickg885@gmail.com",
       "sent_date": "2026-05-21",
       "serials": "288871",
@@ -25667,6 +25689,17 @@
       "status": "Activated",
       "activation_date": "2026-05-21",
       "activated_after_touch": "T0"
+    },
+    {
+      "email": "kevinsullivan002@yahoo.com",
+      "sent_date": "2026-07-08",
+      "serials": "281300",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     },
     {
       "email": "stevenferrell0081@icloud.com",
@@ -25790,6 +25823,17 @@
       "activated_after_touch": "T0"
     },
     {
+      "email": "bdnevergiveup@icloud.com",
+      "sent_date": "2026-07-08",
+      "serials": "278477",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
       "email": "lekenyan@yahoo.com",
       "sent_date": "2026-05-21",
       "serials": "277071",
@@ -25810,6 +25854,17 @@
       "status": "Activated",
       "activation_date": "2026-05-23",
       "activated_after_touch": "T0"
+    },
+    {
+      "email": "amaroislandtaste@outlook.com",
+      "sent_date": "2026-07-08",
+      "serials": "289249",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     },
     {
       "email": "rashida.vaughan@icloud.com",
@@ -45587,13 +45642,32 @@
       "click_rate": 3.03,
       "delivery_rate": 92.3,
       "bounce_rate": 1.4
+    },
+    {
+      "requests": 5,
+      "delivered": 5,
+      "bounces": 0,
+      "unsubscribes": 0,
+      "unique_opens": 0,
+      "opens": 5,
+      "unique_clicks": 0,
+      "clicks": 0,
+      "in_transit": 5,
+      "activation": 0,
+      "followup": 0,
+      "date": "2026-07-08",
+      "from_category_stats": true,
+      "open_rate": 0.0,
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     }
   ],
   "sendgrid_summary": {
     "has_campaign_data": true,
     "data_source": "category_stats",
     "period_start": "2026-04-27",
-    "period_end": "2026-07-07",
+    "period_end": "2026-07-08",
     "total_delivered": 3291,
     "total_opens": 1538,
     "total_clicks": 140,
@@ -45601,10 +45675,10 @@
     "total_requests": 4287,
     "total_unsubscribes": 0,
     "avg_open_rate": 45.2,
-    "avg_click_rate": 4.12,
+    "avg_click_rate": 4.11,
     "avg_delivery_rate": 76.8,
     "avg_bounce_rate": 0.42,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3401 delivered). Delivery rate across all 3291 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3406 delivered). Delivery rate across all 3291 campaign emails.",
     "customer_tracked": 755,
     "customer_delivered": 732,
     "customer_opened": 365,
