@@ -397,6 +397,10 @@ class RefreshHandler(BaseHTTPRequestHandler):
             self.send_header('Access-Control-Allow-Origin', origin)
         self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        # Chrome 94+ Private Network Access: required when a public origin (GitHub Pages)
+        # fetches from a loopback address (127.0.0.1). Without this, Chrome blocks the
+        # request before it reaches the server and the browser gets "Failed to fetch".
+        self.send_header('Access-Control-Allow-Private-Network', 'true')
 
     def do_OPTIONS(self):
         self.send_response(200)
