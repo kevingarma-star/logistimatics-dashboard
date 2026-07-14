@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-14T06:48:48",
+  "generated_at": "2026-07-14T07:02:27",
   "summary": {
-    "total_outreached": 1751,
-    "activated": 954,
-    "pending": 784,
+    "total_outreached": 1757,
+    "activated": 957,
+    "pending": 787,
     "returned": 13,
     "activation_rate": 54.5,
     "followup_sent": 1513,
@@ -371,6 +371,12 @@
       "label": "Jul 13",
       "activation": 27,
       "followup": 72
+    },
+    {
+      "date": "2026-07-14",
+      "label": "Jul 14",
+      "activation": 6,
+      "followup": 0
     }
   ],
   "cohorts": [
@@ -913,22 +919,34 @@
       "followup_activated": 0,
       "activation_rate": 7.4,
       "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-07-14",
+      "label": "Jul 14",
+      "total": 6,
+      "activated": 3,
+      "pending": 3,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 50.0,
+      "followup_conv_rate": 0
     }
   ],
   "funnel": [
     {
       "stage": "Outreached",
-      "value": 998,
+      "value": 1004,
       "pct": 100
     },
     {
       "stage": "Follow-up Sent",
       "value": 875,
-      "pct": 87.7
+      "pct": 87.2
     },
     {
       "stage": "Activated",
-      "value": 415,
+      "value": 418,
       "pct": 41.6
     }
   ],
@@ -25882,11 +25900,161 @@
       "sg_opens_count": 4,
       "sg_clicks_count": 0,
       "sg_last_event": ""
+    },
+    {
+      "email": "jamesaw_llc@gmail.com",
+      "sent_date": "2026-07-14",
+      "serials": "278460",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Activated",
+      "activation_date": "2026-06-26",
+      "days_to_activate": -18,
+      "activated_after_touch": "T1",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "phdlm@aol.com",
+      "sent_date": "2026-07-14",
+      "serials": "278245",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "jessicaweaton26@gmail.com",
+      "sent_date": "2026-07-14",
+      "serials": "278288",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "cynthiab19631@gmail.com",
+      "sent_date": "2026-07-14",
+      "serials": "278292",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Activated",
+      "activation_date": "2026-07-10",
+      "days_to_activate": -4,
+      "activated_after_touch": "T1",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "bdiaz041@gmail.com",
+      "sent_date": "2026-07-14",
+      "serials": "278270",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "alonzo.forde1@gmail.com",
+      "sent_date": "2026-07-14",
+      "serials": "278275",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Activated",
+      "activation_date": "2026-06-24",
+      "days_to_activate": -20,
+      "activated_after_touch": "T1",
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
     }
   ],
   "activation_timing": {
-    "total_activated": 415,
-    "with_activation_date": 415,
+    "total_activated": 418,
+    "with_activation_date": 418,
     "avg_days_to_activate": 14.9,
     "median_days_to_activate": 9,
     "by_touch": [
@@ -25901,29 +26069,29 @@
         "touch": "T1",
         "label": "After Touch 1",
         "desc": "Activated without needing a follow-up",
-        "count": 73,
-        "pct": 17.6
+        "count": 76,
+        "pct": 18.2
       },
       {
         "touch": "T2",
         "label": "After Touch 2",
         "desc": "Activated after the second email",
         "count": 249,
-        "pct": 60.0
+        "pct": 59.6
       },
       {
         "touch": "T3",
         "label": "After Touch 3",
         "desc": "Activated after the third email",
         "count": 39,
-        "pct": 9.4
+        "pct": 9.3
       },
       {
         "touch": "T4",
         "label": "After Personal Note",
         "desc": "Activated after the personal note from Kevin",
         "count": 52,
-        "pct": 12.5
+        "pct": 12.4
       }
     ],
     "days_distribution": [
@@ -49057,9 +49225,9 @@
       "bounce_rate": 0.74
     },
     {
-      "requests": 69,
-      "delivered": 68,
-      "bounces": 0,
+      "requests": 75,
+      "delivered": 70,
+      "bounces": 4,
       "unsubscribes": 0,
       "unique_opens": 26,
       "opens": 31,
@@ -49070,10 +49238,10 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-14",
-      "open_rate": 38.2,
-      "click_rate": 1.47,
-      "delivery_rate": 98.6,
-      "bounce_rate": 0.0
+      "open_rate": 37.1,
+      "click_rate": 1.43,
+      "delivery_rate": 93.3,
+      "bounce_rate": 5.33
     }
   ],
   "sendgrid_summary": {
@@ -49088,10 +49256,10 @@
     "total_requests": 4728,
     "total_unsubscribes": 0,
     "avg_open_rate": 46.4,
-    "avg_click_rate": 4.17,
+    "avg_click_rate": 4.16,
     "avg_delivery_rate": 78.5,
     "avg_bounce_rate": 0.42,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3888 delivered). Delivery rate across all 3713 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (3890 delivered). Delivery rate across all 3713 campaign emails.",
     "customer_tracked": 801,
     "customer_delivered": 776,
     "customer_opened": 402,
