@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-16T08:45:35",
+  "generated_at": "2026-07-16T08:48:41",
   "summary": {
     "total_outreached": 1809,
     "activated": 991,
     "pending": 805,
     "returned": 13,
     "activation_rate": 54.8,
-    "followup_sent": 1594,
+    "followup_sent": 1596,
     "followup_customers_reached": 875,
     "followup_activated": 343,
     "followup_conversion_rate": 39.2,
@@ -388,7 +388,7 @@
       "date": "2026-07-16",
       "label": "Jul 16",
       "activation": 0,
-      "followup": 28
+      "followup": 30
     }
   ],
   "cohorts": [
@@ -14284,8 +14284,8 @@
       "in_transit_date": "2026-06-24",
       "fu_sent": true,
       "fu_date": "2026-07-08",
-      "fu2_sent": false,
-      "fu2_date": "",
+      "fu2_sent": true,
+      "fu2_date": "2026-07-16",
       "fu3_sent": false,
       "fu3_date": "",
       "status": "Pending",
@@ -49973,8 +49973,8 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 54,
-      "delivered": 51,
+      "requests": 57,
+      "delivered": 55,
       "bounces": 2,
       "unsubscribes": 0,
       "unique_opens": 16,
@@ -49986,10 +49986,10 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-16",
-      "open_rate": 31.4,
+      "open_rate": 29.1,
       "click_rate": 0.0,
-      "delivery_rate": 94.4,
-      "bounce_rate": 3.7
+      "delivery_rate": 96.5,
+      "bounce_rate": 3.51
     }
   ],
   "sendgrid_summary": {
@@ -50003,11 +50003,11 @@
     "total_bounces": 25,
     "total_requests": 4966,
     "total_unsubscribes": 0,
-    "avg_open_rate": 46.7,
+    "avg_open_rate": 46.6,
     "avg_click_rate": 4.19,
     "avg_delivery_rate": 79.3,
     "avg_bounce_rate": 0.5,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4029 delivered). Delivery rate across all 3939 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4033 delivered). Delivery rate across all 3939 campaign emails.",
     "customer_tracked": 805,
     "customer_delivered": 780,
     "customer_opened": 405,
