@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T06:31:34",
+  "generated_at": "2026-07-20T06:48:04",
   "summary": {
     "total_outreached": 1857,
     "activated": 1056,
@@ -12,7 +12,7 @@
     "followup_conversion_rate": 39.5,
     "in_transit_sent": 1365,
     "in_transit_activated": 833,
-    "in_transit_exclusive_sent": 809,
+    "in_transit_exclusive_sent": 806,
     "in_transit_exclusive_activated": 616,
     "reengagement_sent": 906,
     "reengagement_activated": 19
@@ -395,6 +395,12 @@
       "label": "Jul 17",
       "activation": 39,
       "followup": 15
+    },
+    {
+      "date": "2026-07-20",
+      "label": "Jul 20",
+      "activation": 3,
+      "followup": 0
     }
   ],
   "cohorts": [
@@ -973,23 +979,35 @@
       "followup_activated": 0,
       "activation_rate": 7.7,
       "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-07-20",
+      "label": "Jul 20",
+      "total": 3,
+      "activated": 0,
+      "pending": 3,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0
     }
   ],
   "funnel": [
     {
       "stage": "Outreached",
-      "value": 1048,
+      "value": 1051,
       "pct": 100
     },
     {
       "stage": "Follow-up Sent",
       "value": 889,
-      "pct": 84.8
+      "pct": 84.6
     },
     {
       "stage": "Activated",
       "value": 440,
-      "pct": 42.0
+      "pct": 41.9
     }
   ],
   "customers": [
@@ -27192,6 +27210,81 @@
       "sg_opens_count": 0,
       "sg_clicks_count": 0,
       "sg_last_event": ""
+    },
+    {
+      "email": "samanthajessicaowens@gmail.com",
+      "sent_date": "2026-07-20",
+      "serials": "289628,280706",
+      "days_since": 0,
+      "in_transit_sent": true,
+      "in_transit_date": "2026-07-10",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 2,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "cooljyp73@gmail.com",
+      "sent_date": "2026-07-20",
+      "serials": "280694,280693",
+      "days_since": 0,
+      "in_transit_sent": true,
+      "in_transit_date": "2026-07-10",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": true,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 1,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
+    },
+    {
+      "email": "tallish.halfway5l@icloud.com",
+      "sent_date": "2026-07-20",
+      "serials": "281009",
+      "days_since": 0,
+      "in_transit_sent": true,
+      "in_transit_date": "2026-07-10",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
     }
   ],
   "activation_timing": {
@@ -35974,8 +36067,8 @@
       "sent_date": "2026-07-10",
       "serials": "289628, 280706",
       "days_since": 10,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-07-20",
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
@@ -35996,8 +36089,8 @@
       "sent_date": "2026-07-10",
       "serials": "280693, 280694",
       "days_since": 10,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-07-20",
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
@@ -41287,8 +41380,8 @@
       "sent_date": "2026-07-10",
       "serials": "281009",
       "days_since": 10,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-07-20",
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
@@ -51532,8 +51625,8 @@
       "bounce_rate": 1.27
     },
     {
-      "requests": 24,
-      "delivered": 24,
+      "requests": 27,
+      "delivered": 27,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 8,
@@ -51545,7 +51638,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-20",
-      "open_rate": 33.3,
+      "open_rate": 29.6,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -51566,14 +51659,14 @@
     "avg_click_rate": 4.16,
     "avg_delivery_rate": 80.0,
     "avg_bounce_rate": 0.54,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4134 delivered). Delivery rate across all 4132 campaign emails.",
-    "customer_tracked": 844,
-    "customer_delivered": 818,
-    "customer_opened": 428,
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4137 delivered). Delivery rate across all 4132 campaign emails.",
+    "customer_tracked": 847,
+    "customer_delivered": 821,
+    "customer_opened": 430,
     "customer_clicked": 35,
     "customer_bounced": 0,
-    "customer_open_rate": 52.3,
-    "customer_click_rate": 4.28,
+    "customer_open_rate": 52.4,
+    "customer_click_rate": 4.26,
     "customer_delivery_rate": 96.9,
     "customer_bounce_rate": 0.0
   },
