@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-21T09:02:47",
+  "generated_at": "2026-07-21T09:31:53",
   "summary": {
     "total_outreached": 1922,
     "activated": 1074,
     "pending": 834,
     "returned": 14,
     "activation_rate": 55.9,
-    "followup_sent": 1679,
+    "followup_sent": 1698,
     "followup_customers_reached": 974,
     "followup_activated": 396,
     "followup_conversion_rate": 40.7,
@@ -406,7 +406,7 @@
       "date": "2026-07-21",
       "label": "Jul 21",
       "activation": 35,
-      "followup": 13
+      "followup": 32
     }
   ],
   "cohorts": [
@@ -53902,12 +53902,12 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 113,
-      "delivered": 112,
+      "requests": 133,
+      "delivered": 131,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 41,
-      "opens": 61,
+      "unique_opens": 44,
+      "opens": 66,
       "unique_clicks": 5,
       "clicks": 16,
       "in_transit": 8,
@@ -53915,9 +53915,9 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-21",
-      "open_rate": 36.6,
-      "click_rate": 4.46,
-      "delivery_rate": 99.1,
+      "open_rate": 33.6,
+      "click_rate": 3.82,
+      "delivery_rate": 98.5,
       "bounce_rate": 0.0
     }
   ],
@@ -53927,16 +53927,16 @@
     "period_start": "2026-04-27",
     "period_end": "2026-07-21",
     "total_delivered": 4132,
-    "total_opens": 2086,
+    "total_opens": 2089,
     "total_clicks": 181,
     "total_bounces": 28,
     "total_requests": 5167,
     "total_unsubscribes": 0,
-    "avg_open_rate": 46.7,
-    "avg_click_rate": 4.05,
+    "avg_open_rate": 46.6,
+    "avg_click_rate": 4.04,
     "avg_delivery_rate": 80.0,
     "avg_bounce_rate": 0.54,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4464 delivered). Delivery rate across all 4132 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4483 delivered). Delivery rate across all 4132 campaign emails.",
     "customer_tracked": 908,
     "customer_delivered": 881,
     "customer_opened": 457,
