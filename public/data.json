@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-07-21T09:31:53",
+  "generated_at": "2026-07-21T09:48:40",
   "summary": {
     "total_outreached": 1922,
     "activated": 1074,
     "pending": 834,
     "returned": 14,
     "activation_rate": 55.9,
-    "followup_sent": 1698,
+    "followup_sent": 1699,
     "followup_customers_reached": 974,
     "followup_activated": 396,
     "followup_conversion_rate": 40.7,
@@ -406,7 +406,7 @@
       "date": "2026-07-21",
       "label": "Jul 21",
       "activation": 35,
-      "followup": 32
+      "followup": 33
     }
   ],
   "cohorts": [
@@ -16813,8 +16813,8 @@
       "in_transit_date": "2026-05-21",
       "fu_sent": true,
       "fu_date": "2026-07-08",
-      "fu2_sent": false,
-      "fu2_date": "",
+      "fu2_sent": true,
+      "fu2_date": "2026-07-21",
       "fu3_sent": false,
       "fu3_date": "",
       "status": "Pending",
@@ -53902,12 +53902,12 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 133,
-      "delivered": 131,
+      "requests": 134,
+      "delivered": 132,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 44,
-      "opens": 66,
+      "unique_opens": 45,
+      "opens": 69,
       "unique_clicks": 5,
       "clicks": 16,
       "in_transit": 8,
@@ -53915,8 +53915,8 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-21",
-      "open_rate": 33.6,
-      "click_rate": 3.82,
+      "open_rate": 34.1,
+      "click_rate": 3.79,
       "delivery_rate": 98.5,
       "bounce_rate": 0.0
     }
@@ -53927,7 +53927,7 @@
     "period_start": "2026-04-27",
     "period_end": "2026-07-21",
     "total_delivered": 4132,
-    "total_opens": 2089,
+    "total_opens": 2090,
     "total_clicks": 181,
     "total_bounces": 28,
     "total_requests": 5167,
@@ -53936,7 +53936,7 @@
     "avg_click_rate": 4.04,
     "avg_delivery_rate": 80.0,
     "avg_bounce_rate": 0.54,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4483 delivered). Delivery rate across all 4132 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4484 delivered). Delivery rate across all 4132 campaign emails.",
     "customer_tracked": 908,
     "customer_delivered": 881,
     "customer_opened": 457,
