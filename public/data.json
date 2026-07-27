@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-07-27T08:45:54",
+  "generated_at": "2026-07-27T08:48:26",
   "summary": {
     "total_outreached": 2039,
     "activated": 1156,
     "pending": 863,
     "returned": 20,
     "activation_rate": 56.7,
-    "followup_sent": 1701,
-    "followup_customers_reached": 976,
-    "followup_activated": 413,
+    "followup_sent": 1705,
+    "followup_customers_reached": 980,
+    "followup_activated": 415,
     "followup_conversion_rate": 42.3,
     "in_transit_sent": 1547,
     "in_transit_activated": 938,
@@ -418,7 +418,7 @@
       "date": "2026-07-27",
       "label": "Jul 27",
       "activation": 64,
-      "followup": 2
+      "followup": 6
     }
   ],
   "cohorts": [
@@ -969,8 +969,8 @@
       "activated": 3,
       "pending": 3,
       "returned": 0,
-      "followup_sent": 2,
-      "followup_activated": 1,
+      "followup_sent": 6,
+      "followup_activated": 3,
       "activation_rate": 50.0,
       "followup_conv_rate": 50.0
     },
@@ -1055,8 +1055,8 @@
     },
     {
       "stage": "Follow-up Sent",
-      "value": 976,
-      "pct": 83.3
+      "value": 980,
+      "pct": 83.7
     },
     {
       "stage": "Activated",
@@ -26072,8 +26072,8 @@
       "days_since": 13,
       "in_transit_sent": false,
       "in_transit_date": "",
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-07-27",
       "fu2_sent": false,
       "fu2_date": "",
       "fu3_sent": false,
@@ -26097,8 +26097,8 @@
       "days_since": 13,
       "in_transit_sent": false,
       "in_transit_date": "",
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-07-27",
       "fu2_sent": false,
       "fu2_date": "",
       "fu3_sent": false,
@@ -26106,7 +26106,7 @@
       "status": "Activated",
       "activation_date": "2026-07-10",
       "days_to_activate": -4,
-      "activated_after_touch": "T1",
+      "activated_after_touch": "T2",
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -26122,8 +26122,8 @@
       "days_since": 13,
       "in_transit_sent": false,
       "in_transit_date": "",
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-07-27",
       "fu2_sent": false,
       "fu2_date": "",
       "fu3_sent": false,
@@ -26147,8 +26147,8 @@
       "days_since": 13,
       "in_transit_sent": false,
       "in_transit_date": "",
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-07-27",
       "fu2_sent": false,
       "fu2_date": "",
       "fu3_sent": false,
@@ -26156,7 +26156,7 @@
       "status": "Activated",
       "activation_date": "2026-06-24",
       "days_to_activate": -20,
-      "activated_after_touch": "T1",
+      "activated_after_touch": "T2",
       "sg_delivered": null,
       "sg_opened": null,
       "sg_clicked": null,
@@ -30358,15 +30358,15 @@
         "touch": "T1",
         "label": "After Touch 1",
         "desc": "Activated without needing a follow-up",
-        "count": 55,
-        "pct": 11.6
+        "count": 53,
+        "pct": 11.2
       },
       {
         "touch": "T2",
         "label": "After Touch 2",
         "desc": "Activated after the second email",
-        "count": 295,
-        "pct": 62.1
+        "count": 297,
+        "pct": 62.5
       },
       {
         "touch": "T3",
@@ -56738,8 +56738,8 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 173,
-      "delivered": 163,
+      "requests": 176,
+      "delivered": 166,
       "bounces": 3,
       "unsubscribes": 0,
       "unique_opens": 53,
@@ -56751,10 +56751,10 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-27",
-      "open_rate": 32.5,
-      "click_rate": 3.68,
-      "delivery_rate": 94.2,
-      "bounce_rate": 1.73
+      "open_rate": 31.9,
+      "click_rate": 3.61,
+      "delivery_rate": 94.3,
+      "bounce_rate": 1.7
     }
   ],
   "sendgrid_summary": {
@@ -56772,7 +56772,7 @@
     "avg_click_rate": 4.26,
     "avg_delivery_rate": 81.3,
     "avg_bounce_rate": 0.5,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4599 delivered). Delivery rate across all 4531 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4602 delivered). Delivery rate across all 4531 campaign emails.",
     "customer_tracked": 967,
     "customer_delivered": 937,
     "customer_opened": 482,
