@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T09:48:36",
+  "generated_at": "2026-07-27T10:02:58",
   "summary": {
     "total_outreached": 2039,
     "activated": 1156,
@@ -56738,23 +56738,23 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 202,
-      "delivered": 191,
+      "requests": 211,
+      "delivered": 193,
       "bounces": 3,
       "unsubscribes": 0,
       "unique_opens": 62,
-      "opens": 81,
-      "unique_clicks": 6,
-      "clicks": 15,
+      "opens": 83,
+      "unique_clicks": 7,
+      "clicks": 16,
       "in_transit": 5,
       "activation": 0,
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-27",
-      "open_rate": 32.5,
-      "click_rate": 3.14,
-      "delivery_rate": 94.6,
-      "bounce_rate": 1.49
+      "open_rate": 32.1,
+      "click_rate": 3.63,
+      "delivery_rate": 91.5,
+      "bounce_rate": 1.42
     }
   ],
   "sendgrid_summary": {
@@ -56764,15 +56764,15 @@
     "period_end": "2026-07-27",
     "total_delivered": 4531,
     "total_opens": 2190,
-    "total_clicks": 196,
+    "total_clicks": 197,
     "total_bounces": 28,
     "total_requests": 5575,
     "total_unsubscribes": 0,
     "avg_open_rate": 47.3,
-    "avg_click_rate": 4.24,
+    "avg_click_rate": 4.26,
     "avg_delivery_rate": 81.3,
     "avg_bounce_rate": 0.5,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4627 delivered). Delivery rate across all 4531 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4629 delivered). Delivery rate across all 4531 campaign emails.",
     "customer_tracked": 967,
     "customer_delivered": 937,
     "customer_opened": 482,
