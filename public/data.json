@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-29T05:32:34",
+  "generated_at": "2026-07-29T05:48:26",
   "summary": {
-    "total_outreached": 2144,
+    "total_outreached": 2145,
     "activated": 1214,
-    "pending": 908,
+    "pending": 909,
     "returned": 22,
     "activation_rate": 56.6,
     "followup_sent": 1763,
@@ -424,6 +424,12 @@
       "date": "2026-07-28",
       "label": "Jul 28",
       "activation": 22,
+      "followup": 0
+    },
+    {
+      "date": "2026-07-29",
+      "label": "Jul 29",
+      "activation": 1,
       "followup": 0
     }
   ],
@@ -1063,23 +1069,35 @@
       "followup_activated": 0,
       "activation_rate": 4.8,
       "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-07-29",
+      "label": "Jul 29",
+      "total": 1,
+      "activated": 0,
+      "pending": 1,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0
     }
   ],
   "funnel": [
     {
       "stage": "Outreached",
-      "value": 1192,
+      "value": 1193,
       "pct": 100
     },
     {
       "stage": "Follow-up Sent",
       "value": 1007,
-      "pct": 84.5
+      "pct": 84.4
     },
     {
       "stage": "Activated",
       "value": 481,
-      "pct": 40.4
+      "pct": 40.3
     }
   ],
   "customers": [
@@ -30882,6 +30900,31 @@
       "sg_opens_count": 1,
       "sg_clicks_count": 0,
       "sg_last_event": ""
+    },
+    {
+      "email": "harliejene123@gmail.com",
+      "sent_date": "2026-07-29",
+      "serials": "magnet",
+      "days_since": 0,
+      "in_transit_sent": false,
+      "in_transit_date": "",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": null,
+      "sg_opened": null,
+      "sg_clicked": null,
+      "sg_bounced": null,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
     }
   ],
   "activation_timing": {
@@ -58496,12 +58539,12 @@
       "bounce_rate": 0.99
     },
     {
-      "requests": 31,
-      "delivered": 30,
+      "requests": 32,
+      "delivered": 31,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 4,
-      "opens": 4,
+      "unique_opens": 7,
+      "opens": 7,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 4,
@@ -58509,9 +58552,9 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-07-29",
-      "open_rate": 13.3,
+      "open_rate": 22.6,
       "click_rate": 0.0,
-      "delivery_rate": 96.8,
+      "delivery_rate": 96.9,
       "bounce_rate": 0.0
     }
   ],
@@ -58521,7 +58564,7 @@
     "period_start": "2026-04-27",
     "period_end": "2026-07-29",
     "total_delivered": 4743,
-    "total_opens": 2265,
+    "total_opens": 2268,
     "total_clicks": 208,
     "total_bounces": 31,
     "total_requests": 5808,
@@ -58530,7 +58573,7 @@
     "avg_click_rate": 4.38,
     "avg_delivery_rate": 81.7,
     "avg_bounce_rate": 0.53,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4750 delivered). Delivery rate across all 4743 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4751 delivered). Delivery rate across all 4743 campaign emails.",
     "customer_tracked": 989,
     "customer_delivered": 959,
     "customer_opened": 492,
