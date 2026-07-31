@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T10:48:34",
+  "generated_at": "2026-07-31T11:02:07",
   "summary": {
     "total_outreached": 2199,
     "activated": 1252,
@@ -59975,7 +59975,7 @@
       "bounces": 1,
       "unsubscribes": 0,
       "unique_opens": 29,
-      "opens": 39,
+      "opens": 40,
       "unique_clicks": 0,
       "clicks": 1,
       "in_transit": 6,
@@ -60017,36 +60017,43 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 574,
-    "total_responses": 16,
-    "response_rate": 2.8,
+    "surveys_sent": 635,
+    "total_responses": 17,
+    "response_rate": 2.7,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
         "count": 5,
-        "pct": 31.2
+        "pct": 29.4
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
         "count": 5,
-        "pct": 31.2
+        "pct": 29.4
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
-        "count": 2,
-        "pct": 12.5
+        "count": 3,
+        "pct": 17.6
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 3,
-        "pct": 18.8
+        "pct": 17.6
       }
     ],
     "recent": [
+      {
+        "date": "2026-07-31",
+        "email": "jason.daniels@interstatepipeline.com",
+        "name": "Jason",
+        "reason": "activation",
+        "reason_label": "Issue with the activation page"
+      },
       {
         "date": "2026-07-20",
         "email": "chrylshaw@live.com",
@@ -60273,6 +60280,13 @@
       "name": "Chryl",
       "reason": "need",
       "reason_label": "Don't need it yet"
+    },
+    {
+      "date": "2026-07-31",
+      "email": "jason.daniels@interstatepipeline.com",
+      "name": "Jason",
+      "reason": "activation",
+      "reason_label": "Issue with the activation page"
     }
   ]
 }
