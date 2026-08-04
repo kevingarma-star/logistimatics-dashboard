@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T05:30:59",
+  "generated_at": "2026-08-04T05:47:53",
   "summary": {
     "total_outreached": 2200,
     "activated": 1308,
@@ -60005,14 +60005,14 @@
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 1,
-      "opens": 2,
+      "opens": 3,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 1,
       "activation": 0,
       "followup": 0,
-      "date": "2026-08-04",
       "from_category_stats": true,
+      "date": "2026-08-04",
       "open_rate": 100.0,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
