@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-08-04T05:01:19",
+  "generated_at": "2026-08-04T05:30:59",
   "summary": {
-    "total_outreached": 2199,
+    "total_outreached": 2200,
     "activated": 1308,
-    "pending": 875,
+    "pending": 876,
     "returned": 16,
     "activation_rate": 59.5,
     "followup_sent": 1811,
     "followup_customers_reached": 1043,
     "followup_activated": 428,
     "followup_conversion_rate": 41.0,
-    "in_transit_sent": 1708,
+    "in_transit_sent": 1709,
     "in_transit_activated": 1090,
-    "in_transit_exclusive_sent": 975,
+    "in_transit_exclusive_sent": 976,
     "in_transit_exclusive_activated": 801,
     "reengagement_sent": 906,
     "reengagement_activated": 20
@@ -50587,6 +50587,17 @@
       "status": "Activated",
       "activation_date": "2026-08-01",
       "activated_after_touch": "T0"
+    },
+    {
+      "email": "sammy050803@gmail.com",
+      "sent_date": "2026-08-04",
+      "serials": "280797, 277236",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     }
   ],
   "reengagement_customers": [
@@ -59987,15 +59998,34 @@
       "click_rate": 0.0,
       "delivery_rate": 97.5,
       "bounce_rate": 1.23
+    },
+    {
+      "requests": 1,
+      "delivered": 1,
+      "bounces": 0,
+      "unsubscribes": 0,
+      "unique_opens": 1,
+      "opens": 2,
+      "unique_clicks": 0,
+      "clicks": 0,
+      "in_transit": 1,
+      "activation": 0,
+      "followup": 0,
+      "date": "2026-08-04",
+      "from_category_stats": true,
+      "open_rate": 100.0,
+      "click_rate": 0.0,
+      "delivery_rate": 100.0,
+      "bounce_rate": 0.0
     }
   ],
   "sendgrid_summary": {
     "has_campaign_data": true,
     "data_source": "category_stats",
     "period_start": "2026-04-27",
-    "period_end": "2026-07-31",
+    "period_end": "2026-08-04",
     "total_delivered": 5008,
-    "total_opens": 2346,
+    "total_opens": 2347,
     "total_clicks": 210,
     "total_bounces": 33,
     "total_requests": 6077,
@@ -60004,7 +60034,7 @@
     "avg_click_rate": 4.32,
     "avg_delivery_rate": 82.4,
     "avg_bounce_rate": 0.54,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4856 delivered). Delivery rate across all 5008 campaign emails.",
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (4857 delivered). Delivery rate across all 5008 campaign emails.",
     "customer_tracked": 1020,
     "customer_delivered": 989,
     "customer_opened": 510,
