@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-11T03:48:18",
+  "generated_at": "2026-08-11T04:02:38",
   "summary": {
     "total_outreached": 2359,
-    "activated": 1408,
-    "pending": 932,
+    "activated": 1416,
+    "pending": 924,
     "returned": 19,
-    "activation_rate": 59.7,
+    "activation_rate": 60.0,
     "followup_sent": 1922,
     "followup_customers_reached": 1117,
     "followup_activated": 444,
     "followup_conversion_rate": 39.7,
     "in_transit_sent": 1869,
-    "in_transit_activated": 1203,
+    "in_transit_activated": 1211,
     "in_transit_exclusive_sent": 998,
-    "in_transit_exclusive_activated": 870,
+    "in_transit_exclusive_activated": 878,
     "reengagement_sent": 906,
-    "reengagement_activated": 21
+    "reengagement_activated": 22
   },
   "timeline": [
     {
@@ -54267,9 +54267,9 @@
       "days_since": 7,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-08-10",
+      "activated_after_touch": "T0"
     },
     {
       "email": "dmurphyny73@gmail.com",
@@ -54278,9 +54278,9 @@
       "days_since": 7,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-08-10",
+      "activated_after_touch": "T0"
     },
     {
       "email": "juicer40@gmail.com",
@@ -54366,9 +54366,9 @@
       "days_since": 7,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-08-10",
+      "activated_after_touch": "T0"
     },
     {
       "email": "ncogneto78@gmail.com",
@@ -55246,9 +55246,9 @@
       "days_since": 4,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-08-10",
+      "activated_after_touch": "T0"
     },
     {
       "email": "jonathan.bachota@gmail.com",
@@ -55499,9 +55499,9 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-08-10",
+      "activated_after_touch": "T0"
     },
     {
       "email": "williamdowdey45@gmail.com",
@@ -55576,9 +55576,9 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-08-10",
+      "activated_after_touch": "T0"
     },
     {
       "email": "coleenhyams@sbcglobal.net",
@@ -55719,9 +55719,9 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-08-10",
+      "activated_after_touch": "T0"
     },
     {
       "email": "frankiekephart@gmail.com",
@@ -55829,9 +55829,9 @@
       "days_since": 1,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending",
-      "activation_date": "",
-      "activated_after_touch": null
+      "status": "Activated",
+      "activation_date": "2026-08-10",
+      "activated_after_touch": "T0"
     },
     {
       "email": "huseincasey6@gmail.com",
@@ -57311,7 +57311,7 @@
       "days_since": 76,
       "fu_sent": false,
       "fu_date": "",
-      "status": "Pending"
+      "status": "Activated"
     },
     {
       "email": "sam@waldropconstruction.com",
