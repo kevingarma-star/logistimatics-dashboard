@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-13T11:31:42",
+  "generated_at": "2026-08-13T11:48:24",
   "summary": {
     "total_outreached": 2500,
     "activated": 1464,
@@ -67163,8 +67163,8 @@
       "delivered": 38,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 18,
-      "opens": 32,
+      "unique_opens": 19,
+      "opens": 33,
       "unique_clicks": 2,
       "clicks": 5,
       "in_transit": 22,
@@ -67172,7 +67172,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-08-13",
-      "open_rate": 47.4,
+      "open_rate": 50.0,
       "click_rate": 5.26,
       "delivery_rate": 90.5,
       "bounce_rate": 0.0
@@ -67184,7 +67184,7 @@
     "period_start": "2026-04-27",
     "period_end": "2026-08-13",
     "total_delivered": 5590,
-    "total_opens": 2618,
+    "total_opens": 2619,
     "total_clicks": 225,
     "total_bounces": 35,
     "total_requests": 6671,
@@ -67207,35 +67207,42 @@
   "survey_summary": {
     "has_survey_data": true,
     "surveys_sent": 693,
-    "total_responses": 17,
-    "response_rate": 2.5,
+    "total_responses": 18,
+    "response_rate": 2.6,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
         "count": 5,
-        "pct": 29.4
+        "pct": 27.8
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
         "count": 5,
-        "pct": 29.4
+        "pct": 27.8
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
         "count": 3,
-        "pct": 17.6
+        "pct": 16.7
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
-        "count": 3,
-        "pct": 17.6
+        "count": 4,
+        "pct": 22.2
       }
     ],
     "recent": [
+      {
+        "date": "2026-08-13",
+        "email": "german",
+        "name": "German",
+        "reason": "ready",
+        "reason_label": "Not ready for a paying subscription"
+      },
       {
         "date": "2026-07-31",
         "email": "jason.daniels@interstatepipeline.com",
@@ -67476,6 +67483,13 @@
       "name": "Jason",
       "reason": "activation",
       "reason_label": "Issue with the activation page"
+    },
+    {
+      "date": "2026-08-13",
+      "email": "german",
+      "name": "German",
+      "reason": "ready",
+      "reason_label": "Not ready for a paying subscription"
     }
   ]
 }
