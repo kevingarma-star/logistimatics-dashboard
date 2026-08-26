@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T11:32:07",
+  "generated_at": "2026-08-26T11:48:23",
   "summary": {
     "total_outreached": 2771,
     "activated": 1671,
@@ -74405,7 +74405,7 @@
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 14,
-      "opens": 26,
+      "opens": 29,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 15,
@@ -74448,32 +74448,32 @@
   "survey_summary": {
     "has_survey_data": true,
     "surveys_sent": 794,
-    "total_responses": 20,
-    "response_rate": 2.5,
+    "total_responses": 21,
+    "response_rate": 2.6,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
-        "count": 6,
-        "pct": 30.0
+        "count": 7,
+        "pct": 33.3
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
         "count": 5,
-        "pct": 25.0
+        "pct": 23.8
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
         "count": 4,
-        "pct": 20.0
+        "pct": 19.0
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 4,
-        "pct": 20.0
+        "pct": 19.0
       }
     ],
     "recent": [
@@ -74481,6 +74481,13 @@
         "date": "2026-08-26",
         "email": "bill@billrinaldi.com",
         "name": "Bill",
+        "reason": "time",
+        "reason_label": "Haven't had time yet"
+      },
+      {
+        "date": "2026-08-26",
+        "email": "nickywolverton@gmail.com",
+        "name": "Edith",
         "reason": "time",
         "reason_label": "Haven't had time yet"
       },
@@ -74609,13 +74616,6 @@
         "name": "William",
         "reason": "subscription",
         "reason_label": "Not ready for subscription"
-      },
-      {
-        "date": "2026-05-04",
-        "email": "livertool@aol.com",
-        "name": "William",
-        "reason": "time",
-        "reason_label": "Haven't had time yet"
       }
     ]
   },
@@ -74757,6 +74757,13 @@
       "date": "2026-08-26",
       "email": "bill@billrinaldi.com",
       "name": "Bill",
+      "reason": "time",
+      "reason_label": "Haven't had time yet"
+    },
+    {
+      "date": "2026-08-26",
+      "email": "nickywolverton@gmail.com",
+      "name": "Edith",
       "reason": "time",
       "reason_label": "Haven't had time yet"
     }
