@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T08:01:56",
+  "generated_at": "2026-08-26T08:31:53",
   "summary": {
     "total_outreached": 2771,
     "activated": 1671,
@@ -74404,8 +74404,8 @@
       "delivered": 35,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 7,
-      "opens": 9,
+      "unique_opens": 8,
+      "opens": 12,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 15,
@@ -74413,7 +74413,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-08-26",
-      "open_rate": 20.0,
+      "open_rate": 22.9,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -74425,7 +74425,7 @@
     "period_start": "2026-04-27",
     "period_end": "2026-08-26",
     "total_delivered": 6354,
-    "total_opens": 2782,
+    "total_opens": 2783,
     "total_clicks": 202,
     "total_bounces": 37,
     "total_requests": 7461,
@@ -74447,36 +74447,43 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 785,
-    "total_responses": 19,
-    "response_rate": 2.4,
+    "surveys_sent": 794,
+    "total_responses": 20,
+    "response_rate": 2.5,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
-        "count": 5,
-        "pct": 26.3
+        "count": 6,
+        "pct": 30.0
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
         "count": 5,
-        "pct": 26.3
+        "pct": 25.0
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
         "count": 4,
-        "pct": 21.1
+        "pct": 20.0
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 4,
-        "pct": 21.1
+        "pct": 20.0
       }
     ],
     "recent": [
+      {
+        "date": "2026-08-26",
+        "email": "bill@billrinaldi.com",
+        "name": "Bill",
+        "reason": "time",
+        "reason_label": "Haven't had time yet"
+      },
       {
         "date": "2026-08-25",
         "email": "p.kincaid3115@gmail.com",
@@ -74745,6 +74752,13 @@
       "name": "Paul",
       "reason": "activation",
       "reason_label": "Issue with the activation page"
+    },
+    {
+      "date": "2026-08-26",
+      "email": "bill@billrinaldi.com",
+      "name": "Bill",
+      "reason": "time",
+      "reason_label": "Haven't had time yet"
     }
   ]
 }
