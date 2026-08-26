@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T06:31:34",
+  "generated_at": "2026-08-26T06:48:22",
   "summary": {
     "total_outreached": 2771,
     "activated": 1671,
@@ -74405,7 +74405,7 @@
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 7,
-      "opens": 7,
+      "opens": 8,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 15,
@@ -74447,9 +74447,9 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 745,
+    "surveys_sent": 750,
     "total_responses": 19,
-    "response_rate": 2.6,
+    "response_rate": 2.5,
     "breakdown": [
       {
         "reason": "time",
