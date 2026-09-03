@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T12:02:15",
+  "generated_at": "2026-09-03T19:07:29",
   "summary": {
     "total_outreached": 3031,
     "activated": 1823,
@@ -78953,17 +78953,17 @@
       "delivered": 29,
       "bounces": 1,
       "unsubscribes": 0,
-      "unique_opens": 15,
-      "opens": 21,
-      "unique_clicks": 0,
-      "clicks": 0,
+      "unique_opens": 21,
+      "opens": 35,
+      "unique_clicks": 1,
+      "clicks": 2,
       "in_transit": 30,
       "activation": 0,
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-09-03",
-      "open_rate": 51.7,
-      "click_rate": 0.0,
+      "open_rate": 72.4,
+      "click_rate": 3.45,
       "delivery_rate": 96.7,
       "bounce_rate": 3.33
     }
@@ -78974,13 +78974,13 @@
     "period_start": "2026-04-27",
     "period_end": "2026-09-03",
     "total_delivered": 6852,
-    "total_opens": 2833,
-    "total_clicks": 180,
+    "total_opens": 2839,
+    "total_clicks": 181,
     "total_bounces": 38,
     "total_requests": 7970,
     "total_unsubscribes": 0,
-    "avg_open_rate": 50.2,
-    "avg_click_rate": 3.19,
+    "avg_open_rate": 50.3,
+    "avg_click_rate": 3.21,
     "avg_delivery_rate": 86.0,
     "avg_bounce_rate": 0.48,
     "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (5645 delivered). Delivery rate across all 6852 campaign emails.",
@@ -78997,35 +78997,42 @@
   "survey_summary": {
     "has_survey_data": true,
     "surveys_sent": 849,
-    "total_responses": 22,
-    "response_rate": 2.6,
+    "total_responses": 23,
+    "response_rate": 2.7,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
-        "count": 7,
-        "pct": 31.8
+        "count": 8,
+        "pct": 34.8
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
         "count": 5,
-        "pct": 22.7
+        "pct": 21.7
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
         "count": 5,
-        "pct": 22.7
+        "pct": 21.7
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 4,
-        "pct": 18.2
+        "pct": 17.4
       }
     ],
     "recent": [
+      {
+        "date": "2026-09-03",
+        "email": "olivercardenas601@yahoo.com",
+        "name": "Oliver",
+        "reason": "time",
+        "reason_label": "Haven't had time yet"
+      },
       {
         "date": "2026-09-02",
         "email": "hramos@walkercares.org",
@@ -79156,13 +79163,6 @@
         "date": "2026-05-15",
         "email": "tpstanley@gmail.com",
         "name": "Tali",
-        "reason": "time",
-        "reason_label": "Haven't had time yet"
-      },
-      {
-        "date": "2026-05-14",
-        "email": "ttoosaint@gmail.com",
-        "name": "Vance",
         "reason": "time",
         "reason_label": "Haven't had time yet"
       }
@@ -79322,6 +79322,13 @@
       "name": "Heldery",
       "reason": "activation",
       "reason_label": "Issue with the activation page"
+    },
+    {
+      "date": "2026-09-03",
+      "email": "olivercardenas601@yahoo.com",
+      "name": "Oliver",
+      "reason": "time",
+      "reason_label": "Haven't had time yet"
     }
   ]
 }
