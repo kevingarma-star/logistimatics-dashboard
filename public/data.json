@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-17T10:32:52",
+  "generated_at": "2026-09-17T10:49:30",
   "summary": {
     "total_outreached": 3462,
     "activated": 2119,
@@ -88946,32 +88946,32 @@
   "survey_summary": {
     "has_survey_data": true,
     "surveys_sent": 951,
-    "total_responses": 25,
-    "response_rate": 2.6,
+    "total_responses": 26,
+    "response_rate": 2.7,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
         "count": 8,
-        "pct": 32.0
+        "pct": 30.8
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
         "count": 5,
-        "pct": 20.0
+        "pct": 19.2
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
         "count": 6,
-        "pct": 24.0
+        "pct": 23.1
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
-        "count": 5,
-        "pct": 20.0
+        "count": 6,
+        "pct": 23.1
       }
     ],
     "recent": [
@@ -88981,6 +88981,13 @@
         "name": "Rudy",
         "reason": "activation",
         "reason_label": "Issue with the activation page"
+      },
+      {
+        "date": "2026-09-17",
+        "email": "rachel",
+        "name": "Rachel",
+        "reason": "ready",
+        "reason_label": "Not ready for a paying subscription"
       },
       {
         "date": "2026-09-15",
@@ -89107,13 +89114,6 @@
         "name": "Robert",
         "reason": "ready",
         "reason_label": "Not ready for a paying subscription"
-      },
-      {
-        "date": "2026-05-18",
-        "email": "wfrichardsoncpa@gmail.com",
-        "name": "Wayne",
-        "reason": "need",
-        "reason_label": "Don't need it yet"
       }
     ]
   },
@@ -89292,6 +89292,13 @@
       "name": "Rudy",
       "reason": "activation",
       "reason_label": "Issue with the activation page"
+    },
+    {
+      "date": "2026-09-17",
+      "email": "rachel",
+      "name": "Rachel",
+      "reason": "ready",
+      "reason_label": "Not ready for a paying subscription"
     }
   ]
 }
