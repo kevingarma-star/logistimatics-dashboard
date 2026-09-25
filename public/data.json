@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T06:48:52",
+  "generated_at": "2026-09-25T07:01:58",
   "summary": {
     "total_outreached": 3699,
     "activated": 2285,
@@ -94883,8 +94883,8 @@
       "delivered": 93,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 21,
-      "opens": 25,
+      "unique_opens": 22,
+      "opens": 26,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 11,
@@ -94892,7 +94892,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-09-25",
-      "open_rate": 22.6,
+      "open_rate": 23.7,
       "click_rate": 0.0,
       "delivery_rate": 98.9,
       "bounce_rate": 0.0
@@ -94904,7 +94904,7 @@
     "period_start": "2026-04-27",
     "period_end": "2026-09-25",
     "total_delivered": 8539,
-    "total_opens": 2982,
+    "total_opens": 2983,
     "total_clicks": 131,
     "total_bounces": 42,
     "total_requests": 9696,
@@ -94926,36 +94926,43 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 991,
-    "total_responses": 27,
-    "response_rate": 2.7,
+    "surveys_sent": 1012,
+    "total_responses": 28,
+    "response_rate": 2.8,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
         "count": 9,
-        "pct": 33.3
+        "pct": 32.1
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
         "count": 5,
-        "pct": 18.5
+        "pct": 17.9
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
-        "count": 6,
-        "pct": 22.2
+        "count": 7,
+        "pct": 25.0
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 6,
-        "pct": 22.2
+        "pct": 21.4
       }
     ],
     "recent": [
+      {
+        "date": "2026-09-25",
+        "email": "mleach@banterfloors.com",
+        "name": "Paul",
+        "reason": "activation",
+        "reason_label": "Issue with the activation page"
+      },
       {
         "date": "2026-09-20",
         "email": "gerald",
@@ -95086,13 +95093,6 @@
         "date": "2026-05-27",
         "email": "rhodesallen69@gmail.com",
         "name": "Tony",
-        "reason": "ready",
-        "reason_label": "Not ready for a paying subscription"
-      },
-      {
-        "date": "2026-05-26",
-        "email": "wcjranders@gmail.com",
-        "name": "Will",
         "reason": "ready",
         "reason_label": "Not ready for a paying subscription"
       }
@@ -95287,6 +95287,13 @@
       "name": "Gerald",
       "reason": "time",
       "reason_label": "Haven't had time yet"
+    },
+    {
+      "date": "2026-09-25",
+      "email": "mleach@banterfloors.com",
+      "name": "Paul",
+      "reason": "activation",
+      "reason_label": "Issue with the activation page"
     }
   ]
 }
