@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T12:48:48",
+  "generated_at": "2026-09-29T18:59:41",
   "summary": {
     "total_outreached": 3832,
     "activated": 2358,
@@ -96874,8 +96874,8 @@
       "delivered": 164,
       "bounces": 1,
       "unsubscribes": 0,
-      "unique_opens": 51,
-      "opens": 69,
+      "unique_opens": 70,
+      "opens": 94,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 19,
@@ -96883,7 +96883,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-09-29",
-      "open_rate": 31.1,
+      "open_rate": 42.7,
       "click_rate": 0.0,
       "delivery_rate": 97.6,
       "bounce_rate": 0.6
@@ -96895,12 +96895,12 @@
     "period_start": "2026-04-27",
     "period_end": "2026-09-29",
     "total_delivered": 8670,
-    "total_opens": 3023,
+    "total_opens": 3042,
     "total_clicks": 127,
     "total_bounces": 43,
     "total_requests": 9829,
     "total_unsubscribes": 0,
-    "avg_open_rate": 51.5,
+    "avg_open_rate": 51.8,
     "avg_click_rate": 2.16,
     "avg_delivery_rate": 88.2,
     "avg_bounce_rate": 0.44,
@@ -96917,7 +96917,7 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 1034,
+    "surveys_sent": 1043,
     "total_responses": 29,
     "response_rate": 2.8,
     "breakdown": [
