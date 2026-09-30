@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T10:49:11",
+  "generated_at": "2026-09-30T11:02:27",
   "summary": {
     "total_outreached": 3869,
     "activated": 2375,
@@ -97343,8 +97343,8 @@
       "delivered": 37,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 21,
-      "opens": 41,
+      "unique_opens": 22,
+      "opens": 44,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 5,
@@ -97352,7 +97352,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-09-30",
-      "open_rate": 56.8,
+      "open_rate": 59.5,
       "click_rate": 0.0,
       "delivery_rate": 97.4,
       "bounce_rate": 0.0
@@ -97364,7 +97364,7 @@
     "period_start": "2026-04-27",
     "period_end": "2026-09-30",
     "total_delivered": 8793,
-    "total_opens": 3055,
+    "total_opens": 3056,
     "total_clicks": 125,
     "total_bounces": 43,
     "total_requests": 9955,
