@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T13:01:30",
+  "generated_at": "2026-10-22T18:34:19",
   "summary": {
     "total_outreached": 4546,
     "activated": 2862,
@@ -113134,17 +113134,17 @@
       "delivered": 31,
       "bounces": 0,
       "unsubscribes": 0,
-      "unique_opens": 17,
-      "opens": 43,
-      "unique_clicks": 0,
-      "clicks": 0,
+      "unique_opens": 24,
+      "opens": 59,
+      "unique_clicks": 1,
+      "clicks": 1,
       "in_transit": 31,
       "activation": 0,
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-10-22",
-      "open_rate": 54.8,
-      "click_rate": 0.0,
+      "open_rate": 77.4,
+      "click_rate": 3.23,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
     }
@@ -113155,13 +113155,13 @@
     "period_start": "2026-04-27",
     "period_end": "2026-10-22",
     "total_delivered": 10294,
-    "total_opens": 2983,
-    "total_clicks": 80,
+    "total_opens": 2990,
+    "total_clicks": 81,
     "total_bounces": 60,
     "total_requests": 11494,
     "total_unsubscribes": 0,
-    "avg_open_rate": 50.5,
-    "avg_click_rate": 1.36,
+    "avg_open_rate": 50.7,
+    "avg_click_rate": 1.37,
     "avg_delivery_rate": 89.6,
     "avg_bounce_rate": 0.52,
     "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (5903 delivered). Delivery rate across all 10294 campaign emails.",
@@ -113178,35 +113178,42 @@
   "survey_summary": {
     "has_survey_data": true,
     "surveys_sent": 1236,
-    "total_responses": 35,
-    "response_rate": 2.8,
+    "total_responses": 36,
+    "response_rate": 2.9,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
-        "count": 10,
-        "pct": 28.6
+        "count": 11,
+        "pct": 30.6
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
         "count": 6,
-        "pct": 17.1
+        "pct": 16.7
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
         "count": 8,
-        "pct": 22.9
+        "pct": 22.2
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 10,
-        "pct": 28.6
+        "pct": 27.8
       }
     ],
     "recent": [
+      {
+        "date": "2026-10-22",
+        "email": "mcasman@markcasman.com",
+        "name": "Mark",
+        "reason": "time",
+        "reason_label": "Haven't had time yet"
+      },
       {
         "date": "2026-10-21",
         "email": "tonyp@cmsclean.com",
@@ -113339,13 +113346,6 @@
         "name": "Jason",
         "reason": "activation",
         "reason_label": "Issue with the activation page"
-      },
-      {
-        "date": "2026-07-20",
-        "email": "chrylshaw@live.com",
-        "name": "Chryl",
-        "reason": "need",
-        "reason_label": "Don't need it yet"
       }
     ]
   },
@@ -113594,6 +113594,13 @@
       "name": "Heather",
       "reason": "ready",
       "reason_label": "Not ready for a paying subscription"
+    },
+    {
+      "date": "2026-10-22",
+      "email": "mcasman@markcasman.com",
+      "name": "Mark",
+      "reason": "time",
+      "reason_label": "Haven't had time yet"
     }
   ]
 }
