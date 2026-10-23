@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T06:01:31",
+  "generated_at": "2026-10-23T06:31:25",
   "summary": {
     "total_outreached": 4584,
     "activated": 2893,
@@ -12,7 +12,7 @@
     "followup_conversion_rate": 35.0,
     "in_transit_sent": 4024,
     "in_transit_activated": 2692,
-    "in_transit_exclusive_sent": 2300,
+    "in_transit_exclusive_sent": 2299,
     "in_transit_exclusive_activated": 2002,
     "reengagement_sent": 906,
     "reengagement_activated": 31
@@ -659,6 +659,12 @@
       "label": "Oct 21",
       "activation": 0,
       "followup": 75
+    },
+    {
+      "date": "2026-10-23",
+      "label": "Oct 23",
+      "activation": 1,
+      "followup": 0
     }
   ],
   "cohorts": [
@@ -1681,12 +1687,24 @@
       "followup_activated": 0,
       "activation_rate": 8.3,
       "followup_conv_rate": 0
+    },
+    {
+      "batch_date": "2026-10-23",
+      "label": "Oct 23",
+      "total": 1,
+      "activated": 0,
+      "pending": 1,
+      "returned": 0,
+      "followup_sent": 0,
+      "followup_activated": 0,
+      "activation_rate": 0.0,
+      "followup_conv_rate": 0
     }
   ],
   "funnel": [
     {
       "stage": "Outreached",
-      "value": 2284,
+      "value": 2285,
       "pct": 100
     },
     {
@@ -58800,6 +58818,31 @@
       "sg_opens_count": 0,
       "sg_clicks_count": 0,
       "sg_last_event": ""
+    },
+    {
+      "email": "darvinbonilla@gmail.com",
+      "sent_date": "2026-10-23",
+      "serials": "284145",
+      "days_since": 0,
+      "in_transit_sent": true,
+      "in_transit_date": "2026-10-13",
+      "fu_sent": false,
+      "fu_date": "",
+      "fu2_sent": false,
+      "fu2_date": "",
+      "fu3_sent": false,
+      "fu3_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "days_to_activate": null,
+      "activated_after_touch": null,
+      "sg_delivered": true,
+      "sg_opened": false,
+      "sg_clicked": false,
+      "sg_bounced": false,
+      "sg_opens_count": 0,
+      "sg_clicks_count": 0,
+      "sg_last_event": ""
     }
   ],
   "activation_timing": {
@@ -101528,8 +101571,8 @@
       "sent_date": "2026-10-13",
       "serials": "284145",
       "days_since": 10,
-      "fu_sent": false,
-      "fu_date": "",
+      "fu_sent": true,
+      "fu_date": "2026-10-23",
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
@@ -113567,12 +113610,12 @@
       "bounce_rate": 0.0
     },
     {
-      "requests": 38,
-      "delivered": 38,
+      "requests": 39,
+      "delivered": 39,
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 9,
-      "opens": 10,
+      "opens": 11,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 38,
@@ -113580,7 +113623,7 @@
       "followup": 0,
       "from_category_stats": true,
       "date": "2026-10-23",
-      "open_rate": 23.7,
+      "open_rate": 23.1,
       "click_rate": 0.0,
       "delivery_rate": 100.0,
       "bounce_rate": 0.0
@@ -113601,9 +113644,9 @@
     "avg_click_rate": 1.36,
     "avg_delivery_rate": 89.6,
     "avg_bounce_rate": 0.52,
-    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (5941 delivered). Delivery rate across all 10403 campaign emails.",
-    "customer_tracked": 2043,
-    "customer_delivered": 1991,
+    "data_note": "Open & click rates from Category Stats (activation-email + followup-email categories) (5942 delivered). Delivery rate across all 10403 campaign emails.",
+    "customer_tracked": 2044,
+    "customer_delivered": 1992,
     "customer_opened": 1018,
     "customer_clicked": 57,
     "customer_bounced": 0,
