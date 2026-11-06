@@ -51,7 +51,8 @@ RETURNS_SINCE = '2026-05-01'
 # Anthropic model for conversation summarisation
 CLAUDE_MODEL = 'claude-haiku-4-5-20251001'   # fast + cheap for summarisation
 
-DRY_RUN = '--dry-run' in sys.argv
+DRY_RUN  = '--dry-run' in sys.argv
+NO_PUSH  = '--no-push' in sys.argv   # skip git steps (used by CI)
 
 
 # ── Config loading ────────────────────────────────────────────────────────────
@@ -136,10 +137,20 @@ def fetch_processed_order_numbers():
 
 def upsert_return(record):
     """Upsert a single return record into return_conversations."""
-    from supabase_client import get_client
-    get_client().table('return_conversations').upsert(
-        record, on_conflict='order_number'
-    ).execute()
+    import supabase_client as _sc
+    for attempt in range(3):
+        try:
+            _sc.get_client().table('return_conversations').upsert(
+                record, on_conflict='order_number'
+            ).execute()
+            return
+        except Exception as e:
+            if 'ConnectTimeout' in type(e).__name__ or 'ConnectTimeout' in str(e):
+                _sc._client = None   # force fresh connection on next get_client()
+                if attempt < 2:
+                    time.sleep(2 ** attempt)
+                    continue
+            raise
 
 
 def load_all_returns():
@@ -557,6 +568,10 @@ def main():
     print(f"  Undeliverable           : {return_data['undeliverable_count']}")
     print(f"  New records processed   : {processed_count}")
     print(f"  Summarised via Claude   : {summarised_count}")
+
+    if NO_PUSH:
+        print("\n[6] Skipping git push (--no-push).")
+        return
 
     print("\n[6] Pushing return_data.json to GitHub...")
     import subprocess

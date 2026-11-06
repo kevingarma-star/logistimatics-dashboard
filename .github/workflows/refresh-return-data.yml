@@ -1,0 +1,69 @@
+name: Refresh Return Data
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'   # every Monday at 2am UTC
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+jobs:
+  refresh:
+    name: Refresh return_data.json
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install supabase
+
+      - name: Write config files from secrets
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          INTERCOM_TOKEN: ${{ secrets.INTERCOM_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: |
+          python - <<'EOF'
+          import json, os
+          with open('server_config.json', 'w') as f:
+              json.dump({
+                  'ANTHROPIC_API_KEY': os.environ['ANTHROPIC_API_KEY'],
+                  'INTERCOM_TOKEN':    os.environ['INTERCOM_TOKEN'],
+              }, f)
+          with open('supabase_config.json', 'w') as f:
+              json.dump({
+                  'url': os.environ['SUPABASE_URL'],
+                  'key': os.environ['SUPABASE_KEY'],
+              }, f)
+          EOF
+
+      - name: Generate return data
+        run: python generate_return_data.py --no-push
+
+      - name: Commit return_data.json to master
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/return_data.json
+          git diff --staged --quiet && echo "No changes to commit" && exit 0
+          git commit -m "data: weekly return data refresh $(date -u +%Y-%m-%d)"
+          git push origin master
+
+      - name: Push return_data.json directly to gh-pages
+        run: |
+          git fetch origin gh-pages
+          git worktree add .gh-pages-worktree origin/gh-pages
+          cp public/return_data.json .gh-pages-worktree/return_data.json
+          cd .gh-pages-worktree
+          git add return_data.json
+          git diff --staged --quiet && echo "No gh-pages changes" && exit 0
+          git commit -m "data: weekly return data refresh $(date -u +%Y-%m-%d)"
+          git push origin HEAD:gh-pages
+          cd ..
+          git worktree remove --force .gh-pages-worktree
