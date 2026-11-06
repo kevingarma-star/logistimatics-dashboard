@@ -42,6 +42,35 @@ function SortIcon({ col, sortBy, sortDir }) {
 const RETURN_REFRESH_ENDPOINT = (import.meta.env.VITE_AI_ENDPOINT || 'http://127.0.0.1:8765') + '/return-refresh'
 const POLL_MS = 30 * 60 * 1000   // 30 minutes
 
+const GH_API_URL   = 'https://api.github.com/repos/kevingarma-star/logistimatics-dashboard/contents/return_data.json?ref=gh-pages'
+const GH_PAGES_URL = 'https://kevingarma-star.github.io/logistimatics-dashboard/return_data.json'
+
+function fetchReturnData(bust = false) {
+  if (import.meta.env.DEV) {
+    const url = `${import.meta.env.BASE_URL}return_data.json${bust ? `?t=${Date.now()}` : ''}`
+    return fetch(url).then(r => {
+      if (r.status === 404) return null
+      if (!r.ok) throw new Error(`HTTP ${r.status}`)
+      return r.json()
+    })
+  }
+  const apiUrl = bust ? `${GH_API_URL}&_=${Date.now()}` : GH_API_URL
+  return fetch(apiUrl, { headers: { Accept: 'application/vnd.github.v3.raw' } })
+    .then(r => {
+      if (r.status === 404) return null
+      if (r.status === 403 || r.status === 429) {
+        return fetch(`${GH_PAGES_URL}${bust ? `?t=${Date.now()}` : ''}`)
+          .then(r2 => {
+            if (r2.status === 404) return null
+            if (!r2.ok) throw new Error(`HTTP ${r2.status}`)
+            return r2.json()
+          })
+      }
+      if (!r.ok) throw new Error(`HTTP ${r.status}`)
+      return r.json()
+    })
+}
+
 export default function ReturnDashboard() {
   const [data, setData]               = useState(null)
   const [loading, setLoading]         = useState(true)
@@ -90,19 +119,17 @@ export default function ReturnDashboard() {
   }, [tab]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const loadReturnData = useCallback((isInitial = false, bust = false) => {
-    const url = `${import.meta.env.BASE_URL}return_data.json${bust ? `?t=${Date.now()}` : ''}`
     if (!isInitial) setRefreshing(true)
-    fetch(url)
-      .then(r => {
-        if (r.status === 404) { setNoData(true); setLoading(false); return null }
-        if (!r.ok) throw new Error(`HTTP ${r.status}`)
-        return r.json()
-      })
+    fetchReturnData(bust)
       .then(d => {
-        if (d) {
-          setData(d)
-          setLastRefresh(new Date())
+        if (d === null) {
+          setNoData(true)
+          if (isInitial) setLoading(false)
+          else setRefreshing(false)
+          return
         }
+        setData(d)
+        setLastRefresh(new Date())
         if (isInitial) setLoading(false)
         else setRefreshing(false)
       })

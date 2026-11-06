@@ -558,6 +558,57 @@ def main():
     print(f"  New records processed   : {processed_count}")
     print(f"  Summarised via Claude   : {summarised_count}")
 
+    print("\n[6] Pushing return_data.json to GitHub...")
+    import subprocess
+    import shutil
+    repo_dir = REPO_DIR
+    ts = datetime.utcnow().strftime('%Y-%m-%d %H:%M')
+
+    # Step A: commit public/return_data.json to master
+    master_cmds = [
+        ['git', 'add', 'public/return_data.json'],
+        ['git', 'commit', '-m', f'data: refresh return_data.json {ts}'],
+        ['git', 'push'],
+    ]
+    for cmd in master_cmds:
+        result = subprocess.run(cmd, cwd=str(repo_dir), capture_output=True, text=True)
+        if result.returncode != 0 and 'nothing to commit' not in result.stdout + result.stderr:
+            print(f"  [warn] master push: {' '.join(cmd[1:])}: {result.stderr.strip()[:120]}")
+        else:
+            print(f"  {' '.join(cmd[1:])} -> ok")
+
+    # Step B: push return_data.json directly to gh-pages so GitHub API serves
+    # fresh content within ~60 seconds (vs waiting for the full CI rebuild).
+    worktree_dir = repo_dir / '.gh-pages-worktree'
+    try:
+        subprocess.run(['git', 'worktree', 'remove', '--force', str(worktree_dir)],
+                       cwd=str(repo_dir), capture_output=True)
+        subprocess.run(['git', 'fetch', 'origin', 'gh-pages'],
+                       cwd=str(repo_dir), capture_output=True)
+        r = subprocess.run(
+            ['git', 'worktree', 'add', str(worktree_dir), 'origin/gh-pages'],
+            cwd=str(repo_dir), capture_output=True, text=True
+        )
+        if r.returncode != 0:
+            raise RuntimeError(r.stderr.strip())
+        shutil.copy(OUTPUT_PATH, worktree_dir / 'return_data.json')
+        for cmd in [
+            ['git', 'add', 'return_data.json'],
+            ['git', 'commit', '-m', f'data: refresh return_data.json {ts}'],
+            ['git', 'push', 'origin', 'HEAD:gh-pages'],
+        ]:
+            result = subprocess.run(cmd, cwd=str(worktree_dir), capture_output=True, text=True)
+            if result.returncode != 0 and 'nothing to commit' not in result.stdout + result.stderr:
+                raise RuntimeError(f"{result.stderr.strip()[:120]}")
+        print("  gh-pages direct push -> ok")
+    except Exception as e:
+        print(f"  [warn] gh-pages direct push skipped: {e}")
+    finally:
+        subprocess.run(['git', 'worktree', 'remove', '--force', str(worktree_dir)],
+                       cwd=str(repo_dir), capture_output=True)
+
+    print("\nReturn dashboard will update within ~60 seconds (GitHub API cache).")
+
 
 if __name__ == '__main__':
     main()
