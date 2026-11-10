@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T11:02:35",
+  "generated_at": "2026-11-10T11:32:23",
   "summary": {
     "total_outreached": 5124,
     "activated": 3247,
@@ -126963,7 +126963,7 @@
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 32,
-      "opens": 39,
+      "opens": 43,
       "unique_clicks": 2,
       "clicks": 3,
       "in_transit": 67,
@@ -127005,7 +127005,7 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 1374,
+    "surveys_sent": 1381,
     "total_responses": 36,
     "response_rate": 2.6,
     "breakdown": [
