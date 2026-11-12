@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T06:31:25",
+  "generated_at": "2026-11-12T06:40:47",
   "summary": {
     "total_outreached": 5154,
     "activated": 3293,
@@ -127337,7 +127337,7 @@
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 18,
-      "opens": 20,
+      "opens": 22,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 5,
@@ -127379,36 +127379,43 @@
   },
   "survey_summary": {
     "has_survey_data": true,
-    "surveys_sent": 1381,
-    "total_responses": 36,
+    "surveys_sent": 1447,
+    "total_responses": 37,
     "response_rate": 2.6,
     "breakdown": [
       {
         "reason": "time",
         "label": "Haven't had time yet",
         "count": 11,
-        "pct": 30.6
+        "pct": 29.7
       },
       {
         "reason": "need",
         "label": "Don't need it yet",
         "count": 6,
-        "pct": 16.7
+        "pct": 16.2
       },
       {
         "reason": "activation",
         "label": "Issue with the activation page",
-        "count": 8,
-        "pct": 22.2
+        "count": 9,
+        "pct": 24.3
       },
       {
         "reason": "ready",
         "label": "Not ready for a paying subscription",
         "count": 10,
-        "pct": 27.8
+        "pct": 27.0
       }
     ],
     "recent": [
+      {
+        "date": "2026-11-12",
+        "email": "paul@cathershome.com",
+        "name": "Paul",
+        "reason": "activation",
+        "reason_label": "Issue with the activation page"
+      },
       {
         "date": "2026-10-22",
         "email": "mcasman@markcasman.com",
@@ -127541,13 +127548,6 @@
         "name": "German",
         "reason": "ready",
         "reason_label": "Not ready for a paying subscription"
-      },
-      {
-        "date": "2026-07-31",
-        "email": "jason.daniels@interstatepipeline.com",
-        "name": "Jason",
-        "reason": "activation",
-        "reason_label": "Issue with the activation page"
       }
     ]
   },
@@ -127803,6 +127803,13 @@
       "name": "Mark",
       "reason": "time",
       "reason_label": "Haven't had time yet"
+    },
+    {
+      "date": "2026-11-12",
+      "email": "paul@cathershome.com",
+      "name": "Paul",
+      "reason": "activation",
+      "reason_label": "Issue with the activation page"
     }
   ]
 }
