@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-11-13T05:31:35",
+  "generated_at": "2026-11-13T05:48:34",
   "summary": {
-    "total_outreached": 5185,
+    "total_outreached": 5187,
     "activated": 3313,
-    "pending": 1827,
+    "pending": 1829,
     "returned": 45,
     "activation_rate": 63.9,
     "followup_sent": 3742,
     "followup_customers_reached": 2061,
     "followup_activated": 704,
     "followup_conversion_rate": 34.2,
-    "in_transit_sent": 4626,
+    "in_transit_sent": 4628,
     "in_transit_activated": 3115,
-    "in_transit_exclusive_sent": 2615,
+    "in_transit_exclusive_sent": 2617,
     "in_transit_exclusive_activated": 2308,
     "reengagement_sent": 906,
     "reengagement_activated": 34
@@ -117055,6 +117055,28 @@
       "status": "Pending",
       "activation_date": "",
       "activated_after_touch": null
+    },
+    {
+      "email": "fdv2050@yahoo.com",
+      "sent_date": "2026-11-13",
+      "serials": "282453",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
+    },
+    {
+      "email": "rrife1994@gmail.com",
+      "sent_date": "2026-11-13",
+      "serials": "281919",
+      "days_since": 0,
+      "fu_sent": false,
+      "fu_date": "",
+      "status": "Pending",
+      "activation_date": "",
+      "activated_after_touch": null
     }
   ],
   "reengagement_customers": [
@@ -127697,7 +127719,7 @@
       "bounces": 0,
       "unsubscribes": 0,
       "unique_opens": 4,
-      "opens": 7,
+      "opens": 8,
       "unique_clicks": 0,
       "clicks": 0,
       "in_transit": 4,
