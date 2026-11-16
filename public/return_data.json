@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-09T09:00:24.670531Z",
-  "total_returns": 48,
-  "undeliverable_count": 27,
+  "generated_at": "2026-11-16T08:56:46.846598Z",
+  "total_returns": 51,
+  "undeliverable_count": 29,
   "returns_by_month": [
     {
       "month": "2026-05",
@@ -29,10 +29,49 @@
     },
     {
       "month": "2026-11",
-      "count": 4
+      "count": 7
     }
   ],
   "returns_list": [
+    {
+      "order_number": "SHOP-1336278",
+      "email": "saydullayeva485@gmail.com",
+      "customer_name": "Sevara Saydullayeva",
+      "return_date": "2026-11-13",
+      "ship_date": "2026-10-26",
+      "device_type": "Mobile 200",
+      "serial": "281699",
+      "conversation_id": "215476691745404",
+      "reason_summary": "Sevara returned the Mobile-200 GPS Tracker because the audio quality was not clear enough for her needs and the audio plan was too expensive for her budget.",
+      "reason_category": "audio_quality",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1336074",
+      "email": "cgatlin162@yahoo.com",
+      "customer_name": "Charles Gatlin",
+      "return_date": "2026-11-11",
+      "ship_date": "2026-10-19",
+      "device_type": "Mobile 200",
+      "serial": "284623",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "SHOP-1336515",
+      "email": "jzarate@tiregroup.com",
+      "customer_name": "Juliana Z\u00e1rate",
+      "return_date": "2026-11-11",
+      "ship_date": "2026-10-30",
+      "device_type": "Mobile 200",
+      "serial": "282619",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
     {
       "order_number": "SHOP-1336188",
       "email": "mollyascarborough@gmail.com",
