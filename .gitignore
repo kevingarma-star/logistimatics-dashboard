@@ -3,6 +3,7 @@ dist/
 *.csv
 *.log
 .env
+.env.local
 supabase_config.json
 sg_email_cache.json
 server_config.json
