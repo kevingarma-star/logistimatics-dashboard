@@ -13,6 +13,7 @@ import InsightsPage from './components/InsightsPage'
 import ActivationTimingPage from './components/ActivationTimingPage'
 import WeekOverWeekChart from './components/WeekOverWeekChart'
 import ReturnDashboard from './components/ReturnDashboard'
+import ChurnDashboard from './components/ChurnDashboard'
 import useFilteredData from './useFilteredData'
 
 function App() {
@@ -301,15 +302,7 @@ function App() {
       {section === 'return' && <ReturnDashboard />}
 
       {/* ── Churn Dashboard ── */}
-      {section === 'churn' && (
-        <div className="panel" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 320, gap: 12 }}>
-          <div style={{ fontSize: 36 }}>⚠</div>
-          <div className="panel-title" style={{ fontSize: 18 }}>Churn Dashboard</div>
-          <div className="panel-sub" style={{ textAlign: 'center', maxWidth: 400 }}>
-            Coming soon — churn signals, at-risk customers, and retention metrics.
-          </div>
-        </div>
-      )}
+      {section === 'churn' && <ChurnDashboard />}
 
       {/* ── Activation Dashboard ── */}
       {section === 'activation' && <>
