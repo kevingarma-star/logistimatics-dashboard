@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist', '.gh-pages-deploy']),
+  globalIgnores(['dist', '.gh-pages-deploy', 'sync_cancellations_appscript.js', 'upsert_cancellations.py']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
