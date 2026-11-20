@@ -6,3 +6,5 @@ dist/
 supabase_config.json
 sg_email_cache.json
 server_config.json
+customerio_config.json
+customerio_sync_state.json
