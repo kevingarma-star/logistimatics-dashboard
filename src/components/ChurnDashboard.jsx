@@ -257,7 +257,7 @@ export default function ChurnDashboard() {
         ...c,
         cancel_category: categoryOf(c),
         reason:      ins?.reason_category || 'Unknown',
-        staff_name:  c.initiated_by_name || ins?.staff_member_name || 'Unattributed',
+        staff_name:  c.initiated_by_name || ins?.staff_member_name || (c.cancel_category === 'Voluntary (via GPX staff)' ? 'Kevin Garma' : 'Unattributed'),
         conversation_url: ins?.conversation_url || null,
         save_attempted: ins?.save_attempted ?? null,
         save_offer:     ins?.save_offer || null,
