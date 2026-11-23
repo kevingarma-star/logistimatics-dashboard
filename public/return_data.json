@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-11-16T08:56:46.846598Z",
-  "total_returns": 51,
-  "undeliverable_count": 29,
+  "generated_at": "2026-11-23T10:13:39.192172Z",
+  "total_returns": 59,
+  "undeliverable_count": 32,
   "returns_by_month": [
     {
       "month": "2026-05",
@@ -29,10 +29,114 @@
     },
     {
       "month": "2026-11",
-      "count": 7
+      "count": 15
     }
   ],
   "returns_list": [
+    {
+      "order_number": "SHOP-1336598",
+      "email": "willyramos11@icloud.com",
+      "customer_name": "William Ramos",
+      "return_date": "2026-11-20",
+      "ship_date": "2026-11-02",
+      "device_type": "Mobile 200",
+      "serial": "281681",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "SHOP-1336597",
+      "email": "willyramos11@icloud.com",
+      "customer_name": "William Ramos",
+      "return_date": "2026-11-20",
+      "ship_date": "2026-11-02",
+      "device_type": "Mobile 200",
+      "serial": "283749",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "SHOP-1336518",
+      "email": "alisolis.kc@gmail.com",
+      "customer_name": "Ali Solis",
+      "return_date": "2026-11-20",
+      "ship_date": "2026-10-30",
+      "device_type": "Mobile 200",
+      "serial": "282621",
+      "conversation_id": "215476740493061",
+      "reason_summary": "Ali Solis returned an unopened GPS tracker because they no longer needed it, having ordered two devices by mistake and received one a day earlier than expected despite paying for next day air delivery.",
+      "reason_category": "no_longer_needed",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1336357",
+      "email": "thepoe@live.com",
+      "customer_name": "David Sherrill",
+      "return_date": "2026-11-20",
+      "ship_date": "2026-10-26",
+      "device_type": "Mobile 200",
+      "serial": "284520",
+      "conversation_id": "215476697234466",
+      "reason_summary": "David Sherrill returned the GPS tracker because he was unaware of the required subscription service and does not want the device due to this unexpected subscription cost.",
+      "reason_category": "subscription_cost_surprise",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1336709",
+      "email": "aramirez0921@gmail.com",
+      "customer_name": "Josefina Hinojosa",
+      "return_date": "2026-11-18",
+      "ship_date": "2026-11-04",
+      "device_type": "Mobile 200",
+      "serial": "283029",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "SHOP-1336002",
+      "email": "lts130.ls@gmail.com",
+      "customer_name": "Liset Sanchez",
+      "return_date": "2026-11-17",
+      "ship_date": "2026-10-16",
+      "device_type": "Mobile 200",
+      "serial": "283293",
+      "conversation_id": "215476645555069",
+      "reason_summary": "The conversation does not reveal the specific reason why Liset Sanchez returned the GPS tracker. The customer only expressed frustration about the return process itself and lack of support, but never stated what motivated the return.",
+      "reason_category": "other",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1336504",
+      "email": "anntys33@yahoo.com",
+      "customer_name": "Ann Dangelantonio",
+      "return_date": "2026-11-17",
+      "ship_date": "2026-10-29",
+      "device_type": "Mobile 200",
+      "serial": "282223",
+      "conversation_id": "215476778312545",
+      "reason_summary": "Ann returned the GPS tracker because it couldn't pick up sound where needed, stating 'This device is just not for me. Can't pick up sound where needed.'",
+      "reason_category": "audio_quality",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1336086",
+      "email": "rdenuii@comcast.net",
+      "customer_name": "Richard Denu",
+      "return_date": "2026-11-17",
+      "ship_date": "2026-10-19",
+      "device_type": "Mobile 200",
+      "serial": "284251",
+      "conversation_id": "215476785521560",
+      "reason_summary": "Richard returned the Model 200 GPS tracker due to unexpected subscription fees, audio quality concerns, and inadequate battery life that did not meet his needs.",
+      "reason_category": "battery_life",
+      "is_undeliverable": false
+    },
     {
       "order_number": "SHOP-1336278",
       "email": "saydullayeva485@gmail.com",
@@ -47,19 +151,6 @@
       "is_undeliverable": false
     },
     {
-      "order_number": "SHOP-1336074",
-      "email": "cgatlin162@yahoo.com",
-      "customer_name": "Charles Gatlin",
-      "return_date": "2026-11-11",
-      "ship_date": "2026-10-19",
-      "device_type": "Mobile 200",
-      "serial": "284623",
-      "conversation_id": null,
-      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
-      "reason_category": null,
-      "is_undeliverable": true
-    },
-    {
       "order_number": "SHOP-1336515",
       "email": "jzarate@tiregroup.com",
       "customer_name": "Juliana Z\u00e1rate",
@@ -67,6 +158,19 @@
       "ship_date": "2026-10-30",
       "device_type": "Mobile 200",
       "serial": "282619",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "SHOP-1336074",
+      "email": "cgatlin162@yahoo.com",
+      "customer_name": "Charles Gatlin",
+      "return_date": "2026-11-11",
+      "ship_date": "2026-10-19",
+      "device_type": "Mobile 200",
+      "serial": "284623",
       "conversation_id": null,
       "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
       "reason_category": null,
@@ -99,19 +203,6 @@
       "is_undeliverable": true
     },
     {
-      "order_number": "SHOP-1335831",
-      "email": "joshuadrassi@gmail.com",
-      "customer_name": "joshua rassi",
-      "return_date": "2026-11-04",
-      "ship_date": "2026-10-13",
-      "device_type": "Mobile 200",
-      "serial": "283825",
-      "conversation_id": "215476574964999",
-      "reason_summary": "Joshua Rassi returned the GPS tracker because he didn't know it required a subscription. He stated \"i just want to return it because i didnt know it needed a subscription\" and has been waiting over a week for a response to his return request.",
-      "reason_category": "subscription_cost_surprise",
-      "is_undeliverable": false
-    },
-    {
       "order_number": "SHOP-1335308",
       "email": "ajw8522@gmail.com",
       "customer_name": "Autumn Barassamian",
@@ -122,6 +213,19 @@
       "conversation_id": "215476372694786",
       "reason_summary": "Autumn Fischer returned the GPS tracker because the audio quality was extremely poor, with nothing being audible. She stated: 'I need to return the items because the audio was so bad that nothing could be heard.'",
       "reason_category": "audio_quality",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1335831",
+      "email": "joshuadrassi@gmail.com",
+      "customer_name": "joshua rassi",
+      "return_date": "2026-11-04",
+      "ship_date": "2026-10-13",
+      "device_type": "Mobile 200",
+      "serial": "283825",
+      "conversation_id": "215476574964999",
+      "reason_summary": "Joshua Rassi returned the GPS tracker because he didn't know it required a subscription. He stated \"i just want to return it because i didnt know it needed a subscription\" and has been waiting over a week for a response to his return request.",
+      "reason_category": "subscription_cost_surprise",
       "is_undeliverable": false
     },
     {
@@ -203,19 +307,6 @@
       "is_undeliverable": true
     },
     {
-      "order_number": "SHOP-1334559",
-      "email": "wendyviera@gmail.com",
-      "customer_name": "Wendy Lucia Morales Viera",
-      "return_date": "2026-09-29",
-      "ship_date": "2026-09-08",
-      "device_type": "MicroTrack",
-      "serial": "290275",
-      "conversation_id": "215476049798039",
-      "reason_summary": "The customer initiated a return and subscription cancellation but did not provide specific details about the reason for returning the devices.",
-      "reason_category": "other",
-      "is_undeliverable": false
-    },
-    {
       "order_number": "SHOP-1334754",
       "email": "a.aj.salmon@gmail.com",
       "customer_name": "Aggrey Salmon",
@@ -225,6 +316,19 @@
       "serial": "282583",
       "conversation_id": "215475939367385",
       "reason_summary": "Based on the conversation provided, there is no indication that Aggrey Salmon has returned the device or stated a reason for return. The conversation shows a customer seeking setup and feature information, but does not contain any complaint, dissatisfaction statement, or return request.",
+      "reason_category": "other",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1334559",
+      "email": "wendyviera@gmail.com",
+      "customer_name": "Wendy Lucia Morales Viera",
+      "return_date": "2026-09-29",
+      "ship_date": "2026-09-08",
+      "device_type": "MicroTrack",
+      "serial": "290275",
+      "conversation_id": "215476049798039",
+      "reason_summary": "The customer initiated a return and subscription cancellation but did not provide specific details about the reason for returning the devices.",
       "reason_category": "other",
       "is_undeliverable": false
     },
@@ -294,6 +398,19 @@
       "is_undeliverable": false
     },
     {
+      "order_number": "SHOP-1333804",
+      "email": "greshai007@gmail.com",
+      "customer_name": "ANGEL G GERMOSEN",
+      "return_date": "2026-09-01",
+      "ship_date": "2026-08-14",
+      "device_type": "Mobile 200",
+      "serial": "280356",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
       "order_number": "SHOP-1332589",
       "email": "sakokush@gmail.com",
       "customer_name": "Sarkis Kurbssoian",
@@ -320,19 +437,6 @@
       "is_undeliverable": true
     },
     {
-      "order_number": "SHOP-1333804",
-      "email": "greshai007@gmail.com",
-      "customer_name": "ANGEL G GERMOSEN",
-      "return_date": "2026-09-01",
-      "ship_date": "2026-08-14",
-      "device_type": "Mobile 200",
-      "serial": "280356",
-      "conversation_id": null,
-      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
-      "reason_category": null,
-      "is_undeliverable": true
-    },
-    {
       "order_number": "SHOP-1333619",
       "email": "mohsinmushtaq855@yahoo.com",
       "customer_name": "Mohsin Mushtaq",
@@ -344,19 +448,6 @@
       "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
       "reason_category": null,
       "is_undeliverable": true
-    },
-    {
-      "order_number": "SHOP-1333722",
-      "email": "juliemd1980@hotmail.com",
-      "customer_name": "Julie Moser",
-      "return_date": "2026-08-18",
-      "ship_date": "2026-08-11",
-      "device_type": "MicroTrack",
-      "serial": "290006",
-      "conversation_id": "215475493193492",
-      "reason_summary": "Julie Moser opened the device and discovered an unexpected monthly subscription fee upon registration that she was not aware of when purchasing, prompting her to request a return.",
-      "reason_category": "subscription_cost_surprise",
-      "is_undeliverable": false
     },
     {
       "order_number": "SHOP-1333225",
@@ -372,6 +463,19 @@
       "is_undeliverable": false
     },
     {
+      "order_number": "SHOP-1333722",
+      "email": "juliemd1980@hotmail.com",
+      "customer_name": "Julie Moser",
+      "return_date": "2026-08-18",
+      "ship_date": "2026-08-11",
+      "device_type": "MicroTrack",
+      "serial": "290006",
+      "conversation_id": "215475493193492",
+      "reason_summary": "Julie Moser opened the device and discovered an unexpected monthly subscription fee upon registration that she was not aware of when purchasing, prompting her to request a return.",
+      "reason_category": "subscription_cost_surprise",
+      "is_undeliverable": false
+    },
+    {
       "order_number": "SHOP-1333117",
       "email": "hubgaragedoor@gmail.com",
       "customer_name": "Cassandra Reese",
@@ -379,6 +483,19 @@
       "ship_date": "2026-07-22",
       "device_type": "Road Wired",
       "serial": "289597",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "SHOP-1333016",
+      "email": "danalarck@yahoo.com",
+      "customer_name": "Dana larck",
+      "return_date": "2026-08-14",
+      "ship_date": "2026-07-20",
+      "device_type": "Mobile 200",
+      "serial": "281210",
       "conversation_id": null,
       "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
       "reason_category": null,
@@ -396,19 +513,6 @@
       "reason_summary": "Zachary Brown returned the GPS tracker because he has no use for it now, as stated: \"Would just like to return it, have no use for it now.\"",
       "reason_category": "no_longer_needed",
       "is_undeliverable": false
-    },
-    {
-      "order_number": "SHOP-1333016",
-      "email": "danalarck@yahoo.com",
-      "customer_name": "Dana larck",
-      "return_date": "2026-08-14",
-      "ship_date": "2026-07-20",
-      "device_type": "Mobile 200",
-      "serial": "281210",
-      "conversation_id": null,
-      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
-      "reason_category": null,
-      "is_undeliverable": true
     },
     {
       "order_number": "SHOP-1332500",
@@ -489,17 +593,17 @@
       "is_undeliverable": false
     },
     {
-      "order_number": "SHOP-1332297",
-      "email": "brotherjosephjesusislove@gmail.com",
-      "customer_name": "Joseph hawkins sr",
+      "order_number": "SHOP-1331801",
+      "email": "ssalko@ptd.net",
+      "customer_name": "Stephen Salko",
       "return_date": "2026-07-07",
-      "ship_date": "2026-06-22",
+      "ship_date": "2026-06-01",
       "device_type": "Mobile 200",
-      "serial": "278302",
-      "conversation_id": "215474824387971",
-      "reason_summary": "Joseph Hawkins returned the GPS tracker because he did not know the product required a subscription and was unhappy with the cost. After learning about the $19.99/month or $149.99/year subscription fees, he requested a better deal on the annual plan, and when denied, proceeded with the return.",
-      "reason_category": "subscription_cost_surprise",
-      "is_undeliverable": false
+      "serial": "277359",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
     },
     {
       "order_number": "SHOP-1332126",
@@ -515,17 +619,17 @@
       "is_undeliverable": true
     },
     {
-      "order_number": "SHOP-1331801",
-      "email": "ssalko@ptd.net",
-      "customer_name": "Stephen Salko",
+      "order_number": "SHOP-1332297",
+      "email": "brotherjosephjesusislove@gmail.com",
+      "customer_name": "Joseph hawkins sr",
       "return_date": "2026-07-07",
-      "ship_date": "2026-06-01",
+      "ship_date": "2026-06-22",
       "device_type": "Mobile 200",
-      "serial": "277359",
-      "conversation_id": null,
-      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
-      "reason_category": null,
-      "is_undeliverable": true
+      "serial": "278302",
+      "conversation_id": "215474824387971",
+      "reason_summary": "Joseph Hawkins returned the GPS tracker because he did not know the product required a subscription and was unhappy with the cost. After learning about the $19.99/month or $149.99/year subscription fees, he requested a better deal on the annual plan, and when denied, proceeded with the return.",
+      "reason_category": "subscription_cost_surprise",
+      "is_undeliverable": false
     },
     {
       "order_number": "SHOP-1331615",
@@ -541,19 +645,6 @@
       "is_undeliverable": true
     },
     {
-      "order_number": "SHOP-1331260",
-      "email": "moel2003@msn.com",
-      "customer_name": "mohamed Elhadri",
-      "return_date": "2026-06-09",
-      "ship_date": "2026-05-08",
-      "device_type": "Mobile 200",
-      "serial": "278137",
-      "conversation_id": null,
-      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
-      "reason_category": null,
-      "is_undeliverable": true
-    },
-    {
       "order_number": "SHOP-1331589",
       "email": "sara.donley@yahoo.com",
       "customer_name": "Sara Buff",
@@ -561,6 +652,19 @@
       "ship_date": "2026-05-21",
       "device_type": "Mobile 200",
       "serial": "277630",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
+      "order_number": "SHOP-1331260",
+      "email": "moel2003@msn.com",
+      "customer_name": "mohamed Elhadri",
+      "return_date": "2026-06-09",
+      "ship_date": "2026-05-08",
+      "device_type": "Mobile 200",
+      "serial": "278137",
       "conversation_id": null,
       "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
       "reason_category": null,
@@ -593,19 +697,6 @@
       "is_undeliverable": true
     },
     {
-      "order_number": "SHOP-1331617",
-      "email": "vsweets0826@gmail.com",
-      "customer_name": "Vero Sweets",
-      "return_date": "2026-06-02",
-      "ship_date": "2026-05-21",
-      "device_type": "Road Wired",
-      "serial": "288920",
-      "conversation_id": null,
-      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
-      "reason_category": null,
-      "is_undeliverable": true
-    },
-    {
       "order_number": "SHOP-1331414",
       "email": "kingkeatz@icloud.com",
       "customer_name": "Emmanuel Audu",
@@ -619,13 +710,13 @@
       "is_undeliverable": false
     },
     {
-      "order_number": "SHOP-1331523",
-      "email": "marissia.bennett@yahoo.com",
-      "customer_name": "Marissia Bennett",
+      "order_number": "SHOP-1331617",
+      "email": "vsweets0826@gmail.com",
+      "customer_name": "Vero Sweets",
       "return_date": "2026-06-02",
-      "ship_date": "2026-05-18",
-      "device_type": "Mobile 200",
-      "serial": "278399",
+      "ship_date": "2026-05-21",
+      "device_type": "Road Wired",
+      "serial": "288920",
       "conversation_id": null,
       "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
       "reason_category": null,
@@ -645,6 +736,19 @@
       "is_undeliverable": false
     },
     {
+      "order_number": "SHOP-1331523",
+      "email": "marissia.bennett@yahoo.com",
+      "customer_name": "Marissia Bennett",
+      "return_date": "2026-06-02",
+      "ship_date": "2026-05-18",
+      "device_type": "Mobile 200",
+      "serial": "278399",
+      "conversation_id": null,
+      "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
+      "reason_category": null,
+      "is_undeliverable": true
+    },
+    {
       "order_number": "SHOP-1331147",
       "email": "tim201726@yahoo.com",
       "customer_name": "Tim Hays",
@@ -654,6 +758,19 @@
       "serial": "276676",
       "conversation_id": "215474217532820",
       "reason_summary": "Customer entered an incorrect SOS number during device setup and was unable to locate the option to change it in the app despite multiple troubleshooting attempts. Customer ultimately stated 'i dont like this tracker' and requested to speak with a human agent.",
+      "reason_category": "activation_issue",
+      "is_undeliverable": false
+    },
+    {
+      "order_number": "SHOP-1330670",
+      "email": "rgwc11@gmail.com",
+      "customer_name": "Robin Welch",
+      "return_date": "2026-05-07",
+      "ship_date": "2026-03-16",
+      "device_type": "Mobile 200",
+      "serial": "265508",
+      "conversation_id": "215473878546778",
+      "reason_summary": "Robin Welch returned the GPS tracker due to setup issues and fees. They stated \"The fees and couldn't set it up\" as their reason for the return.",
       "reason_category": "activation_issue",
       "is_undeliverable": false
     },
@@ -669,19 +786,6 @@
       "reason_summary": "Undeliverable \u2014 no return conversation in Intercom",
       "reason_category": null,
       "is_undeliverable": true
-    },
-    {
-      "order_number": "SHOP-1330670",
-      "email": "rgwc11@gmail.com",
-      "customer_name": "Robin Welch",
-      "return_date": "2026-05-07",
-      "ship_date": "2026-03-16",
-      "device_type": "Mobile 200",
-      "serial": "265508",
-      "conversation_id": "215473878546778",
-      "reason_summary": "Robin Welch returned the GPS tracker due to setup issues and fees. They stated \"The fees and couldn't set it up\" as their reason for the return.",
-      "reason_category": "activation_issue",
-      "is_undeliverable": false
     },
     {
       "order_number": "SHOP-1331089",
