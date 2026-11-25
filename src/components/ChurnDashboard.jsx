@@ -31,6 +31,23 @@ const MODE_TO_CATEGORY = {
   'account data deleted':         'Operational (GPX staff)',
 }
 
+// Known GPX staff first names — any name not matching is treated as a customer
+const STAFF_FIRST_NAMES = ['kevin', 'mike', 'faith', 'jay', 'dane', 'daphnee']
+
+function isKnownStaff(name) {
+  if (!name) return false
+  const first = name.trim().toLowerCase().split(/\s+/)[0]
+  return STAFF_FIRST_NAMES.includes(first)
+}
+
+// Normalize staff names — "Kevin" or "Kevin Garma" → "Kevin Garma"
+function normalizeStaffName(name) {
+  if (!name) return name
+  const lower = name.trim().toLowerCase()
+  if (lower === 'kevin' || lower === 'kevin garma') return 'Kevin Garma'
+  return name.trim()
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function fmtMonth(yyyyMm) {
@@ -257,7 +274,7 @@ export default function ChurnDashboard() {
         ...c,
         cancel_category: categoryOf(c),
         reason:      ins?.reason_category || 'Unknown',
-        staff_name:  c.initiated_by_name || ins?.staff_member_name || (c.cancel_category === 'Voluntary (via GPX staff)' ? 'Kevin Garma' : 'Unattributed'),
+        staff_name:  normalizeStaffName([c.initiated_by_name, ins?.staff_member_name].map(n => isKnownStaff(n) ? n : null).find(Boolean)) || (c.cancel_category === 'Voluntary (via GPX staff)' ? 'Kevin Garma' : 'Unattributed'),
         conversation_url: ins?.conversation_url || null,
         save_attempted: ins?.save_attempted ?? null,
         save_offer:     ins?.save_offer || null,
@@ -385,30 +402,6 @@ export default function ChurnDashboard() {
       .map(r => ({ ...r, total: r.selfServe + r.teamHelped }))
       .sort((a, b) => b.total - a.total)
     return { rows, voluntaryCount: voluntary.length, matchedCount: withInsight.length }
-  }, [enriched])
-
-  // ── Retention / save ─────────────────────────────────────────────────────────
-
-  const saveData = useMemo(() => {
-    const withInsight = enriched.filter(c => c.insight)
-    const attempted   = withInsight.filter(c => c.save_attempted)
-    const saved       = withInsight.filter(c => c.saved)
-    const byOffer = {}
-    attempted.forEach(c => {
-      const offer = c.save_offer || 'Unspecified'
-      if (!byOffer[offer]) byOffer[offer] = { offer, attempted: 0, saved: 0 }
-      byOffer[offer].attempted++
-      if (c.saved) byOffer[offer].saved++
-    })
-    const offers = Object.values(byOffer).sort((a, b) => b.attempted - a.attempted)
-    return {
-      withInsight: withInsight.length,
-      attempted: attempted.length,
-      saved: saved.length,
-      attemptedPct: fmtPct(attempted.length, withInsight.length),
-      savedPct: fmtPct(saved.length, attempted.length),
-      offers,
-    }
   }, [enriched])
 
   // ── Churn by segment ─────────────────────────────────────────────────────────
@@ -675,15 +668,6 @@ export default function ChurnDashboard() {
             sub={kpis.pendingOverdue ? `${kpis.pendingOverdue} overdue` : 'None overdue'}
           />
           <KPICard
-            label="Saved"
-            value={kpis.savedCount}
-            icon="🛡"
-            accent="green"
-            sub={`${kpis.savedPct}% of all initiated`}
-            trend={`${kpis.savedPct}%`}
-            trendColor="green"
-          />
-          <KPICard
             label="Win-back Rate"
             value={kpis.winbackRate}
             icon="↩"
@@ -750,8 +734,6 @@ export default function ChurnDashboard() {
                     <th>Cancellations</th>
                     <th>MRR lost</th>
                     <th>Top reason</th>
-                    <th>Save attempted</th>
-                    <th>Saved</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -763,8 +745,6 @@ export default function ChurnDashboard() {
                       <td><span className="mono" style={{ color: '#00d4ff' }}>{r.count}</span></td>
                       <td><span className="mono" style={{ color: '#8892a4' }}>{fmtMrr(r.mrr)}</span></td>
                       <td style={{ color: '#8892a4', fontSize: 12 }}>{r.topReason}</td>
-                      <td><span className="mono" style={{ color: '#8892a4' }}>{r.saveAttemptedPct}</span></td>
-                      <td><span className="mono" style={{ color: '#00e5a0' }}>{r.savedPct}</span></td>
                     </tr>
                   ))}
                 </tbody>
@@ -805,46 +785,6 @@ export default function ChurnDashboard() {
             </ResponsiveContainer>
           )}
         </div>
-
-        {/* ═══ RETENTION / SAVE ═══ */}
-        {saveData.withInsight > 0 && (
-          <div className="panel" style={{ marginBottom: 20 }}>
-            <div className="panel-title">Retention / save performance</div>
-            <div className="panel-sub">From matched Intercom conversations only ({saveData.withInsight} cancellations)</div>
-            <div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', marginBottom: 20 }}>
-              {[
-                { label: 'Save attempted', value: saveData.attemptedPct, sub: `${saveData.attempted} of ${saveData.withInsight}`, color: '#ffb700' },
-                { label: 'Saved (retained)', value: saveData.savedPct, sub: `${saveData.saved} of ${saveData.attempted} who were offered a save`, color: '#00e5a0' },
-              ].map(k => (
-                <div key={k.label} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 8, padding: '14px 20px', minWidth: 160 }}>
-                  <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 6 }}>{k.label}</div>
-                  <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 28, fontWeight: 600, color: k.color, lineHeight: 1 }}>{k.value}</div>
-                  <div style={{ fontSize: 11, color: '#4a5568', marginTop: 4 }}>{k.sub}</div>
-                </div>
-              ))}
-            </div>
-            {saveData.offers.length > 0 && (
-              <div>
-                <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10 }}>By save offer</div>
-                <div className="cohort-table-wrap">
-                  <table className="cohort-table">
-                    <thead><tr><th>Offer</th><th>Attempted</th><th>Saved</th><th>Success rate</th></tr></thead>
-                    <tbody>
-                      {saveData.offers.map(o => (
-                        <tr key={o.offer}>
-                          <td style={{ color: '#f0f4ff' }}>{o.offer}</td>
-                          <td><span className="mono" style={{ color: '#8892a4' }}>{o.attempted}</span></td>
-                          <td><span className="mono" style={{ color: '#00e5a0' }}>{o.saved}</span></td>
-                          <td><span className="mono" style={{ color: '#ffb700' }}>{fmtPct(o.saved, o.attempted)}</span></td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
 
         {/* ═══ CHURN BY SEGMENT ═══ */}
         <div style={{ fontSize: 10, color: '#4a5568', textTransform: 'uppercase', letterSpacing: '0.8px', marginBottom: 10 }}>
@@ -887,7 +827,7 @@ export default function ChurnDashboard() {
         <div className="panel" style={{ marginBottom: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, flexWrap: 'wrap' }}>
             <div>
-              <div className="panel-title" style={{ marginBottom: 2 }}>Pending cancellations — save opportunities</div>
+              <div className="panel-title" style={{ marginBottom: 2 }}>Pending cancellations</div>
               <div className="panel-sub" style={{ marginBottom: 0 }}>
                 {pendingRows.length} pending · sorted by term end date · <span style={{ color: '#ff4757' }}>red = overdue</span>
               </div>
