@@ -1157,7 +1157,7 @@ def main():
     # Step A: commit public/data.json to master so CI rebuilds always use fresh data.
     master_cmds = [
         ['git', 'add', 'public/data.json'],
-        ['git', 'commit', '-m', f'data: refresh {ts}'],
+        ['git', 'commit', '-m', f'data: refresh {ts}', '--', 'public/data.json'],
         ['git', 'push'],
     ]
     for cmd in master_cmds:
